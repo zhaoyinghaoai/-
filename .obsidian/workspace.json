@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1b95791b0b385cc2",
+        "id": "a8a3f13598e4787c",
         "type": "tabs",
         "children": [
           {
-            "id": "1c8c94e9463088d9",
+            "id": "79fda60555b39759",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ],
@@ -37,7 +37,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "byModifiedTime",
                 "autoReveal": true
               },
               "icon": "lucide-folder-closed",
@@ -71,8 +71,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -92,7 +91,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "知识库/项目/项目总览.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "项目总览 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -153,13 +151,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "知识库/项目/项目总览.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "项目总览 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -173,12 +170,11 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,13 +188,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5231e818f3cb8a00",
+  "active": "79fda60555b39759",
   "lastOpenFiles": [
-    "2026-07-04.md",
+    "知识库/Index.md",
+    "知识库/项目/项目总览.md",
     "总目录.base",
-    "未命名 1.md",
-    "未命名",
+    "未命名 3.md",
+    "未命名 2.md",
     "未命名.md",
+    "未命名 1.md",
+    "2026-07-04.md",
+    "未命名",
     "测试 - 2.md",
     "未命名.canvas",
     "知识库/知识主题/商业思维/60天练出商人视角.md",
@@ -218,17 +218,13 @@
     "AGENTS.md",
     "产出/计划书",
     "知识库/Log.md",
-    "知识库/Index.md",
     "知识库/工作系统/表达偏好.md",
     "知识库/工作系统/工作节奏.md",
-    "知识库/项目/项目总览.md",
     "Wiki/工作系统/表达偏好.md",
     "Wiki/工作系统/工作节奏.md",
     "Wiki/项目/项目总览.md",
     "Wiki/个人档案/浩总档案.md",
     "欢迎.md",
-    "Wiki/Log.md",
-    "Wiki/Index.md",
-    "Wiki/Systems/表达偏好.md"
+    "Wiki/Log.md"
   ]
 }

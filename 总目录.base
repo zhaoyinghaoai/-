@@ -1,9 +1,9 @@
 views:
-  - type: cards
+  - type: table
     name: 表格
     order:
-      - file.backlinks
-  - type: cards
+      - file.links
+    sort: []
+  - type: table
     name: 表格 2
-    order:
-      - file.backlinks
+    order: []
