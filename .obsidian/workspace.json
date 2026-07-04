@@ -4,21 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "0f92ddc8c8a6819a",
+        "id": "dd272ab65321d00f",
         "type": "tabs",
         "children": [
           {
-            "id": "70a22360cbe8b5af",
+            "id": "0d55757d6224b676",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "bases",
+              "state": {
+                "file": "总目录.base",
+                "viewName": "表格"
+              },
+              "icon": "lucide-table",
+              "title": "总目录"
             }
           }
-        ],
-        "stacked": true
+        ]
       }
     ],
     "direction": "vertical"
@@ -38,7 +40,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -191,18 +193,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "70a22360cbe8b5af",
+  "active": "0d55757d6224b676",
   "lastOpenFiles": [
-    "知识库/个人档案/浩总档案.md",
-    "未命名 1.md",
     "未命名.md",
-    "未命名.base",
     "2026-07-04.md",
+    "测试 - 2.md",
+    "总目录.base",
     "未命名.canvas",
+    "未命名 1.md",
+    "知识库/知识主题/商业思维/60天练出商人视角.md",
+    "原始材料/文章/商业-低端餐饮趋势分析.txt",
+    "原始材料/书摘/荀子-道虽迩不行不至.md",
+    "知识库/个人档案/浩总档案.md",
     "知识库/测试：知识库已就绪.md",
     "原始材料/文章/商业-60天练出商人视角.txt",
     "原始材料/收件箱/60天练出商人视角，走到哪都有商机。.txt",
-    "测试 - 2.md",
     "测试 - 副本.md",
     "测试.md",
     "浩总的个人知识库",
@@ -213,7 +218,6 @@
     "AGENTS.md",
     "产出/计划书",
     "产出/读书内容",
-    "产出/复盘",
     "知识库/Log.md",
     "知识库/Index.md",
     "知识库/工作系统/表达偏好.md",
@@ -226,9 +230,6 @@
     "欢迎.md",
     "Wiki/Log.md",
     "Wiki/Index.md",
-    "Wiki/Systems/表达偏好.md",
-    "Wiki/Systems/工作节奏.md",
-    "Wiki/Projects/项目总览.md",
-    "Wiki/About-Me/浩总档案.md"
+    "Wiki/Systems/表达偏好.md"
   ]
 }
