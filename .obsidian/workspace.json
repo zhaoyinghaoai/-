@@ -4,40 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b5a6a0b718346eeb",
+        "id": "0f92ddc8c8a6819a",
         "type": "tabs",
         "children": [
           {
-            "id": "c73674a1fbff68cd",
+            "id": "70a22360cbe8b5af",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "知识库/测试：知识库已就绪.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "测试：知识库已就绪"
-            }
-          }
-        ]
-      },
-      {
-        "id": "3b4e6249c0d783e9",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "0a84330c8036ba86",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
-        ]
+        ],
+        "stacked": true
       }
     ],
     "direction": "vertical"
@@ -124,20 +105,6 @@
             }
           },
           {
-            "id": "fdad0faff2f23851",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "知识库/项目/项目总览.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "项目总览 的出链列表"
-            }
-          },
-          {
             "id": "f47587ac9fb65026",
             "type": "leaf",
             "state": {
@@ -167,6 +134,19 @@
             }
           },
           {
+            "id": "fdad0faff2f23851",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
             "id": "bea595a7691c87af",
             "type": "leaf",
             "state": {
@@ -180,8 +160,19 @@
               "icon": "lucide-list",
               "title": "项目总览 的大纲"
             }
+          },
+          {
+            "id": "d4ec4125ead881b8",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -200,14 +191,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c73674a1fbff68cd",
+  "active": "70a22360cbe8b5af",
   "lastOpenFiles": [
+    "知识库/个人档案/浩总档案.md",
+    "未命名 1.md",
+    "未命名.md",
+    "未命名.base",
+    "2026-07-04.md",
+    "未命名.canvas",
+    "知识库/测试：知识库已就绪.md",
     "原始材料/文章/商业-60天练出商人视角.txt",
     "原始材料/收件箱/60天练出商人视角，走到哪都有商机。.txt",
     "测试 - 2.md",
     "测试 - 副本.md",
     "测试.md",
-    "知识库/个人档案/浩总档案.md",
     "浩总的个人知识库",
     "原始材料/文章/商业-蜜雪冰城开面馆营销打法拆解.txt",
     "原始材料/收件箱/蜜雪冰城开一家面馆.txt",
@@ -217,9 +214,6 @@
     "产出/计划书",
     "产出/读书内容",
     "产出/复盘",
-    "产出/军事文章",
-    "产出/PPT",
-    "知识库/测试：知识库已就绪.md",
     "知识库/Log.md",
     "知识库/Index.md",
     "知识库/工作系统/表达偏好.md",
