@@ -1,0 +1,240 @@
+{
+  "main": {
+    "id": "a17f790ae88cc2b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "b5a6a0b718346eeb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c73674a1fbff68cd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "知识库/测试：知识库已就绪.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "测试：知识库已就绪"
+            }
+          }
+        ]
+      },
+      {
+        "id": "3b4e6249c0d783e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0a84330c8036ba86",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7fccf150a1b054d4",
+    "type": "split",
+    "children": [
+      {
+        "id": "2e9ea2d1efd9ed3a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5dade9034ebcc536",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "5231e818f3cb8a00",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "e35cdc76606410bf",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "13fa893166602d61",
+    "type": "split",
+    "children": [
+      {
+        "id": "120a889819ad7641",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f304fca0f7453b08",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "知识库/项目/项目总览.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "项目总览 的反向链接列表"
+            }
+          },
+          {
+            "id": "fdad0faff2f23851",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "知识库/项目/项目总览.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "项目总览 的出链列表"
+            }
+          },
+          {
+            "id": "f47587ac9fb65026",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "a474c48dc8767338",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "bea595a7691c87af",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "知识库/项目/项目总览.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "项目总览 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "c73674a1fbff68cd",
+  "lastOpenFiles": [
+    "原始材料/文章/商业-60天练出商人视角.txt",
+    "原始材料/收件箱/60天练出商人视角，走到哪都有商机。.txt",
+    "测试 - 2.md",
+    "测试 - 副本.md",
+    "测试.md",
+    "知识库/个人档案/浩总档案.md",
+    "浩总的个人知识库",
+    "原始材料/文章/商业-蜜雪冰城开面馆营销打法拆解.txt",
+    "原始材料/收件箱/蜜雪冰城开一家面馆.txt",
+    "原始材料/文章/商业-雷军炒鸡店营销打法拆解.txt",
+    "README.md",
+    "AGENTS.md",
+    "产出/计划书",
+    "产出/读书内容",
+    "产出/复盘",
+    "产出/军事文章",
+    "产出/PPT",
+    "知识库/测试：知识库已就绪.md",
+    "知识库/Log.md",
+    "知识库/Index.md",
+    "知识库/工作系统/表达偏好.md",
+    "知识库/工作系统/工作节奏.md",
+    "知识库/项目/项目总览.md",
+    "Wiki/工作系统/表达偏好.md",
+    "Wiki/工作系统/工作节奏.md",
+    "Wiki/项目/项目总览.md",
+    "Wiki/个人档案/浩总档案.md",
+    "欢迎.md",
+    "Wiki/Log.md",
+    "Wiki/Index.md",
+    "Wiki/Systems/表达偏好.md",
+    "Wiki/Systems/工作节奏.md",
+    "Wiki/Projects/项目总览.md",
+    "Wiki/About-Me/浩总档案.md"
+  ]
+}
