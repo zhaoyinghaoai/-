@@ -1,3 +1,9 @@
 views:
-  - type: table
+  - type: cards
     name: 表格
+    order:
+      - file.backlinks
+  - type: cards
+    name: 表格 2
+    order:
+      - file.backlinks

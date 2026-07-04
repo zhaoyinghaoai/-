@@ -4,23 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "dd272ab65321d00f",
+        "id": "1b95791b0b385cc2",
         "type": "tabs",
         "children": [
           {
-            "id": "0d55757d6224b676",
+            "id": "1c8c94e9463088d9",
             "type": "leaf",
             "state": {
-              "type": "bases",
-              "state": {
-                "file": "总目录.base",
-                "viewName": "表格"
-              },
-              "icon": "lucide-table",
-              "title": "总目录"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
-        ]
+        ],
+        "stacked": true
       }
     ],
     "direction": "vertical"
@@ -73,7 +71,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -193,14 +192,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0d55757d6224b676",
+  "active": "5231e818f3cb8a00",
   "lastOpenFiles": [
-    "未命名.md",
     "2026-07-04.md",
-    "测试 - 2.md",
     "总目录.base",
-    "未命名.canvas",
     "未命名 1.md",
+    "未命名",
+    "未命名.md",
+    "测试 - 2.md",
+    "未命名.canvas",
     "知识库/知识主题/商业思维/60天练出商人视角.md",
     "原始材料/文章/商业-低端餐饮趋势分析.txt",
     "原始材料/书摘/荀子-道虽迩不行不至.md",
@@ -217,7 +217,6 @@
     "README.md",
     "AGENTS.md",
     "产出/计划书",
-    "产出/读书内容",
     "知识库/Log.md",
     "知识库/Index.md",
     "知识库/工作系统/表达偏好.md",
