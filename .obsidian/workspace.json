@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4cd937c6bec0d2fe",
+        "id": "4acda902aa258398",
         "type": "tabs",
         "children": [
           {
-            "id": "5022da7e809f1e06",
+            "id": "8307eb242fea2987",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "知识库/Log.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Log"
             }
           }
         ],
@@ -151,12 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "知识库/Log.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "Log 的大纲"
             }
           },
           {
@@ -174,7 +179,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
