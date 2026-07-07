@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a8a3f13598e4787c",
+        "id": "4cd937c6bec0d2fe",
         "type": "tabs",
         "children": [
           {
-            "id": "79fda60555b39759",
+            "id": "5022da7e809f1e06",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ],
@@ -185,11 +185,18 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-weread-plugin:打开微信读书书架": false
     }
   },
-  "active": "79fda60555b39759",
+  "active": "5dade9034ebcc536",
   "lastOpenFiles": [
+    "双向链接.md",
+    "知识库/测试：知识库已就绪.md",
+    "原始材料/文章/商业-烧烤店刮刮卡私域营销案例.txt",
+    "原始材料/文章/个人成长-14天搭建表达系统方法论.txt",
+    "原始材料/收件箱/2026-07-07_沟通技巧-不接情绪只接信息.txt",
+    "原始材料/收件箱/2026-07-06_连全国一卷高考满分作文_东风的一生.txt",
     "原始材料/收件箱/2026-07-05_2215_商业-烧烤店刮刮卡私域营销案例.txt",
     "产出/军事文章/2026-07-05_日本防卫省一天发5条通报_中国7舰横穿4要道.md",
     "知识库/Index.md",
@@ -207,18 +214,12 @@
     "原始材料/文章/商业-低端餐饮趋势分析.txt",
     "原始材料/书摘/荀子-道虽迩不行不至.md",
     "知识库/个人档案/浩总档案.md",
-    "知识库/测试：知识库已就绪.md",
     "原始材料/文章/商业-60天练出商人视角.txt",
     "原始材料/收件箱/60天练出商人视角，走到哪都有商机。.txt",
     "测试 - 副本.md",
     "测试.md",
-    "浩总的个人知识库",
-    "原始材料/文章/商业-蜜雪冰城开面馆营销打法拆解.txt",
-    "原始材料/收件箱/蜜雪冰城开一家面馆.txt",
-    "原始材料/文章/商业-雷军炒鸡店营销打法拆解.txt",
     "README.md",
     "AGENTS.md",
-    "产出/计划书",
     "知识库/Log.md",
     "知识库/工作系统/表达偏好.md",
     "知识库/工作系统/工作节奏.md",
