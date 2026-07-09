@@ -7,7 +7,7 @@
     },
     {
       "name": "wr_skey",
-      "value": "kWeJZpQQ"
+      "value": "1elLoXps"
     },
     {
       "name": "wr_vid",
@@ -26,12 +26,12 @@
       "value": "235919737"
     }
   ],
-  "noteLocation": "原始材料",
+  "noteLocation": "原始材料/书摘",
   "dailyNotesLocation": "/",
   "insertAfter": "<!-- start of weread -->",
   "insertBefore": "<!-- end of weread -->",
   "dailyNotesFormat": "YYYY-MM-DD",
-  "lastCookieTime": 1783395891512,
+  "lastCookieTime": 1783574555307,
   "isCookieValid": true,
   "user": "",
   "userVid": "4266469",
@@ -40,7 +40,7 @@
   "template": "",
   "noteCountLimit": -1,
   "subFolderType": "-1",
-  "fileNameType": "BOOK_NAME",
+  "fileNameType": "BOOK_ID",
   "removeParens": false,
   "removeParensWhitelist": "",
   "filterInlineImages": false,
@@ -63,7 +63,7 @@
   },
   "cookieAutoRefreshToggle": false,
   "cookieRefreshInterval": 12,
-  "scheduledSyncToggle": false,
+  "scheduledSyncToggle": true,
   "scheduledSyncInterval": 5,
   "lastSyncTime": 1783396594633,
   "lastSyncBookCount": 0,
