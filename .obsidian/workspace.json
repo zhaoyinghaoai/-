@@ -30,23 +30,9 @@
               "icon": "lucide-file",
               "title": "未命名"
             }
-          },
-          {
-            "id": "5e094b25e424e42f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "conflict-files-obsidian-git"
-            }
           }
         ],
-        "currentTab": 2,
+        "currentTab": 1,
         "stacked": true
       }
     ],
@@ -220,10 +206,10 @@
       "obsidian-weread-plugin:打开微信读书书架": false
     }
   },
-  "active": "5e094b25e424e42f",
+  "active": "c21ca235dc7d9560",
   "lastOpenFiles": [
-    "未命名.md",
     "conflict-files-obsidian-git.md",
+    "未命名.md",
     "知识库/知识主题/写作/情景交融写作技法.md",
     "知识库/知识主题/写作",
     "知识库/每日摄入报告/2026-07-28-03h.md",
