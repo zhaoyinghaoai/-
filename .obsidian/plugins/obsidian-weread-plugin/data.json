@@ -65,10 +65,20 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 5,
-  "lastSyncTime": 1785231400340,
+  "lastSyncTime": 1785231669471,
   "lastSyncBookCount": 0,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1785231669226",
+      "timestamp": 1785231669226,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.245,
+      "notes": [],
+      "success": true
+    },
     {
       "id": "sync-1785231400114",
       "timestamp": 1785231400114,
@@ -156,16 +166,6 @@
       "syncedBooks": 0,
       "skippedBooks": 0,
       "duration": 0.182,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1785228655164",
-      "timestamp": 1785228655164,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.214,
       "notes": [],
       "success": true
     }
