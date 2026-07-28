@@ -4,24 +4,49 @@
     "type": "split",
     "children": [
       {
-        "id": "4acda902aa258398",
+        "id": "7e501d6d42e7b718",
         "type": "tabs",
         "children": [
           {
-            "id": "8307eb242fea2987",
+            "id": "add1f1ca56ac5b3d",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
+          },
+          {
+            "id": "c21ca235dc7d9560",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/Log.md",
+                "file": "未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Log"
+              "title": "未命名"
+            }
+          },
+          {
+            "id": "fa12401e62cb4525",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "conflict-files-obsidian-git"
             }
           }
         ],
+        "currentTab": 2,
         "stacked": true
       }
     ],
@@ -54,11 +79,11 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "git puii",
                 "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
+                "explainSearch": true,
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
@@ -195,44 +220,47 @@
       "obsidian-weread-plugin:打开微信读书书架": false
     }
   },
-  "active": "5dade9034ebcc536",
+  "active": "fa12401e62cb4525",
   "lastOpenFiles": [
-    "知识库/知识主题/读书笔记",
-    "双向链接.md",
-    "知识库/测试：知识库已就绪.md",
-    "原始材料/文章/商业-烧烤店刮刮卡私域营销案例.txt",
-    "原始材料/文章/个人成长-14天搭建表达系统方法论.txt",
-    "原始材料/收件箱/2026-07-07_沟通技巧-不接情绪只接信息.txt",
-    "原始材料/收件箱/2026-07-06_连全国一卷高考满分作文_东风的一生.txt",
-    "原始材料/收件箱/2026-07-05_2215_商业-烧烤店刮刮卡私域营销案例.txt",
-    "产出/军事文章/2026-07-05_日本防卫省一天发5条通报_中国7舰横穿4要道.md",
-    "知识库/Index.md",
-    "知识库/项目/项目总览.md",
-    "总目录.base",
-    "未命名 3.md",
-    "未命名 2.md",
     "未命名.md",
-    "未命名 1.md",
-    "2026-07-04.md",
-    "未命名",
-    "测试 - 2.md",
-    "未命名.canvas",
-    "知识库/知识主题/商业思维/60天练出商人视角.md",
-    "原始材料/文章/商业-低端餐饮趋势分析.txt",
-    "原始材料/书摘/荀子-道虽迩不行不至.md",
-    "知识库/个人档案/浩总档案.md",
-    "原始材料/文章/商业-60天练出商人视角.txt",
-    "原始材料/收件箱/60天练出商人视角，走到哪都有商机。.txt",
-    "测试 - 副本.md",
-    "测试.md",
-    "README.md",
-    "AGENTS.md",
-    "知识库/Log.md",
-    "知识库/工作系统/表达偏好.md",
+    "conflict-files-obsidian-git.md",
     "知识库/工作系统/工作节奏.md",
-    "Wiki/工作系统/表达偏好.md",
-    "Wiki/工作系统/工作节奏.md",
-    "Wiki/项目/项目总览.md",
-    "Wiki/个人档案/浩总档案.md"
+    "未命名 3.canvas",
+    "知识库/工作系统/表达偏好.md",
+    "知识库/个人档案/浩总档案.md",
+    "未命名 1.md",
+    "未命名 2.md",
+    "总目录.base",
+    "双向链接.md",
+    "git pull.md",
+    "2026-07-28.md",
+    "未命名 2.canvas",
+    "skill.md",
+    "知识库/测试：知识库已就绪.md",
+    "2026-07-26.md",
+    "AGENTS.md",
+    "产出/军事文章/2026-07-05_日本防卫省一天发5条通报_中国7舰横穿4要道.md",
+    "产出/军事文章/2026-07-07_钓鱼岛大东号.md",
+    "未命名 1.canvas",
+    "未命名.canvas",
+    "知识库/知识主题/个人成长/14天搭建表达系统.md",
+    "知识库/知识主题/个人成长/东风思维-从等待到创造.md",
+    "知识库/知识主题/个人成长/不接情绪只接信息沟通法.md",
+    "知识库/sources/沟通技巧-不接情绪只接信息.md",
+    "知识库/知识主题/商业思维/烧烤店刮刮卡私域营销.md",
+    "知识库/知识主题/商业思维/低端餐饮趋势分析.md",
+    "知识库/知识主题/个人成长/修路理论与人情维护.md",
+    "知识库/sources/写作-东风的一生高考满分作文.md",
+    "知识库/sources/人情世故-修路理论与破冰六步.md",
+    "知识库/sources",
+    "原始材料/文章/商业-赚钱的4个底层框架_刚需信息差流量情绪.txt",
+    "原始材料/文章/个人成长-修路理论与人情破冰六步.txt",
+    "原始材料/文章/个人成长-东风的一生_高考满分作文.txt",
+    "原始材料/文章/个人成长-不接情绪只接信息沟通法.txt",
+    "原始材料/收件箱/2026-07-08_1130_赚钱要选暴利行业-刚需高频有门槛.txt",
+    "原始材料/收件箱/2026-07-08_1125_闲鱼闷声发财小生意-PDF改字和聊天记录导出.txt",
+    "原始材料/收件箱/2026-07-08_1122_2026年第六次翻身窗口期-超级个体红利.txt",
+    "原始材料/收件箱/2026-07-08_1119_不上班也能赚钱的四个方向.txt",
+    "知识库/Log.md"
   ]
 }
