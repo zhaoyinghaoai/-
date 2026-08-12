@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小红书运营完整记录 — PPT踩坑引流</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Microsoft YaHei','PingFang SC',sans-serif; background:#f5f7fa; color:#333; line-height:1.8; }
+  .container { max-width:900px; margin:0 auto; padding:20px; }
+
+  /* 封面 */
+  .hero { background:linear-gradient(135deg,#1F4E79,#4A90C2); color:#fff; padding:50px 30px; border-radius:16px; margin-bottom:30px; text-align:center; }
+  .hero h1 { font-size:32px; margin-bottom:10px; }
+  .hero p { font-size:16px; opacity:0.9; }
+  .hero .meta { margin-top:15px; font-size:14px; opacity:0.8; }
+
+  /* 章节 */
+  .section { background:#fff; border-radius:12px; padding:30px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { font-size:22px; color:#1F4E79; border-left:4px solid #1F4E79; padding-left:12px; margin-bottom:20px; }
+  .section h3 { font-size:18px; color:#333; margin:20px 0 10px; }
+  .section p { margin-bottom:10px; font-size:15px; }
+
+  /* 表格 */
+  table { width:100%; border-collapse:collapse; margin:15px 0; font-size:14px; }
+  th { background:#1F4E79; color:#fff; padding:10px; text-align:left; }
+  td { padding:10px; border-bottom:1px solid #eee; }
+  tr:nth-child(even) { background:#f9f9f9; }
+
+  /* 代码块 */
+  .code-block { background:#2d2d2d; color:#f8f8f2; padding:15px 20px; border-radius:8px; margin:10px 0; font-size:14px; line-height:1.6; white-space:pre-wrap; font-family:Consolas,Monaco,monospace; }
+  .code-block.title { color:#85B7EB; }
+  .code-block.body { color:#f8f8f2; }
+
+  /* 提示框 */
+  .tip { background:#E8F4FD; border-left:4px solid #4A90C2; padding:12px 16px; margin:10px 0; border-radius:0 8px 8px 0; font-size:14px; }
+  .warn { background:#FFF3CD; border-left:4px solid #FFC107; padding:12px 16px; margin:10px 0; border-radius:0 8px 8px 0; font-size:14px; }
+  .danger { background:#FDE8E8; border-left:4px solid #DC3545; padding:12px 16px; margin:10px 0; border-radius:0 8px 8px 0; font-size:14px; }
+
+  /* 标签 */
+  .tag { display:inline-block; background:#1F4E79; color:#fff; padding:3px 12px; border-radius:12px; font-size:12px; margin:2px; }
+  .tag.red { background:#DC3545; }
+  .tag.green { background:#28A745; }
+  .tag.blue { background:#4A90C2; }
+
+  /* 数据卡片 */
+  .stats { display:flex; gap:15px; flex-wrap:wrap; margin:15px 0; }
+  .stat-card { flex:1; min-width:120px; background:#1F4E79; color:#fff; padding:20px; border-radius:10px; text-align:center; }
+  .stat-card .num { font-size:28px; font-weight:bold; }
+  .stat-card .label { font-size:13px; opacity:0.8; margin-top:5px; }
+
+  /* 步骤 */
+  .step { background:#f8f9fa; border-radius:8px; padding:15px 20px; margin:10px 0; border-left:3px solid #4A90C2; }
+  .step-num { display:inline-block; background:#1F4E79; color:#fff; width:24px; height:24px; border-radius:50%; text-align:center; line-height:24px; font-size:13px; margin-right:8px; }
+
+  /* 页脚 */
+  .footer { text-align:center; padding:30px; color:#999; font-size:13px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 封面 -->
+  <div class="hero">
+    <h1>小红书运营完整记录</h1>
+    <p>PPT踩坑引流 · 从发帖到评论区互动到数据复盘</p>
+    <div class="meta">浩总 × Hermes · 2026年8月6日-9日</div>
+  </div>
+
+  <!-- ===== 第一章：运营策略总览 ===== -->
+  <div class="section">
+    <h2>一、运营策略总览</h2>
+    <p><strong>核心判断</strong>：浩总的资产不是"知识"（免费教程遍地），而是"26条真实踩坑路径+小白同理心+陪伴"。最适合的产品形态是<strong>带练服务</strong>，不是卖课/做网站。</p>
+
+    <h3>4步路径</h3>
+    <div class="step"><span class="step-num">1</span>小红书发"踩坑实录"引流</div>
+    <div class="step"><span class="step-num">2</span>免费诊断1页PPT做引流钩子</div>
+    <div class="step"><span class="step-num">3</span>有人私信 = 需求验证成功</div>
+    <div class="step"><span class="step-num">4</span>付费带练（1对1，4-6天，199元起，限额3-5人/期）</div>
+
+    <h3>珍惜度设计</h3>
+    <table>
+      <tr><th>机制</th><th>说明</th></tr>
+      <tr><td>付费门槛</td><td>最直接，花钱就心疼</td></tr>
+      <tr><td>完成解锁</td><td>打卡完成当天任务才解锁下一章</td></tr>
+      <tr><td>限额</td><td>每期只带3-5人，稀缺感</td></tr>
+      <tr><td>诊断先行</td><td>先让他意识到自己有问题，产生付费意愿</td></tr>
+    </table>
+
+    <h3>核心定位一句话</h3>
+    <div class="tip">AI负责"能看"，我负责"好看"。</div>
+  </div>
+
+  <!-- ===== 第二章：4篇笔记文案 ===== -->
+  <div class="section">
+    <h2>二、4篇笔记文案完整版</h2>
+
+    <h3>第1篇：图表改色坑（接单翻车版）✅ 已发 8/6</h3>
+    <p><span class="tag red">痛点最强</span> <span class="tag blue">248浏览/10赞/2评/1藏</span></p>
+    <div class="code-block title">标题：第一次接PPT单子，饼图一插入差点把客户吓跑</div>
+    <div class="code-block body">做科技风PPT，深蓝底那种
+我信心满满插了个饼图
+
+结果一插进去……
+橙的、黄的、绿的、紫的
+深蓝底上配彩虹饼图，像正装上配了条花短裤 🌈
+
+更要命的是
+绿色标签在深蓝底上直接隐形（图1右上角那个「销售额」）
+客户要是看到这页，大概率觉得我不专业
+
+当时脑子嗡的一下
+WPS免费版「更改颜色」里压根没有蓝色系方案
+付费才有
+
+冷静下来开始手动救：
+双击饼图 → 再双击单块（第一次选整图，第二次才选中单块）
+→ 右键 → 设置数据系列格式
+→ 纯色填充 → 自定义RGB
+
+深蓝31/78/121 → 中蓝74/144/194 → 浅蓝181/212/244
+一块一块改，改完整张饼图终于顺眼了（图2）
+
+后来发现这还不是最坑的
+「更改颜色」不只改柱子颜色
+背景、文字、网格线全跟着改
+背景变深蓝、文字也深蓝 = 字直接消失 👀
+
+6天踩了26个这种坑
+现在全写成手册了，下次不会再翻车
+
+你做PPT有没有差点搞砸的瞬间？
+私信发我1页截图，免费帮你看看哪里有问题 👋</div>
+    <p><strong>标签：</strong>#PPT制作 #WPS演示 #PPT踩坑 #科技风PPT #零基础学PPT #PPT接单 #副业 #办公技巧 #PPT翻车</p>
+
+    <hr style="margin:20px 0;border:none;border-top:1px solid #eee;">
+
+    <h3>第2篇：配色坑（字隐形）✅ 已发 8/7 → 换封面</h3>
+    <p><span class="tag blue">22浏览/0赞（封面限流，已换新封面）</span></p>
+    <div class="code-block title">标题：PPT打完字全消失了 90%新手都踩过</div>
+    <div class="code-block body">做科技风PPT 教练说"标题用深蓝#1F4E79"
+
+我照着打了 满怀信心做完一整页
+
+然后看着屏幕愣了3秒
+
+字呢？字去哪了？🤔
+
+深蓝底 + 深蓝字 = 字和背景融为一体
+整页PPT像空白页 什么都看不见
+
+这个坑不止我踩
+后来做卡片版式 用蓝色卡片放深蓝底上
+信息又糊进背景了 同一个道理
+
+深蓝底文字颜色铁律（踩了7个坑总结的）：
+大标题 → 白色
+副标题 → 浅蓝 #B5D4F4
+要点正文 → 白色或浅蓝
+卡片背景 → 必须白色 不能用蓝
+
+记住一个原则：
+深蓝底上 只用白色和浅蓝
+深蓝字只出现在白色卡片里
+
+6天踩了26个坑 配色相关的就7个
+全写成记录了 下次不会再翻车
+
+你做PPT有没有字看不见的经历？
+私信发我1页截图 免费帮你看看配色👋</div>
+    <p><strong>标签：</strong>#PPT配色 #PPT踩坑 #科技风PPT #零基础学PPT #WPS演示 #PPT制作 #PPT接单 #办公技巧</p>
+    <p><strong>新封面文件：</strong>PPT素材库\图片\小红书配图2_新封面_对比版.png（左右对比：红叉错误示范 vs 绿勾正确做法）</p>
+
+    <hr style="margin:20px 0;border:none;border-top:1px solid #eee;">
+
+    <h3>第3篇：6天路径总览 ✅ 已发 8/8</h3>
+    <p><span class="tag blue">21浏览</span></p>
+    <div class="code-block title">标题：零基础6天学会PPT接单 26个坑全记录</div>
+    <div class="code-block body">第1天：连WPS怎么打开都要找按钮
+第6天：独立做完10页接单级工作汇报PPT
+
+6天 58项技能 26个踩坑记录
+
+不是天赋好 是路径对了+有人盯着
+
+分享几个最痛的坑：
+
+1️⃣ WPS模板页4个按钮 3个要会员
+新手一不留神就点付费功能
+→ 每次只点"空白演示文稿"
+
+2️⃣ 图表"更改颜色"没有蓝色系
+WPS免费版只有彩色方案
+→ 手动双击逐块改色 自定义RGB
+
+3️⃣ 改色后背景文字全变深蓝 字消失
+→ 改色后必查3项：色块/背景/文字
+
+4️⃣ 深蓝底打深蓝字 整页像空白
+→ 深蓝底只用白色和浅蓝
+
+5️⃣ "应用到全部"只有1页有效果
+→ 全选所有页一起设置
+
+6️⃣ 卡片用蓝色 信息糊进背景
+→ 深蓝底必须用白色卡片
+
+这些坑 免费教程不会告诉你
+因为写教程的大牛早忘了自己当年卡在哪
+
+我是刚踩完的 记忆还是热的🔥
+
+如果你也在学PPT 或者做了PPT总觉得哪里不对
+私信发我1页截图 免费帮你诊断
+不收费不推销 看完你自己判断👋</div>
+    <p><strong>标签：</strong>#PPT学习 #零基础学PPT #PPT接单 #PPT制作教程 #办公技能 #副业 #WPS演示 #科技风PPT</p>
+    <p><strong>配图：</strong>PPT素材库\图片\小红书配图3_6天路径总览.png + 小红书配图3_10页成品展示.png</p>
+
+    <hr style="margin:20px 0;border:none;border-top:1px solid #eee;">
+
+    <h3>第4篇：免费教程学不会 ✅ 已发 8/9</h3>
+    <p><span class="tag blue">4浏览</span></p>
+    <div class="code-block title">标题：看了100篇免费PPT教程 还是做不出一页</div>
+    <div class="code-block body">收藏夹里存了100篇PPT教程
+
+每次看的时候：嗯嗯我会了
+打开PPT做的时候：这步怎么操作来着？
+
+不是你不努力 是免费教程天生有缺陷
+
+教程说"插入图表改色"
+→ 但没说WPS免费版没有蓝色系
+
+教程说"深蓝底配白字"
+→ 但没说卡片不能用蓝色 会糊进背景
+
+教程说"用横向分布对齐"
+→ 但没说新手用了会全挤一边
+
+教程只教"正确路径"
+但你卡在哪 教程不知道
+
+我学PPT 6天踩了26个坑
+每个坑都是教程没写的
+
+但有人带练就不一样
+你说卡在哪 我直接告诉你解法
+踩坑了当场纠正 不用自己摸索2小时
+
+看100篇不如有人带你做1份
+
+如果你做PPT总觉得"哪里不对"
+私信发我1页截图 免费帮你诊断
+不收费不推销 看完你自己判断👋</div>
+    <p><strong>标签：</strong>#PPT学习 #零基础学PPT #PPT教程 #PPT制作 #办公技能 #WPS演示 #PPT踩坑 #副业</p>
+    <p><strong>配图：</strong>PPT素材库\图片\小红书配图4_免费教程vs带练.png</p>
+  </div>
+
+  <!-- ===== 第三章：评论区互动策略 ===== -->
+  <div class="section">
+    <h2>三、评论区互动策略</h2>
+
+    <h3>核心原则</h3>
+    <div class="tip"><strong>不是辩赢，而是让对面愿意靠近你。</strong></div>
+
+    <h3>遇到3类评论的回复策略</h3>
+
+    <h4>类型1：质疑型（"科技在哪里？深蓝在哪里？"）</h4>
+    <div class="code-block body">哈哈图1确实不是科技风
+那是我踩坑的"翻车现场"😂
+科技风在图2 左滑看看
+深蓝底+蓝色系饼图才是最终效果
+
+图1就是我想说的坑
+WPS免费版默认配色压根没有蓝色系
+橙黄绿硬塞进深蓝底 就变成那样了
+
+所以才要手动逐块改成深蓝RGB
+你做过科技风PPT吗 配色卡了的话私信我 免费帮你看看👋</div>
+
+    <h4>类型2：AI万能论（"尽快学习AI，AI比你想的聪明"）</h4>
+    <div class="code-block body">在学了😂 不过客户要的是改到满意为止 这个AI暂时替不了</div>
+    <div class="tip"><strong>策略：</strong>不争辩、不接招、一句话守住定位。不要解释第二句，解释越多他越来劲。</div>
+
+    <h4>类型3：被触动型（"这给我说的不自信了"）— 最重要！</h4>
+    <div class="code-block body">不自信啥 我6天前连WPS都找不到 😂
+也就是踩坑踩出来的 纯靠练
+你要是有PPT拿不准 私信发我
+免费帮你看看 指不定你做得比我好👋</div>
+    <div class="tip"><strong>策略：</strong>先安抚→自降身价→归因于练→捧他一下→低门槛钩子。这类人是最可能转化的潜在客户。</div>
+
+    <h3>私信诊断流程（有人私信后）</h3>
+    <div class="step"><span class="step-num">1</span><strong>先夸</strong>："整体比我想象中好"</div>
+    <div class="step"><span class="step-num">2</span><strong>指出1个最明显问题</strong>（配色/对齐/留白）</div>
+    <div class="step"><span class="step-num">3</span><strong>给1个简单改法</strong></div>
+    <div class="step"><span class="step-num">4</span><strong>埋付费钩子</strong>："还有其他2-3个细节，带练里会系统讲，你要想学可以找我"</div>
+    <div class="warn"><strong>关键：</strong>免费给1个建议，付费教完整方法。不要一次全给完，否则他觉得"免费就够了"。</div>
+  </div>
+
+  <!-- ===== 第四章：数据复盘 ===== -->
+  <div class="section">
+    <h2>四、数据复盘与分析</h2>
+
+    <h3>4篇笔记数据对比</h3>
+    <table>
+      <tr><th>篇号</th><th>标题</th><th>浏览</th><th>赞</th><th>评</th><th>藏</th><th>发布时间</th></tr>
+      <tr><td>第1篇</td><td>第一次接PPT单子，饼图一插入差点把客户吓跑</td><td><strong>248</strong></td><td>10</td><td>2</td><td>1</td><td>8/6 08:58</td></tr>
+      <tr><td>第2篇</td><td>PPT打完字全消失了 90%新手都踩过</td><td>22</td><td>0</td><td>0</td><td>0</td><td>8/7 19:22</td></tr>
+      <tr><td>第3篇</td><td>零基础6天学会PPT接单 26个坑全记录</td><td>21</td><td>0</td><td>0</td><td>0</td><td>8/8 12:27</td></tr>
+      <tr><td>第4篇</td><td>看了100篇免费PPT教程 还是做不出一页</td><td>4</td><td>0</td><td>0</td><td>0</td><td>8/9 19:35</td></tr>
+    </table>
+
+    <h3>核心发现</h3>
+    <div class="danger"><strong>浏览量断崖式下降：248 → 22 → 21 → 4</strong></div>
+
+    <p><strong>第1篇为什么好：</strong></p>
+    <ul style="margin-left:20px;font-size:14px;">
+      <li>标题有故事感："第一次接PPT单子，饼图一插入差点把客户吓跑"——有冲突、有情绪</li>
+      <li>封面图有颜色对比：彩色饼图 vs 蓝色饼图，一眼能看出变化</li>
+      <li>互动率5.2%：(10赞+2评+1藏)/248，系统本来应该继续推</li>
+    </ul>
+
+    <p><strong>后面3篇为什么差：</strong></p>
+    <ul style="margin-left:20px;font-size:14px;">
+      <li><strong>封面图像"知识卡片"，不像"爆款封面"</strong>——信息密度太高、字太小、像干货整理</li>
+      <li>缺少"大字报"风格——小红书用户0.5秒决定是否点开</li>
+      <li>缺少情绪钩子——太平淡，没有"翻车/焦虑/好奇"</li>
+    </ul>
+  </div>
+
+  <!-- ===== 第五章：封面模板 ===== -->
+  <div class="section">
+    <h2>五、封面模板与使用指南</h2>
+
+    <h3>封面图铁律（重要经验）</h3>
+    <table>
+      <tr><th>✅ 好封面</th><th>❌ 差封面</th></tr>
+      <tr><td>白底+大字+红蓝对比</td><td>大面积纯色（深蓝/纯白）→ 被系统限流</td></tr>
+      <tr><td>3秒内看懂主题</td><td>字太多、字太小，刷到看不清</td></tr>
+      <td>有情绪钩子</td><td>太平淡，没有"翻车/焦虑/好奇"</td></tr>
+      <tr><td>一个卖点</td><td>一张图想讲10件事</td></tr>
+    </table>
+
+    <h3>3种封面模板</h3>
+    <table>
+      <tr><th>模板</th><th>特点</th><th>适合内容</th><th>文件位置</th></tr>
+      <tr><td><strong>翻车型</strong></td><td>超大字标题+情绪词+左右对比</td><td>讲一个具体的坑</td><td>PPT素材库\图片\小红书封面模板_翻车型.png</td></tr>
+      <tr><td><strong>数字型</strong></td><td>超大数字+数据卡片</td><td>讲成果/路径汇总</td><td>PPT素材库\图片\小红书封面模板_数字型.png</td></tr>
+      <tr><td><strong>反问型</strong></td><td>超大问句+痛点列表</td><td>引流诊断</td><td>PPT素材库\图片\小红书封面模板_反问型.png</td></tr>
+    </table>
+
+    <h3>第1篇标题公式（最有效）</h3>
+    <div class="code-block">[身份/场景] + [翻车瞬间] + [情绪后果]
+
+例："第一次接PPT单子，饼图一插入差点把客户吓跑"</div>
+
+    <h3>候选标题（下一篇用）</h3>
+    <ul style="margin-left:20px;font-size:14px;">
+      <li>"PPT做完发给客户，他说我配色像幼儿园小朋友画的"</li>
+      <li>"饼图数据标签全挤一起，客户问我是不是没排版"</li>
+      <li>"PPT加了动画效果，放映时文字全飞出去了"</li>
+    </ul>
+  </div>
+
+  <!-- ===== 第六章：发布策略 ===== -->
+  <div class="section">
+    <h2>六、发布策略</h2>
+
+    <h3>最佳发布时间</h3>
+    <table>
+      <tr><th>时段</th><th>活跃度</th><th>适合发什么</th></tr>
+      <tr><td>早上 7:00-9:00</td><td>★★★★</td><td>干货/教程类</td></tr>
+      <tr><td>中午 12:00-13:30</td><td>★★★</td><td>碎片化内容</td></tr>
+      <tr><td><strong>晚上 19:00-21:00</strong></td><td><strong>★★★★★</strong></td><td><strong>故事/踩坑类（最适合浩总）</strong></td></tr>
+    </table>
+    <div class="tip"><strong>建议：</strong>晚上7点半发，发完立刻自己评论一条，前1小时盯住评论区。</div>
+
+    <h3>发完后的操作</h3>
+    <div class="step"><span class="step-num">1</span>发完<strong>立刻自己评论一条</strong>（增加初始互动）</div>
+    <div class="step"><span class="step-num">2</span>发完后<strong>15分钟内盯着评论区</strong>，有人评论马上回</div>
+    <div class="step"><span class="step-num">3</span>前1小时的互动率决定了系统给不给你下一波流量</div>
+
+    <h3>3种模板配套评论</h3>
+    <table>
+      <tr><th>笔记类型</th><th>评论内容</th></tr>
+      <tr><td>翻车型</td><td>补充个口诀：深蓝底只用白色和浅蓝 深蓝字只放白色卡片里</td></tr>
+      <tr><td>数字型</td><td>26个坑太多了写不下 想看完整手册的私信我</td></tr>
+      <tr><td>反问型</td><td>发我1页截图就行 我会告诉你3个问题+具体改法 24小时内回</td></tr>
+    </table>
+
+    <h3>提问式评论（引导互动）</h3>
+    <div class="code-block">你们做PPT最卡哪一步？
+你们学PPT卡最久的是哪一步？我看看我的手册里有没有记
+做PPT最让你崩溃的瞬间是什么？我先说：字全消失那一刻</div>
+
+    <h3>评论核心原则</h3>
+    <table>
+      <tr><th>✅ 好评论</th><th>❌ 差评论</th></tr>
+      <tr><td>像自言自语/补充说明</td><td>像广告</td></tr>
+      <tr><td>有具体信息（口诀/数字）</td><td>空话（"欢迎大家私信"）</td></tr>
+      <tr><td>提问引导回复</td><td>只陈述不互动</td></tr>
+      <tr><td>15-30个字</td><td>超过50个字</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 第七章：下一步计划 ===== -->
+  <div class="section">
+    <h2>七、下一步计划</h2>
+
+    <h3>短期（本周）</h3>
+    <div class="step"><span class="step-num">1</span>停1-2天养号，不急着发第5篇</div>
+    <div class="step"><span class="step-num">2</span>第2篇和第3篇的封面换成新模板</div>
+    <div class="step"><span class="step-num">3</span>周三晚上用翻车型模板发下一篇</div>
+
+    <h3>中期（2周内）</h3>
+    <div class="step"><span class="step-num">1</span>持续发踩坑故事，每篇只讲1个具体坑</div>
+    <div class="step"><span class="step-num">2</span>观察哪篇数据好，复制那个模式</div>
+    <div class="step"><span class="step-num">3</span>有人私信 = 需求验证成功 → 启动付费带练</div>
+
+    <h3>如果3天没人私信</h3>
+    <div class="warn">不要慌，可能需要再发2-3条不同角度的笔记。也可能需要换受众更广的话题（比如"PPT排版""PPT字体"而不是"PPT踩坑"）。</div>
+
+    <h3>已产出文件清单</h3>
+    <table>
+      <tr><th>文件</th><th>位置</th><th>用途</th></tr>
+      <tr><td>招生展示页</td><td>PPT接单带练_招生展示页.html</td><td>landing page</td></tr>
+      <tr><td>小红书文案3条</td><td>小红书踩坑引流文案_3条.md</td><td>初版文案</td></tr>
+      <tr><td>第2篇新封面</td><td>PPT素材库\图片\小红书配图2_新封面_对比版.png</td><td>替换第2篇封面</td></tr>
+      <tr><td>第3篇配图×2</td><td>PPT素材库\图片\小红书配图3_*.png</td><td>6天路径+10页成品</td></tr>
+      <tr><td>第4篇配图</td><td>PPT素材库\图片\小红书配图4_免费教程vs带练.png</td><td>免费教程vs带练对比</td></tr>
+      <tr><td>封面模板×3</td><td>PPT素材库\图片\小红书封面模板_*.png</td><td>翻车型/数字型/反问型</td></tr>
+    </table>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    <p>本记录由 Hermes 整理 · 2026年8月11日</p>
+    <p style="margin-top:5px;">浩总的小红书运营完整记录 · 从发帖到互动到数据复盘 · 4篇笔记+3种封面模板+评论区策略</p>
+  </div>
+
+</div>
+</body>
+</html>

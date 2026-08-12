@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPT制作学习手册 — 五天从零到接单成品</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f5f6f8; color: #2c2c2a; line-height: 1.7; }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Header */
+  .header { background: #1F4E79; color: #fff; padding: 48px 32px; border-radius: 12px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .header::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #378ADD; }
+  .header h1 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; color: #B5D4F4; }
+  .header .meta { display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+  .header .meta-item { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 16px; font-size: 13px; }
+  .header .meta-item strong { color: #85B7EB; }
+
+  /* Section */
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 20px; font-weight: 500; color: #1F4E79; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #378ADD; }
+
+  /* Stats grid */
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat-card { background: #fff; border-radius: 8px; padding: 20px; text-align: center; border: 1px solid #e0e0e0; }
+  .stat-num { font-size: 32px; font-weight: 500; color: #1F4E79; }
+  .stat-label { font-size: 12px; color: #888; margin-top: 4px; }
+
+  /* Table */
+  .table-wrap { background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #e0e0e0; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #E6F1FB; color: #1F4E79; font-weight: 500; padding: 12px 16px; text-align: left; border-bottom: 2px solid #85B7EB; }
+  td { padding: 10px 16px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8fbff; }
+
+  /* Color cards */
+  .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  .color-card { border-radius: 10px; overflow: hidden; border: 1px solid #e0e0e0; }
+  .color-swatch { height: 80px; display: flex; align-items: center; justify-content: center; }
+  .color-swatch .hex { font-size: 14px; font-weight: 500; }
+  .color-info { padding: 10px 14px; background: #fff; }
+  .color-name { font-size: 13px; font-weight: 500; color: #2c2c2a; }
+  .color-rgb { font-size: 11px; color: #888; margin-top: 2px; }
+  .color-use { font-size: 11px; color: #378ADD; margin-top: 4px; }
+
+  /* Skill card */
+  .skill-card { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; border: 1px solid #e0e0e0; }
+  .skill-card:hover { border-color: #85B7EB; }
+  .skill-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .skill-num { width: 28px; height: 28px; border-radius: 6px; background: #1F4E79; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
+  .skill-title { font-size: 15px; font-weight: 500; color: #2c2c2a; }
+  .skill-tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-left: auto; }
+  .tag-basic { background: #E6F1FB; color: #185FA5; }
+  .tag-mid { background: #FAEEDA; color: #854F0B; }
+  .tag-adv { background: #E1F5EE; color: #085041; }
+  .skill-steps { padding-left: 38px; }
+  .skill-steps li { font-size: 13px; color: #444; margin-bottom: 6px; line-height: 1.8; list-style: none; position: relative; padding-left: 18px; }
+  .skill-steps li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #378ADD; position: absolute; left: 0; top: 9px; }
+  .skill-tip { margin-top: 8px; padding: 8px 12px; background: #FFF8E6; border-radius: 6px; font-size: 12px; color: #854F0B; border-left: 3px solid #EF9F27; }
+
+  /* Shortcut table */
+  .shortcut-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .shortcut-card { background: #fff; border-radius: 8px; padding: 16px 20px; border: 1px solid #e0e0e0; }
+  .shortcut-card h4 { font-size: 13px; color: #1F4E79; margin-bottom: 10px; font-weight: 500; }
+  .shortcut-item { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 4px 0; border-bottom: 1px solid #f5f5f5; }
+  .shortcut-item:last-child { border-bottom: none; }
+  .shortcut-key { background: #1F4E79; color: #fff; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-family: monospace; }
+
+  /* Pitfall */
+  .pitfall-card { background: #fff; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; border-left: 4px solid #E24B4A; border-top: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
+  .pitfall-card h4 { font-size: 14px; color: #A32D2D; margin-bottom: 6px; }
+  .pitfall-card p { font-size: 13px; color: #555; }
+  .pitfall-card .solution { margin-top: 6px; padding: 6px 10px; background: #E1F5EE; border-radius: 4px; font-size: 12px; color: #085041; }
+
+  /* PPT structure */
+  .ppt-structure { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+  .ppt-page { background: #1F4E79; border-radius: 6px; padding: 12px 8px; text-align: center; color: #fff; font-size: 11px; position: relative; min-height: 80px; display: flex; flex-direction: column; justify-content: center; }
+  .ppt-page .page-num { font-size: 10px; color: #85B7EB; margin-bottom: 4px; }
+  .ppt-page .page-title { font-weight: 500; font-size: 12px; }
+
+  /* Folder tree */
+  .folder-tree { background: #fff; border-radius: 8px; padding: 20px 24px; border: 1px solid #e0e0e0; font-size: 13px; line-height: 2; font-family: "Consolas", monospace; color: #444; }
+  .folder-tree .folder { color: #185FA5; font-weight: 500; }
+  .folder-tree .file { color: #888; }
+  .folder-tree .new { color: #1D9E75; }
+
+  /* Todo list */
+  .todo-list { background: #fff; border-radius: 8px; padding: 20px 24px; border: 1px solid #e0e0e0; }
+  .todo-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+  .todo-item:last-child { border-bottom: none; }
+  .todo-check { width: 20px; height: 20px; border-radius: 4px; border: 2px solid #ccc; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .todo-check.done { background: #1D9E75; border-color: #1D9E75; color: #fff; }
+  .todo-check.done::before { content: "V"; font-size: 12px; }
+  .todo-text { color: #444; }
+  .todo-text.done { color: #888; text-decoration: line-through; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 32px 0; color: #888; font-size: 12px; }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; padding: 0; }
+    .section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <h1>PPT制作学习手册</h1>
+    <div class="subtitle">五天从零基础到完成10页接单级PPT · 完整操作指南 · 数据可视化三件套 + 实战模拟接单</div>
+    <div class="meta">
+      <div class="meta-item">学员：<strong>赵英浩（浩总）</strong></div>
+      <div class="meta-item">教练：<strong>Hermes</strong></div>
+      <div class="meta-item">学习日期：<strong>2026.07.31 - 08.03</strong></div>
+      <div class="meta-item">总学时：<strong>约19小时</strong></div>
+    </div>
+  </div>
+
+  <!-- ===== 学习概览 ===== -->
+  <div class="section">
+    <div class="section-title">学习成果概览</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">53+</div>
+        <div class="stat-label">掌握操作技能</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">10</div>
+        <div class="stat-label">页接单级PPT</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-label">种图表类型</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1</div>
+        <div class="stat-label">个完整接单成品</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th style="width:15%">日期</th>
+          <th style="width:15%">学时</th>
+          <th>学会的技能</th>
+          <th style="width:20%">成果</th>
+        </tr>
+        <tr>
+          <td>第1天<br>7月31日</td>
+          <td>约5小时<br>06:49-12:07</td>
+          <td>
+            打开WPS / 选空白演示文稿 / 设置16:9 / 打字改字号 /
+            Ctrl+A全选 / Ctrl+S保存 / Delete删除 /
+            参考线设置 / 右键改字体颜色（RGB输入）/
+            右键设置背景格式 / 全部应用背景 /
+            插入矩形装饰条 / 改矩形颜色透明度 /
+            副标题制作（竖线打法）/ Ctrl+M新建页面 /
+            Ctrl+D复制页面 / 改页码
+          </td>
+          <td>6页PPT<br>（封面+目录+4过渡页）</td>
+        </tr>
+        <tr>
+          <td>第2天<br>8月1日</td>
+          <td>约3小时<br>06:53-13:45</td>
+          <td>
+            pt字号概念 / 文本框拉宽 / WPS项目符号 /
+            批量复制+拖动排序 / 替换字体（Arial改雅黑）/
+            iconfont图标下载 / 插入SVG图标 /
+            图标改色（黄改白）/ 进入母版 /
+            母版加页码（页眉页脚法）/ 导出PDF /
+            <strong>图表插入（柱状图+改数据+改色+改字体）</strong>
+          </td>
+          <td>10页PPT<br>+ PDF预览版</td>
+        </tr>
+        <tr>
+          <td>第3天<br>8月2日上午</td>
+          <td>约4小时<br>09:00-12:00</td>
+          <td>
+            <strong>表格插入与美化</strong>（科技风表格+标题+居中）/
+            <strong>图片技能链</strong>：截图插入 / Shift等比缩放 /
+            移动图片 / 双击裁剪 / 裁剪为形状（圆角矩形）/
+            图片边框（白色细线）+ 阴影（右下外部）/
+            <strong>图文排版</strong>（左图右文：标题+要点+项目符号）
+          </td>
+          <td>+3页<br>（表格/图文/练习页）</td>
+        </tr>
+        <tr>
+          <td>第4天<br>8月2日下午</td>
+          <td>约6小时<br>14:00-18:50</td>
+          <td>
+            <strong>形状工具·流程图</strong>：圆角矩形+箭头+Ctrl+D复制 /
+            <strong>形状工具·时间轴</strong>：横线+正圆+5节点+日期事件 /
+            保存PPT+重新导出PDF+截图存样品 /
+            <strong>图表扩展·饼图</strong>：占比图+改色+改字体 /
+            <strong>图表扩展·折线图</strong>：趋势图+改数据+删多余系列+改标题 /
+            <strong>装饰条三件套</strong>：竖线标题装饰+横线标题装饰+顶部页面装饰条
+          </td>
+          <td>+5页<br>（流程图/时间轴/饼图/折线图/装饰条）</td>
+        </tr>
+        <tr style="background:#E6F1FB;">
+          <td>第5天<br>8月3日</td>
+          <td>约4小时<br>08:15-12:14</td>
+          <td>
+            <strong>实战模拟接单</strong>：文字稿→提炼10页大纲→客户确认→制作→导出PDF /
+            <strong>独立新建PPT</strong>：封面+目录+4过渡页+4内容页+结尾页 /
+            <strong>图表改色实战</strong>：手动改色方法（双击单块→右键→设置数据系列格式→纯色填充→自定义RGB） /
+            <strong>新坑突破</strong>：WPS免费版"更改颜色"无蓝色系 / 图表背景变深蓝文字消失 / 小扇形数据标签挤一起 /
+            <strong>全局思维</strong>：目录与内页标题一致性 / 序号逻辑
+          </td>
+          <td><strong>10页接单级PPT</strong><br>社区中心2024工作汇报<br>+ PDF成品</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== 科技风配色方案 ===== -->
+  <div class="section">
+    <div class="section-title">科技风配色方案（色值速查）</div>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background:#1F4E79;">
+          <span class="hex" style="color:#fff;">#1F4E79</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">深蓝（主色）</div>
+          <div class="color-rgb">RGB: 31 / 78 / 121</div>
+          <div class="color-use">背景色</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#FFFFFF;">
+          <span class="hex" style="color:#1F4E79;">#FFFFFF</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">白色（文字）</div>
+          <div class="color-rgb">RGB: 255 / 255 / 255</div>
+          <div class="color-use">标题 + 正文</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#85B7EB;">
+          <span class="hex" style="color:#1F4E79;">#85B7EB</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">浅蓝（装饰条）</div>
+          <div class="color-rgb">RGB: 133 / 183 / 235</div>
+          <div class="color-use">装饰条 + 编号</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#B5D4F4;">
+          <span class="hex" style="color:#1F4E79;">#B5D4F4</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">浅蓝（副标题）</div>
+          <div class="color-rgb">RGB: 181 / 212 / 244</div>
+          <div class="color-use">副标题 + 要点</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th style="width:20%">颜色用途</th>
+          <th style="width:20%">色值</th>
+          <th style="width:25%">RGB输入值</th>
+          <th>怎么设置</th>
+        </tr>
+        <tr>
+          <td>页面背景</td>
+          <td>#1F4E79</td>
+          <td>R:31 G:78 B:121</td>
+          <td>右键页面空白处 → 设置背景格式 → 纯色填充 → 其他颜色 → 自定义 → 输RGB</td>
+        </tr>
+        <tr>
+          <td>标题文字</td>
+          <td>#FFFFFF</td>
+          <td>R:255 G:255 B:255</td>
+          <td>选中文字 → 右键 → 字体 → 字体颜色 → 白色</td>
+        </tr>
+        <tr>
+          <td>装饰条</td>
+          <td>#85B7EB</td>
+          <td>R:133 G:183 B:235</td>
+          <td>选中矩形 → 右键 → 设置对象格式 → 填充 → 颜色 → 透明度60-70%</td>
+        </tr>
+        <tr>
+          <td>副标题/要点</td>
+          <td>#B5D4F4</td>
+          <td>R:181 G:212 B:244</td>
+          <td>选中文字 → 右键 → 字体 → 字体颜色 → 其他颜色 → 自定义 → 输RGB</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== PPT结构 ===== -->
+  <div class="section">
+    <div class="section-title">10页PPT完整结构</div>
+    <div class="ppt-structure">
+      <div class="ppt-page">
+        <div class="page-num">P1</div>
+        <div class="page-title">封面</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">标题+副标题+闪电图标</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P2</div>
+        <div class="page-title">目录</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">4个章节</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P3</div>
+        <div class="page-title">01 过渡页</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">项目概述</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P4</div>
+        <div class="page-title">02 过渡页</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">需求分析</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P5</div>
+        <div class="page-title">03 过渡页</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">解决方案</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P6</div>
+        <div class="page-title">04 过渡页</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">实施计划</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P7</div>
+        <div class="page-title">内容页</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">项目概述·4要点</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P8</div>
+        <div class="page-title">内容页</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">需求分析·4要点</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P9</div>
+        <div class="page-title">内容页</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">解决方案·4要点</div>
+      </div>
+      <div class="ppt-page">
+        <div class="page-num">P10</div>
+        <div class="page-title">内容页</div>
+        <div style="font-size:10px;color:#B5D4F4;margin-top:4px;">实施计划·4要点</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th style="width:8%">页码</th>
+          <th style="width:12%">页面类型</th>
+          <th style="width:20%">标题内容</th>
+          <th style="width:20%">副标题/英文</th>
+          <th>页面元素</th>
+        </tr>
+        <tr>
+          <td>P1</td><td>封面</td><td>我的第一页PPT</td><td>演示人：浩浩 | 2026.07.31</td>
+          <td>深蓝底 + 白字标题 + 浅蓝装饰条 + 浅蓝副标题 + 白色闪电图标</td>
+        </tr>
+        <tr>
+          <td>P2</td><td>目录</td><td>目录</td><td>-</td>
+          <td>深蓝底 + 白字标题 + 浅蓝装饰条 + 4个浅蓝章节（01项目概述/02市场分析/03实施方案/04总结展望）</td>
+        </tr>
+        <tr>
+          <td>P3</td><td>章节过渡</td><td>项目概述</td><td>Project Overview</td>
+          <td>大号"01"编号 + 装饰条 + 标题 + 英文副标题 + 页码</td>
+        </tr>
+        <tr>
+          <td>P4</td><td>章节过渡</td><td>需求分析</td><td>Requirements Analysis</td>
+          <td>大号"02"编号 + 装饰条 + 标题 + 英文副标题 + 页码</td>
+        </tr>
+        <tr>
+          <td>P5</td><td>章节过渡</td><td>解决方案</td><td>Solution</td>
+          <td>大号"03"编号 + 装饰条 + 标题 + 英文副标题 + 页码</td>
+        </tr>
+        <tr>
+          <td>P6</td><td>章节过渡</td><td>实施计划</td><td>Implementation</td>
+          <td>大号"04"编号 + 装饰条 + 标题 + 英文副标题 + 页码</td>
+        </tr>
+        <tr>
+          <td>P7</td><td>内容页</td><td>项目概述</td><td>-</td>
+          <td>标题 + 装饰条 + 4个要点（带项目符号）+ 页码</td>
+        </tr>
+        <tr>
+          <td>P8</td><td>内容页</td><td>需求分析</td><td>-</td>
+          <td>标题 + 装饰条 + 4个要点（带项目符号）+ 页码</td>
+        </tr>
+        <tr>
+          <td>P9</td><td>内容页</td><td>解决方案</td><td>-</td>
+          <td>标题 + 装饰条 + 4个要点（带项目符号）+ 页码</td>
+        </tr>
+        <tr>
+          <td>P10</td><td>内容页</td><td>实施计划</td><td>-</td>
+          <td>标题 + 装饰条 + 4个要点（带项目符号）+ 页码</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== 全部操作技能 ===== -->
+  <div class="section">
+    <div class="section-title">全部操作技能（分步骤详解）</div>
+
+    <!-- 基础操作 -->
+    <h3 style="font-size:15px;color:#1F4E79;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">一、基础操作</h3>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">1</div>
+        <div class="skill-title">打开WPS演示 + 新建空白文稿</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>打开WPS → 点"WPS演示"图标</li>
+        <li>模板选择页有4个按钮 → 点<strong>"空白演示文稿"</strong>（免费的那个）</li>
+        <li>注意：不要点"AI生成PPT""上传文档生成""稻壳大师"——这3个都要会员</li>
+      </ul>
+      <div class="skill-tip">坑：每次打开PPT必须选"空白演示文稿"，别被付费按钮引导走</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">2</div>
+        <div class="skill-title">设置16:9宽屏比例</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>顶部菜单点"设计"标签</li>
+        <li>工具栏找"幻灯片大小"按钮</li>
+        <li>选"宽屏(16:9)"</li>
+      </ul>
+      <div class="skill-tip">虽然WPS默认就是16:9，但走一遍流程确认一下更稳</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">3</div>
+        <div class="skill-title">打字 + 改字号</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>点击标题占位符中间（出现光标）</li>
+        <li>打字输入标题内容</li>
+        <li>Ctrl+A 全选文字</li>
+        <li>在顶部字号框里输入数字（标题用40，副标题用18，正文用18-24）</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">4</div>
+        <div class="skill-title">保存文件</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>Ctrl+S 快捷保存（第一次会弹出"另存为"窗口）</li>
+        <li>选保存位置 → 输入文件名 → 点保存</li>
+        <li>以后每次按 Ctrl+S 就直接保存，不弹窗</li>
+      </ul>
+      <div class="skill-tip">养成习惯：每做完一步就按 Ctrl+S，防止白做</div>
+    </div>
+
+    <!-- 页面设置 -->
+    <h3 style="font-size:15px;color:#1F4E79;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">二、页面设置</h3>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">5</div>
+        <div class="skill-title">设置参考线（安全区）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>顶部菜单点"视图"标签</li>
+        <li>勾选"参考线"（按钮变蓝=已开启）</li>
+        <li>默认出现1条竖线+1条横线（在页面中心）</li>
+        <li>从顶部标尺往下拖，可以新增横线；从左侧标尺往右拖，可以新增竖线</li>
+        <li>拖动参考线到合适位置，4条线围成一个"安全区"矩形</li>
+      </ul>
+      <div class="skill-tip">参考线的作用：让每页的标题、正文都在同一位置，看起来整齐。参考线不会打印/导出，只给你看的</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">6</div>
+        <div class="skill-title">设置背景色（深蓝底）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>右键点击页面空白处 → 选"设置背景格式"</li>
+        <li>右侧弹出面板 → 选"纯色填充"</li>
+        <li>点"颜色"下拉 → "其他颜色" → "自定义"标签</li>
+        <li>输入RGB值：R:31 G:78 B:121（深蓝#1F4E79）→ 确定</li>
+        <li>点底部"全部应用"→ 所有页面都变成深蓝底</li>
+      </ul>
+      <div class="skill-tip">关键：一定要点"全部应用"，不然只有当前1页变色。Ctrl+M新建的页面不会自动继承背景色</div>
+    </div>
+
+    <!-- 文字操作 -->
+    <h3 style="font-size:15px;color:#1F4E79;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">三、文字操作</h3>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">7</div>
+        <div class="skill-title">改文字颜色（右键字体法）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>选中要改色的文字（Ctrl+A全选 或 拖选）</li>
+        <li>右键 → 点"字体"</li>
+        <li>弹出对话框 → 找"字体颜色" → 点下拉 → "其他颜色" → "自定义"标签</li>
+        <li>输入RGB值 → 确定 → 确定</li>
+      </ul>
+      <div class="skill-tip">推荐用"右键→字体"法，不用找工具栏小按钮，最稳。工具栏那个"A字加下三角"的按钮容易跟"填充颜色"搞混</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">8</div>
+        <div class="skill-title">批量替换字体（Arial → 微软雅黑）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>顶部菜单点"开始"标签</li>
+        <li>工具栏找"替换"按钮 → 点<strong>旁边的小三角</strong></li>
+        <li>下拉菜单选"替换字体"</li>
+        <li>弹窗："替换"选 Arial → "替换为"选 微软雅黑 → 点"替换"</li>
+        <li>10页PPT的字体1秒全部改完</li>
+      </ul>
+      <div class="skill-tip">坑："替换"按钮右边有个很小的下三角，容易忽略。不是点"替换"本身，是点它右边的小箭头</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">9</div>
+        <div class="skill-title">项目符号（圆点列表）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>选中要加圆点的多行文字</li>
+        <li>顶部"开始"工具栏找"项目符号"按钮（三个圆点图标）</li>
+        <li>点击即可添加圆点</li>
+      </ul>
+      <div class="skill-tip">坑：不要手打圆点符号"•"——在Arial字体下会渲染成方块。用WPS自带的项目符号功能才靠谱</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">10</div>
+        <div class="skill-title">文本框拉宽（解决文字换行）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>点击文本框（出现橙色边框+8个调整点）</li>
+        <li>鼠标移到<strong>右边中间</strong>的小圆点上</li>
+        <li>光标变成左右箭头时，按住左键往右拖</li>
+        <li>文字就不再换行了</li>
+      </ul>
+    </div>
+
+    <!-- 页面操作 -->
+    <h3 style="font-size:15px;color:#1F4E79;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">四、页面操作</h3>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">11</div>
+        <div class="skill-title">新建页面</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>Ctrl+M 快捷键新建一页空白幻灯片</li>
+        <li>或者：左侧缩略图区域最下方，点"+新建幻灯片"按钮</li>
+      </ul>
+      <div class="skill-tip">注意：Ctrl+M新建的页面是白底，不会自动继承深蓝背景。需要在背景设置时点"全部应用"才统一</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">12</div>
+        <div class="skill-title">复制页面（Ctrl+D）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>左侧缩略图点中要复制的页面</li>
+        <li>按 Ctrl+D → 自动复制一页到后面</li>
+        <li>复制出来的页面保留所有格式（背景色/装饰条/字体/参考线）</li>
+        <li>只需改文字内容即可</li>
+      </ul>
+      <div class="skill-tip">这是做10页PPT的核心技能！做好1页模板，Ctrl+D复制9次，改文字就完事</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">13</div>
+        <div class="skill-title">拖动调整页面顺序</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>鼠标点住左侧缩略图（不要松手）</li>
+        <li>往上或往下拖动</li>
+        <li>拖动时会看到一条<strong>横线</strong>，表示插入位置</li>
+        <li>横线到想要的位置后松手，页面就移过去了</li>
+      </ul>
+    </div>
+
+    <!-- 排版技巧 -->
+    <h3 style="font-size:15px;color:#1F4E79;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">五、排版技巧</h3>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">14</div>
+        <div class="skill-title">插入装饰条（矩形）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>顶部菜单点"插入" → "形状" → 选"矩形"</li>
+        <li>在页面上拖出一个长条矩形（标题下方）</li>
+        <li>右键矩形 → "设置对象格式" → 填充颜色 → #85B7EB → 透明度60-70%</li>
+        <li>再拖一条更短的细矩形在下方，颜色更浅</li>
+      </ul>
+      <div class="skill-tip">两条装饰条一长一短，一深一浅，是科技风PPT的标准排版手法</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">15</div>
+        <div class="skill-title">副标题制作（含竖线分隔符）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>在标题下方、装饰条下面插入文本框</li>
+        <li>输入内容格式："演示人：浩浩 | 2026.07.31"</li>
+        <li>竖线 | 的打法：Shift + \ （退格键左边那个键）</li>
+        <li>字号18，颜色浅蓝#B5D4F4（RGB: 181/212/244）</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">16</div>
+        <div class="skill-title">章节过渡页制作</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>用Ctrl+D复制封面页 → 改成过渡页</li>
+        <li>左侧放大号编号"01"（字号60-80，颜色浅蓝#85B7EB）</li>
+        <li>中间放中文标题（如"项目概述"，字号40，白色）</li>
+        <li>标题下方放英文副标题（如"Project Overview"，字号18，浅蓝）</li>
+        <li>右下角放页码（如"03/10"，字号12，浅蓝）</li>
+      </ul>
+    </div>
+
+    <!-- 图标操作 -->
+    <h3 style="font-size:15px;color:#1F4E79;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">六、图标操作</h3>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">17</div>
+        <div class="skill-title">插入SVG图标到PPT</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>顶部菜单点"插入"标签</li>
+        <li>工具栏点"图片"按钮</li>
+        <li>选"本地图片"（不要选"在线图片"）</li>
+        <li>在文件窗口找到 PPT素材库\图标\科技风_图表.svg\ 文件夹</li>
+        <li>选中SVG文件 → 点"打开"</li>
+        <li>图标出现在幻灯片上</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">18</div>
+        <div class="skill-title">调整图标大小和位置</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>调大小：鼠标拖<strong>角点</strong>（四角的小圆点），按住 Shift 键等比缩放</li>
+        <li>移位置：鼠标拖图标中间，移到目标位置松手</li>
+        <li>取消选中：点页面空白处</li>
+      </ul>
+      <div class="skill-tip">一定要按住Shift拖角点！不按Shift拖动会变形（拉长/压扁）</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">19</div>
+        <div class="skill-title">图标改色</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>点击图标选中（出现橙色虚线框）</li>
+        <li>顶部自动出现"图片格式"（或"图形格式"）标签</li>
+        <li>找"颜色"按钮 → 选白色</li>
+        <li>如果没有"颜色"，找"填充"功能 → 改白色</li>
+      </ul>
+      <div class="skill-tip">科技风PPT的图标统一用白色，跟白色标题字+浅蓝装饰条呼应</div>
+    </div>
+
+    <!-- 导出 -->
+    <h3 style="font-size:15px;color:#1F4E79;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">七、导出与交付</h3>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">20</div>
+        <div class="skill-title">导出PDF</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>点左上角"文件"按钮（WPS演示按钮右边紫色按钮）</li>
+        <li>下拉菜单找"输出为PDF"（蓝色高亮项，也叫"另存为PDF"或"导出PDF"）</li>
+        <li>弹窗选保存位置 → PPT素材库\pdf\文件夹</li>
+        <li>文件命名规范：客户名_主题_v1_日期.pdf（如：张总_项目汇报_v1_20260801.pdf）</li>
+        <li>点"保存"</li>
+      </ul>
+      <div class="skill-tip">交付规范：PPTX可编辑版 + PDF预览版 双交付。PDF不会乱版，客户不用装WPS也能看</div>
+    </div>
+
+    <!-- 母版 -->
+    <h3 style="font-size:15px;color:#1F4E79;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">八、母版（了解，暂搁置）</h3>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">21</div>
+        <div class="skill-title">进入母版 + 加自动页码</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>顶部菜单点"视图" → "幻灯片母版" → 进入母版编辑界面</li>
+        <li>左侧第一个缩略图是"主母版"（最大的那个）</li>
+        <li>顶部菜单点"插入" → "页眉页脚"按钮</li>
+        <li>弹窗勾选"幻灯片编号" → 点"全部应用"</li>
+        <li>顶部最右端点红色叉号 ✕ → 退出母版</li>
+        <li>普通视图查看所有页面右下角是否有自动页码</li>
+      </ul>
+      <div class="skill-tip">注意：浩总的WPS版本母版自动页码不生效（无论点"应用"还是"全部应用"），暂时用手动页码替代。母版概念已理解，进入方法已掌握，等以后换WPS版本或用PowerPoint时再用</div>
+    </div>
+
+  </div>
+
+  <!-- ===== 九、表格技能 ===== -->
+  <div class="section">
+    <div class="section-title">九、表格插入与美化（接单高频）</div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">22</div>
+        <div class="skill-title">插入表格</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>顶部菜单点"插入"标签</li>
+        <li>点"表格"按钮</li>
+        <li>弹出小格子网格，鼠标拖选 5列×5行</li>
+        <li>松开鼠标，表格插入到页面</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">23</div>
+        <div class="skill-title">科技风表格美化（4步成型）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>表头改深蓝底</strong>：选中第一行 → 右键"设置对象格式" → 填充色 #1F4E79</li>
+        <li><strong>表头改白字加粗</strong>：选中第一行文字 → 字体白色 → Ctrl+B 加粗</li>
+        <li><strong>隔行变色</strong>：第3、5行（奇数数据行）填充浅蓝灰 #F0F6FB</li>
+        <li><strong>全表微软雅黑</strong>：选中整个表格 → 开始标签 → 字体选微软雅黑</li>
+        <li><strong>居中对齐</strong>：选中所有数据单元格 → 开始标签 → 居中按钮</li>
+      </ul>
+      <div class="skill-tip">口诀：深蓝表头 + 白/灰隔行 + 微软雅黑 + 无粗边框 = 专业商务表格</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">24</div>
+        <div class="skill-title">表格加标题 + 居中</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>点表格上方空白区域，或插入→文本框→横向文本框</li>
+        <li>输入标题（如"季度业绩对比"）</li>
+        <li>字体微软雅黑、字号28、加粗、颜色深蓝#1F4E79</li>
+        <li>选中整个表格 → 拖动到页面居中位置</li>
+        <li>微调用键盘方向键 ←→↑↓ 一格一格挪</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== 十、图片技能 ===== -->
+  <div class="section">
+    <div class="section-title">十、图片技能链（接单必备）</div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">25</div>
+        <div class="skill-title">截图插入图片（3种方法）</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>方法1（最快）</strong>：桌面选中图片 → 按住左键拖到PPT页面 → 松手</li>
+        <li><strong>方法2（最准）</strong>：插入 → 图片 → 本地图片 → 双击图片文件</li>
+        <li><strong>方法3（截图）</strong>：Win+Shift+S 截屏 → 切到PPT → Ctrl+V 粘贴</li>
+      </ul>
+      <div class="skill-tip">Win+Shift+S 是Windows自带截屏快捷键，截图自动存剪贴板，Ctrl+V直接粘贴</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">26</div>
+        <div class="skill-title">图片缩放与移动</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>缩放</strong>：点图片选中 → 拖右下角白圆点 → <strong>按住Shift</strong>等比缩放</li>
+        <li><strong>移动</strong>：鼠标放图片中间（不是圆点）→ 光标变十字 → 按住左键拖</li>
+        <li>看不到白圆点：先点一下图片（图片被选中才出现8个圆点）</li>
+      </ul>
+      <div class="skill-tip">一定要按住Shift拖角点！不按Shift会变形拉长。拖中间是移动，拖圆点是缩放</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">27</div>
+        <div class="skill-title">裁剪图片（核心技能）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>方法A（基础裁剪）</strong>：双击图片 → 黑色裁剪框出现 → 拖黑点裁掉多余 → Enter确认</li>
+        <li><strong>方法B（裁剪为形状）</strong>：选中图片 → 图片工具标签 → 裁剪按钮▾ → 裁剪为形状</li>
+        <li>选"圆角矩形" → 图片立刻变圆角（高级感拉满）</li>
+        <li>选"椭圆" → 图片变圆形头像（适合Logo/人像）</li>
+      </ul>
+      <div class="skill-tip">方法B是接单神器：方图变圆角矩形，立刻从"贴上去"变"嵌进去"</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">28</div>
+        <div class="skill-title">图片边框 + 阴影</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>加边框</strong>：选中图片 → 图片工具 → 图片边框 → 颜色白色 → 粗细1磅</li>
+        <li><strong>加阴影</strong>：选中图片 → 图片工具 → 阴影效果/图片效果 → 外部 → 右下</li>
+        <li>默认阴影参数就行，不用调</li>
+      </ul>
+      <div class="skill-tip">边框让轮廓清晰，阴影让图片有立体感。两步做完从"贴上去"变"浮起来"</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">29</div>
+        <div class="skill-title">图文排版（左图右文）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>图片缩到合适大小，拖到页面左侧居中</li>
+        <li>插入 → 文本框 → 横向文本框 → 在右半边画框</li>
+        <li>输入标题（如"项目亮点"）+ 5行要点</li>
+        <li>标题：微软雅黑28pt + 深蓝#1F4E79 + 加粗</li>
+        <li>要点：微软雅黑18pt + 深灰#333333</li>
+        <li>要点用WPS自带项目符号（开始标签 → 三个圆点图标 → 选圆点•）</li>
+      </ul>
+      <div class="skill-tip">黄金比例：左图占40%，右文占60%。图文排版是内容页最通用的布局</div>
+    </div>
+  </div>
+
+  <!-- ===== 十一、形状工具 ===== -->
+  <div class="section">
+    <div class="section-title">十一、形状工具（流程图 + 时间轴）</div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">30</div>
+        <div class="skill-title">插入形状 + 改色（基础）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>插入 → 形状 → 选"圆角矩形"（或"椭圆"/"直线"/"箭头"）</li>
+        <li>鼠标变十字，按住左键从左上往右下拖动画形状</li>
+        <li>画正圆/水平线：<strong>按住Shift键</strong>拖动</li>
+        <li>选中形状 → 右侧"对象属性"面板 → 填充与描边</li>
+        <li>填充色：自定义 → RGB 31/78/121（深蓝#1F4E79）</li>
+        <li>描边：选"无线条"（干净利落）</li>
+      </ul>
+      <div class="skill-tip">科技风配色：矩形深蓝#1F4E79，箭头/横线浅蓝#85B7EB，圆点深蓝#1F4E79</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">31</div>
+        <div class="skill-title">形状内输入文字 + 居中</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li>选中形状 → 双击形状内部（或按Enter）→ 光标出现</li>
+        <li>输入文字 → 拖选文字 → 改字体微软雅黑、字号20、白色</li>
+        <li>水平居中：Ctrl+E（或开始标签 → 居中按钮）</li>
+        <li>垂直居中：开始标签 → 垂直居中按钮</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">32</div>
+        <div class="skill-title">流程图制作（圆角矩形+箭头）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>画1个圆角矩形 → 深蓝#1F4E79填充 + 无线条</li>
+        <li>双击输入"需求分析" → 微软雅黑20白字 + 双居中</li>
+        <li>Ctrl+D 复制出3个 → 分别改文字"方案设计/开发实现/上线运营"</li>
+        <li>插入 → 形状 → 箭头 → 选右向箭头</li>
+        <li>按住Shift画水平箭头 → 改浅蓝#85B7EB</li>
+        <li>Ctrl+D复制出3个箭头 → 拖到矩形之间</li>
+      </ul>
+      <div class="skill-tip">流程图用途：展示"步骤顺序"。4矩形+3箭头 = 标准业务流程图</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">33</div>
+        <div class="skill-title">时间轴制作（横线+圆点+文字）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>插入 → 形状 → 直线 → 按住Shift画水平线 → 浅蓝#85B7EB + 粗细3磅</li>
+        <li>插入 → 形状 → 椭圆 → 按住Shift画正圆 → 深蓝#1F4E79 + 无线条</li>
+        <li>Ctrl+D复制出5个圆点 → 手动拖到横线上均匀分布</li>
+        <li>每个圆点上方：插入文本框 → 日期（微软雅黑12pt 浅蓝#85B7EB）</li>
+        <li>每个圆点下方：插入文本框 → 事件（微软雅黑16pt 深蓝#1F4E79 加粗）</li>
+      </ul>
+      <div class="skill-tip">⚠️ 横向分布陷阱：「开始→排列→对齐→横向分布」是从选中第一个到最后一个之间分布，不是页面全宽分布。新手建议手动拖到等距位置更稳</div>
+    </div>
+  </div>
+
+  <!-- ===== 十二、图表扩展 ===== -->
+  <div class="section">
+    <div class="section-title">十二、数据可视化三件套（柱状图+饼图+折线图）</div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">34</div>
+        <div class="skill-title">图表通用4步流程（适用所有图表）</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>①插入</strong>：插入 → 图表 → 选类型（柱状/饼图/折线）→ 确定</li>
+        <li><strong>②改数据</strong>：双击图表 → 弹出Excel → 改A列（类别）和B列（数值）→ 点外面退出</li>
+        <li><strong>③改颜色</strong>：单击选中图表 → 图表工具 → 更改颜色 → 选蓝色色调</li>
+        <li><strong>④改字体</strong>：单击选中图表（不要双击）→ 开始标签 → 字体选微软雅黑</li>
+      </ul>
+      <div class="skill-tip">⚠️ 改字体要点：必须选中整个图表对象，不能用Ctrl+A选图表内文字</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">35</div>
+        <div class="skill-title">柱状图（对比数据）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>用途：对比不同类别的数值（如各月销售额）</li>
+        <li>插入 → 图表 → 柱状图 → 确定</li>
+        <li>双击改数据：A列填类别名，B列填数值</li>
+        <li>单击选中 → 图表工具 → 更改颜色 → 蓝色色调</li>
+        <li>单击选中 → 开始 → 字体微软雅黑</li>
+      </ul>
+      <div class="skill-tip">改色最简方法：选中图表 → 顶部"图表工具"标签 → "更改颜色"按钮 → 选蓝色色调（10秒搞定）</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">36</div>
+        <div class="skill-title">饼图（占比分布）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>用途：展示各部分占总体的比例（如成本占比）</li>
+        <li>插入 → 图表 → 饼图 → 确定</li>
+        <li>双击改数据：A列填类别名（人力/技术/运营/营销），B列填数值（40/25/20/15）</li>
+        <li>单击选中 → 图表工具 → 更改颜色 → 蓝色色调（4块扇形深蓝→淡蓝渐变）</li>
+        <li>单击选中 → 开始 → 字体微软雅黑</li>
+      </ul>
+      <div class="skill-tip">饼图数据标签默认显示数值，不需要勾选"系列名称"（那个会产生多余数字）</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">37</div>
+        <div class="skill-title">折线图（趋势变化）</div>
+        <span class="skill-tag tag-adv">高级</span>
+      </div>
+      <ul class="skill-steps">
+        <li>用途：展示数据随时间的变化趋势（如用户增长）</li>
+        <li>插入 → 图表 → 折线图 → 确定</li>
+        <li>双击改数据：A列填月份（1月-6月），B列填数值（120/280/450/890/1500/2300）</li>
+        <li><strong>清空多余系列</strong>：Excel里选中C/D列数据 → Delete（不然图例显示系列2/3）</li>
+        <li>单击选中 → 图表工具 → 更改颜色 → 蓝色色调</li>
+        <li>单击选中 → 开始 → 字体微软雅黑</li>
+        <li><strong>改标题</strong>：单击"图表标题"文字 → 输入新标题 → 改字体/字号/颜色</li>
+      </ul>
+      <div class="skill-tip">⚠️ X轴类别不够？原因：①还在Excel里没退出（点外面刷新）②数据范围未扩展到B7。解决：点表格外退出，或用「选择数据」改范围为 A1:B7</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">38</div>
+        <div class="skill-title">图表收尾：删除多余系列 + 改标题</div>
+        <span class="skill-tag tag-mid">进阶</span>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>删多余系列</strong>：单击图表 → 图表工具 → 设计 → 选择数据 → 左侧选"系列2/3" → 删除 → 确定</li>
+        <li><strong>改标题</strong>：单击图表 → 图表工具 → 设计 → 图表标题 → 图表上方 → 输入新标题</li>
+        <li>标题样式：微软雅黑20pt + 深蓝#1F4E79 + 加粗</li>
+      </ul>
+      <div class="skill-tip">这3步是图表"收尾美化"——接单时每张图都要做</div>
+    </div>
+  </div>
+
+  <!-- ===== 十三、装饰条三件套 ===== -->
+  <div class="section">
+    <div class="section-title">十三、装饰条三件套（标题装饰 · 接单100%高频）</div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">39</div>
+        <div class="skill-title">样式1：竖线标题装饰（最常用）</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>插入 → 形状 → 矩形 → 在页面左上区域画一个小矩形</li>
+        <li><strong>拉成竖条</strong>：拖右边中间白圆点往左压（宽约4-5mm）→ 拖下边中间白圆点往下拉（高约2-3cm）</li>
+        <li>填充色：自定义 RGB 31/78/121（深蓝#1F4E79）→ 描边：无线条</li>
+        <li>右侧插入横向文本框 → 输入标题（微软雅黑28pt + 深蓝#1F4E79 + 加粗）</li>
+        <li>竖条和标题上下居中对齐（可选中两者 → 开始 → 排列 → 对齐 → 垂直居中）</li>
+      </ul>
+      <div class="skill-tip">⚠️ 装饰条本身不写文字！标题单独用文本框。不要碰形状顶部的绿色旋转手柄（会把形状+文字旋转90度）</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">40</div>
+        <div class="skill-title">样式2：横线标题装饰（标题下方短横线）</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>插入 → 形状 → 矩形 → 在标题正下方画一个小矩形</li>
+        <li><strong>拉成横条</strong>：拖下边中间白圆点往上压（高约2-3mm）→ 宽度约8-10cm（跟标题同宽）</li>
+        <li>填充色：自定义 RGB 133/183/235（浅蓝#85B7EB）→ 描边：无线条</li>
+        <li>位置：跟标题左边对齐，距离标题文字约5mm</li>
+      </ul>
+      <div class="skill-tip">横线不要超过标题宽度，否则像"分割线"而不是"装饰线"</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">41</div>
+        <div class="skill-title">样式3：顶部页面装饰条（统一风格用）</div>
+        <span class="skill-tag tag-basic">基础</span>
+      </div>
+      <ul class="skill-steps">
+        <li>插入 → 形状 → 矩形 → 在页面最顶部画一个矩形</li>
+        <li><strong>拉成长横条</strong>：左右拉宽到接近页面宽度（左右各留约2cm边距）→ 上下压扁到约5mm高</li>
+        <li>填充色：自定义 RGB 31/78/121（深蓝#1F4E79）→ 描边：无线条</li>
+      </ul>
+      <div class="skill-tip">三种可单独用也可组合用：单独样式1适合每页内容页，三件套组合适合重要页面（封面/过渡/核心内容）</div>
+    </div>
+  </div>
+
+  <!-- ===== 快捷键速查 ===== -->
+  <div class="section">
+    <div class="section-title">键盘快捷键速查表</div>
+    <div class="shortcut-grid">
+      <div class="shortcut-card">
+        <h4>文件操作</h4>
+        <div class="shortcut-item"><span>保存</span><span class="shortcut-key">Ctrl+S</span></div>
+        <div class="shortcut-item"><span>全选文字</span><span class="shortcut-key">Ctrl+A</span></div>
+        <div class="shortcut-item"><span>删除选中</span><span class="shortcut-key">Delete</span></div>
+      </div>
+      <div class="shortcut-card">
+        <h4>页面操作</h4>
+        <div class="shortcut-item"><span>新建页面</span><span class="shortcut-key">Ctrl+M</span></div>
+        <div class="shortcut-item"><span>复制当前页</span><span class="shortcut-key">Ctrl+D</span></div>
+        <div class="shortcut-item"><span>等比缩放</span><span class="shortcut-key">Shift+拖角点</span></div>
+      </div>
+      <div class="shortcut-card">
+        <h4>文字格式</h4>
+        <div class="shortcut-item"><span>加粗</span><span class="shortcut-key">Ctrl+B</span></div>
+        <div class="shortcut-item"><span>水平居中</span><span class="shortcut-key">Ctrl+E</span></div>
+        <div class="shortcut-item"><span>撤销</span><span class="shortcut-key">Ctrl+Z</span></div>
+      </div>
+      <div class="shortcut-card">
+        <h4>截图与符号</h4>
+        <div class="shortcut-item"><span>Windows截图</span><span class="shortcut-key">Win+Shift+S</span></div>
+        <div class="shortcut-item"><span>竖线 |</span><span class="shortcut-key">Shift+\</span></div>
+        <div class="shortcut-item"><span>圆点 ·（备选）</span><span class="shortcut-key">Alt+41458</span></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:12px 16px;background:#E6F1FB;border-radius:8px;font-size:13px;color:#185FA5;">
+      pt = 磅 = 字号单位，1pt 约 0.35mm。数字越大字越大。
+    </div>
+  </div>
+
+  <!-- ===== 踩坑记录 ===== -->
+  <div class="section">
+    <div class="section-title">踩坑记录 &amp; 解决方案</div>
+
+    <div class="pitfall-card">
+      <h4>1. WPS模板选择页的付费陷阱</h4>
+      <p>打开WPS演示后，模板页有4个按钮，其中3个（AI生成/上传文档/稻壳大师）要会员，新手容易被引导点付费功能。</p>
+      <div class="solution">解决：每次只点"空白演示文稿"（免费），忽略其他3个按钮</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>2. "字体颜色"和"填充颜色"搞混</h4>
+      <p>工具栏上"A字加下三角"是字体颜色，旁边还有一个"填充颜色"按钮（像油漆桶），新手容易点错。浩总曾误打开"填充颜色"面板。</p>
+      <div class="solution">解决：改文字颜色优先用"右键 → 字体 → 字体颜色"对话框法，绕过工具栏混淆</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>3. #1F4E79 不在标准颜色下拉里</h4>
+      <p>科技风深蓝色 #1F4E79 不在WPS默认颜色面板里，直接选不到。</p>
+      <div class="solution">解决：颜色下拉 → "其他颜色" → "自定义"标签 → 手动输入 RGB 值 31/78/121</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>4. 手打圆点"•"渲染成方块</h4>
+      <p>在Arial字体18pt下，手打的圆点符号"•"会渲染成方块，位置还偏高。</p>
+      <div class="solution">解决：删掉手打圆点，改用WPS自带的"项目符号"功能（开始工具栏里的三个圆点图标）</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>5. Ctrl+M 新建页面不继承背景色</h4>
+      <p>用 Ctrl+M 新建的页面是白底，不会自动继承深蓝背景。</p>
+      <div class="solution">解决：方法1——设置背景色时点"全部应用"；方法2——用 Ctrl+D 复制已有页面代替 Ctrl+M 新建</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>6. "替换字体"按钮找不到</h4>
+      <p>"替换字体"功能藏在"替换"按钮旁边的小三角里，容易忽略。</p>
+      <div class="solution">解决：开始菜单 → 找到"替换"按钮 → 点它右边的小三角（不是点按钮本身）→ 选"替换字体"</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>7. 母版自动页码不生效</h4>
+      <p>浩总的WPS版本，在母版里用"页眉页脚"加自动页码，无论点"应用"还是"全部应用"都不生效。</p>
+      <div class="solution">解决：接受现状，使用手动页码。母版的概念和进入方法已学会，等以后用PowerPoint时再用自动页码功能</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>8. 图标颜色和PPT风格不搭</h4>
+      <p>从iconfont下载的图标可能是彩色/灰色的，跟科技风（深蓝+白+浅蓝）冷色调不搭。浩总最初插入的闪电是黄色的。</p>
+      <div class="solution">解决：选中图标 → 图片格式 → 颜色/填充 → 改成白色。或者在iconfont下载时就选线性白色版本</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>9. 图表Ctrl+A选不上文字</h4>
+      <p>图表里用Ctrl+A想全选文字改字体，发现选不上图表内的文字。</p>
+      <div class="solution">解决：先单击选中整个图表对象（图表边框变亮），再点开始标签 → 字体选微软雅黑，一次改全部文字</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>10. 折线图X轴类别不够</h4>
+      <p>Excel里填了6行数据（1月-6月），但图表X轴只显示4个类别（1月-4月）。</p>
+      <div class="solution">解决：①还在Excel里没退出 → 点表格外空白处退出，图表会刷新 ②数据范围未扩展 → 图表工具→设计→选择数据→改范围为 A1:B7</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>11. 图例显示多余的"系列2/系列3"</h4>
+      <p>折线图图例里除了"用户数"还显示"系列2"和"系列3"，因为Excel里C列D列还有默认数据。</p>
+      <div class="solution">解决：方法①Excel里选中C/D列数据 → Delete清空。方法②图表工具→设计→选择数据→左侧选系列2/3→删除→确定</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>12. "横向分布"让圆点挤在一起</h4>
+      <p>做时间轴时，5个圆点全选 → 开始→排列→对齐→横向分布，结果圆点全挤在右边或中间一小段。</p>
+      <div class="solution">解决：横向分布是"从选中第一个到最后一个之间分布"，不是页面全宽分布。新手建议撤销(Ctrl+Z)后手动拖到5个等距位置更稳</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>13. 数据点旁边出现多余数字"1"</h4>
+      <p>折线图数据点"120"旁边出现一个小"1"，不知道哪里来的。</p>
+      <div class="solution">真相：这是"系列名称"标签的显示残留。WPS默认不勾选系列名称，重进数据编辑后那个"1"会自动消失。如果还在：右键数据标签→设置数据标签格式→取消勾选"系列名称"</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>14. 图表改色找不到按钮</h4>
+      <p>选中图表后找不到改色按钮，右键也没有"更改颜色"选项。</p>
+      <div class="solution">解决：选中图表 → 顶部自动出现"图表工具"标签 → 点"设计"子标签 → 找"更改颜色"按钮（图标像彩色小方块）→ 选蓝色色调</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>15. 装饰条文字意外旋转90度</h4>
+      <p>做装饰条时，不小心碰到形状顶部的绿色旋转手柄，整个形状+文字旋转了90度，变成竖排文字。</p>
+      <div class="solution">解决：删掉多余文字，装饰条本身不写文字。不要碰绿色旋转手柄（只在画箭头需要旋转角度时才用）。标题单独用横向文本框</div>
+    </div>
+  </div>
+
+  <!-- ===== 素材库 ===== -->
+  <div class="section">
+    <div class="section-title">PPT素材库目录结构</div>
+    <div class="folder-tree">
+<span class="folder">PPT素材库/</span>
+  <span class="new">├── pdf/</span>            <span class="file">← 导出的PDF成品放这里（18页完整版）</span>
+  ├── 图标/
+  │   ├── 科技风_图表.svg/   <span class="file">← 20个SVG图标（19个白色线性 + 1个电脑实心灰）</span>
+  │   ├── PPT图标下载清单.md  <span class="file">← 20个图标的搜索词/用途/命名建议</span>
+  │   └── 使用说明.md        <span class="file">← 图标命名规范+格式选择+使用方法</span>
+  <span class="new">├── 图片样品/</span>          <span class="file">← 接单样品截图（时间轴_科技风.png + 装饰条三件套_科技风.png）</span>
+  ├── 图片/                 <span class="file">← 以后放pexels等图片素材</span>
+  ├── 字体/                 <span class="file">← 以后放字体文件</span>
+  └── 模板/                 <span class="file">← 以后放PPT模板</span>
+    </div>
+
+    <div class="table-wrap" style="margin-top:16px;">
+      <table>
+        <tr>
+          <th style="width:15%">图标名称</th>
+          <th style="width:15%">推荐用途</th>
+          <th>图标名称</th>
+          <th style="width:15%">推荐用途</th>
+        </tr>
+        <tr>
+          <td>电脑</td><td>项目概述页</td>
+          <td>毕业帽</td><td>答辩/教育类</td>
+        </tr>
+        <tr>
+          <td>团队</td><td>实施计划页</td>
+          <td>演讲台</td><td>路演/汇报类</td>
+        </tr>
+        <tr>
+          <td>文档</td><td>需求文档页</td>
+          <td>工厂</td><td>生产/制造类</td>
+        </tr>
+        <tr>
+          <td>上升箭头</td><td>增长/业绩页</td>
+          <td>手机</td><td>移动端/APP类</td>
+        </tr>
+        <tr>
+          <td>下降箭头</td><td>问题/风险页</td>
+          <td>定位</td><td>地址/位置类</td>
+        </tr>
+        <tr>
+          <td>钱币</td><td>预算/成本页</td>
+          <td>安全锁</td><td>安全/保障类</td>
+        </tr>
+        <tr>
+          <td>日历</td><td>实施计划页</td>
+          <td>闪电</td><td>封面/创意类</td>
+        </tr>
+        <tr>
+          <td>时钟</td><td>时间节点页</td>
+          <td>数据图表</td><td>数据分析页</td>
+        </tr>
+        <tr>
+          <td>目标</td><td>项目概述过渡页</td>
+          <td>灯泡</td><td>需求分析过渡页</td>
+        </tr>
+        <tr>
+          <td>对勾</td><td>解决方案页</td>
+          <td>齿轮</td><td>解决方案过渡页</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== 待学清单 ===== -->
+  <div class="section">
+    <div class="section-title">已学 &amp; 待学清单</div>
+    <div class="todo-list">
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">基础操作（打开/保存/全选/删除/打字改字号）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">页面设置（16:9 / 参考线 / 背景色）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">文字操作（改颜色 / 替换字体 / 项目符号 / 文本框拉宽）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">页面操作（Ctrl+M新建 / Ctrl+D复制 / 拖动排序）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">排版技巧（装饰条 / 副标题 / 章节过渡页）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">图标操作（插入SVG / 调大小位置 / 改色）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">导出PDF</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">母版概念（已理解，自动页码因WPS版本暂搁置）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">图表三件套（柱状图 / 饼图 / 折线图 + 改色 + 改字体）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">表格插入与美化（科技风表格 + 标题 + 居中）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">图片技能链（插入/缩放/移动/裁剪/边框/阴影）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">图文排版（左图右文：标题+要点+项目符号）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">形状工具·流程图（圆角矩形+箭头）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">形状工具·时间轴（横线+圆点+日期事件）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">装饰条三件套（竖线标题装饰 + 横线标题装饰 + 顶部页面装饰条）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">实战模拟接单（10页完整PPT + PDF成品 · 社区中心2024工作汇报）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">椭圆裁剪（圆形头像/Logo · 形状填充图片法）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">进阶版式三件套（卡片式 / 上图下文 / 多图排版）</div>
+      </div>
+      <div class="todo-item">
+        <div class="todo-check done"></div>
+        <div class="todo-text done">页面切换动画（淡入 · 全选页面统一设置）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 第5天·实战模拟接单 ===== -->
+  <div class="section">
+    <div class="section-title">第5天 · 实战模拟接单 🏁</div>
+
+    <div style="padding:16px 20px;background:#E6F1FB;border-radius:8px;font-size:13px;color:#0C447C;line-height:1.8;margin-bottom:16px;">
+      <strong>实战目标：</strong>拿一份真实客户文字稿（社区便民服务中心2024年度工作汇报），从提炼大纲→制作→导出PDF，跑通接单全流程，检验5天学习成果。<br>
+      <strong>实战成果：</strong>10页科技风PPT + PDF成品，约4小时完成（含改色+修复）
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th style="width:15%">页码</th>
+          <th style="width:15%">类型</th>
+          <th>内容</th>
+        </tr>
+        <tr><td>P1</td><td>封面</td><td>白色标题"社区便民服务中心2024年度工作汇报" + 浅蓝装饰条 + 副标题</td></tr>
+        <tr><td>P2</td><td>目录</td><td>4章节：01全年概览 / 02业务成果 / 03明年规划 / 04问题与建议</td></tr>
+        <tr><td>P3</td><td>过渡页</td><td>大数字"01" + 副标题"全年概览"</td></tr>
+        <tr><td>P4</td><td>内容页</td><td>全年概览：3个白字数据点 + 柱状图（白底深蓝字浅蓝柱）</td></tr>
+        <tr><td>P5</td><td>过渡页</td><td>大数字"02" + 副标题"业务成果"</td></tr>
+        <tr><td>P6</td><td>内容页</td><td>业务成果：饼图4板块蓝渐变 + 数据标签外移 + 最大板块分离</td></tr>
+        <tr><td>P7</td><td>内容页</td><td>团队与经费：3条要点 + 饼图3板块蓝渐变</td></tr>
+        <tr><td>P8</td><td>过渡页</td><td>大数字"03" + 副标题"明年规划"</td></tr>
+        <tr><td>P9</td><td>内容页</td><td>明年规划：4条要点（业务拓展/团队建设/设施升级/合作深化）</td></tr>
+        <tr><td>P10</td><td>结尾页</td><td>问题与建议：3条建议 + 汇报人信息</td></tr>
+      </table>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>坑1：WPS"更改颜色"按钮免费版无蓝色系方案（重大更正）</h4>
+      <p>之前手册说"图表工具→更改颜色→选蓝色色调"——<strong>这是错的</strong>。WPS免费版的"更改颜色"里，没有一套是纯蓝色系，全是有橙/绿/黄/紫的彩色方案。</p>
+      <div class="solution"><strong>正确方法：手动改色</strong>——双击单块扇形（双击两次：第一次选中整图，第二次选中单块）→ 右键 → 设置数据系列格式 → 纯色填充 → 颜色点开 → 自定义颜色 → 填RGB值</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>坑2：图表"更改颜色"会把整个图表配色按方案色改</h4>
+      <p>不只改柱子，背景/文字/网格线全改。出现"背景变深蓝+文字也深蓝=字消失"就是这个问题。</p>
+      <div class="solution"><strong>改色后必查3项</strong>：色块颜色 / 背景颜色（改回白色）/ 文字颜色（保留深蓝）</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>坑3：饼图小扇形数据标签挤一起</h4>
+      <p>200/350这种小扇形数据标签默认"数据标签内"位置，数字叠在一起看不清。</p>
+      <div class="solution"><strong>修复</strong>：双击数字标签 → 对象属性 → 标签位置 → 数据标签外（带引导线）。进阶：双击小扇形拖出来"分离扇形"突出重点。</div>
+    </div>
+
+    <div class="pitfall-card">
+      <h4>坑4：目录与内页标题要一致</h4>
+      <p>改了目录章节名（如"核心数据"→"全年概览"），内页标题也要同步改，否则目录和内页对不上。</p>
+      <div class="solution"><strong>原则</strong>：目录章节名 = 过渡页副标题 = 内容页标题，三者必须一致。改一个，其他两个也要同步。</div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:20px;">
+      <table>
+        <tr>
+          <th>图表配色铁律</th>
+          <th>RGB</th>
+          <th>用途</th>
+        </tr>
+        <tr><td style="color:#1F4E79;font-weight:500;">深蓝 #1F4E79</td><td>31/78/121</td><td>最大板块 / 标题 / 背景</td></tr>
+        <tr><td style="color:#4A90C2;font-weight:500;">中蓝 #4A90C2</td><td>74/144/194</td><td>次大板块</td></tr>
+        <tr><td style="color:#85B7EB;font-weight:500;">浅蓝 #85B7EB</td><td>133/183/235</td><td>第三板块 / 装饰条</td></tr>
+        <tr><td style="color:#B5D4F4;font-weight:500;">最浅蓝 #B5D4F4</td><td>181/212/244</td><td>最小板块 / 副标题</td></tr>
+      </table>
+    </div>
+
+    <div class="skill-card" style="margin-top:16px;">
+      <div class="skill-header">
+        <div class="skill-num">!</div>
+        <div class="skill-title">接单全流程（实战总结）</div>
+        <span class="skill-tag tag-adv">接单必备</span>
+      </div>
+      <ul class="skill-steps">
+        <li>客户发文字稿（Word/微信文字皆可）</li>
+        <li>AI帮提炼10页左右大纲（讲"为什么这样分页"的逻辑，不只给大纲）</li>
+        <li>发客户审核确认（避免做完返工）</li>
+        <li>制作PPT：新建空白演示文稿 → 16:9 → 深蓝背景 → 参考线 → 逐页制作（4-5小时）</li>
+        <li>导出PDF交付：文件→另存为→保存类型选PDF→保存到交付文件夹</li>
+        <li>文件命名规范：客户名_主题_v1_日期（如 社区中心_2024工作汇报_v1_0803）</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">!</div>
+        <div class="skill-title">浩总能力成长记录</div>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>全局思维</strong>：发现目录与内页标题对不上、序号跳跃问题主动提问（不再机械执行）</li>
+        <li><strong>命名能力</strong>：自己把"核心数据"改成"全年概览"（比教练起的更专业）</li>
+        <li><strong>独立摸索</strong>：手动改色方法自己用对，没被之前错误教学误导</li>
+        <li><strong>实战节奏</strong>：10页PPT从0到PDF，约4小时（含改色+修复），达到接单速度</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== 第6天·进阶版式+动画 ===== -->
+  <div class="section">
+    <div class="section-title">第6天 · 进阶版式 + 动画效果 🎨</div>
+
+    <div style="padding:16px 20px;background:#E6F1FB;border-radius:8px;font-size:13px;color:#0C447C;line-height:1.8;margin-bottom:16px;">
+      <strong>学习目标：</strong>掌握3种高频版式 + 页面切换动画，覆盖工作汇报/答辩PPT 90%的排版需求<br>
+      <strong>学习成果：</strong>卡片式团队介绍页 + 上图下文案例页 + 2×2多图排版页 + 全PPT淡入切换
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">1</div>
+        <div class="skill-title">卡片式版式（团队介绍/服务亮点）</div>
+      </div>
+      <ul class="skill-steps">
+        <li>插入 → 形状 → 圆角矩形 → 画卡片（宽5-6cm，高7cm）</li>
+        <li>卡片填充<strong>白色</strong>，无线条（或浅蓝#85B7EB细线1磅）</li>
+        <li>卡片内放3层内容：深蓝图标（顶部）+ 深蓝姓名18pt加粗（中部）+ 浅灰职务12pt（底部）</li>
+        <li>Ctrl+D复制出3-4个卡片 → 手动拖动横排对齐（间距1cm）</li>
+        <li>⚠️ <strong>卡片配色铁律：深蓝底 + 白卡片 + 深蓝文字</strong>（蓝卡片信息糊背景）</li>
+        <li>⚠️ 圆角别太大，拖左上角黄菱形调小（像信息卡不像APP按钮）</li>
+        <li>⚠️ 所有内容必须放卡片内，不能飘外面</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">2</div>
+        <div class="skill-title">上图下文版式（案例展示/活动回顾）</div>
+      </div>
+      <ul class="skill-steps">
+        <li>插入大图 → 宽度占页面60-70% → 居中</li>
+        <li>右键图片 → 设置对象格式 → 边框：浅蓝#85B7EB实线1磅</li>
+        <li>阴影：外部向下偏移，模糊100%，颜色深蓝半透明 → 图片"浮"在页面上</li>
+        <li>图片下方3层文字：白色标题22pt加粗 / 浅蓝副标题16pt / 白色要点带项目符号</li>
+        <li>⚠️ <strong>深蓝底文字颜色铁律：白字最清晰，浅蓝#B5D4F4做层次，不能用深蓝</strong></li>
+        <li>⚠️ 不写"案例标题""项目简介"等标签词，直接写内容</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">3</div>
+        <div class="skill-title">多图排版（活动照片墙/成果展示）</div>
+      </div>
+      <ul class="skill-steps">
+        <li>插入图片 → Ctrl+C/V复制出4张 → 统一大小（右键→大小和位置→输入相同宽高）</li>
+        <li>排成2×2网格：上排2张 + 下排2张，间距1cm</li>
+        <li>手动拖动对齐 + 参考线辅助（别用"横向分布"，会全挤一边）</li>
+        <li>每张图下方配白色小字说明（4-6字），微软雅黑12pt，居中</li>
+        <li>页面顶部加大标题（白色32pt加粗）+ 浅蓝装饰条</li>
+        <li>⚠️ 4张图必须<strong>完全一样大</strong>，不然网格不整齐</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">4</div>
+        <div class="skill-title">页面切换动画（淡入）</div>
+      </div>
+      <ul class="skill-steps">
+        <li>左侧缩略图点第1页 → 按住Shift点最后一页 → 全选所有页</li>
+        <li>顶部「切换」标签（不是"动画"标签）→ 选「淡入」</li>
+        <li>全选所有页一起设置，避免逐页操作</li>
+        <li>⚠️ <strong>商务PPT动画铁律：少用、克制、统一</strong>，一个PPT最多2种动画效果</li>
+        <li>⚠️ 只用淡入/推入，不用弹跳/旋转/飞入（太花哨）</li>
+        <li>⚠️ "应用到全部"有时只给同版式页加效果，全选页面一起设置更靠谱</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-num">!</div>
+        <div class="skill-title">第6天踩坑记录</div>
+      </div>
+      <ul class="skill-steps">
+        <li><strong>卡片用蓝色 → 信息糊背景</strong>：深蓝底必须用白色卡片，蓝色卡片和背景融为一体</li>
+        <li><strong>文字飘在卡片外面</strong>：所有内容（图标+姓名+职务）必须放卡片内部</li>
+        <li><strong>图标颜色太亮</strong>：#4A90C2不够商务，必须改成#1F4E79深蓝</li>
+        <li><strong>圆角太大像APP按钮</strong>：拖左上角黄色菱形点调小圆角</li>
+        <li><strong>深蓝底用深蓝文字 → 看不见</strong>：深蓝底文字必须用白色或浅蓝#B5D4F4</li>
+        <li><strong>页面切换在"动画"标签找不到</strong>：WPS页面切换在独立的「切换」标签，不是「动画」标签</li>
+        <li><strong>"应用到全部"只给一页加效果</strong>：WPS版本bug，全选所有页一起设置更靠谱</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== 接单能力评估 ===== -->
+  <div class="section">
+    <div class="section-title">当前接单能力评估</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th style="width:20%">PPT类型</th>
+          <th style="width:15%">难度</th>
+          <th style="width:15%">能否接单</th>
+          <th>说明</th>
+        </tr>
+        <tr>
+          <td>工作汇报</td><td>2星</td><td style="color:#1D9E75;font-weight:500;">完全可以</td>
+          <td>文字稿→提炼要点→排版→配色→图表/表格→导出PDF，全流程已跑通（实战验证：社区中心10页PPT，约4小时完成）</td>
+        </tr>
+        <tr>
+          <td>毕业答辩</td><td>2星</td><td style="color:#1D9E75;font-weight:500;">完全可以</td>
+          <td>数据可视化三件套+流程图+时间轴已会，答辩PPT核心元素全覆盖</td>
+        </tr>
+        <tr>
+          <td>商业路演（基础版）</td><td>3星</td><td style="color:#1D9E75;font-weight:500;">完全可以</td>
+          <td>图文排版+形状工具+图表全覆盖，可做产品介绍/商业模式类路演</td>
+        </tr>
+        <tr>
+          <td>商业路演（进阶版）</td><td>4星</td><td style="color:#1D9E75;font-weight:500;">完全可以</td>
+          <td>动画效果已学（页面淡入切换）+ 进阶版式三件套已掌握，可接带动态效果的路演PPT</td>
+        </tr>
+      </table>
+    </div>
+    <div style="margin-top:12px;padding:16px 20px;background:#E6F1FB;border-radius:8px;font-size:13px;color:#0C447C;line-height:1.8;">
+      <strong>交付规范：</strong><br>
+      1. 输出 PPTX 可编辑版 + PDF 预览版<br>
+      2. 文件命名：客户名_主题_v1_日期<br>
+      3. 配色方案：深蓝#1F4E79 + 白字 + 浅蓝装饰条#85B7EB + 浅蓝副标题#B5D4F4<br>
+      4. 字体：微软雅黑（标题40pt，正文18-24pt，页码12pt）<br>
+      5. 图表配色：手动改色（双击单块→右键→设置数据系列格式→纯色填充→自定义RGB，免费版"更改颜色"无蓝色系）<br>
+      6. 表格风格：深蓝表头 + 白/灰隔行 + 无粗边框
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>本手册由 Hermes 整理 · 2026年8月5日更新（含第6天进阶版式+动画效果）</p>
+    <p style="margin-top:4px;">浩总从零基础到完成10页接单级PPT · 进阶版式三件套+动画效果已通关 · 58项技能 · 26条踩坑记录</p>
+  </div>
+
+</div>
+</body>
+</html>

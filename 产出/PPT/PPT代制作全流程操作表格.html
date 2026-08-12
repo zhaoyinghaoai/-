@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPT代制作全流程操作表格 — 从零到交付</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f5f6f8; color: #2c2c2a; line-height: 1.7; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Header */
+  .header { background: #0C447C; color: #fff; padding: 48px 32px; border-radius: 12px; margin-bottom: 32px; }
+  .header h1 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; color: #85B7EB; }
+  .header .accent-line { width: 48px; height: 3px; background: #378ADD; border-radius: 2px; margin: 16px 0; }
+
+  /* Section */
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 20px; font-weight: 500; color: #0C447C; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #378ADD; }
+
+  /* Profile */
+  .profile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+  .profile-item { background: #fff; border-radius: 8px; padding: 16px 20px; border: 1px solid #e0e0e0; }
+  .profile-label { font-size: 12px; color: #888; margin-bottom: 4px; }
+  .profile-value { font-size: 14px; font-weight: 500; color: #2c2c2a; }
+
+  /* Stage Cards */
+  .stage-card { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 20px; border: 1px solid #e0e0e0; overflow: hidden; }
+  .stage-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .stage-num { width: 32px; height: 32px; border-radius: 8px; background: #0C447C; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; flex-shrink: 0; }
+  .stage-name { font-size: 17px; font-weight: 500; color: #2c2c2a; }
+  .stage-desc { font-size: 12px; color: #888; }
+
+  .dim-row { margin-bottom: 14px; }
+  .dim-label { font-size: 12px; font-weight: 500; color: #378ADD; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .dim-label::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #378ADD; }
+  .dim-content { font-size: 13px; color: #444; padding-left: 10px; line-height: 1.8; }
+  .dim-content ul { list-style: none; }
+  .dim-content li { padding-left: 14px; position: relative; margin-bottom: 3px; }
+  .dim-content li::before { content: "-"; position: absolute; left: 0; color: #aaa; }
+
+  /* Style params */
+  .style-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 8px; }
+  .style-card { border-radius: 8px; padding: 14px; font-size: 12px; }
+  .style-tech { background: #0C447C; color: #fff; }
+  .style-tech .style-name { color: #85B7EB; }
+  .style-biz { background: #E6F1FB; color: #0C447C; border: 1px solid #85B7EB; }
+  .style-biz .style-name { color: #185FA5; }
+  .style-defense { background: #F1EFE8; color: #5F5E5A; border: 1px solid #D3D1C7; }
+  .style-defense .style-name { color: #444; }
+  .style-name { font-size: 12px; font-weight: 500; margin-bottom: 8px; }
+  .style-card ul { list-style: none; }
+  .style-card li { padding-left: 10px; position: relative; margin-bottom: 4px; line-height: 1.6; }
+  .style-card li::before { content: ">"; position: absolute; left: 0; font-size: 10px; opacity: 0.6; }
+
+  /* Pitfall */
+  .pitfall { background: #FCEBEB; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #A32D2D; line-height: 1.8; }
+  .pitfall strong { color: #791F1F; }
+
+  /* Resource list */
+  .resource-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; }
+  .resource-table th { background: #0C447C; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; font-size: 12px; }
+  .resource-table td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; }
+  .resource-table tr:last-child td { border-bottom: none; }
+  .resource-table .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; }
+  .tag-free { background: #E1F5EE; color: #0F6E56; }
+
+  /* Checklist */
+  .checklist { background: #fff; border-radius: 12px; padding: 24px; border: 1px solid #e0e0e0; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 13px; }
+  .checklist-box { width: 16px; height: 16px; border: 2px solid #378ADD; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .checklist-group-title { font-size: 13px; font-weight: 500; color: #0C447C; margin: 16px 0 8px; }
+  .checklist-group-title:first-child { margin-top: 0; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 24px; color: #888; font-size: 12px; }
+  .footer .tip { background: #E6F1FB; border-radius: 8px; padding: 16px; color: #0C447C; margin-bottom: 16px; text-align: left; font-size: 13px; }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .profile-grid { grid-template-columns: 1fr; }
+    .style-grid { grid-template-columns: 1fr; }
+    .header { padding: 32px 20px; }
+    .header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>PPT代制作全流程操作表格</h1>
+    <div class="accent-line"></div>
+    <div class="subtitle">10年科技风设计师视角 | 从接单到交付的8个阶段 | 新手照着做就能出活</div>
+  </div>
+
+  <!-- Profile -->
+  <div class="section">
+    <div class="section-title">你的起点</div>
+    <div class="profile-grid">
+      <div class="profile-item">
+        <div class="profile-label">工具</div>
+        <div class="profile-value">WPS演示（从零开始）</div>
+      </div>
+      <div class="profile-item">
+        <div class="profile-label">学习时间</div>
+        <div class="profile-value">每天1-2小时</div>
+      </div>
+      <div class="profile-item">
+        <div class="profile-label">素材储备</div>
+        <div class="profile-value">无（本文档含免费资源）</div>
+      </div>
+      <div class="profile-item">
+        <div class="profile-label">风格范围</div>
+        <div class="profile-value">科技风 + 商务简约 + 答辩风</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 1 -->
+  <div class="section">
+    <div class="section-title">全流程操作表（8个阶段）</div>
+
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-num">1</div>
+        <div>
+          <div class="stage-name">接单沟通</div>
+          <div class="stage-desc">客户找你到确认合作这个阶段</div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">专业设计师怎么做</div>
+        <div class="dim-content">
+          <ul>
+            <li>先问清5件事：用途（汇报/答辩/路演）、受众（领导/评委/投资人）、时长（几分钟）、页数预期、截止时间</li>
+            <li>问客户要参考样例："你看过哪个PPT觉得好看？发我看看"</li>
+            <li>报价根据页数×单价，不根据"内容难度"——因为难度你判断不了</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">新手照做版本</div>
+        <div class="dim-content">
+          <ul>
+            <li>准备一段固定话术，每次接单直接发：「您好！为了帮您做出满意的PPT，请告诉我：①这是什么场合用的？②给谁看？③大概几分钟？④需要多少页？⑤什么时候要？」</li>
+            <li>让对方把所有文字资料用Word或微信发给你，不要语音</li>
+            <li>先不急着答应，看完资料再报价</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">三种风格参数</div>
+        <div class="style-grid">
+          <div class="style-card style-tech">
+            <div class="style-name">科技风</div>
+            <ul>
+              <li>适用：产品发布、技术汇报</li>
+              <li>报价：中高（视觉要求高）</li>
+              <li>周期：5-7天/15页</li>
+            </ul>
+          </div>
+          <div class="style-card style-biz">
+            <div class="style-name">商务简约风</div>
+            <ul>
+              <li>适用：工作汇报、年终总结</li>
+              <li>报价：中等（最常见）</li>
+              <li>周期：3-5天/15页</li>
+            </ul>
+          </div>
+          <div class="style-card style-defense">
+            <div class="style-name">答辩风</div>
+            <ul>
+              <li>适用：毕业答辩、开题报告</li>
+              <li>报价：偏低（学生客户）</li>
+              <li>周期：2-3天/15页</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">免费工具</div>
+        <div class="dim-content">
+          <ul>
+            <li>微信/QQ（沟通+收发文件）</li>
+            <li>WPS云文档（在线协作，客户可实时看进度）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">常见坑</div>
+        <div class="pitfall">
+          <strong>坑1：</strong>没问清楚就报价，结果客户要30页你报了15页的价。<br>
+          <strong>坑2：</strong>客户说"简单做做就行"——信了你就输了，"简单"是他的意思不是你的标准。<br>
+          <strong>坑3：</strong>没定截止时间，客户天天催你。
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-num">2</div>
+        <div>
+          <div class="stage-name">需求分析</div>
+          <div class="stage-desc">拿到资料后，先别急着做PPT，先读懂内容</div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">专业设计师怎么做</div>
+        <div class="dim-content">
+          <ul>
+            <li>通读全部文字资料，用笔标出：核心观点（一句话能说清的）、关键数据（数字/百分比）、逻辑关系（因果/并列/递进）</li>
+            <li>把内容分成三类：必须放的、可以精简的、可以删掉的</li>
+            <li>发现内容断层或逻辑不通，主动跟客户确认</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">新手照做版本</div>
+        <div class="dim-content">
+          <ul>
+            <li>把客户资料复制到Word里，逐段读</li>
+            <li>每段问自己一个问题："这页PPT如果只能留一句话，留哪句？"——那句话就是标题</li>
+            <li>把数字、百分比全部用荧光笔标出来，这些以后要放大显示</li>
+            <li>发现有读不通的地方，截图发客户问："这段意思是不是XXX？"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">三种风格参数</div>
+        <div class="style-grid">
+          <div class="style-card style-tech">
+            <div class="style-name">科技风</div>
+            <ul>
+              <li>重点提取：数据/技术指标</li>
+              <li>逻辑线：问题→方案→效果</li>
+              <li>每页必须有一个"亮点数字"</li>
+            </ul>
+          </div>
+          <div class="style-card style-biz">
+            <div class="style-name">商务简约风</div>
+            <ul>
+              <li>重点提取：业绩/计划/问题</li>
+              <li>逻辑线：过去→现在→未来</li>
+              <li>每页标题写成结论式</li>
+            </ul>
+          </div>
+          <div class="style-card style-defense">
+            <div class="style-name">答辩风</div>
+            <ul>
+              <li>重点提取：研究方法/结论</li>
+              <li>逻辑线：背景→方法→结果→结论</li>
+              <li>突出"我的贡献"部分</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">免费工具</div>
+        <div class="dim-content">
+          <ul>
+            <li>WPS文字（标注和整理内容）</li>
+            <li>纸笔（打印出来手写标注效果最好）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">常见坑</div>
+        <div class="pitfall">
+          <strong>坑1：</strong>客户给了什么就全放上去——PPT不是Word的搬运工。<br>
+          <strong>坑2：</strong>自己觉得逻辑不通但不好意思问，结果做出来客户说"不对"。<br>
+          <strong>坑3：</strong>忽略了演讲时长——10分钟的汇报做30页，每页只能讲20秒，根本看不过来。
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-num">3</div>
+        <div>
+          <div class="stage-name">内容架构（大纲制作）</div>
+          <div class="stage-desc">把文字稿变成PPT页面结构——每页放什么标题、什么要点</div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">专业设计师怎么做</div>
+        <div class="dim-content">
+          <ul>
+            <li>先出文字大纲（不碰PPT软件），每页写：页码 | 标题 | 2-3个要点 | 这页的结论</li>
+            <li>大纲发给客户确认后再动手做设计——这叫"先对齐内容，再对齐设计"</li>
+            <li>页面顺序遵循：封面→目录→正文（3-5个章节）→总结→结尾页</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">新手照做版本</div>
+        <div class="dim-content">
+          <ul>
+            <li>用WPS文字写一个简单大纲，格式如下：</li>
+            <li>第1页 | 封面 | 标题+副标题+汇报人+日期</li>
+            <li>第2页 | 目录 | 3-5个章节标题</li>
+            <li>第3-X页 | 正文 | 每页一个标题+2-3个要点（不超过6行）</li>
+            <li>倒数第2页 | 总结 | 核心结论3条</li>
+            <li>最后页 | 谢谢 | "感谢聆听"或"谢谢观看"</li>
+            <li>把这个大纲截图发客户确认，客户说OK了再做PPT</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">三种风格参数</div>
+        <div class="style-grid">
+          <div class="style-card style-tech">
+            <div class="style-name">科技风</div>
+            <ul>
+              <li>结构：问题→方案→技术→效果→展望</li>
+              <li>每章节3-4页</li>
+              <li>多用数据对比页</li>
+            </ul>
+          </div>
+          <div class="style-card style-biz">
+            <div class="style-name">商务简约风</div>
+            <ul>
+              <li>结构：回顾→现状→计划→需求</li>
+              <li>每章节2-4页</li>
+              <li>多用列表+图表页</li>
+            </ul>
+          </div>
+          <div class="style-card style-defense">
+            <div class="style-name">答辩风</div>
+            <ul>
+              <li>结构：选题→文献→方法→结果→结论</li>
+              <li>总页数15-20页</li>
+              <li>重点放在方法和结果</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">免费工具</div>
+        <div class="dim-content">
+          <ul>
+            <li>WPS文字 / 手机备忘录（写大纲）</li>
+            <li>思维导图：XMind免费版（理清逻辑结构）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">常见坑</div>
+        <div class="pitfall">
+          <strong>坑1：</strong>跳过大纲直接做PPT——做完发现逻辑不对，全部返工。<br>
+          <strong>坑2：</strong>一页放太多内容，超过6行文字。<br>
+          <strong>坑3：</strong>没有目录页，观众不知道你讲到哪了。
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 4 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-num">4</div>
+        <div>
+          <div class="stage-name">设计系统搭建</div>
+          <div class="stage-desc">配色、字体、网格——决定PPT整体调性的三件事</div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">专业设计师怎么做</div>
+        <div class="dim-content">
+          <ul>
+            <li>先定3个颜色：主色（60%面积）、辅色（30%面积）、强调色（10%面积）</li>
+            <li>再定2个字体：标题字体 + 正文字体（绝不超过2种）</li>
+            <li>设好网格参考线：左右边距统一、标题位置统一、正文区域统一</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">新手照做版本</div>
+        <div class="dim-content">
+          <ul>
+            <li>打开WPS演示 → 设计 → 幻灯片大小 → 选16:9</li>
+            <li>视图 → 勾选"参考线"，把页面分成安全区域</li>
+            <li>在幻灯片母版里设置好标题字体、正文字体、颜色——这样每一页自动统一</li>
+            <li>做完这步存一个"空白模板"，以后每次接新单从这个模板开始</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">三种风格参数</div>
+        <div class="style-grid">
+          <div class="style-card style-tech">
+            <div class="style-name">科技风</div>
+            <ul>
+              <li>主色：深蓝 #0C447C</li>
+              <li>辅色：亮蓝 #378ADD</li>
+              <li>强调色：青色 #1D9E75</li>
+              <li>背景：深蓝 #042C53 或深灰 #1a1a2e</li>
+              <li>标题字：思源黑体 Bold 32pt 白色</li>
+              <li>正文字：思源黑体 Regular 18pt 浅蓝</li>
+            </ul>
+          </div>
+          <div class="style-card style-biz">
+            <div class="style-name">商务简约风</div>
+            <ul>
+              <li>主色：深蓝 #185FA5</li>
+              <li>辅色：浅灰 #D3D1C7</li>
+              <li>强调色：橙色 #BA7517</li>
+              <li>背景：白色 #FFFFFF</li>
+              <li>标题字：微软雅黑 Bold 32pt 深蓝</li>
+              <li>正文字：微软雅黑 Regular 20pt 深灰</li>
+            </ul>
+          </div>
+          <div class="style-card style-defense">
+            <div class="style-name">答辩风</div>
+            <ul>
+              <li>主色：学院蓝 #185FA5</li>
+              <li>辅色：浅灰 #F1EFE8</li>
+              <li>强调色：绿色 #3B6D11</li>
+              <li>背景：白色或极浅灰</li>
+              <li>标题字：宋体/黑体 28pt 深色</li>
+              <li>正文字：宋体 18pt 黑色</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">免费工具</div>
+        <div class="dim-content">
+          <ul>
+            <li>字体：思源黑体（免费商用，Google Fonts下载）</li>
+            <li>配色：ColorHunt.co（免费配色方案网站）</li>
+            <li>WPS自带模板库（部分免费）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">常见坑</div>
+        <div class="pitfall">
+          <strong>坑1：</strong>用了3种以上字体——看着像大杂烩。<br>
+          <strong>坑2：</strong>颜色太多，每页换一个主色——没有统一感。<br>
+          <strong>坑3：</strong>没用母版，每页手动调格式——改一个颜色要改30页。
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 5 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-num">5</div>
+        <div>
+          <div class="stage-name">排版制作（版式应用）</div>
+          <div class="stage-desc">把内容填进每一页——用什么版式，怎么排</div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">专业设计师怎么做</div>
+        <div class="dim-content">
+          <ul>
+            <li>根据内容类型选版式：数据对比用"卡片式"、流程说明用"时间轴"、并列要点用"三栏式"</li>
+            <li>封面页追求视觉冲击，内页追求信息清晰，结尾页简洁有力</li>
+            <li>文字层级清晰：标题 > 副标题 > 正文 > 注释，靠字号大小区分，不靠颜色</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">新手照做版本</div>
+        <div class="dim-content">
+          <ul>
+            <li>记住5种万能版式，覆盖90%的场景：</li>
+            <li>① 通栏式：标题在顶部通栏，内容在下方——适合文字多的页</li>
+            <li>② 左图右文：左边图片/图表占40%，右边文字占60%——适合有配图的页</li>
+            <li>③ 卡片式：3-4个等大的卡片横排——适合并列要点</li>
+            <li>④ 大数字式：页面中心放一个巨大数字+一句话——适合数据亮点</li>
+            <li>⑤ 时间轴式：横向时间线+节点说明——适合流程/发展历程</li>
+            <li>每做完一页退后看一眼：3秒内能看清这页在讲什么就合格</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">三种风格参数</div>
+        <div class="style-grid">
+          <div class="style-card style-tech">
+            <div class="style-name">科技风</div>
+            <ul>
+              <li>首选：大数字式 + 卡片式</li>
+              <li>标题32pt，正文18-20pt</li>
+              <li>每页不超过6行文字</li>
+              <li>用线条/方块做分隔</li>
+              <li>标题前加一条短彩色线</li>
+            </ul>
+          </div>
+          <div class="style-card style-biz">
+            <div class="style-name">商务简约风</div>
+            <ul>
+              <li>首选：通栏式 + 三栏式</li>
+              <li>标题32pt，正文20pt</li>
+              <li>大量留白，内容居中</li>
+              <li>用色块/细线做分隔</li>
+              <li>标题左对齐，正文左对齐</li>
+            </ul>
+          </div>
+          <div class="style-card style-defense">
+            <div class="style-name">答辩风</div>
+            <ul>
+              <li>首选：左图右文 + 通栏式</li>
+              <li>标题28pt，正文18pt</li>
+              <li>公式/图表要大且清晰</li>
+              <li>底部加页码和学校logo</li>
+              <li>每页顶部标注章节名</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">免费工具</div>
+        <div class="dim-content">
+          <ul>
+            <li>WPS演示自带版式（开始 → 版式）</li>
+            <li>Canva可画（免费版有大量版式参考，免费模板网页 canva.com）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">常见坑</div>
+        <div class="pitfall">
+          <strong>坑1：</strong>每页版式都不一样——看着像拼凑的。<br>
+          <strong>坑2：</strong>文字太小，投屏后看不清——正文不低于18pt。<br>
+          <strong>坑3：</strong>图片变形拉伸——按住Shift再拖角落等比缩放。
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 6 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-num">6</div>
+        <div>
+          <div class="stage-name">视觉元素（图标/图表/图片）</div>
+          <div class="stage-desc">让PPT从"能看"变成"好看"的关键</div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">专业设计师怎么做</div>
+        <div class="dim-content">
+          <ul>
+            <li>图标统一风格：要么全用线性图标，要么全用面性图标，不混用</li>
+            <li>图表只用3种：柱状图（对比）、饼图（占比）、折线图（趋势）——够用了</li>
+            <li>图片统一色调：要么全彩色，要么全黑白，要么统一加一层主色滤镜</li>
+            <li>装饰元素克制：一条线、一个色块、一个图标——三选一，不要全上</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">新手照做版本</div>
+        <div class="dim-content">
+          <ul>
+            <li>图标：去 iconfont.cn（阿里巴巴图标库），搜关键词下载PNG，免费商用</li>
+            <li>图表：直接用WPS插入图表，改好颜色后截图粘贴到PPT里（避免格式乱）</li>
+            <li>图片：去 pexels.com（免费高清图），搜英文关键词，选横版图</li>
+            <li>配图原则：能用图标就不用图片，能用图表就不用文字</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">三种风格参数</div>
+        <div class="style-grid">
+          <div class="style-card style-tech">
+            <div class="style-name">科技风</div>
+            <ul>
+              <li>图标：线性蓝色图标</li>
+              <li>图表：深蓝底+亮蓝柱/线</li>
+              <li>图片：科技场景/电路/数据</li>
+              <li>装饰：细线条+小圆点</li>
+            </ul>
+          </div>
+          <div class="style-card style-biz">
+            <div class="style-name">商务简约风</div>
+            <ul>
+              <li>图标：面性灰色图标</li>
+              <li>图表：白底+深蓝柱/线</li>
+              <li>图片：办公/团队/握手</li>
+              <li>装饰：色块+细线</li>
+            </ul>
+          </div>
+          <div class="style-card style-defense">
+            <div class="style-name">答辩风</div>
+            <ul>
+              <li>图标：少用，以图表为主</li>
+              <li>图表：白底+蓝色柱/线</li>
+              <li>图片：实验/流程图/示意图</li>
+              <li>装饰：页眉横线+页码</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">免费工具</div>
+        <div class="dim-content">
+          <ul>
+            <li>图标：iconfont.cn（阿里图标库，免费商用）</li>
+            <li>图片：pexels.com / unsplash.com（免费高清图）</li>
+            <li>图表：WPS表格（做好图表后粘贴到PPT）</li>
+            <li>插画：undraw.co（免费扁平插画，可改颜色）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">常见坑</div>
+        <div class="pitfall">
+          <strong>坑1：</strong>百度搜图直接用——版权问题+画质差+水印。<br>
+          <strong>坑2：</strong>图标风格混用——有的线性有的面性，看着乱。<br>
+          <strong>坑3：</strong>图片带白底放在深色背景上——像贴了块膏药。用去背景工具或找PNG透明图。
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 7 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-num">7</div>
+        <div>
+          <div class="stage-name">细节打磨</div>
+          <div class="stage-desc">专业和业余的分水岭——就是细节</div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">专业设计师怎么做</div>
+        <div class="dim-content">
+          <ul>
+            <li>对齐：所有元素的左边、上边严格对齐，用参考线辅助</li>
+            <li>间距：元素之间的间距统一（比如都用20px），不忽大忽小</li>
+            <li>层次：标题 > 要点 > 说明，靠字号+粗细+颜色拉开层次</li>
+            <li>一致性：每一页的标题位置、字号、颜色完全一样</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">新手照做版本</div>
+        <div class="dim-content">
+          <ul>
+            <li>对齐：选中多个元素 → 右键 → 对齐 → 左对齐/顶对齐（WPS有对齐工具）</li>
+            <li>间距：记住一个数字——20。元素间距统一用20px（约0.5cm）</li>
+            <li>检查方法：把PPT缩放到50%全屏看，哪页看着别扭就是有问题</li>
+            <li>最后一遍检查：逐页翻，看标题位置有没有跳来跳去</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">三种风格参数</div>
+        <div class="style-grid">
+          <div class="style-card style-tech">
+            <div class="style-name">科技风</div>
+            <ul>
+              <li>元素间距：16-20px</li>
+              <li>边距：上下左右各40px</li>
+              <li>圆角：统一8px</li>
+              <li>标题位置：距顶60px</li>
+            </ul>
+          </div>
+          <div class="style-card style-biz">
+            <div class="style-name">商务简约风</div>
+            <ul>
+              <li>元素间距：20-24px</li>
+              <li>边距：上下左右各48px</li>
+              <li>圆角：统一4px或直角</li>
+              <li>标题位置：距顶50px</li>
+            </ul>
+          </div>
+          <div class="style-card style-defense">
+            <div class="style-name">答辩风</div>
+            <ul>
+              <li>元素间距：18-22px</li>
+              <li>边距：上下左右各40px</li>
+              <li>圆角：直角为主</li>
+              <li>标题位置：距顶40px</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">免费工具</div>
+        <div class="dim-content">
+          <ul>
+            <li>WPS对齐工具（选中元素 → 格式 → 对齐）</li>
+            <li>WPS参考线（视图 → 参考线）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">常见坑</div>
+        <div class="pitfall">
+          <strong>坑1：</strong>手动拖对齐——眼睛看着对齐了，实际差几像素。一定要用对齐工具。<br>
+          <strong>坑2：</strong>间距不统一——有的元素间距大有的小，看着松散。<br>
+          <strong>坑3：</strong>动画太多——科技风不是动画多，是克制。最多用"淡入"和"擦除"两种。
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 8 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-num">8</div>
+        <div>
+          <div class="stage-name">交付质检</div>
+          <div class="stage-desc">交给客户之前，过一遍这个清单</div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">专业设计师怎么做</div>
+        <div class="dim-content">
+          <ul>
+            <li>先导出PDF预览版自己看一遍（PDF比PPT编辑视图更接近最终效果）</li>
+            <li>在手机上打开PDF看一遍——很多客户是在手机上看的</li>
+            <li>检查错别字、数字准确性、图片清晰度</li>
+            <li>交付两个文件：PPTX可编辑版 + PDF预览版</li>
+            <li>文件命名：客户名_主题_v1_日期（如：张总_年中汇报_v1_0731）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">新手照做版本</div>
+        <div class="dim-content">
+          <ul>
+            <li>WPS → 文件 → 输出为PDF</li>
+            <li>把PDF发到手机微信上，用手机看一遍</li>
+            <li>用下面的质检清单逐项检查</li>
+            <li>确认没问题后，PPTX和PDF一起打包发给客户</li>
+            <li>附一句话："已按确认的大纲制作完成，请查收。如需修改请告诉我具体哪一页调整什么。"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">三种风格参数</div>
+        <div class="style-grid">
+          <div class="style-card style-tech">
+            <div class="style-name">科技风</div>
+            <ul>
+              <li>额外检查：深色背景下文字是否清晰</li>
+              <li>图表颜色在投影仪上是否可辨</li>
+              <li>动画是否克制（不超过2种）</li>
+            </ul>
+          </div>
+          <div class="style-card style-biz">
+            <div class="style-name">商务简约风</div>
+            <ul>
+              <li>额外检查：是否有错别字/数字错误</li>
+              <li>图表数据标签是否清晰</li>
+              <li>页码是否连续</li>
+            </ul>
+          </div>
+          <div class="style-card style-defense">
+            <div class="style-name">答辩风</div>
+            <ul>
+              <li>额外检查：公式是否清晰</li>
+              <li>参考文献格式是否规范</li>
+              <li>每页底部是否有页码</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">免费工具</div>
+        <div class="dim-content">
+          <ul>
+            <li>WPS自带导出PDF功能</li>
+            <li>微信文件传输助手（手机预览）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dim-row">
+        <div class="dim-label">常见坑</div>
+        <div class="pitfall">
+          <strong>坑1：</strong>只发PPTX不发PDF——客户电脑没装字体就全乱了。<br>
+          <strong>坑2：</strong>没在手机上预览——手机上看字太小就是排版有问题。<br>
+          <strong>坑3：</strong>文件名用"新建演示文稿.pptx"——客户找不着。一定要规范命名。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Free Resources -->
+  <div class="section">
+    <div class="section-title">免费素材资源汇总</div>
+    <table class="resource-table">
+      <thead>
+        <tr>
+          <th>类型</th>
+          <th>网站/工具</th>
+          <th>说明</th>
+          <th>费用</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>图标</td>
+          <td>iconfont.cn</td>
+          <td>阿里巴巴图标库，海量图标，支持PNG/SVG下载，免费商用</td>
+          <td><span class="tag tag-free">免费</span></td>
+        </tr>
+        <tr>
+          <td>高清图片</td>
+          <td>pexels.com</td>
+          <td>免费高清摄影图，搜英文关键词，选横版</td>
+          <td><span class="tag tag-free">免费</span></td>
+        </tr>
+        <tr>
+          <td>高清图片</td>
+          <td>unsplash.com</td>
+          <td>免费高清摄影图，质量极高</td>
+          <td><span class="tag tag-free">免费</span></td>
+        </tr>
+        <tr>
+          <td>扁平插画</td>
+          <td>undraw.co</td>
+          <td>免费扁平风格插画，可自定义颜色</td>
+          <td><span class="tag tag-free">免费</span></td>
+        </tr>
+        <tr>
+          <td>字体</td>
+          <td>思源黑体/思源宋体</td>
+          <td>Google Fonts免费下载，可商用</td>
+          <td><span class="tag tag-free">免费</span></td>
+        </tr>
+        <tr>
+          <td>配色方案</td>
+          <td>colorhunt.co</td>
+          <td>免费配色方案，直接抄色值</td>
+          <td><span class="tag tag-free">免费</span></td>
+        </tr>
+        <tr>
+          <td>思维导图</td>
+          <td>XMind免费版</td>
+          <td>理清PPT逻辑结构</td>
+          <td><span class="tag tag-free">免费</span></td>
+        </tr>
+        <tr>
+          <td>模板参考</td>
+          <td>Canva可画（免费版）</td>
+          <td>看版式找灵感，不直接用模板</td>
+          <td><span class="tag tag-free">免费</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Quality Checklist -->
+  <div class="section">
+    <div class="section-title">交付前质检清单</div>
+    <div class="checklist">
+      <div class="checklist-group-title">内容检查</div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>每页标题是否是结论式（不是"数据分析"而是"销售增长30%"）</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>每页文字不超过6行</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>错别字、数字准确性已核实</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>内容逻辑无断层（上一页和下一页能衔接）</span></div>
+
+      <div class="checklist-group-title">设计检查</div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>全篇只用2种字体（标题+正文）</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>全篇只用3个颜色（主色+辅色+强调色）</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>每页标题位置、字号完全一致</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>元素间距统一（不忽大忽小）</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>所有图片清晰不模糊、不变形</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>图标风格统一（全线性或全面性）</span></div>
+
+      <div class="checklist-group-title">格式检查</div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>幻灯片比例16:9</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>有封面页、目录页、结尾页</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>页码连续无跳号</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>动画不超过2种类型</span></div>
+
+      <div class="checklist-group-title">交付检查</div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>已导出PDF预览版</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>已在手机上预览过PDF</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>文件命名规范：客户名_主题_v1_日期</span></div>
+      <div class="checklist-item"><div class="checklist-box"></div><span>PPTX + PDF 两个文件一起发送</span></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="tip">
+      <strong>给浩总的一句话：</strong>这张表格是你的"操作手册"，不是"教科书"。接第一单的时候，打印出来放在旁边，做完一个阶段勾一个阶段。做完3单以后，这些步骤就会变成肌肉记忆。
+    </div>
+    <p>PPT代制作全流程操作表格 | Hermes 制作 | 2026-07-31</p>
+  </div>
+
+</div>
+</body>
+</html>
