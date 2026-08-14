@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配色翻车封面</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1440px;
+    background: #FFFFFF;
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* 右上角彩虹色块装饰 */
+  .rainbow {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .rainbow-bar {
+    width: 180px;
+    height: 18px;
+    border-radius: 4px;
+  }
+
+  /* 主标题区域 */
+  .main {
+    position: absolute;
+    top: 280px;
+    left: 80px;
+    right: 80px;
+  }
+
+  .number {
+    font-size: 200px;
+    font-weight: 900;
+    color: #E63946;
+    line-height: 1;
+    letter-spacing: -8px;
+  }
+
+  .number-unit {
+    font-size: 100px;
+    font-weight: 900;
+    color: #E63946;
+    margin-left: 10px;
+  }
+
+  .subtitle-1 {
+    font-size: 72px;
+    font-weight: 800;
+    color: #1A1A1A;
+    margin-top: 40px;
+    line-height: 1.3;
+  }
+
+  .subtitle-2 {
+    font-size: 72px;
+    font-weight: 800;
+    color: #1A1A1A;
+    line-height: 1.3;
+  }
+
+  .highlight {
+    color: #E63946;
+  }
+
+  /* 引号装饰 */
+  .quote-mark {
+    position: absolute;
+    top: 200px;
+    left: 60px;
+    font-size: 160px;
+    font-weight: 900;
+    color: #F0F0F0;
+    font-family: Georgia, serif;
+    line-height: 1;
+    z-index: 0;
+  }
+
+  /* 底部信息 */
+  .footer {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .footer-left {
+    font-size: 36px;
+    font-weight: 600;
+    color: #999999;
+    letter-spacing: 2px;
+  }
+
+  .footer-right {
+    font-size: 28px;
+    font-weight: 500;
+    color: #CCCCCC;
+  }
+
+  /* 分割线 */
+  .divider {
+    position: absolute;
+    bottom: 160px;
+    left: 80px;
+    right: 80px;
+    height: 2px;
+    background: #F0F0F0;
+  }
+
+  /* "翻车实录"标签 */
+  .tag {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    display: inline-block;
+    background: #1A1A1A;
+    color: #FFFFFF;
+    padding: 12px 32px;
+    font-size: 32px;
+    font-weight: 700;
+    border-radius: 50px;
+    letter-spacing: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 左上角标签 -->
+  <div class="tag">PPT配色翻车实录</div>
+
+  <!-- 右上角彩虹装饰 -->
+  <div class="rainbow">
+    <div class="rainbow-bar" style="background: #E63946;"></div>
+    <div class="rainbow-bar" style="background: #F77F00;"></div>
+    <div class="rainbow-bar" style="background: #FCBF49;"></div>
+    <div class="rainbow-bar" style="background: #06A77D;"></div>
+    <div class="rainbow-bar" style="background: #118AB2;"></div>
+    <div class="rainbow-bar" style="background: #7209B7;"></div>
+    <div class="rainbow-bar" style="background: #F72585;"></div>
+  </div>
+
+  <!-- 引号装饰 -->
+  <div class="quote-mark">"</div>
+
+  <!-- 主标题 -->
+  <div class="main">
+    <div>
+      <span class="number">7</span><span class="number-unit">种颜色</span>
+    </div>
+    <div class="subtitle-1">客户说像<span class="highlight">彩虹糖</span>广告</div>
+    <div class="subtitle-2">比幼儿园海报还花</div>
+  </div>
+
+  <!-- 分割线 -->
+  <div class="divider"></div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <div class="footer-left">PPT配色翻车 · 真实记录</div>
+    <div class="footer-right">第2期</div>
+  </div>
+
+</body>
+</html>
