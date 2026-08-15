@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>改了3次封面</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1440px;
+    background: #1F4E79;
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* 顶部标签 */
+  .tag {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    display: inline-block;
+    background: #E63946;
+    color: #FFFFFF;
+    padding: 14px 36px;
+    font-size: 34px;
+    font-weight: 700;
+    border-radius: 50px;
+    letter-spacing: 4px;
+  }
+
+  /* 主标题区 */
+  .main {
+    position: absolute;
+    top: 240px;
+    left: 80px;
+    right: 80px;
+  }
+
+  .number {
+    font-size: 280px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1;
+    letter-spacing: -10px;
+  }
+
+  .number-text {
+    font-size: 120px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-left: 10px;
+  }
+
+  .subtitle {
+    font-size: 76px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-top: 30px;
+    line-height: 1.3;
+  }
+
+  .subtitle-red {
+    color: #FF6B6B;
+  }
+
+  /* 3个改动列表 */
+  .changes {
+    position: absolute;
+    top: 780px;
+    left: 80px;
+    right: 80px;
+  }
+
+  .change-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .change-x {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #E63946;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 900;
+    color: #FFFFFF;
+    flex-shrink: 0;
+  }
+
+  .change-text {
+    font-size: 40px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* 底部CTA */
+  .cta {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    right: 80px;
+  }
+
+  .cta-box {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 16px;
+    padding: 30px 40px;
+    text-align: center;
+  }
+
+  .cta-text {
+    font-size: 38px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.4;
+  }
+
+  .cta-highlight {
+    color: #FFD700;
+  }
+
+  .cta-sub {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 红色标签 -->
+  <div class="tag">PPT改稿翻车实录</div>
+
+  <!-- 主标题 -->
+  <div class="main">
+    <div>
+      <span class="number">3</span><span class="number-text">次</span>
+    </div>
+    <div class="subtitle">改完客户说</div>
+    <div class="subtitle subtitle-red">越改越丑</div>
+  </div>
+
+  <!-- 3次改动 -->
+  <div class="changes">
+    <div class="change-item">
+      <div class="change-x">✗</div>
+      <div class="change-text">配色砍3色 → "太素了"</div>
+    </div>
+    <div class="change-item">
+      <div class="change-x">✗</div>
+      <div class="change-text">横向分布 → 3框全挤一起</div>
+    </div>
+    <div class="change-item">
+      <div class="change-x">✗</div>
+      <div class="change-text">放大标题 → 比例全崩了</div>
+    </div>
+  </div>
+
+  <!-- 底部CTA -->
+  <div class="cta">
+    <div class="cta-box">
+      <div class="cta-text">私信发1页截图 <span class="cta-highlight">免费出改稿方案</span></div>
+      <div class="cta-sub">24小时内回 · 这周还能帮2个人</div>
+    </div>
+  </div>
+
+</body>
+</html>
