@@ -65,10 +65,30 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 5,
-  "lastSyncTime": 1787193525312,
+  "lastSyncTime": 1787194125313,
   "lastSyncBookCount": 0,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1787194125109",
+      "timestamp": 1787194125109,
+      "totalBooks": 1,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.203,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1787193825111",
+      "timestamp": 1787193825111,
+      "totalBooks": 1,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.194,
+      "notes": [],
+      "success": true
+    },
     {
       "id": "sync-1787193525113",
       "timestamp": 1787193525113,
@@ -159,32 +179,6 @@
       "skippedBooks": 0,
       "duration": 0.214,
       "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1786187167109",
-      "timestamp": 1786187167109,
-      "totalBooks": 1,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.243,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1786186867100",
-      "timestamp": 1786186867100,
-      "totalBooks": 1,
-      "syncedBooks": 1,
-      "skippedBooks": 0,
-      "duration": 0.902,
-      "notes": [
-        {
-          "bookId": "43696907",
-          "title": "人生设计课：如何设计充实且快乐的人生",
-          "filePath": "原始材料/书摘/43696907.md"
-        }
-      ],
       "success": true
     }
   ],
