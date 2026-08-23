@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>认下来，走起来 · 社card · 人生设计课选择四步骤</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+    .pullquote { font-family:var(--serif-zh); font-style:italic; font-weight:500; font-size:60px; line-height:1.30; letter-spacing:.01em; color:var(--ink); margin:0; }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .center { display:flex; flex-direction:column; justify-content:center; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+    .tag-book { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    .poster.wide .h-display { font-size:140px; }
+    .poster.square .h-display { font-size:120px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 认 -->
+      <text x="540" y="1000" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="780" font-weight="500" fill="rgba(10,10,11,.035)">认</text>
+      <!-- 主路：向前走的实线，越走越高 -->
+      <path d="M 260 1440 C 340 1150 440 880 560 620 S 760 200 800 0" stroke="rgba(10,10,11,.065)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <!-- 退路：从主路中途分出、向上渐渐消散的虚线——"留后路"的那条 -->
+      <path d="M 320 1230 C 190 950 130 600 150 200" stroke="rgba(10,10,11,.045)" stroke-width="2" fill="none" stroke-dasharray="4 18" stroke-linecap="round"/>
+      <path d="M 420 950 C 330 700 290 400 300 120" stroke="rgba(10,10,11,.03)" stroke-width="2" fill="none" stroke-dasharray="3 16" stroke-linecap="round"/>
+      <!-- 脚印：走在主路上 -->
+      <ellipse cx="310" cy="1330" rx="14" ry="20" fill="rgba(10,10,11,.05)" transform="rotate(-10 310 1330)"/>
+      <ellipse cx="345" cy="1245" rx="13" ry="18" fill="rgba(10,10,11,.05)" transform="rotate(14 345 1245)"/>
+      <ellipse cx="365" cy="1160" rx="12" ry="16" fill="rgba(10,10,11,.045)" transform="rotate(-6 365 1160)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 人生设计课 · 选择四步骤</div>
+      <h1 class="h-display" style="font-size:128px">认下来，<br>走起来</h1>
+      <p class="h-sub">Own it, then it's yours.</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>留后路</span><span class="dot"></span>
+        <span>三思可矣</span><span class="dot"></span>
+        <span>把握当下</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里说：能退能换 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 一扇虚掩的门：能退的"后门" -->
+      <rect x="450" y="900" width="180" height="360" fill="none" stroke="rgba(10,10,11,.07)" stroke-width="3"/>
+      <!-- 门板微开 -->
+      <path d="M 540 900 L 540 1260" stroke="rgba(10,10,11,.04)" stroke-width="1.5"/>
+      <!-- 从门里折返出来的虚线：退回来的路 -->
+      <path d="M 540 1080 C 720 1080 860 980 950 780" stroke="rgba(10,10,11,.05)" stroke-width="2" fill="none" stroke-dasharray="6 14" stroke-linecap="round"/>
+      <!-- 折返箭头头部 -->
+      <path d="M 950 780 L 920 790 M 950 780 L 945 812" stroke="rgba(10,10,11,.05)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- 门把手 -->
+      <circle cx="522" cy="1090" r="4" fill="rgba(10,10,11,.07)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 选择四步骤</div>
+      <h2 class="h-xl" style="font-size:76px">越是能退、能换，<br>越觉得当初选错了。</h2>
+      <hr class="rule" style="margin:36px 0 36px">
+      <p class="body" style="color:rgba(var(--ink-rgb),.62)">"可更换性并不利于增加人们对某个选择的满意度。反复考虑或保留选择权，会让我们心生怀疑，降低已做选择的价值。"</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>02 / 06</span><span class="dot"></span><span>人生设计课</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 03 浩总批注一：三思可矣 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 思 -->
+      <text x="540" y="980" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="700" font-weight="500" fill="rgba(10,10,11,.03)">思</text>
+      <!-- 三层同心圆递减：三思 → 再思 → 一念（孔子说"再，斯可矣"） -->
+      <circle cx="540" cy="780" r="320" fill="none" stroke="rgba(10,10,11,.035)" stroke-width="2"/>
+      <circle cx="540" cy="780" r="215" fill="none" stroke="rgba(10,10,11,.05)" stroke-width="2"/>
+      <circle cx="540" cy="780" r="110" fill="none" stroke="rgba(10,10,11,.07)" stroke-width="2"/>
+      <circle cx="540" cy="780" r="8" fill="rgba(10,10,11,.08)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">浩总批注 · 一</div>
+      <div class="quote-mark">"</div>
+      <blockquote class="pullquote" style="font-size:66px">季文子三思而后行。<br>子曰："再，斯可矣。"</blockquote>
+      <p class="body" style="margin-top:44px; font-size:25px; color:rgba(var(--ink-rgb),.7)">孔子也不赞成过度思考。就像自己的孩子——孩子不可能被随意替换，所以我们尽量去发现孩子身上的长处。</p>
+      <div style="margin-top:32px; display:flex; align-items:center; gap:14px">
+        <span style="width:48px; height:1px; background:var(--line); display:inline-block"></span>
+        <span class="meta">写于读"选择四步骤"时</span>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>03 / 06</span><span class="dot"></span><span>人生设计课</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 04 我的故事：留后路的人 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 换 -->
+      <text x="540" y="880" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">换</text>
+      <!-- 从脚下分出的多条虚线岔路：每条都想过，都没真走 -->
+      <g stroke="rgba(10,10,11,.045)" stroke-width="2" fill="none" stroke-dasharray="3 14" stroke-linecap="round">
+        <path d="M 540 1320 C 400 1100 250 700 160 250"/>
+        <path d="M 540 1320 C 430 1050 340 600 330 130"/>
+        <path d="M 540 1320 C 650 1050 740 600 750 130"/>
+        <path d="M 540 1320 C 680 1100 830 700 920 250"/>
+      </g>
+      <!-- 唯一一条实线：脚下的路 -->
+      <path d="M 540 1320 C 540 1100 540 850 540 560" stroke="rgba(10,10,11,.07)" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- 站在路口的点 -->
+      <circle cx="540" cy="1320" r="7" fill="rgba(10,10,11,.07)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的故事</div>
+      <h2 class="h-md">我就是那个老想<br>"留后路"的人。</h2>
+      <p class="body">这半年一直在琢磨换条路。这个也行，那个也不差，脑子里全是"等不行了再换"。结果呢，哪个都没真上心。</p>
+      <p class="lead" style="margin-top:8px">就跟买东西惦记着"七天无理由"——东西到手了，反倒不会认真用。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:24px">
+      <div class="issue-row"><span>04 / 06</span><span class="dot"></span><span>浩总 · 读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 05 浩总批注二：把握当下 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 今 -->
+      <text x="540" y="900" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="480" font-weight="500" fill="rgba(10,10,11,.028)">今</text>
+      <!-- 时间轴：过去（渐淡实线）— 当下（实心亮点）— 未来（虚线） -->
+      <line x1="90" y1="1060" x2="440" y2="1060" stroke="rgba(10,10,11,.04)" stroke-width="5" stroke-linecap="round"/>
+      <line x1="640" y1="1060" x2="990" y2="1060" stroke="rgba(10,10,11,.04)" stroke-width="2" stroke-dasharray="4 16" stroke-linecap="round"/>
+      <circle cx="540" cy="1060" r="34" fill="none" stroke="rgba(10,10,11,.06)" stroke-width="1.5"/>
+      <circle cx="540" cy="1060" r="12" fill="rgba(10,10,11,.09)"/>
+      <!-- 标注 -->
+      <text x="90" y="1110" font-family="IBM Plex Mono,monospace" font-size="15" fill="rgba(10,10,11,.09)" letter-spacing="3">过去</text>
+      <text x="540" y="1125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" fill="rgba(10,10,11,.11)" letter-spacing="3">当下</text>
+      <text x="990" y="1110" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="15" fill="rgba(10,10,11,.09)" letter-spacing="3">未来</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">浩总批注 · 二</div>
+      <div class="quote-mark">"</div>
+      <blockquote class="pullquote">相信自己的选择，就是当时最好的选择。</blockquote>
+      <p class="body" style="margin-top:44px; font-size:25px; color:rgba(var(--ink-rgb),.7)">为自己的选择负责，是一个人成熟的标志。当下就是未来的过去——把握当下，才不会让未来的自己后悔。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>05 / 06</span><span class="dot"></span><span>人生设计课</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 06 收尾 + 互动 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 行 -->
+      <text x="540" y="760" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="500" font-weight="500" fill="rgba(10,10,11,.028)">行</text>
+      <!-- 认下来的那条路：实线走到终点圆，终点有小旗 -->
+      <circle cx="220" cy="1220" r="9" fill="rgba(10,10,11,.06)"/>
+      <path d="M 230 1210 C 420 1100 620 850 830 480" stroke="rgba(10,10,11,.06)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="840" cy="460" r="9" fill="rgba(10,10,11,.06)"/>
+      <circle cx="840" cy="460" r="24" fill="none" stroke="rgba(10,10,11,.05)" stroke-width="1.5"/>
+      <!-- 终点小旗 -->
+      <path d="M 840 440 L 840 380" stroke="rgba(10,10,11,.06)" stroke-width="2"/>
+      <path d="M 840 380 L 880 392 L 840 404 Z" fill="rgba(10,10,11,.05)"/>
+      <!-- 起点 A -->
+      <text x="220" y="1260" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="rgba(10,10,11,.1)" letter-spacing="2">A</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:flex-start; padding-top:112px">
+      <div class="kicker">灵魂拷问 · 我的答案</div>
+      <h2 class="h-md" style="font-size:54px">要是没有生存压力，<br>你会活成自己喜欢的样子吗？</h2>
+      <p class="body" style="font-size:25px; margin-top:6px">我的答案不难——踏踏实实读书，把有感触的记下来，说给别人听。不用"换"，也没得"退"，做一天是一天，反而心里有底。</p>
+      <p class="lead" style="margin-top:14px; font-size:27px">道虽迩，不行不至；事虽小，不为不成。认下来、走起来，它才真的属于你。</p>
+      <div class="interact-box" style="margin-top:36px">
+        <div class="label-chat">评论区聊聊</div>
+        <p class="chat-q" style="font-size:26px">你有没有"选了还老惦记另一个"的时候？<br>哪个选择，你想逼自己"认"下来、好好做一回？</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>06 / 06</span><span class="dot"></span><span>浩总 · 读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 公众号 21:9 主封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 主路：一条向右前方的实线 -->
+      <path d="M 0 780 C 350 720 700 640 1000 520 S 1600 280 2100 140"
+            stroke="rgba(10,10,11,.055)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <!-- 退路：中途分出又消散的虚线 -->
+      <path d="M 500 690 C 600 560 640 400 620 200"
+            stroke="rgba(10,10,11,.04)" stroke-width="2" fill="none" stroke-dasharray="4 16" stroke-linecap="round"/>
+      <!-- 终点 -->
+      <circle cx="2100" cy="140" r="4" fill="rgba(10,10,11,.06)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1200px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 人生设计课 · 选择四步骤</div>
+        <h1 class="h-display">认下来，<br>走起来</h1>
+        <p class="h-sub">Own it, then it's yours.</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">浩总 · 读书感悟</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 公众号 1:1 方封面 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 认 -->
+      <text x="540" y="760" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">认</text>
+      <!-- 一条向前的路 -->
+      <path d="M 540 1080 C 515 900 565 720 540 540 S 520 360 540 0"
+            stroke="rgba(10,10,11,.05)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content center" style="justify-content:center; text-align:center; align-items:center">
+      <div class="kicker" style="text-align:center">人生设计课 · 选择四步骤</div>
+      <h1 class="h-display" style="font-size:126px; text-align:center">认下来<br>走起来</h1>
+      <div style="width:60px; height:2px; background:var(--accent); margin:28px auto 0"></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
