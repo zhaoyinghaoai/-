@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>别再一个人闷头想了 · 社card · 人生设计课全书读后</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+    .pullquote { font-family:var(--serif-zh); font-style:italic; font-weight:500; font-size:60px; line-height:1.30; letter-spacing:.01em; color:var(--ink); margin:0; }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .center { display:flex; flex-direction:column; justify-content:center; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    /* 02 书讲了什么：条目列表 */
+    .list-item { display:flex; align-items:baseline; gap:28px; padding:26px 0; border-bottom:1px solid rgba(10,10,11,.12); }
+    .list-item:last-child { border-bottom:none; }
+    .list-item .no { font-family:var(--mono); font-size:20px; color:rgba(var(--ink-rgb),.45); letter-spacing:.1em; min-width:52px; }
+    .list-item .tx { font-family:var(--serif-zh); font-weight:500; font-size:36px; color:rgba(var(--ink-rgb),.88); line-height:1.3; }
+    .list-item .tx small { display:block; font-family:var(--sans-zh); font-weight:400; font-size:22px; color:rgba(var(--ink-rgb),.55); margin-top:6px; }
+
+    /* 04 三个问题：阶段台阶式 */
+    .stage { display:flex; align-items:center; gap:26px; padding:24px 30px; border:1.5px solid rgba(10,10,11,.14); border-radius:14px; margin-bottom:22px; }
+    .stage .s-no { font-family:var(--mono); font-size:18px; color:rgba(var(--ink-rgb),.5); letter-spacing:.1em; min-width:110px; }
+    .stage .s-q { font-family:var(--serif-zh); font-size:29px; line-height:1.45; color:rgba(var(--ink-rgb),.8); }
+    .stage.now { border-color:rgba(10,10,11,.85); background:rgba(10,10,11,.035); }
+    .stage.now .s-q { font-weight:500; color:var(--ink); }
+    .stage .s-mark { font-family:var(--mono); font-size:15px; color:rgba(var(--ink-rgb),.9); letter-spacing:.2em; margin-left:auto; white-space:nowrap; }
+
+    .poster.wide .h-display { font-size:140px; }
+    .poster.square .h-display { font-size:120px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 写 -->
+      <text x="540" y="1000" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="780" font-weight="500" fill="rgba(10,10,11,.035)">写</text>
+      <!-- 一张网：网住想法的意象（网眼渐淡） -->
+      <g stroke="rgba(10,10,11,.05)" stroke-width="1.5" fill="none">
+        <path d="M 200 1440 C 350 1150 500 900 540 640" />
+        <path d="M 440 1440 C 500 1150 560 900 580 640" />
+        <path d="M 680 1440 C 640 1150 610 900 600 640" />
+        <path d="M 880 1440 C 760 1150 660 900 620 640" />
+        <path d="M 200 1200 C 400 1140 700 1140 880 1080" />
+        <path d="M 260 980 C 420 930 660 930 820 870" />
+        <path d="M 340 780 C 460 740 620 740 740 700" />
+      </g>
+      <!-- 网住的"鱼"（想法）：一尾小鱼轮廓 -->
+      <path d="M 480 800 C 520 770 570 770 600 800 C 570 830 520 830 480 800 Z M 600 800 L 630 780 L 630 820 Z"
+            stroke="rgba(10,10,11,.06)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 人生设计课 · 全书完</div>
+      <h1 class="h-display" style="font-size:120px">别再一个人<br>闷头想了</h1>
+      <p class="h-sub">Write it down, before it slips away.</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>思维导图</span><span class="dot"></span>
+        <span>三个问题</span><span class="dot"></span>
+        <span>第五天</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 这本书讲了什么 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 四条线从不同方向汇聚成一条主路：找路→验路→合作→设计，殊途同归 -->
+      <g stroke="rgba(10,10,11,.05)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 100 300 C 300 380 450 520 540 660"/>
+        <path d="M 980 260 C 780 360 620 520 540 660"/>
+        <path d="M 120 1100 C 320 1000 460 840 540 660"/>
+        <path d="M 960 1160 C 760 1040 620 860 540 660"/>
+      </g>
+      <!-- 汇聚点 -->
+      <circle cx="540" cy="660" r="7" fill="rgba(10,10,11,.07)"/>
+      <!-- 汇聚后的一条主路 -->
+      <path d="M 540 660 C 560 500 600 300 640 80" stroke="rgba(10,10,11,.07)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">这本书讲了什么 · 半个月读完</div>
+      <h2 class="h-md" style="margin-bottom:36px">一本书，教你设计<br>自己的人生。</h2>
+      <div class="list-item">
+        <span class="no">01</span>
+        <span class="tx">迷茫时，怎么找到正确的路</span>
+      </div>
+      <div class="list-item">
+        <span class="no">02</span>
+        <span class="tx">找到了，怎么验证它对不对</span>
+      </div>
+      <div class="list-item">
+        <span class="no">03</span>
+        <span class="tx">一个人走不远，怎么与人合作</span>
+      </div>
+      <div class="list-item">
+        <span class="no">04</span>
+        <span class="tx">最后，设计成自己的路</span>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>02 / 06</span><span class="dot"></span><span>人生设计课</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 03 最打动我的观点 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 一张真正的思维导图：中心节点+放射分支，第4章的方法本身 -->
+      <g stroke="rgba(10,10,11,.055)" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M 540 840 L 300 620"/>
+        <path d="M 540 840 L 540 580"/>
+        <path d="M 540 840 L 780 620"/>
+        <path d="M 540 840 L 260 920"/>
+        <path d="M 540 840 L 820 920"/>
+        <path d="M 540 840 L 400 1080"/>
+        <path d="M 540 840 L 680 1080"/>
+      </g>
+      <!-- 中心节点：写下来 -->
+      <circle cx="540" cy="840" r="34" fill="none" stroke="rgba(10,10,11,.08)" stroke-width="2"/>
+      <circle cx="540" cy="840" r="10" fill="rgba(10,10,11,.08)"/>
+      <!-- 分支末端节点 -->
+      <g fill="rgba(10,10,11,.06)">
+        <circle cx="300" cy="620" r="6"/><circle cx="540" cy="580" r="6"/>
+        <circle cx="780" cy="620" r="6"/><circle cx="260" cy="920" r="6"/>
+        <circle cx="820" cy="920" r="6"/><circle cx="400" cy="1080" r="6"/>
+        <circle cx="680" cy="1080" r="6"/>
+      </g>
+      <!-- 二级分支（导图的分叉） -->
+      <g stroke="rgba(10,10,11,.04)" stroke-width="1.5" fill="none" stroke-linecap="round">
+        <path d="M 300 620 L 200 540"/><path d="M 300 620 L 260 700"/>
+        <path d="M 780 620 L 880 540"/><path d="M 780 620 L 820 700"/>
+        <path d="M 400 1080 L 340 1160"/><path d="M 680 1080 L 740 1160"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">最打动我的观点 · 第四章 摆脱困境</div>
+      <h2 class="h-xl" style="font-size:72px">用思维导图<br>设计人生。</h2>
+      <hr class="rule" style="margin:32px 0 32px">
+      <p class="body">以前我一个人闷头想，想着想着，初衷就搞忘了。明明要解决A，琢磨着跑到B，过几天连为什么琢磨都忘了。</p>
+      <p class="lead" style="font-size:29px">想法跟鱼一样，光在脑子里游，一条都抓不住。写下来，才算网住了。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>03 / 06</span><span class="dot"></span><span>人生设计课</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 04 三个问题 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 三级台阶：三个阶段，第二级最高亮（我现在在这） -->
+      <g fill="none" stroke-linejoin="round">
+        <!-- 第一级台阶 -->
+        <path d="M 160 1120 L 340 1120 L 340 1240 L 160 1240 Z" stroke="rgba(10,10,11,.05)" stroke-width="2"/>
+        <!-- 第二级台阶（当前位置，线条加重） -->
+        <path d="M 370 1000 L 550 1000 L 550 1240 L 370 1240 Z" stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="rgba(10,10,11,.025)"/>
+        <!-- 第三级台阶 -->
+        <path d="M 580 880 L 760 880 L 760 1240 L 580 1240 Z" stroke="rgba(10,10,11,.05)" stroke-width="2"/>
+      </g>
+      <!-- 第二级台阶上的人（一个点） -->
+      <circle cx="460" cy="950" r="9" fill="rgba(10,10,11,.09)"/>
+      <!-- 大字水印 问 -->
+      <text x="880" y="480" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="400" font-weight="500" fill="rgba(10,10,11,.03)">问</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里的三个问题 · 三个阶段</div>
+      <div style="margin-top:12px">
+        <div class="stage">
+          <span class="s-no">阶段一</span>
+          <span class="s-q">你现在的工作，能给你带来些什么？</span>
+        </div>
+        <div class="stage now">
+          <span class="s-no">阶段二</span>
+          <span class="s-q">如果哪天没这个工作了，你最想做什么？</span>
+          <span class="s-mark">← 我在这</span>
+        </div>
+        <div class="stage">
+          <span class="s-no">阶段三</span>
+          <span class="s-q">如果不考虑金钱，你最想做什么？</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>04 / 06</span><span class="dot"></span><span>人生设计课</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 05 我的答案 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 静 -->
+      <text x="540" y="920" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="480" font-weight="500" fill="rgba(10,10,11,.028)">静</text>
+      <!-- 一本翻开的书：摊开的两页 -->
+      <path d="M 240 1120 C 340 1080 460 1080 540 1120 C 620 1080 740 1080 840 1120 L 840 1240 C 740 1200 620 1200 540 1240 C 460 1200 340 1200 240 1240 Z"
+            stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+      <!-- 书页上的几行字（细线） -->
+      <g stroke="rgba(10,10,11,.045)" stroke-width="1.5" stroke-linecap="round">
+        <path d="M 300 1140 C 360 1115 440 1115 500 1140"/>
+        <path d="M 300 1170 C 360 1145 440 1145 500 1170"/>
+        <path d="M 580 1140 C 640 1115 720 1115 780 1140"/>
+        <path d="M 580 1170 C 640 1145 720 1145 780 1170"/>
+      </g>
+      <!-- 从书页升起的一缕安静（淡烟曲线） -->
+      <path d="M 540 1080 C 520 1000 570 950 545 870 C 525 800 560 750 540 680"
+            stroke="rgba(10,10,11,.04)" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的答案 · 阶段二</div>
+      <div class="quote-mark">"</div>
+      <blockquote class="pullquote" style="font-size:64px">读自己认为的好书，<br>读自己想看的书。</blockquote>
+      <p class="body" style="margin-top:44px; font-size:25px; color:rgba(var(--ink-rgb),.7)">不为别的。读书的时候，心里能安静下来。我性子急、脾气躁、遇事容易慌——但这半个月，每天翻几页、写几句，晚上心里是定的。</p>
+      <div style="margin-top:30px; display:flex; align-items:center; gap:14px">
+        <span style="width:48px; height:1px; background:var(--line); display:inline-block"></span>
+        <span class="meta">写公众号也是这么来的</span>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>05 / 06</span><span class="dot"></span><span>浩总 · 读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 06 收尾 + 互动 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 木 -->
+      <text x="540" y="800" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="520" font-weight="500" fill="rgba(10,10,11,.028)">木</text>
+      <!-- 一棵小树苗（毫末）：从垒土中长出 -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <!-- 树干 -->
+        <path d="M 540 1180 C 540 1090 538 1000 540 930"/>
+        <!-- 两根枝 -->
+        <path d="M 540 1000 C 505 960 480 940 455 915"/>
+        <path d="M 540 960 C 575 925 600 905 625 885"/>
+      </g>
+      <!-- 叶子（三两片，极简） -->
+      <g fill="rgba(10,10,11,.055)" stroke="none">
+        <ellipse cx="450" cy="905" rx="16" ry="7" transform="rotate(-32 450 905)"/>
+        <ellipse cx="630" cy="878" rx="16" ry="7" transform="rotate(28 630 878)"/>
+        <ellipse cx="540" cy="920" rx="14" ry="6" transform="rotate(-4 540 920)"/>
+      </g>
+      <!-- 垒土台：一层层土（九层之台，起于垒土） -->
+      <g fill="none" stroke="rgba(10,10,11,.05)" stroke-width="2">
+        <rect x="440" y="1180" width="200" height="46" rx="3"/>
+        <rect x="410" y="1226" width="260" height="46" rx="3"/>
+        <rect x="380" y="1272" width="320" height="46" rx="3"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:flex-start; padding-top:112px">
+      <div class="kicker">第 5 天 · 老子 · 道德经</div>
+      <h2 class="h-md" style="font-size:50px">合抱之木，生于毫末；<br>九层之台，起于垒土。</h2>
+      <p class="body" style="font-size:25px; margin-top:8px">千里之行，始于足下。第五天，很小。但毫末也是木，垒土也是台。我想试一试。</p>
+      <div class="interact-box" style="margin-top:36px">
+        <div class="label-chat">评论区聊聊</div>
+        <p class="chat-q" style="font-size:26px">你有没有闷头想了很久，最后把初衷都忘了的事？<br>不考虑钱，你最想做的事是什么？</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>06 / 06</span><span class="dot"></span><span>浩总 · 读书感悟 · 第5天</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 公众号 21:9 主封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 左侧一棵小树（毫末），右侧一条向远方的路：从小到大，从足下到千里 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 300 740 C 300 680 298 620 300 575"/>
+        <path d="M 300 630 C 278 605 262 592 248 578"/>
+        <path d="M 300 605 C 322 583 338 570 352 558"/>
+      </g>
+      <g fill="rgba(10,10,11,.05)" stroke="none">
+        <ellipse cx="244" cy="572" rx="13" ry="6" transform="rotate(-32 244 572)"/>
+        <ellipse cx="356" cy="554" rx="13" ry="6" transform="rotate(28 356 554)"/>
+        <ellipse cx="300" cy="568" rx="11" ry="5"/>
+      </g>
+      <!-- 垒土 -->
+      <g fill="none" stroke="rgba(10,10,11,.045)" stroke-width="2">
+        <rect x="245" y="740" width="110" height="30" rx="2"/>
+        <rect x="228" y="770" width="144" height="30" rx="2"/>
+        <rect x="210" y="800" width="180" height="30" rx="2"/>
+      </g>
+      <!-- 向远方的路 -->
+      <path d="M 480 840 C 800 800 1100 700 1400 560 S 1900 320 2100 240"
+            stroke="rgba(10,10,11,.05)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="2100" cy="240" r="4" fill="rgba(10,10,11,.055)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1200px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 人生设计课 · 全书完</div>
+        <h1 class="h-display" style="font-size:130px">别再一个人<br>闷头想了</h1>
+        <p class="h-sub">Write it down, before it slips away.</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">浩总 · 读书感悟 · 第5天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 公众号 1:1 方封面 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 木 -->
+      <text x="540" y="760" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">木</text>
+      <!-- 一棵小树，居中生长 -->
+      <g stroke="rgba(10,10,11,.055)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 540 1060 C 540 960 538 860 540 790"/>
+        <path d="M 540 860 C 510 820 485 800 460 778"/>
+        <path d="M 540 820 C 570 785 595 765 620 745"/>
+      </g>
+      <g fill="rgba(10,10,11,.05)" stroke="none">
+        <ellipse cx="455" cy="770" rx="15" ry="7" transform="rotate(-32 455 770)"/>
+        <ellipse cx="625" cy="738" rx="15" ry="7" transform="rotate(28 625 738)"/>
+      </g>
+      <!-- 垒土两层 -->
+      <g fill="none" stroke="rgba(10,10,11,.045)" stroke-width="2">
+        <rect x="460" y="1060" width="160" height="0" rx="2"/>
+        <rect x="440" y="1060" width="200" height="0" rx="2"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content center" style="justify-content:center; text-align:center; align-items:center">
+      <div class="kicker" style="text-align:center">人生设计课 · 全书完 · 第5天</div>
+      <h1 class="h-display" style="font-size:112px; text-align:center">别再<br>闷头想了</h1>
+      <div style="width:60px; height:2px; background:var(--accent); margin:28px auto 0"></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
