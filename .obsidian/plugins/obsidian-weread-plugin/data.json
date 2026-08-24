@@ -65,10 +65,61 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 5,
-  "lastSyncTime": 1787194425332,
+  "lastSyncTime": 1787580860340,
   "lastSyncBookCount": 0,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1787580860123",
+      "timestamp": 1787580860123,
+      "totalBooks": 2,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.216,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1787580560128",
+      "timestamp": 1787580560128,
+      "totalBooks": 2,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.233,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1787580260118",
+      "timestamp": 1787580260118,
+      "totalBooks": 2,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.282,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1787579960121",
+      "timestamp": 1787579960121,
+      "totalBooks": 2,
+      "syncedBooks": 2,
+      "skippedBooks": 0,
+      "duration": 1.442,
+      "notes": [
+        {
+          "bookId": "39980443",
+          "title": "学会提问（原书第12版）",
+          "filePath": "原始材料/书摘/39980443.md"
+        },
+        {
+          "bookId": "43696907",
+          "title": "人生设计课：如何设计充实且快乐的人生",
+          "filePath": "原始材料/书摘/43696907.md"
+        }
+      ],
+      "success": true
+    },
     {
       "id": "sync-1787194425111",
       "timestamp": 1787194425111,
@@ -139,46 +190,6 @@
           "filePath": "原始材料/书摘/43696907.md"
         }
       ],
-      "success": true
-    },
-    {
-      "id": "sync-1786188678098",
-      "timestamp": 1786188678098,
-      "totalBooks": 1,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.216,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1786188367098",
-      "timestamp": 1786188367098,
-      "totalBooks": 1,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.23,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1786188067098",
-      "timestamp": 1786188067098,
-      "totalBooks": 1,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.224,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1786187767094",
-      "timestamp": 1786187767094,
-      "totalBooks": 1,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.208,
-      "notes": [],
       "success": true
     }
   ],
