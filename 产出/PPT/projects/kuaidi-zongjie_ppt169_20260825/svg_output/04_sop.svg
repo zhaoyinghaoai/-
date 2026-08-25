@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="page-background" x="0" y="0" width="1280" height="720" fill="#F0F3F8" data-pptx-role="background"/>
+  <g id="page-header" data-pptx-bounds="80 50 1120 80">
+    <rect x="80" y="50" width="8" height="40" fill="#1B3A5C"/>
+    <text x="110" y="85" font-size="32" font-weight="bold" fill="#1B3A5C">标准作业流程</text>
+    <text x="110" y="112" font-size="16" fill="#8B95A7">每一件包裹的5步标准化流转</text>
+  </g>
+  <g id="step-1" data-pptx-bounds="80 220 200 280">
+    <rect x="80" y="220" width="200" height="280" rx="16" fill="#FFFFFF"/>
+    <rect x="80" y="220" width="200" height="60" rx="16" fill="#1B3A5C"/>
+    <rect x="80" y="264" width="200" height="16" fill="#1B3A5C"/>
+    <text x="180" y="258" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">01</text>
+    <text x="180" y="338" font-size="20" font-weight="bold" fill="#1B3A5C" text-anchor="middle">接收</text>
+    <text x="180" y="370" font-size="16" fill="#8B95A7" text-anchor="middle">
+      <tspan x="180" dy="0">清点数量</tspan>
+      <tspan x="180" dy="28">核对签收单</tspan>
+    </text>
+  </g>
+  <g id="arrow-1" data-pptx-bounds="290 340 40 40">
+    <polygon points="290,345 310,345 310,335 330,360 310,385 310,375 290,375" fill="#3B82C4"/>
+  </g>
+  <g id="step-2" data-pptx-bounds="340 220 200 280">
+    <rect x="340" y="220" width="200" height="280" rx="16" fill="#FFFFFF"/>
+    <rect x="340" y="220" width="200" height="60" rx="16" fill="#3B82C4"/>
+    <rect x="340" y="264" width="200" height="16" fill="#3B82C4"/>
+    <text x="440" y="258" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">02</text>
+    <text x="440" y="338" font-size="20" font-weight="bold" fill="#1B3A5C" text-anchor="middle">登记</text>
+    <text x="440" y="370" font-size="16" fill="#8B95A7" text-anchor="middle">
+      <tspan x="440" dy="0">逐件录入</tspan>
+      <tspan x="440" dy="28">生成取件编码</tspan>
+    </text>
+  </g>
+  <g id="arrow-2" data-pptx-bounds="550 340 40 40">
+    <polygon points="550,345 570,345 570,335 590,360 570,385 570,375 550,375" fill="#3B82C4"/>
+  </g>
+  <g id="step-3" data-pptx-bounds="600 220 200 280">
+    <rect x="600" y="220" width="200" height="280" rx="16" fill="#FFFFFF"/>
+    <rect x="600" y="220" width="200" height="60" rx="16" fill="#1B3A5C"/>
+    <rect x="600" y="264" width="200" height="16" fill="#1B3A5C"/>
+    <text x="700" y="258" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">03</text>
+    <text x="700" y="338" font-size="20" font-weight="bold" fill="#1B3A5C" text-anchor="middle">分拣</text>
+    <text x="700" y="370" font-size="16" fill="#8B95A7" text-anchor="middle">
+      <tspan x="700" dy="0">编号分区</tspan>
+      <tspan x="700" dy="28">便于取件</tspan>
+    </text>
+  </g>
+  <g id="arrow-3" data-pptx-bounds="810 340 40 40">
+    <polygon points="810,345 830,345 830,335 850,360 830,385 830,375 810,375" fill="#3B82C4"/>
+  </g>
+  <g id="step-4" data-pptx-bounds="860 220 200 280">
+    <rect x="860" y="220" width="200" height="280" rx="16" fill="#FFFFFF"/>
+    <rect x="860" y="220" width="200" height="60" rx="16" fill="#3B82C4"/>
+    <rect x="860" y="264" width="200" height="16" fill="#3B82C4"/>
+    <text x="960" y="258" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">04</text>
+    <text x="960" y="338" font-size="20" font-weight="bold" fill="#1B3A5C" text-anchor="middle">通知</text>
+    <text x="960" y="370" font-size="16" fill="#8B95A7" text-anchor="middle">
+      <tspan x="960" dy="0">短信/微信</tspan>
+      <tspan x="960" dy="28">通知收件人</tspan>
+    </text>
+  </g>
+  <g id="arrow-4" data-pptx-bounds="1070 340 40 40">
+    <polygon points="1070,345 1090,345 1090,335 1110,360 1090,385 1090,375 1070,375" fill="#3B82C4"/>
+  </g>
+  <g id="step-5" data-pptx-bounds="1120 220 80 280">
+    <rect x="1120" y="220" width="80" height="280" rx="16" fill="#FFFFFF"/>
+    <rect x="1120" y="220" width="80" height="60" rx="16" fill="#E8A533"/>
+    <rect x="1120" y="264" width="80" height="16" fill="#E8A533"/>
+    <text x="1160" y="258" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">05</text>
+    <text x="1160" y="338" font-size="18" font-weight="bold" fill="#1B3A5C" text-anchor="middle">交付</text>
+    <text x="1160" y="370" font-size="14" fill="#8B95A7" text-anchor="middle">
+      <tspan x="1160" dy="0">凭码取件</tspan>
+      <tspan x="1160" dy="24">签字确认</tspan>
+    </text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="80 690 1120 20">
+    <text x="1200" y="705" font-size="12" fill="#8B95A7" text-anchor="end">04</text>
+  </g>
+</svg>

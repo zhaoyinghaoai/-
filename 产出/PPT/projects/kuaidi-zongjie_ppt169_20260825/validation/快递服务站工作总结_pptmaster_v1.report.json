@@ -1,0 +1,206 @@
+{
+  "schema": "ppt-master.pptx-postflight-report.v1",
+  "status": "passed",
+  "output": {
+    "path": "E:\\北辰\\浩总的个人知识库\\产出\\PPT\\projects\\kuaidi-zongjie_ppt169_20260825\\快递服务站工作总结_pptmaster_v1.pptx",
+    "bytes": 36845
+  },
+  "source": {
+    "svg_slide_count": 10,
+    "layout_definition_count": 0,
+    "fingerprint": {
+      "algorithm": "sha256",
+      "digest": "a1eb09b2c3b3c473735356b3ed0e55fb69fea1f745c4f433ac70af092ea875f1",
+      "file_count": 10,
+      "files": [
+        {
+          "file": "01_cover.svg",
+          "sha256": "2ee366da940efa7b44c46564fb37e068dbca59f8d1597fb479235261af87f7b5"
+        },
+        {
+          "file": "02_core_data.svg",
+          "sha256": "7d3503b8b36441df133807fad3502d79c7e7e567937bcb49a863496920c9e392"
+        },
+        {
+          "file": "03_daily_ops.svg",
+          "sha256": "0fcbfe3267c693603bc0bfe4cd66e7661ba5d9bddc4381658ed63f4f88a3afce"
+        },
+        {
+          "file": "04_sop.svg",
+          "sha256": "629b7594d912f11315cdab4fa756611e2b365b5e3bb4e64400af0e7e0f6c7a0d"
+        },
+        {
+          "file": "05_exceptions.svg",
+          "sha256": "38e9afe5d0f76b51ec053960b00672ce5e253b652d4feb172dc7e0ea69d7c6ad"
+        },
+        {
+          "file": "06_highlights.svg",
+          "sha256": "3d0d7a00d5e32cfd5f7aec00f4560c4e9e577145d620080e9a619a29e73cc775"
+        },
+        {
+          "file": "07_before.svg",
+          "sha256": "3e2ac124744ad401c68ff82d8696b6d946dc6ab5ac8a65f92b318d93ea269a26"
+        },
+        {
+          "file": "08_after.svg",
+          "sha256": "f5026ed15075d47952933ff8618ca50f57c52629a84a4e653ab918588d9bac02"
+        },
+        {
+          "file": "09_next.svg",
+          "sha256": "e314968fdd9ecb35e2430f4211eb2750467cba85cf549186a9872670f36a9618"
+        },
+        {
+          "file": "10_closing.svg",
+          "sha256": "63fe5ece2dd76aec99ac9def978659de7ce4ba6e3ced626b74b300e7ff7b283a"
+        }
+      ]
+    }
+  },
+  "package": {
+    "zip_integrity": "passed",
+    "corrupt_member": null,
+    "slides": 10,
+    "notes": 0,
+    "masters": 1,
+    "layouts": 1
+  },
+  "checks": {
+    "zip_integrity": "passed",
+    "slide_count": "passed",
+    "internal_relationships": "enforced-at-build",
+    "structured_package": "not-applicable",
+    "transitions": "enforced-at-build",
+    "animations": "enforced-at-build",
+    "quality_gate": "passed",
+    "quality_warnings": "passed",
+    "template_tokens": "passed",
+    "external_images": "passed",
+    "font_portability": "passed"
+  },
+  "quality": {
+    "status": "loaded",
+    "path": "E:\\北辰\\浩总的个人知识库\\产出\\PPT\\projects\\kuaidi-zongjie_ppt169_20260825\\validation\\svg_quality_report.json",
+    "schema": "ppt-master.svg-quality-report.v1",
+    "stage": "final",
+    "source_match": "passed",
+    "source_fingerprint": {
+      "algorithm": "sha256",
+      "digest": "a1eb09b2c3b3c473735356b3ed0e55fb69fea1f745c4f433ac70af092ea875f1",
+      "file_count": 10,
+      "files": [
+        {
+          "file": "01_cover.svg",
+          "sha256": "2ee366da940efa7b44c46564fb37e068dbca59f8d1597fb479235261af87f7b5"
+        },
+        {
+          "file": "02_core_data.svg",
+          "sha256": "7d3503b8b36441df133807fad3502d79c7e7e567937bcb49a863496920c9e392"
+        },
+        {
+          "file": "03_daily_ops.svg",
+          "sha256": "0fcbfe3267c693603bc0bfe4cd66e7661ba5d9bddc4381658ed63f4f88a3afce"
+        },
+        {
+          "file": "04_sop.svg",
+          "sha256": "629b7594d912f11315cdab4fa756611e2b365b5e3bb4e64400af0e7e0f6c7a0d"
+        },
+        {
+          "file": "05_exceptions.svg",
+          "sha256": "38e9afe5d0f76b51ec053960b00672ce5e253b652d4feb172dc7e0ea69d7c6ad"
+        },
+        {
+          "file": "06_highlights.svg",
+          "sha256": "3d0d7a00d5e32cfd5f7aec00f4560c4e9e577145d620080e9a619a29e73cc775"
+        },
+        {
+          "file": "07_before.svg",
+          "sha256": "3e2ac124744ad401c68ff82d8696b6d946dc6ab5ac8a65f92b318d93ea269a26"
+        },
+        {
+          "file": "08_after.svg",
+          "sha256": "f5026ed15075d47952933ff8618ca50f57c52629a84a4e653ab918588d9bac02"
+        },
+        {
+          "file": "09_next.svg",
+          "sha256": "e314968fdd9ecb35e2430f4211eb2750467cba85cf549186a9872670f36a9618"
+        },
+        {
+          "file": "10_closing.svg",
+          "sha256": "63fe5ece2dd76aec99ac9def978659de7ce4ba6e3ced626b74b300e7ff7b283a"
+        }
+      ]
+    },
+    "summary": {
+      "total": 10,
+      "passed": 10,
+      "warnings": 0,
+      "errors": 0
+    },
+    "categories": {
+      "blocking": {
+        "count": 0,
+        "issues": []
+      },
+      "introduced": {
+        "count": 0,
+        "issues": []
+      },
+      "inherited": {
+        "count": 0,
+        "issues": []
+      },
+      "source-import": {
+        "count": 0,
+        "summary": {
+          "warning_count": 0,
+          "by_code": {}
+        }
+      }
+    }
+  },
+  "resources": {
+    "unresolved_template_tokens": [],
+    "fonts": {
+      "stacks": [
+        "Microsoft YaHei"
+      ],
+      "generic_only_stacks": [],
+      "unsafe_exported_faces": []
+    },
+    "images": {
+      "data_uri": 0,
+      "local": 0,
+      "external": 0,
+      "external_references": []
+    }
+  },
+  "deck_motion": {
+    "transition": {
+      "effect": "fade",
+      "effect_options": {},
+      "duration": 0.4,
+      "auto_advance": null,
+      "sound": null
+    },
+    "animation": {
+      "effect": "none",
+      "effect_request": null,
+      "duration": 0.4,
+      "stagger": 0.5,
+      "trigger": "after-previous"
+    },
+    "cli_overrides": {
+      "transition": false,
+      "transition_duration": false,
+      "auto_advance": false,
+      "transition_sound": false,
+      "animation": false,
+      "animation_duration": false,
+      "animation_stagger": false,
+      "animation_trigger": false
+    },
+    "narration_timings": false
+  },
+  "backup_path": null,
+  "conversion_trace_path": null
+}

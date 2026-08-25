@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei" data-pptx-page-role="cover">
+  <rect id="page-background" x="0" y="0" width="1280" height="720" fill="#1B3A5C" data-pptx-role="background"/>
+  <rect id="top-accent" x="0" y="0" width="1280" height="8" fill="#E8A533" data-pptx-role="decoration"/>
+  <g id="cover-main" data-pptx-bounds="140 200 1000 320">
+    <text x="640" y="290" font-size="56" font-weight="bold" fill="#FFFFFF" text-anchor="middle">快递服务站工作总结</text>
+    <rect x="540" y="330" width="200" height="3" fill="#E8A533"/>
+    <text x="640" y="400" font-size="32" fill="#A8C5DB" text-anchor="middle">2026年度</text>
+    <text x="640" y="460" font-size="22" fill="#8BAABF" text-anchor="middle">村级快递代收点</text>
+  </g>
+  <g id="cover-footer" data-pptx-bounds="140 620 1000 60">
+    <text x="640" y="660" font-size="20" fill="#7A9DB5" text-anchor="middle">汇报人：赵英浩  |  2026年8月</text>
+  </g>
+</svg>

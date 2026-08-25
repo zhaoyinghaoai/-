@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei" data-pptx-page-role="ending">
+  <rect id="page-background" x="0" y="0" width="1280" height="720" fill="#1B3A5C" data-pptx-role="background"/>
+  <rect id="bottom-accent" x="0" y="712" width="1280" height="8" fill="#E8A533" data-pptx-role="decoration"/>
+  <g id="closing-main" data-pptx-bounds="140 220 1000 280">
+    <text x="640" y="330" font-size="42" font-weight="bold" fill="#FFFFFF" text-anchor="middle">最后一步路，交给我来走。</text>
+    <rect x="540" y="370" width="200" height="3" fill="#E8A533"/>
+    <text x="640" y="440" font-size="22" fill="#A8C5DB" text-anchor="middle">村级快递代收点的意义，不在于量大，而在于"有人在"。</text>
+    <text x="640" y="480" font-size="22" fill="#A8C5DB" text-anchor="middle">全年365天，早7到晚7半，始终在这里。</text>
+  </g>
+  <g id="closing-footer" data-pptx-bounds="140 550 1000 130">
+    <text x="640" y="620" font-size="28" fill="#E8A533" text-anchor="middle">谢谢</text>
+    <text x="640" y="660" font-size="16" fill="#7A9DB5" text-anchor="middle">赵英浩  |  2026年8月</text>
+  </g>
+</svg>

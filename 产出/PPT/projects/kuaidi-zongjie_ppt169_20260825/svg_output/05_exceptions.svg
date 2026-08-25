@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="page-background" x="0" y="0" width="1280" height="720" fill="#F0F3F8" data-pptx-role="background"/>
+  <g id="page-header" data-pptx-bounds="80 50 1120 80">
+    <rect x="80" y="50" width="8" height="40" fill="#1B3A5C"/>
+    <text x="110" y="85" font-size="32" font-weight="bold" fill="#1B3A5C">异常处理机制</text>
+    <text x="110" y="112" font-size="16" fill="#8B95A7">三类异常情况的标准应对方案</text>
+  </g>
+  <g id="card-overdue" data-pptx-bounds="80 180 360 460">
+    <rect x="80" y="180" width="360" height="460" rx="16" fill="#FFFFFF"/>
+    <rect x="80" y="180" width="360" height="80" rx="16" fill="#E8A533"/>
+    <rect x="80" y="240" width="360" height="20" fill="#E8A533"/>
+    <text x="260" y="230" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="middle">滞留件</text>
+    <text x="260" y="330" font-size="18" font-weight="bold" fill="#1B3A5C" text-anchor="middle">超3天未取</text>
+    <line x1="140" y1="360" x2="380" y2="360" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="120" y="410" font-size="18" fill="#4A5568">
+      <tspan x="120" dy="0">1. 系统自动预警提醒</tspan>
+      <tspan x="120" dy="40">2. 二次短信/微信通知</tspan>
+      <tspan x="120" dy="40">3. 上门提醒村民取件</tspan>
+    </text>
+    <rect x="120" y="560" width="280" height="50" rx="8" fill="#FEF3C7"/>
+    <text x="260" y="592" font-size="16" font-weight="bold" fill="#92400E" text-anchor="middle">主动跟进，不被动等待</text>
+  </g>
+  <g id="card-damaged" data-pptx-bounds="460 180 360 460">
+    <rect x="460" y="180" width="360" height="460" rx="16" fill="#FFFFFF"/>
+    <rect x="460" y="180" width="360" height="80" rx="16" fill="#3B82C4"/>
+    <rect x="460" y="240" width="360" height="20" fill="#3B82C4"/>
+    <text x="640" y="230" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="middle">破损件</text>
+    <text x="640" y="330" font-size="18" font-weight="bold" fill="#1B3A5C" text-anchor="middle">运输途中损坏</text>
+    <line x1="520" y1="360" x2="760" y2="360" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="500" y="410" font-size="18" fill="#4A5568">
+      <tspan x="500" dy="0">1. 当场拍照留档</tspan>
+      <tspan x="500" dy="40">2. 联系发件方协商</tspan>
+      <tspan x="500" dy="40">3. 协助理赔或补发</tspan>
+    </text>
+    <rect x="500" y="560" width="280" height="50" rx="8" fill="#DBEAFE"/>
+    <text x="640" y="592" font-size="16" font-weight="bold" fill="#1E40AF" text-anchor="middle">证据先行，责任清晰</text>
+  </g>
+  <g id="card-return" data-pptx-bounds="840 180 360 460">
+    <rect x="840" y="180" width="360" height="460" rx="16" fill="#FFFFFF"/>
+    <rect x="840" y="180" width="360" height="80" rx="16" fill="#1B3A5C"/>
+    <rect x="840" y="240" width="360" height="20" fill="#1B3A5C"/>
+    <text x="1020" y="230" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="middle">退件</text>
+    <text x="1020" y="330" font-size="18" font-weight="bold" fill="#1B3A5C" text-anchor="middle">村民委托退回</text>
+    <line x1="900" y1="360" x2="1140" y2="360" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="880" y="410" font-size="18" fill="#4A5568">
+      <tspan x="880" dy="0">1. 登记退件信息</tspan>
+      <tspan x="880" dy="40">2. 交镇上取件点</tspan>
+      <tspan x="880" dy="40">3. 跟踪退回状态</tspan>
+    </text>
+    <rect x="880" y="560" width="280" height="50" rx="8" fill="#E0E7FF"/>
+    <text x="1020" y="592" font-size="16" font-weight="bold" fill="#3730A3" text-anchor="middle">完整记录，全程可查</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="80 690 1120 20">
+    <text x="1200" y="705" font-size="12" fill="#8B95A7" text-anchor="end">05</text>
+  </g>
+</svg>

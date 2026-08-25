@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="page-background" x="0" y="0" width="1280" height="720" fill="#F0F3F8" data-pptx-role="background"/>
+  <g id="page-header" data-pptx-bounds="80 50 1120 80">
+    <rect x="80" y="50" width="8" height="40" fill="#8B95A7"/>
+    <text x="110" y="85" font-size="32" font-weight="bold" fill="#1B3A5C">改进前：传统模式痛点</text>
+    <text x="110" y="112" font-size="16" fill="#8B95A7">数字化升级之前的运营困境</text>
+  </g>
+  <g id="pain-1" data-pptx-bounds="80 180 540 95">
+    <rect x="80" y="180" width="540" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="130" cy="227" r="24" fill="#FEE2E2"/>
+    <text x="130" y="234" font-size="20" font-weight="bold" fill="#DC2626" text-anchor="middle">1</text>
+    <text x="175" y="222" font-size="20" font-weight="bold" fill="#1B3A5C">纸质本登记</text>
+    <text x="175" y="250" font-size="16" fill="#8B95A7">字迹模糊难辨认，查件全靠翻</text>
+  </g>
+  <g id="pain-2" data-pptx-bounds="660 180 540 95">
+    <rect x="660" y="180" width="540" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="710" cy="227" r="24" fill="#FEE2E2"/>
+    <text x="710" y="234" font-size="20" font-weight="bold" fill="#DC2626" text-anchor="middle">2</text>
+    <text x="755" y="222" font-size="20" font-weight="bold" fill="#1B3A5C">取件靠翻找</text>
+    <text x="755" y="250" font-size="16" fill="#8B95A7">高峰期排队等待，体验差</text>
+  </g>
+  <g id="pain-3" data-pptx-bounds="80 300 540 95">
+    <rect x="80" y="300" width="540" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="130" cy="347" r="24" fill="#FEE2E2"/>
+    <text x="130" y="354" font-size="20" font-weight="bold" fill="#DC2626" text-anchor="middle">3</text>
+    <text x="175" y="342" font-size="20" font-weight="bold" fill="#1B3A5C">通知靠口口相传</text>
+    <text x="175" y="370" font-size="16" fill="#8B95A7">常有人忘取，滞留件频发</text>
+  </g>
+  <g id="pain-4" data-pptx-bounds="660 300 540 95">
+    <rect x="660" y="300" width="540" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="710" cy="347" r="24" fill="#FEE2E2"/>
+    <text x="710" y="354" font-size="20" font-weight="bold" fill="#DC2626" text-anchor="middle">4</text>
+    <text x="755" y="342" font-size="20" font-weight="bold" fill="#1B3A5C">滞留件无跟踪</text>
+    <text x="755" y="370" font-size="16" fill="#8B95A7">3天后才知道，被动滞后</text>
+  </g>
+  <g id="pain-5" data-pptx-bounds="80 420 1120 95">
+    <rect x="80" y="420" width="1120" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="130" cy="467" r="24" fill="#FEE2E2"/>
+    <text x="130" y="474" font-size="20" font-weight="bold" fill="#DC2626" text-anchor="middle">5</text>
+    <text x="175" y="462" font-size="20" font-weight="bold" fill="#1B3A5C">月度统计手工汇总</text>
+    <text x="175" y="490" font-size="16" fill="#8B95A7">耗时半天，数据不准，无法实时查看</text>
+  </g>
+  <g id="bottom-note" data-pptx-bounds="80 550 1120 120">
+    <rect x="80" y="550" width="1120" height="120" rx="16" fill="#FEF3C7"/>
+    <text x="640" y="615" font-size="22" font-weight="bold" fill="#92400E" text-anchor="middle">效率低、体验差、数据滞后</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="80 690 1120 20">
+    <text x="1200" y="705" font-size="12" fill="#8B95A7" text-anchor="end">07</text>
+  </g>
+</svg>

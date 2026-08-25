@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="page-background" x="0" y="0" width="1280" height="720" fill="#F0F3F8" data-pptx-role="background"/>
+  <g id="page-header" data-pptx-bounds="80 50 1120 80">
+    <rect x="80" y="50" width="8" height="40" fill="#1B3A5C"/>
+    <text x="110" y="85" font-size="32" font-weight="bold" fill="#1B3A5C">日常运营</text>
+    <text x="110" y="112" font-size="16" fill="#8B95A7">每天重复近100次的标准化流程</text>
+  </g>
+  <g id="intro-text" data-pptx-bounds="80 170 560 280">
+    <rect x="80" y="170" width="560" height="280" rx="16" fill="#FFFFFF"/>
+    <text x="120" y="230" font-size="20" font-weight="bold" fill="#1B3A5C">运营概述</text>
+    <text x="120" y="280" font-size="18" fill="#4A5568">
+      <tspan x="120" dy="0">每天清晨7点开门，晚上7点半收摊。</tspan>
+      <tspan x="120" dy="32">快递从镇上分拨中心送到村里，</tspan>
+      <tspan x="120" dy="32">登记、分拣、上架、通知取件</tspan>
+      <tspan x="120" dy="32">——这套流程每天重复近100次。</tspan>
+    </text>
+    <rect x="120" y="400" width="480" height="2" fill="#E2E8F0"/>
+    <text x="120" y="430" font-size="16" fill="#3B82C4">核心价值：最后一公里</text>
+  </g>
+  <g id="timeline" data-pptx-bounds="680 170 520 280">
+    <rect x="680" y="170" width="520" height="280" rx="16" fill="#FFFFFF"/>
+    <text x="720" y="230" font-size="20" font-weight="bold" fill="#1B3A5C">关键时间节点</text>
+    <line x1="760" y1="280" x2="760" y2="410" stroke="#3B82C4" stroke-width="3"/>
+    <circle cx="760" cy="290" r="10" fill="#3B82C4"/>
+    <text x="790" y="295" font-size="22" font-weight="bold" fill="#1B3A5C">07:00</text>
+    <text x="790" y="320" font-size="16" fill="#8B95A7">开门接件，第一批快递到达</text>
+    <circle cx="760" cy="350" r="10" fill="#E8A533"/>
+    <text x="790" y="355" font-size="22" font-weight="bold" fill="#1B3A5C">11-14时</text>
+    <text x="790" y="380" font-size="16" fill="#8B95A7">取件高峰，村民集中来取</text>
+    <circle cx="760" cy="410" r="10" fill="#3B82C4"/>
+    <text x="790" y="415" font-size="22" font-weight="bold" fill="#1B3A5C">19:30</text>
+    <text x="790" y="440" font-size="16" fill="#8B95A7">当日清件，登记入库完毕</text>
+  </g>
+  <g id="bottom-note" data-pptx-bounds="80 490 1120 180">
+    <rect x="80" y="490" width="1120" height="180" rx="16" fill="#1B3A5C"/>
+    <text x="640" y="560" font-size="22" fill="#FFFFFF" text-anchor="middle">村级代收点的核心价值是"最后一公里"</text>
+    <text x="640" y="600" font-size="18" fill="#A8C5DB" text-anchor="middle">村民不用赶去镇上取件，快递不用因无人签收而退回</text>
+    <text x="640" y="640" font-size="18" fill="#A8C5DB" text-anchor="middle">每一件包裹，都在这里完成最后一步交接</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="80 690 1120 20">
+    <text x="1200" y="705" font-size="12" fill="#8B95A7" text-anchor="end">03</text>
+  </g>
+</svg>

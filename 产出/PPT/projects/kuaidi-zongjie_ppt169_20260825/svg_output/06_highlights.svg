@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="page-background" x="0" y="0" width="1280" height="720" fill="#1B3A5C" data-pptx-role="background"/>
+  <g id="page-header" data-pptx-bounds="80 50 1120 80">
+    <rect x="80" y="50" width="8" height="40" fill="#E8A533"/>
+    <text x="110" y="85" font-size="32" font-weight="bold" fill="#FFFFFF">服务亮点</text>
+    <text x="110" y="112" font-size="16" fill="#8BAABF">数字化升级带来的三大改变</text>
+  </g>
+  <g id="highlight-1" data-pptx-bounds="80 200 360 400">
+    <rect x="80" y="200" width="360" height="400" rx="20" fill="#244B73"/>
+    <text x="260" y="330" font-size="72" font-weight="bold" fill="#E8A533" text-anchor="middle">100%</text>
+    <text x="260" y="380" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">数字化登记</text>
+    <line x1="160" y1="410" x2="360" y2="410" stroke="#3B6090" stroke-width="2"/>
+    <text x="260" y="460" font-size="16" fill="#A8C5DB" text-anchor="middle">
+      <tspan x="260" dy="0">全部快件电子登记</tspan>
+      <tspan x="260" dy="30">告别手写台账</tspan>
+      <tspan x="260" dy="30">一键可查</tspan>
+    </text>
+  </g>
+  <g id="highlight-2" data-pptx-bounds="460 200 360 400">
+    <rect x="460" y="200" width="360" height="400" rx="20" fill="#244B73"/>
+    <text x="640" y="330" font-size="72" font-weight="bold" fill="#E8A533" text-anchor="middle">40%</text>
+    <text x="640" y="380" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">取件效率提升</text>
+    <line x1="540" y1="410" x2="740" y2="410" stroke="#3B6090" stroke-width="2"/>
+    <text x="640" y="460" font-size="16" fill="#A8C5DB" text-anchor="middle">
+      <tspan x="640" dy="0">编号取件替代翻找</tspan>
+      <tspan x="640" dy="30">高峰排队减少</tspan>
+      <tspan x="640" dy="30">村民等待时间缩短</tspan>
+    </text>
+  </g>
+  <g id="highlight-3" data-pptx-bounds="840 200 360 400">
+    <rect x="840" y="200" width="360" height="400" rx="20" fill="#244B73"/>
+    <text x="1020" y="330" font-size="72" font-weight="bold" fill="#E8A533" text-anchor="middle">98%</text>
+    <text x="1020" y="380" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">村民满意度</text>
+    <line x1="920" y1="410" x2="1120" y2="410" stroke="#3B6090" stroke-width="2"/>
+    <text x="1020" y="460" font-size="16" fill="#A8C5DB" text-anchor="middle">
+      <tspan x="1020" dy="0">村民满意度调查</tspan>
+      <tspan x="1020" dy="30">全年零投诉</tspan>
+      <tspan x="1020" dy="30">服务口碑持续积累</tspan>
+    </text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="80 690 1120 20">
+    <text x="1200" y="705" font-size="12" fill="#8BAABF" text-anchor="end">06</text>
+  </g>
+</svg>

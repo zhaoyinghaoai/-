@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="page-background" x="0" y="0" width="1280" height="720" fill="#F0F3F8" data-pptx-role="background"/>
+  <g id="page-header" data-pptx-bounds="80 50 1120 80">
+    <rect x="80" y="50" width="8" height="40" fill="#3B82C4"/>
+    <text x="110" y="85" font-size="32" font-weight="bold" fill="#1B3A5C">改进后：数字化模式</text>
+    <text x="110" y="112" font-size="16" fill="#8B95A7">系统化升级带来的全面提升</text>
+  </g>
+  <g id="improve-1" data-pptx-bounds="80 180 540 95">
+    <rect x="80" y="180" width="540" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="130" cy="227" r="24" fill="#DBEAFE"/>
+    <text x="130" y="234" font-size="20" font-weight="bold" fill="#3B82C4" text-anchor="middle">1</text>
+    <text x="175" y="222" font-size="20" font-weight="bold" fill="#1B3A5C">扫码录入系统</text>
+    <text x="175" y="250" font-size="16" fill="#8B95A7">自动生成取件码，告别手写</text>
+  </g>
+  <g id="improve-2" data-pptx-bounds="660 180 540 95">
+    <rect x="660" y="180" width="540" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="710" cy="227" r="24" fill="#DBEAFE"/>
+    <text x="710" y="234" font-size="20" font-weight="bold" fill="#3B82C4" text-anchor="middle">2</text>
+    <text x="755" y="222" font-size="20" font-weight="bold" fill="#1B3A5C">编号分区上架</text>
+    <text x="755" y="250" font-size="16" fill="#8B95A7">凭码秒取，高峰不再排队</text>
+  </g>
+  <g id="improve-3" data-pptx-bounds="80 300 540 95">
+    <rect x="80" y="300" width="540" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="130" cy="347" r="24" fill="#DBEAFE"/>
+    <text x="130" y="354" font-size="20" font-weight="bold" fill="#3B82C4" text-anchor="middle">3</text>
+    <text x="175" y="342" font-size="20" font-weight="bold" fill="#1B3A5C">短信/微信自动通知</text>
+    <text x="175" y="370" font-size="16" fill="#8B95A7">通知到人，无人遗漏</text>
+  </g>
+  <g id="improve-4" data-pptx-bounds="660 300 540 95">
+    <rect x="660" y="300" width="540" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="710" cy="347" r="24" fill="#DBEAFE"/>
+    <text x="710" y="354" font-size="20" font-weight="bold" fill="#3B82C4" text-anchor="middle">4</text>
+    <text x="755" y="342" font-size="20" font-weight="bold" fill="#1B3A5C">超期自动预警</text>
+    <text x="755" y="370" font-size="16" fill="#8B95A7">主动二次通知，滞留件大幅减少</text>
+  </g>
+  <g id="improve-5" data-pptx-bounds="80 420 1120 95">
+    <rect x="80" y="420" width="1120" height="95" rx="12" fill="#FFFFFF"/>
+    <circle cx="130" cy="467" r="24" fill="#DBEAFE"/>
+    <text x="130" y="474" font-size="20" font-weight="bold" fill="#3B82C4" text-anchor="middle">5</text>
+    <text x="175" y="462" font-size="20" font-weight="bold" fill="#1B3A5C">一键导出月报</text>
+    <text x="175" y="490" font-size="16" fill="#8B95A7">数据实时可查，统计从半天变一键</text>
+  </g>
+  <g id="bottom-note" data-pptx-bounds="80 550 1120 120">
+    <rect x="80" y="550" width="1120" height="120" rx="16" fill="#1B3A5C"/>
+    <text x="640" y="615" font-size="22" font-weight="bold" fill="#E8A533" text-anchor="middle">效率提升40% | 零差错 | 98%满意度</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="80 690 1120 20">
+    <text x="1200" y="705" font-size="12" fill="#8B95A7" text-anchor="end">08</text>
+  </g>
+</svg>
