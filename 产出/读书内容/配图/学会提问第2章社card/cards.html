@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>把话说满，不如留一分 · 社card · 学会提问第2章</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+    .pullquote { font-family:var(--serif-zh); font-style:italic; font-weight:500; font-size:60px; line-height:1.30; letter-spacing:.01em; color:var(--ink); margin:0; }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .center { display:flex; flex-direction:column; justify-content:center; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    .poster.wide .h-display { font-size:140px; }
+    .poster.square .h-display { font-size:120px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 分 -->
+      <text x="540" y="1000" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="780" font-weight="500" fill="rgba(10,10,11,.035)">分</text>
+      <!-- 缺口圆环：圆留了个口子，就是"留一分" -->
+      <path d="M 448 1014 A 270 270 0 1 1 632 1014" stroke="rgba(10,10,11,.065)" stroke-width="2" fill="none"/>
+      <!-- 缺口下那颗"一分" -->
+      <circle cx="540" cy="1068" r="9" fill="rgba(10,10,11,.09)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 第二章</div>
+      <h1 class="h-display" style="font-size:112px">把话说满，<br>不如留一分</h1>
+      <p class="h-sub">Leave a little room to turn around.</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>留一分</span><span class="dot"></span>
+        <span>别焊死</span><span class="dot"></span>
+        <span>错了能拐弯</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里说·留一分 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 缺口圆环（小，居下） -->
+      <path d="M 472 1268 A 200 200 0 1 1 608 1268" stroke="rgba(10,10,11,.06)" stroke-width="2" fill="none"/>
+      <circle cx="540" cy="1305" r="7" fill="rgba(10,10,11,.08)"/>
+      <!-- 大字水印 分 -->
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">分</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 留一点余地</div>
+      <h2 class="h-xl" style="font-size:76px">我有没有<br>可能是错的？</h2>
+      <hr class="rule" style="margin:30px 0 34px">
+      <p class="body" style="font-size:26px">"你可以基于自己的观点自信行事，对自己的结论不要犹豫不定——但也要留有一点余地，时不时反省一下。"</p>
+      <p class="lead" style="margin-top:10px; font-size:29px"><b style="font-weight:500">浩总的批注</b>　凡事要留一分，不管是信仰还是什么。这一分可以保命，也可以让自己重获新生。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>02 / 06</span><span class="dot"></span><span>学会提问</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 03 我的自省·把话说满 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 一只满到溢出的碗 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none" stroke-linejoin="round">
+        <!-- 碗身 -->
+        <path d="M 360 1000 L 360 1080 Q 360 1240 540 1240 Q 720 1240 720 1080 L 720 1000"/>
+        <!-- 高出碗口的水面（满出来了） -->
+        <path d="M 332 988 Q 540 952 748 988"/>
+      </g>
+      <!-- 溢出的那一滴 -->
+      <path d="M 748 1006 Q 750 1022 756 1032" stroke="rgba(10,10,11,.07)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="757" cy="1048" r="5" fill="rgba(10,10,11,.08)"/>
+      <!-- 大字水印 满 -->
+      <text x="540" y="900" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">满</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的自省 · 较真的人</div>
+      <h2 class="h-md" style="font-size:60px">吃亏就吃在，<br>把话说满了。</h2>
+      <p class="body" style="margin-top:10px">认准一个理儿就爱较真，说出去的话不爱往回收。早些年脑子一热就往上冲，觉得对就是对，错就是错。</p>
+      <p class="lead" style="margin-top:8px; font-size:29px">现在回头看，把话说满，路就走窄了。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:24px">
+      <div class="issue-row"><span>03 / 06</span><span class="dot"></span><span>浩总 · 读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 04 书里说·都会犯错 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 一个坑（V形谷）+ 从坑里爬出的脚印 -->
+      <path d="M 280 1060 L 540 1220 L 800 1060" stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- 谷底：停在过错里的一小点 -->
+      <circle cx="540" cy="1220" r="7" fill="rgba(10,10,11,.09)"/>
+      <!-- 从谷底向右爬升的三枚脚印 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2" fill="none" stroke-linecap="round">
+        <ellipse cx="606" cy="1138" rx="9" ry="15" transform="rotate(-28 606 1138)"/>
+        <ellipse cx="682" cy="1068" rx="9" ry="15" transform="rotate(-28 682 1068)"/>
+        <ellipse cx="752" cy="998" rx="9" ry="15" transform="rotate(-28 752 998)"/>
+      </g>
+      <!-- 大字水印 错 -->
+      <text x="540" y="880" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">错</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 都会犯错</div>
+      <div class="quote-mark">"</div>
+      <blockquote class="pullquote" style="font-size:58px">世界上最聪明的人，<br>每周也会犯下<br>很多错误。</blockquote>
+      <p class="body" style="margin-top:36px; font-size:25px; color:rgba(var(--ink-rgb),.7)">认识到这一点，我们就能更积极主动地和其他人交流。</p>
+      <p class="lead" style="margin-top:12px; font-size:28px">别停在过错那儿出不来，得从坑里爬出来，把教训捡起来。这样才对得起走过的弯路。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>04 / 06</span><span class="dot"></span><span>学会提问</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 05 我的规矩·别焊死 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 两扇门中间留一条缝：留一分，门没关死 -->
+      <rect x="350" y="700" width="380" height="520" rx="4" stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none"/>
+      <rect x="378" y="726" width="142" height="478" rx="3" stroke="rgba(10,10,11,.055)" stroke-width="2" fill="none"/>
+      <rect x="560" y="726" width="142" height="478" rx="3" stroke="rgba(10,10,11,.055)" stroke-width="2" fill="none"/>
+      <!-- 门缝里透出的那一点光 -->
+      <circle cx="540" cy="965" r="8" fill="rgba(10,10,11,.10)"/>
+      <!-- 大字水印 留 -->
+      <text x="540" y="920" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">留</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的规矩 · 第二天</div>
+      <h2 class="h-md" style="font-size:58px">要有主见，<br>但也别把自己焊死。</h2>
+      <p class="body" style="margin-top:10px">判断下完了，再问自己一句：我有没有可能错了。</p>
+      <p class="lead" style="margin-top:6px; font-size:29px">这不是怂，是给自己留个转身的地方。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>05 / 06</span><span class="dot"></span><span>浩总 · 读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 06 收尾 + 互动 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 一条带大弯的路：错了能拐弯 -->
+      <path d="M 220 1250 C 380 1190 470 1130 500 1030 C 530 930 640 890 840 800"
+            stroke="rgba(10,10,11,.06)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- 弯道处的箭头（拐弯的方向） -->
+      <path d="M 640 898 L 600 878 M 640 898 L 622 930" stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- 大字水印 行 -->
+      <text x="540" y="880" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="500" font-weight="500" fill="rgba(10,10,11,.028)">行</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:flex-start; padding-top:112px">
+      <div class="kicker">我的规矩 · 第7天</div>
+      <h2 class="h-md" style="font-size:54px">留一分，<br>不是停下来不动。</h2>
+      <p class="body" style="font-size:25px; margin-top:8px">是走得更稳当。错了能拐弯，走对了就一直往前。</p>
+      <p class="lead" style="margin-top:12px; font-size:26px">昨天问"这话谁说的"，今天再补一句："我有没有可能错了。"两个问题问完，该干还是干。</p>
+      <div class="interact-box" style="margin-top:32px">
+        <div class="label-chat">评论区聊聊</div>
+        <p class="chat-q" style="font-size:26px">你有没有过把话说满、把路走死，后来想回头都没地儿回的时候？<br>现在，你会给自己留那一分吗？</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>06 / 06</span><span class="dot"></span><span>浩总 · 读书感悟 · 第7天</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 公众号 21:9 主封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 缺口圆环（右侧） -->
+      <path d="M 1397 732 A 300 300 0 1 1 1603 732" stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none"/>
+      <circle cx="1500" cy="800" r="8" fill="rgba(10,10,11,.08)"/>
+      <!-- 一条向前的路（横贯） -->
+      <path d="M 0 760 C 350 720 700 660 1000 560 S 1700 380 2100 300"
+            stroke="rgba(10,10,11,.05)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="2100" cy="300" r="4" fill="rgba(10,10,11,.055)"/>
+      <!-- 大字水印 分 -->
+      <text x="1050" y="640" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="520" font-weight="500" fill="rgba(10,10,11,.028)">分</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1200px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 第二章</div>
+        <h1 class="h-display" style="font-size:118px">把话说满，<br>不如留一分</h1>
+        <p class="h-sub">Leave a little room to turn around.</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">浩总 · 读书感悟 · 第7天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 公众号 1:1 方封面 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 分 -->
+      <text x="540" y="770" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">分</text>
+      <!-- 缺口圆环 -->
+      <path d="M 444 983 A 280 280 0 1 1 636 983" stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none"/>
+      <circle cx="540" cy="1040" r="8" fill="rgba(10,10,11,.08)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content center" style="justify-content:center; text-align:center; align-items:center">
+      <div class="kicker" style="text-align:center">学会提问 · 第二章</div>
+      <h1 class="h-display" style="font-size:104px; text-align:center">把话说满，<br>不如留一分</h1>
+      <div style="width:60px; height:2px; background:var(--accent); margin:28px auto 0"></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
