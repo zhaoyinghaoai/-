@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>先找错，再往前 · 社card · 学会提问第2章·论题和结论</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+    .pullquote { font-family:var(--serif-zh); font-style:italic; font-weight:500; font-size:60px; line-height:1.30; letter-spacing:.01em; color:var(--ink); margin:0; }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .center { display:flex; flex-direction:column; justify-content:center; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    .poster.wide .h-display { font-size:140px; }
+    .poster.square .h-display { font-size:120px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 问 -->
+      <text x="540" y="1000" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="780" font-weight="500" fill="rgba(10,10,11,.035)">问</text>
+      <!-- 岔路口：一条路分叉，一条封死（×），一条向前 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 420 1260 C 470 1100 500 1000 540 900"/>
+        <path d="M 540 900 C 470 830 420 770 390 700"/>
+        <path d="M 540 900 C 630 830 690 760 730 670"/>
+      </g>
+      <!-- 封死的× -->
+      <path d="M 388 742 L 412 690 M 388 690 L 412 742" stroke="rgba(10,10,11,.08)" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- 向前的路远端小点 -->
+      <circle cx="735" cy="660" r="5" fill="rgba(10,10,11,.07)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 第二章</div>
+      <h1 class="h-display" style="font-size:112px">先找错，<br>再往前</h1>
+      <p class="h-sub">Find the flaw first.</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>论题对了没</span><span class="dot"></span>
+        <span>先挑自己的错</span><span class="dot"></span>
+        <span>有理不在声高</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里说·论题和结论 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 逻辑链：论题(×) → 论证 → 结论(×) -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2">
+        <line x1="344" y1="1090" x2="526" y2="1090"/>
+        <line x1="554" y1="1090" x2="736" y2="1090"/>
+      </g>
+      <g fill="rgba(10,10,11,.05)" stroke="rgba(10,10,11,.07)" stroke-width="2">
+        <circle cx="330" cy="1090" r="16"/>
+        <circle cx="540" cy="1090" r="16"/>
+        <circle cx="750" cy="1090" r="16"/>
+      </g>
+      <!-- 论题和结论上各画一个×：论题错，结论也大概率错 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" stroke-linecap="round">
+        <path d="M 320 1080 L 340 1100 M 320 1100 L 340 1080"/>
+        <path d="M 740 1080 L 760 1100 M 740 1100 L 760 1080"/>
+      </g>
+      <g font-family="Noto Serif SC,serif" font-size="26" fill="rgba(10,10,11,.1)" text-anchor="middle">
+        <text x="330" y="1155">论题</text>
+        <text x="540" y="1155">论证</text>
+        <text x="750" y="1155">结论</text>
+      </g>
+      <!-- 大字水印 题 -->
+      <text x="540" y="860" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">题</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 论题和结论</div>
+      <h2 class="h-xl" style="font-size:76px">他到底<br>在争什么？</h2>
+      <hr class="rule" style="margin:28px 0 32px">
+      <p class="body" style="font-size:26px">想回应别人那套循循善诱的说法，先找到他到底在争什么（论题），再找到他想塞给你的结论。</p>
+      <p class="lead" style="margin-top:10px; font-size:29px"><b style="font-weight:500">我写下的</b>　论题本身就错了，论证再漂亮，结论也大概率是错的。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>02 / 06</span><span class="dot"></span><span>学会提问</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 03 我的自省·钱是结论 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 一枚铜钱（只盯"能赚多少"）+ 一个问号（没问的问题） -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none">
+        <circle cx="460" cy="1080" r="110"/>
+        <rect x="444" y="1064" width="32" height="32"/>
+      </g>
+      <!-- 问号 -->
+      <path d="M 660 1010 C 648 986 662 952 686 946 C 710 940 722 968 704 990 C 690 1008 688 1030 688 1048"
+            stroke="rgba(10,10,11,.07)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="688" cy="1082" r="5" fill="rgba(10,10,11,.07)"/>
+      <!-- 大字水印 钱 -->
+      <text x="540" y="900" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">钱</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的自省 · 找项目</div>
+      <h2 class="h-md" style="font-size:56px">只看"能赚多少"，<br>没问问题本身。</h2>
+      <p class="body" style="margin-top:10px">以前找项目，最先看"能赚多少""多久回本"。现在回头看，钱的事是结论，问题本身是什么，我压根没问清。</p>
+      <p class="lead" style="margin-top:8px; font-size:29px">眼里只有目标，容易忽略方向。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:24px">
+      <div class="issue-row"><span>03 / 06</span><span class="dot"></span><span>读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 04 书里说·先找错 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 主路分三条支路，两条封死（×），一条向前 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 540 1270 L 540 960"/>
+        <path d="M 540 960 C 470 890 420 830 400 760"/>
+        <path d="M 540 960 L 540 690"/>
+        <path d="M 540 960 C 610 890 660 830 680 760"/>
+      </g>
+      <!-- 两条封死的× -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" stroke-linecap="round">
+        <path d="M 398 802 L 424 748 M 398 748 L 424 802"/>
+        <path d="M 656 802 L 682 748 M 656 748 L 682 802"/>
+      </g>
+      <!-- 向前的主路远端小点 -->
+      <circle cx="540" cy="648" r="6" fill="rgba(10,10,11,.07)"/>
+      <!-- 大字水印 封 -->
+      <text x="540" y="880" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">封</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 科学家怎么想</div>
+      <div class="quote-mark">"</div>
+      <blockquote class="pullquote" style="font-size:56px">第一步不是去找证据<br>证明自己对，<br>是去想每一个<br>可能的错误。</blockquote>
+      <p class="body" style="margin-top:34px; font-size:25px; color:rgba(var(--ink-rgb),.7)">当一个科学家有了一个想法，他的第一步不是走出去寻找证据，而是思考想法中每一个可能的错误。</p>
+      <p class="lead" style="margin-top:12px; font-size:28px">把可能走错的岔路口一个一个找出来，封死，才到得了目的地。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>04 / 06</span><span class="dot"></span><span>学会提问</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 05 我的自省·证明我对 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 放大镜：镜片里一个问号（先问"我哪儿错了"） -->
+      <circle cx="540" cy="1020" r="135" stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none"/>
+      <path d="M 640 1135 L 730 1225" stroke="rgba(10,10,11,.06)" stroke-width="4" stroke-linecap="round"/>
+      <!-- 镜片里的问号 -->
+      <path d="M 552 960 C 540 936 554 902 578 896 C 602 890 614 918 596 940 C 582 958 580 980 580 998"
+            stroke="rgba(10,10,11,.08)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="580" cy="1032" r="5" fill="rgba(10,10,11,.08)"/>
+      <!-- 大字水印 证 -->
+      <text x="540" y="900" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">证</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的自省 · 较真的人</div>
+      <h2 class="h-md" style="font-size:56px">满世界找"证明我对"<br>的证据，<br>真该反过来。</h2>
+      <p class="body" style="margin-top:10px">认准一个理儿就爱较真，脑子一热就往前冲。这不就是我缺的那一下吗。</p>
+      <p class="lead" style="margin-top:6px; font-size:29px">先找"我哪儿错了"，再谈往前走。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>05 / 06</span><span class="dot"></span><span>读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 06 收尾 + 互动 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 主干道向前，沿途三条侧路都被封死（×） -->
+      <path d="M 180 1160 C 380 1080 600 1000 880 920"
+            stroke="rgba(10,10,11,.06)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="905" cy="910" r="5" fill="rgba(10,10,11,.07)"/>
+      <g stroke="rgba(10,10,11,.05)" stroke-width="2" stroke-linecap="round" fill="none">
+        <path d="M 360 1110 L 330 1010"/>
+        <path d="M 545 1045 L 515 945"/>
+        <path d="M 720 980 L 700 890"/>
+      </g>
+      <!-- 三个封死的× -->
+      <g stroke="rgba(10,10,11,.075)" stroke-width="2.5" stroke-linecap="round">
+        <path d="M 326 1052 L 348 1024 M 326 1024 L 348 1052"/>
+        <path d="M 511 987 L 533 959 M 511 959 L 533 987"/>
+        <path d="M 696 932 L 716 906 M 696 906 L 716 932"/>
+      </g>
+      <!-- 大字水印 稳 -->
+      <text x="540" y="880" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="500" font-weight="500" fill="rgba(10,10,11,.028)">稳</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:flex-start; padding-top:112px">
+      <div class="kicker">我的规矩 · 第8天</div>
+      <h2 class="h-md" style="font-size:54px">先挑错，再往前。</h2>
+      <p class="body" style="font-size:25px; margin-top:8px">不急着证明自己对，先把岔路口一个一个封死。</p>
+      <p class="lead" style="margin-top:12px; font-size:26px">这不是给自己泼冷水，是把坑提前看清，走得稳当。往往是肯下笨功夫的人，才走得远。</p>
+      <div class="interact-box" style="margin-top:32px">
+        <div class="label-chat">评论区聊聊</div>
+        <p class="chat-q" style="font-size:26px">你最近有没有一个"特别想做、觉得肯定对"的念头？<br>让你先给它挑三个毛病，你挑得出来吗？</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>06 / 06</span><span class="dot"></span><span>读书感悟 · 第8天</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 公众号 21:9 主封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 岔路：一条封死，一条向前 -->
+      <path d="M 0 780 C 350 740 700 680 1050 580"
+            stroke="rgba(10,10,11,.05)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M 1050 580 C 1150 540 1250 520 1380 505"
+            stroke="rgba(10,10,11,.055)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M 1050 580 C 1180 640 1320 680 1500 710"
+            stroke="rgba(10,10,11,.05)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- 封死的×（向上的岔路） -->
+      <path d="M 1480 738 L 1522 700 M 1480 700 L 1522 738" stroke="rgba(10,10,11,.08)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="1410" cy="500" r="5" fill="rgba(10,10,11,.06)"/>
+      <!-- 大字水印 问 -->
+      <text x="1050" y="640" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="520" font-weight="500" fill="rgba(10,10,11,.028)">问</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1200px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 第二章</div>
+        <h1 class="h-display" style="font-size:118px">先找错，<br>再往前</h1>
+        <p class="h-sub">Find the flaw first.</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第8天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 公众号 1:1 方封面 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 问 -->
+      <text x="540" y="770" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">问</text>
+      <!-- 岔路：一条封死，一条向前 -->
+      <g stroke="rgba(10,10,11,.055)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 380 990 C 450 880 490 780 540 650"/>
+        <path d="M 540 650 C 480 580 440 520 420 450"/>
+        <path d="M 540 650 C 620 580 660 520 690 440"/>
+      </g>
+      <path d="M 418 492 L 442 438 M 418 438 L 442 492" stroke="rgba(10,10,11,.08)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="695" cy="430" r="5" fill="rgba(10,10,11,.07)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content center" style="justify-content:center; text-align:center; align-items:center">
+      <div class="kicker" style="text-align:center">学会提问 · 第二章</div>
+      <h1 class="h-display" style="font-size:104px; text-align:center">先找错，<br>再往前</h1>
+      <div style="width:60px; height:2px; background:var(--accent); margin:28px auto 0"></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
