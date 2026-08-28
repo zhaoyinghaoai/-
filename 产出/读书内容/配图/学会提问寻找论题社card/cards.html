@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>目的藏不住 · 社card · 学会提问·寻找论题</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+    .pullquote { font-family:var(--serif-zh); font-style:italic; font-weight:500; font-size:60px; line-height:1.30; letter-spacing:.01em; color:var(--ink); margin:0; }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .center { display:flex; flex-direction:column; justify-content:center; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    .poster.wide .h-display { font-size:140px; }
+    .poster.square .h-display { font-size:120px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 目 -->
+      <text x="540" y="980" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="780" font-weight="500" fill="rgba(10,10,11,.032)">目</text>
+      <!-- 一只注视的眼睛 -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <ellipse cx="540" cy="920" rx="170" ry="78"/>
+        <path d="M 370 918 C 445 852 635 852 710 918"/>
+        <path d="M 398 952 C 468 994 612 994 682 952"/>
+        <circle cx="540" cy="918" r="46" fill="rgba(10,10,11,.05)" stroke="none"/>
+        <circle cx="540" cy="918" r="16" fill="rgba(10,10,11,.08)" stroke="none"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 寻找论题</div>
+      <h1 class="h-display" style="font-size:118px">目的<br>藏不住</h1>
+      <p class="h-sub">Purpose never hides.</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>先看他想让你干啥</span><span class="dot"></span>
+        <span>再翻他什么来路</span><span class="dot"></span>
+        <span>吃谁的饭受谁管</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里说·先找结论 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 结 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">结</text>
+      <!-- 一团乱线，汇聚成一支向下的箭头 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M 300 1290 C 380 1230 520 1240 540 1160"/>
+        <path d="M 340 1300 C 420 1250 480 1230 540 1170"/>
+        <path d="M 420 1310 C 480 1270 520 1240 545 1180"/>
+        <path d="M 660 1300 C 610 1250 560 1230 545 1180"/>
+        <path d="M 700 1290 C 640 1230 600 1220 545 1160"/>
+        <path d="M 760 1300 C 680 1260 620 1240 545 1180"/>
+      </g>
+      <!-- 汇聚点往下的箭头 -->
+      <path d="M 545 1170 L 545 1100 M 545 1100 L 505 1145 M 545 1100 L 585 1145" stroke="rgba(10,10,11,.09)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="545" cy="1290" r="6" fill="rgba(10,10,11,.08)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 先找结论</div>
+      <h2 class="h-xl" style="font-size:74px">绕来绕去讲一堆<br>就看他最后想让你干啥</h2>
+      <hr class="rule" style="margin:30px 0 34px">
+      <p class="body" style="font-size:26px">"在论题没有直截了当地陈述出来时，最有效的方法是先找准结论。很多情况下，必须先找到结论，才能确认论题。"</p>
+      <p class="lead" style="margin-top:10px; font-size:29px"><b style="font-weight:500">我写下的</b>　他的结论，就是他的目的。从结论入手，再反推他的论题。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>02 / 06</span><span class="dot"></span><span>学会提问</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 03 我的顿悟·报我的课 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 报 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">报</text>
+      <!-- 手机屏幕：竖屏矩形 + 底部一行横线（最后一句结论） -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <rect x="380" y="1180" width="320" height="210" rx="24"/>
+        <path d="M 415 1250 L 665 1250"/>
+        <path d="M 415 1300 L 600 1300"/>
+        <path d="M 415 1345 L 665 1345"/>
+      </g>
+      <!-- 屏幕里最重的一行（加粗划线） -->
+      <path d="M 415 1390 L 665 1390" stroke="rgba(10,10,11,.14)" stroke-width="3"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的顿悟 · 一条视频</div>
+      <h2 class="h-xl" style="font-size:74px">前面二十分钟<br>都可以不听</h2>
+      <hr class="rule" style="margin:30px 0 34px">
+      <p class="body" style="font-size:26px">博主讲二十分钟道理，末了一句"所以，报我的课"。</p>
+      <p class="lead" style="margin-top:10px; font-size:29px">结论就四个字。前面讲的再漂亮，都是铺垫。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>03 / 06</span><span class="dot"></span><span>读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 04 书里说·查背景 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 吃 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">吃</text>
+      <!-- 牵线木偶：头顶一根线吊着 -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="460" cy="1220" r="30"/>
+        <path d="M 460 1250 L 460 1330"/>
+        <path d="M 460 1290 L 420 1340 M 460 1290 L 500 1340"/>
+        <line x1="460" y1="1190" x2="460" y2="1120"/>
+      </g>
+      <!-- 一碗饭：碗口 + 碗身 + 冒热气 -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 580 1330 C 580 1390 700 1390 700 1330"/>
+        <path d="M 566 1300 C 566 1350 714 1350 714 1300"/>
+        <path d="M 600 1275 C 620 1250 630 1250 650 1270 M 630 1285 C 645 1265 660 1265 675 1282"/>
+        <circle cx="640" cy="1315" r="6" fill="rgba(10,10,11,.07)" stroke="none"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 查一查背景</div>
+      <h2 class="h-xl" style="font-size:72px">吃谁的饭<br>受谁管</h2>
+      <hr class="rule" style="margin:30px 0 34px">
+      <p class="body" style="font-size:26px">"在你想要确定论题的时候，有必要去查一查写作者的背景信息。"</p>
+      <p class="lead" style="margin-top:10px; font-size:29px"><b style="font-weight:500">我写下的</b>　背景跟观点对不上，多半是烟雾弹，是有套路的。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>04 / 06</span><span class="dot"></span><span>学会提问</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 05 我的自省·被割过 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 割 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">割</text>
+      <!-- 一把镰刀 -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M 300 1200 C 300 1090 420 1050 470 1090 C 510 1120 505 1180 460 1210"/>
+        <path d="M 460 1210 L 520 1270"/>
+      </g>
+      <!-- 几根韭菜 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 610 1360 L 610 1250 M 610 1250 C 590 1230 588 1215 610 1200"/>
+        <path d="M 650 1360 L 650 1240 M 650 1240 C 638 1220 635 1205 650 1190"/>
+        <path d="M 690 1360 L 690 1260 M 690 1260 C 674 1240 672 1225 690 1210"/>
+        <path d="M 730 1360 L 730 1270 M 730 1270 C 718 1255 715 1240 730 1230"/>
+      </g>
+      <path d="M 600 1350 L 740 1350" stroke="rgba(10,10,11,.05)" stroke-width="2"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的自省 · 交过的学费</div>
+      <h2 class="h-xl" style="font-size:72px">不是我笨<br>是没问那句"他图啥"</h2>
+      <hr class="rule" style="margin:30px 0 34px">
+      <p class="body" style="font-size:26px">被割过几回，交过不少"智商税"。以前怪自己笨，跟不上趟。</p>
+      <p class="lead" style="margin-top:10px; font-size:29px">现在想明白了——我一直没问出那句：他图啥。</p>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>05 / 06</span><span class="dot"></span><span>读书感悟</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 06 收尾 + 互动 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 行 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">行</text>
+      <!-- 路牌：一根杆 + 两块指示牌 -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <line x1="540" y1="1160" x2="540" y2="1390"/>
+        <path d="M 380 1240 L 700 1240"/>
+        <path d="M 540 1280 L 700 1280"/>
+      </g>
+      <!-- 杆顶小圆 -->
+      <circle cx="540" cy="1160" r="8" fill="rgba(10,10,11,.08)" stroke="none"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">今天读到这里 · 第9天</div>
+      <h2 class="h-xl" style="font-size:68px">听完先掂量掂量<br>别急着热血沸腾</h2>
+      <hr class="rule" style="margin:30px 0 40px">
+      <div class="interact-box">
+        <div class="label-chat">评论区聊聊</div>
+        <p class="chat-q">你刷"教你搞钱""带你逆袭"的大神时，有没有回头看看他到底图啥？你被哪个套路坑过，现在回头看，是不是一目了然？</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="issue-row"><span>06 / 06</span><span class="dot"></span><span>读书感悟 · 第9天</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 横贯全图：一团乱线，从左下汇聚成一支指向右上"目的"的箭头 -->
+      <g stroke="rgba(10,10,11,.05)" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M 0 820 C 260 790 420 760 620 690"/>
+        <path d="M 60 830 C 280 800 460 770 620 700"/>
+        <path d="M 140 840 C 340 820 520 780 620 715"/>
+        <path d="M 860 630 C 1040 560 1220 510 1440 470"/>
+        <path d="M 860 640 C 1020 575 1220 525 1420 488"/>
+      </g>
+      <!-- 汇聚点→箭头（指向右上） -->
+      <path d="M 1440 470 L 1520 440 M 1520 440 L 1490 480 M 1520 440 L 1505 415" stroke="rgba(10,10,11,.08)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- 箭头尽头的"目的"小标 -->
+      <circle cx="1560" cy="425" r="7" fill="rgba(10,10,11,.08)"/>
+      <!-- 大字水印 目 -->
+      <text x="1050" y="640" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="520" font-weight="500" fill="rgba(10,10,11,.028)">目</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1250px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 寻找论题</div>
+        <h1 class="h-display" style="font-size:118px">目的藏不住</h1>
+        <p class="h-sub">Purpose never hides. · 结论，就是他的目的</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第9天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">目</text>
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <ellipse cx="540" cy="640" rx="170" ry="80"/>
+        <path d="M 370 638 C 448 572 632 572 710 638"/>
+        <path d="M 398 672 C 470 714 610 714 682 672"/>
+        <circle cx="540" cy="638" r="46" fill="rgba(10,10,11,.05)" stroke="none"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display" style="font-size:112px">目的藏不住</h1>
+      <p class="h-sub" style="margin-bottom:0">先看他想让你干啥</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
