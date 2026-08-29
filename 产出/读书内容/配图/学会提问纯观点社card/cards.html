@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>情绪拉满，证据是零 · 社card · 学会提问·纯观点</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    .poster.wide .h-display { font-size:140px; }
+    .poster.square .h-display { font-size:120px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 零 -->
+      <text x="540" y="1010" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="760" font-weight="500" fill="rgba(10,10,11,.032)">零</text>
+      <!-- 天平：左边沉（情绪），右边空（证据） -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <line x1="540" y1="820" x2="540" y2="880"/>
+        <line x1="450" y1="880" x2="630" y2="880"/>
+        <circle cx="540" cy="880" r="10"/>
+        <!-- 横梁：左低右高 -->
+        <line x1="330" y1="855" x2="750" y2="815"/>
+        <!-- 左盘（沉） -->
+        <line x1="330" y1="855" x2="290" y2="905"/><line x1="330" y1="855" x2="370" y2="905"/>
+        <path d="M 280 905 Q 330 950 380 905"/>
+        <!-- 右盘（空，翘起） -->
+        <line x1="750" y1="815" x2="715" y2="860"/><line x1="750" y1="815" x2="785" y2="860"/>
+        <path d="M 705 860 Q 750 900 795 860"/>
+      </g>
+      <!-- 左盘里的小石子（情绪的分量） -->
+      <g fill="rgba(10,10,11,.10)">
+        <circle cx="315" cy="918" r="9"/><circle cx="340" cy="922" r="7"/><circle cx="327" cy="908" r="6"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 纯观点</div>
+      <h1 class="h-display" style="font-size:112px">情绪拉满<br>证据是零</h1>
+      <p class="h-sub">Zero evidence, full emotion.</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>一句上头的话</span><span class="dot"></span>
+        <span>先拆两半</span><span class="dot"></span>
+        <span>只接信息不接情绪</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里说·纯观点 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 观 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">观</text>
+      <!-- 轻飘飘的气泡（观点：不用负责，随风飘走） -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <circle cx="700" cy="1200" r="52"/>
+        <circle cx="800" cy="1130" r="30"/>
+        <circle cx="760" cy="1265" r="20"/>
+        <path d="M 660 1185 q 20 -14 40 0" stroke-width="2"/>
+        <path d="M 330 1230 q 30 -18 60 0 q 30 18 60 0" stroke-width="2"/>
+      </g>
+      <!-- 气泡上升虚线 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2" stroke-dasharray="3 10" stroke-linecap="round">
+        <path d="M 750 1100 C 760 1040 740 990 755 930"/>
+        <path d="M 360 1200 C 350 1140 370 1090 355 1030"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 纯观点</div>
+      <h2 class="h-xl" style="font-size:72px">没有证据支撑的断言<br>叫纯观点</h2>
+      <p class="lead" style="margin-top:8px">我写下的：</p>
+      <p class="pullquote" style="font-size:54px">它不需要数据支撑<br>也不需要负责<br>只提供情绪价值</p>
+      <div class="issue-row" style="margin-top:40px">
+        <span> mere opinion </span><span class="dot"></span><span>纯观点</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 那些上头的话 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 风 -->
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">风</text>
+      <!-- 手机屏幕轮廓 -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="330" y="1060" width="420" height="280" rx="28"/>
+        <line x1="480" y1="1090" x2="600" y2="1090"/>
+      </g>
+      <!-- 屏幕里向上蹿的火苗线条（热血上头） -->
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 480 1300 C 470 1260 500 1240 490 1200 C 485 1175 505 1165 500 1140"/>
+        <path d="M 540 1310 C 535 1270 560 1250 552 1210 C 548 1185 565 1175 560 1150"/>
+        <path d="M 600 1300 C 592 1264 618 1244 610 1206 C 606 1182 622 1172 618 1148"/>
+      </g>
+      <!-- 漫天飞的小箭头（风口） -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M 250 1150 l 40 -25 m -12 26 l 12 -26"/>
+        <path d="M 800 1120 l 44 -18 m -16 24 l 16 -24"/>
+        <path d="M 820 1250 l 38 -20 m -12 24 l 12 -24"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">天天在刷的 · 熟不熟悉</div>
+      <h2 class="h-xl" style="font-size:68px">"今年最该抓住的<br>三个风口"</h2>
+      <h2 class="h-xl" style="font-size:68px">"跟着我做<br>三个月回本"</h2>
+      <h2 class="h-xl" style="font-size:68px">"月入十万的人<br>都藏着这一招"</h2>
+      <p class="lead" style="margin-top:34px">每一句都让人热血上头，恨不得第二天就开干。</p>
+      <p class="lead">可它给过一个具体数字吗？一个亏钱的例子吗？说过一句"做不到我负责"吗？</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 我的土办法·拆两半 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 拆 -->
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">拆</text>
+      <!-- 一句话被虚线剪开：上半飘走（情绪），下半落地（信息） -->
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <!-- 上面一半：倾斜飘起 -->
+        <rect x="360" y="700" width="360" height="100" rx="12" transform="rotate(-8 540 750)"/>
+        <!-- 下面一半：稳稳落地 -->
+        <rect x="380" y="880" width="320" height="100" rx="12"/>
+        <!-- 剪切虚线 -->
+        <line x1="300" y1="840" x2="780" y2="840" stroke-dasharray="14 12" stroke-width="3"/>
+        <!-- 剪刀 -->
+        <g transform="translate(810,810) rotate(-20)">
+          <line x1="0" y1="0" x2="34" y2="34"/><line x1="34" y1="0" x2="0" y2="34"/>
+          <circle cx="44" cy="44" r="12"/><circle cx="-10" cy="44" r="12"/>
+        </g>
+      </g>
+      <!-- 上半碎成小气泡飘走 -->
+      <g fill="rgba(10,10,11,.08)">
+        <circle cx="330" cy="640" r="8"/><circle cx="720" cy="620" r="6"/><circle cx="600" cy="590" r="7"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的笔记 · 土办法</div>
+      <h2 class="h-xl" style="font-size:76px">把那句话<br>拆成两半</h2>
+      <p class="pullquote" style="font-size:56px; margin-top:10px">一半是情绪<br>一半是信息<br>我只接信息<br>不接情绪</p>
+      <div class="issue-row" style="margin-top:44px">
+        <span>情绪 · 让它过去</span><span class="dot"></span><span>信息 · 认真掂量</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 带劲的 vs 落地的 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 实 -->
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">实</text>
+      <!-- 左边：烟花（带劲） -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 240 1080 L 240 1000 M 240 1000 L 218 1030 M 240 1000 L 262 1030 M 240 1000 L 240 968 M 240 1000 L 212 1000 M 240 1000 L 268 1000 M 240 1000 L 220 976 M 240 1000 L 260 976"/>
+        <circle cx="240" cy="1000" r="7" fill="rgba(10,10,11,.08)" stroke="none"/>
+      </g>
+      <!-- 右边：台阶（落地，一步步） -->
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linejoin="round">
+        <path d="M 760 1140 h 60 v -50 h 60 v -50 h 60 v -50 h 60"/>
+        <path d="M 760 1140 v -150"/>
+      </g>
+      <!-- 中间分隔线 -->
+      <line x1="540" y1="960" x2="540" y2="1180" stroke="rgba(10,10,11,.14)" stroke-width="2" stroke-dasharray="4 10"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">开快递点这几年 · 咂摸出的味</div>
+      <h2 class="h-xl" style="font-size:72px">带劲的<br>多半是纯观点</h2>
+      <h2 class="h-xl" style="font-size:72px">能落地的<br>听起来都不带劲</h2>
+      <p class="lead" style="margin-top:36px">"前期要投多少、多久回本、我踩过哪些坑、现在一天出多少单"——话糙，但这是信息。</p>
+      <p class="lead">"你也能发财，赶紧来"——好听，但这只是情绪。</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 收尾·三连问 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 问 -->
+      <text x="540" y="860" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">问</text>
+      <!-- 三块路牌 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="540" y1="1030" x2="540" y2="1330"/>
+        <path d="M 420 1060 h 240 l 30 28 l -30 28 h -240 z"/>
+        <path d="M 430 1160 h 220 l 26 26 l -26 26 h -220 z"/>
+        <path d="M 440 1258 h 200 l 24 24 l -24 24 h -200 z"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">从今天起 · 刷到上头的先问三句</div>
+      <h2 class="h-xl" style="font-size:84px">这话谁说的？</h2>
+      <h2 class="h-xl" style="font-size:84px">他图什么？</h2>
+      <h2 class="h-xl" style="font-size:84px">有证据吗？</h2>
+      <p class="lead" style="margin-top:38px">没证据，就把它当股情绪，让它过去。不往心里去，更不往外掏钱。</p>
+      <p class="lead">这不是抬杠，这是有主见。为自己的钱、时间、选的路负责。</p>
+      <div class="interact-box" style="margin-top:36px">
+        <div class="label-chat">留言聊聊</div>
+        <div class="chat-q">最近哪句话把你弄得热血沸腾，差点就冲了？拆成情绪和信息看看，还剩多少？</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 横贯全图：从左到右一句话，越走越轻，最后碎成气泡散掉 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="3" fill="none" stroke-linecap="round">
+        <!-- 左侧实线（信息） -->
+        <path d="M 60 700 C 260 690 420 680 560 660"/>
+        <!-- 中间虚线（拆开） -->
+        <path d="M 580 658 C 700 640 820 610 940 580" stroke-dasharray="16 14"/>
+        <!-- 右侧碎成小圈（情绪散掉） -->
+        <circle cx="1060" cy="550" r="10"/>
+        <circle cx="1150" cy="520" r="8"/>
+        <circle cx="1230" cy="555" r="7"/>
+        <circle cx="1320" cy="505" r="9"/>
+        <circle cx="1400" cy="540" r="6"/>
+        <circle cx="1480" cy="495" r="8"/>
+      </g>
+      <!-- 大字水印 零 -->
+      <text x="1050" y="640" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="520" font-weight="500" fill="rgba(10,10,11,.028)">零</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1250px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 纯观点</div>
+        <h1 class="h-display" style="font-size:118px">情绪拉满<br>证据是零</h1>
+        <p class="h-sub">Zero evidence, full emotion. · 只接信息，不接情绪</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第10天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">零</text>
+      <!-- 天平简版 -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <line x1="540" y1="640" x2="540" y2="690"/>
+        <line x1="330" y1="665" x2="750" y2="635"/>
+        <path d="M 280 715 Q 330 760 380 715"/>
+        <path d="M 705 670 Q 750 710 795 670"/>
+      </g>
+      <g fill="rgba(10,10,11,.10)">
+        <circle cx="325" cy="728" r="8"/><circle cx="345" cy="732" r="6"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display" style="font-size:104px">情绪拉满<br>证据是零</h1>
+      <p class="h-sub" style="margin-bottom:0">只接信息，不接情绪</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
