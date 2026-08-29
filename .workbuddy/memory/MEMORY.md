@@ -26,3 +26,11 @@
 - 主数据页：`知识库/项目/军事文章-数据跟踪台账.md`——报数据就更新它
 - 报数据约定：浩总说"报数据：展现X 阅读X 点赞X 评论X"，我更新台账+判读（点击率8-15%健康线）+提醒下一步
 - 当前状态：养号期第12天，836接近正常基准下沿；方向B（非涉朝热点）已验证；8:37发布时间假设待验证
+
+## Git 同步经验（2026-08-29 自动化首次跑通）
+- 远程：`https://github.com/zhaoyinghaoai/-.git`，分支 `main`
+- ⚠️ **Windows SSL 吊销检查陷阱**：默认配置下 pull 必报 `CRYPT_E_REVOCATION_OFFLINE`，必须用 `git -c http.sslVerify=false pull --no-rebase origin main` 绕过
+- ⚠️ **Divergent branches**：仓库没配 `pull.rebase`，必须显式 `--no-rebase`（merge 模式）才能合
+- ⚠️ **常见冲突文件**：`知识库/Index.md`、`知识库/Log.md`——处理策略：保留远程为骨架，合并本地新增行
+- 嵌入子仓库：`产出/PPT/ppt-master` 自带 `.git/` 被父仓库 add 为 gitlink（mode 160000），不是 submodule；将来要么删其 `.git/` 当普通目录，要么独立推送再配 submodule
+- 同步节奏：本地累积后会自动跑 commit → pull → 自动解冲突 → merge；本任务**不动**原始材料/（按用户规矩）
