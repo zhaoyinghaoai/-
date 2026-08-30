@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>读书成了任务，记录成了瘾 · 社card · 第11天读书感悟</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    .poster.wide .h-display { font-size:128px; }
+    .poster.square .h-display { font-size:104px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 贮 -->
+      <text x="540" y="1000" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="760" font-weight="500" fill="rgba(10,10,11,.032)">贮</text>
+      <!-- 左下：一摞书压弯的横线（负担） -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <rect x="180" y="1030" width="150" height="18" rx="3"/>
+        <rect x="195" y="1058" width="150" height="18" rx="3"/>
+        <rect x="210" y="1086" width="150" height="18" rx="3"/>
+        <!-- 压弯的木板 -->
+        <path d="M 160 1150 Q 270 1200 380 1150" stroke-width="3"/>
+      </g>
+      <!-- 右上：一支笔斜立，笔尖冒出小苗（瘾） -->
+      <g stroke="rgba(10,10,11,.10)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 700 1150 L 860 990"/>
+        <path d="M 700 1150 l 22 -14 l 30 10 l -14 22 z"/>
+        <!-- 笔尖的芽 -->
+        <path d="M 860 990 C 845 955 860 925 890 915"/>
+        <path d="M 890 915 C 905 940 900 968 885 985"/>
+        <line x1="890" y1="915" x2="890" y2="880"/>
+      </g>
+      <!-- 飘起的书页（存进肚子里的书） -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M 470 1250 q 18 -8 36 0 q 18 8 36 0" transform="rotate(-10 506 1250)"/>
+        <path d="M 520 1320 q 18 -8 36 0 q 18 8 36 0" transform="rotate(8 556 1320)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书感悟 · 第11天</div>
+      <h1 class="h-display" style="font-size:104px">读书成了任务<br>记录成了瘾</h1>
+      <p class="h-sub">Reading became a chore. Writing became an itch.</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>读进去的书</span><span class="dot"></span>
+        <span>存够了</span><span class="dot"></span>
+        <span>自己往外冒</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 读书成了还债 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 债 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">债</text>
+      <!-- 一张日历格 + 打勾 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="330" y="1080" width="420" height="300" rx="18"/>
+        <line x1="330" y1="1140" x2="750" y2="1140"/>
+        <circle cx="540" cy="1110" r="10"/>
+        <!-- 一个格里打勾 -->
+        <path d="M 430 1230 l 34 34 l 70 -70"/>
+        <path d="M 590 1220 h 90 M 590 1260 h 90 M 590 1300 h 60"/>
+      </g>
+      <!-- 进度条：今天还差二十页 -->
+      <g stroke="rgba(10,10,11,.10)" stroke-width="3" fill="none" stroke-linecap="round">
+        <line x1="200" y1="1420" x2="880" y2="1420"/>
+        <path d="M 200 1420 h 420"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">这些天的我 · 上工</div>
+      <h2 class="h-xl" style="font-size:72px">每天读够多少页<br>像还债</h2>
+      <p class="lead" style="margin-top:10px">眼睛在页子上，心思一半在进度上——今天还差二十页。</p>
+      <p class="lead">村里来人取件，喊一嗓子，我抬头找件、扫码、递出去，再低头接着读。</p>
+      <p class="lead">书是好的，是我把它过成了负担。一点乐趣没有。</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 晚上关店写 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 写 -->
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">写</text>
+      <!-- 手机备忘录：屏幕 + 一行行文字短线 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="300" y="1060" width="480" height="320" rx="26"/>
+        <line x1="300" y1="1110" x2="780" y2="1110"/>
+        <path d="M 360 1170 h 260 M 360 1210 h 320 M 360 1250 h 240 M 360 1290 h 300 M 360 1330 h 180"/>
+        <circle cx="660" cy="1330" r="24"/>
+        <path d="M 655 1330 h 10 M 660 1325 v 10"/>
+      </g>
+      <!-- 敲出的光点 -->
+      <g fill="rgba(10,10,11,.10)">
+        <circle cx="700" cy="1290" r="5"/><circle cx="730" cy="1270" r="4"/><circle cx="755" cy="1315" r="5"/>
+      </g>
+      <!-- 夜：一小弯月 -->
+      <path d="M 780 980 a 42 42 0 1 1 0 70" stroke="rgba(10,10,11,.07)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">晚上关了店门</div>
+      <h2 class="h-xl" style="font-size:72px">我坐在那儿<br>一条条敲进备忘录</h2>
+      <p class="lead" style="margin-top:10px">写得不好，真的。不够有趣，也没几个人看。</p>
+      <p class="lead">但我忍不住。一天不写，浑身不得劲。</p>
+      <p class="pullquote" style="font-size:54px">负担和瘾<br>是一根线的两头</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 存够了往外冒 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 线 -->
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">线</text>
+      <!-- 跷跷板：左端书堆（沉），右端笔尖翘起 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 支点 -->
+        <path d="M 540 1370 l -40 -90 M 540 1370 l 40 -90"/>
+        <path d="M 480 1280 h 120" stroke-width="4"/>
+        <!-- 横梁：左低右高 -->
+        <path d="M 260 1340 L 820 1180" stroke-width="4"/>
+        <!-- 左端书堆 -->
+        <rect x="210" y="1300" width="110" height="16" rx="3"/>
+        <rect x="220" y="1270" width="110" height="16" rx="3"/>
+        <rect x="230" y="1240" width="110" height="16" rx="3"/>
+        <!-- 右端笔尖 -->
+        <path d="M 800 1190 l 46 -56"/>
+        <path d="M 800 1190 l 24 -16 l 32 12 l -16 24 z"/>
+        <path d="M 846 1134 C 830 1100 845 1070 872 1060"/>
+      </g>
+      <!-- 中间冒出的气泡（存够了往外冒） -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2" fill="none" stroke-linecap="round">
+        <circle cx="540" cy="1010" r="40"/>
+        <circle cx="600" cy="950" r="26"/>
+        <circle cx="545" cy="890" r="16"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我想明白的事</div>
+      <h2 class="h-xl" style="font-size:76px">读进去的书<br>哪怕当成任务<br>也在肚子里存着</h2>
+      <p class="pullquote" style="font-size:52px; margin-top:12px">存到某个量<br>自己就往外冒<br>拦都拦不住</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 腹中贮书一万卷 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 贮 -->
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">贮</text>
+      <!-- 底部草莽（波浪线）+ 站直的人影 + 书本阶梯 -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 草莽 -->
+        <path d="M 180 1340 q 40 -16 80 0 q 40 16 80 0 q 40 -16 80 0 q 40 16 80 0 q 40 -16 80 0 q 40 16 80 0 q 40 -16 80 0"/>
+        <path d="M 180 1380 q 40 -16 80 0 q 40 16 80 0 q 40 -16 80 0 q 40 16 80 0 q 40 -16 80 0 q 40 16 80 0 q 40 -16 80 0"/>
+        <!-- 站直的人影（简笔） -->
+        <circle cx="540" cy="1160" r="34"/>
+        <path d="M 540 1194 v 110 M 540 1220 h -60 v 40 M 540 1220 h 60 v 40"/>
+        <!-- 脚下的书（阶梯） -->
+        <rect x="480" y="1304" width="120" height="22" rx="3"/>
+        <rect x="455" y="1332" width="170" height="22" rx="3"/>
+      </g>
+      <!-- 头顶一点光 -->
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 540 1090 l 0 -44 M 540 1046 l -26 14 M 540 1046 l 26 14"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里翻到的一句唐诗 · 李颀</div>
+      <h2 class="h-xl" style="font-size:64px">腹中贮书一万卷<br>不肯低头在草莽</h2>
+      <p class="lead" style="margin-top:14px">它没说你读完能发财，也没说你读完能成名。</p>
+      <p class="lead">它只说：书读进去，用起来，人就不一样了。腰杆是直的。</p>
+      <div class="issue-row" style="margin-top:30px">
+        <span>存在草莽里没关系</span><span class="dot"></span><span>腹中有书，头就不用低下去</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 06 收尾·互动 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 瘾 -->
+      <text x="540" y="860" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">瘾</text>
+      <!-- 三块路牌 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="540" y1="1030" x2="540" y2="1330"/>
+        <path d="M 420 1060 h 240 l 30 28 l -30 28 h -240 z"/>
+        <path d="M 430 1160 h 220 l 26 26 l -26 26 h -220 z"/>
+        <path d="M 440 1258 h 200 l 24 24 l -24 24 h -200 z"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">任务还在继续 · 心态换了</div>
+      <h2 class="h-xl" style="font-size:72px">读着读着<br>成了负担</h2>
+      <h2 class="h-xl" style="font-size:72px">写着写着<br>成了瘾</h2>
+      <p class="lead" style="margin-top:30px">不再是"今天又欠了多少页"，而是"今天又往肚子里存了几卷"。</p>
+      <div class="interact-box" style="margin-top:36px">
+        <div class="label-chat">留言聊聊</div>
+        <div class="chat-q">有没有一件事，你是当成任务开始的，干着干着变成瘾的？</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 横贯：左端书堆压弯 → 中间线 → 右端笔尖立起长芽 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 左端书堆 -->
+        <rect x="120" y="620" width="110" height="16" rx="3"/>
+        <rect x="130" y="592" width="110" height="16" rx="3"/>
+        <rect x="140" y="564" width="110" height="16" rx="3"/>
+        <!-- 线（从书堆走向笔尖） -->
+        <path d="M 260 590 C 500 570 700 520 900 470"/>
+        <!-- 右端笔尖立起 -->
+        <path d="M 900 470 L 1020 350"/>
+        <path d="M 900 470 l 26 -18 l 36 14 l -18 26 z"/>
+        <path d="M 1020 350 C 1004 314 1020 284 1052 274"/>
+        <path d="M 1052 274 C 1068 300 1062 328 1046 346"/>
+      </g>
+      <!-- 大字水印 贮 -->
+      <text x="1180" y="640" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="500" font-weight="500" fill="rgba(10,10,11,.028)">贮</text>
+      <!-- 飘起的书页 -->
+      <g stroke="rgba(10,10,11,.05)" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 1560 650 q 20 -9 40 0 q 20 9 40 0"/>
+        <path d="M 1660 730 q 20 -9 40 0 q 20 9 40 0"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1300px">
+        <div class="kicker" style="font-size:20px">读书感悟 · 第11天</div>
+        <h1 class="h-display" style="font-size:104px">读书成了任务<br>记录成了瘾</h1>
+        <p class="h-sub">读进去的书，存够了，自己往外冒</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">第11天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">贮</text>
+      <!-- 简版：书堆 → 笔立起 -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="330" y="690" width="90" height="14" rx="3"/>
+        <rect x="338" y="668" width="90" height="14" rx="3"/>
+        <path d="M 440 660 L 520 580"/>
+        <path d="M 440 660 l 18 -13 l 26 10 l -13 18 z"/>
+        <path d="M 520 580 C 508 552 520 528 544 520"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书感悟 · 第11天</div>
+      <h1 class="h-display">读书成了任务<br>记录成了瘾</h1>
+      <p class="h-sub" style="margin-bottom:0">存够了，自己往外冒</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
