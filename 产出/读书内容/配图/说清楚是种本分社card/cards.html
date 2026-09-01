@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>说清楚是种本分 · 社card · 学会提问·抽象词的多重解读</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:46px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    .poster.wide .h-display { font-size:128px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 清 -->
+      <text x="540" y="1130" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="640" font-weight="500" fill="rgba(10,10,11,.03)">清</text>
+      <!-- 一个词 → 多重解读：中心词泡分裂出两个不同大小的泡 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 中心词泡 -->
+        <circle cx="330" cy="1230" r="46"/>
+        <path d="M 330 1276 l -16 22 l 10 -2 M 330 1276 l 16 20"/>
+        <!-- 两个解读泡（一大一小） -->
+        <circle cx="600" cy="1190" r="70"/>
+        <circle cx="860" cy="1268" r="40"/>
+        <!-- 虚线分支 -->
+        <path d="M 372 1212 Q 500 1170 540 1190" stroke-dasharray="2 12"/>
+        <path d="M 360 1252 Q 600 1300 822 1268" stroke-dasharray="2 12"/>
+      </g>
+      <!-- 中心词泡里的"词" -->
+      <text x="330" y="1248" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="44" font-weight="500" fill="rgba(10,10,11,.16)">词</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 抽象词的多重解读</div>
+      <h1 class="h-display" style="font-size:118px">说清楚<br>是种本分</h1>
+      <p class="h-sub">Say it clear — that's the basic duty.</p>
+      <p class="lead" style="margin-top:10px; max-width:820px">一个词越抽象，越容易被各说各话。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>词越抽象</span><span class="dot"></span>
+        <span>解读越多</span><span class="dot"></span>
+        <span>说清是本分</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里说·词越抽象解读越多 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 歧 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">歧</text>
+      <!-- 一个"词"字，周围冒出多个小气泡（多孔） -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="1180" r="48"/>
+        <circle cx="430" cy="1110" r="20"/>
+        <circle cx="650" cy="1100" r="16"/>
+        <circle cx="700" cy="1180" r="22"/>
+        <circle cx="600" cy="1270" r="14"/>
+        <circle cx="420" cy="1250" r="13"/>
+        <path d="M 505 1150 Q 470 1135 452 1120" stroke-dasharray="2 10"/>
+        <path d="M 575 1150 Q 615 1132 640 1110" stroke-dasharray="2 10"/>
+        <path d="M 585 1198 Q 650 1185 685 1180" stroke-dasharray="2 10"/>
+        <path d="M 565 1208 Q 590 1240 595 1262" stroke-dasharray="2 10"/>
+        <path d="M 500 1208 Q 455 1232 435 1250" stroke-dasharray="2 10"/>
+      </g>
+      <text x="540" y="1198" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="44" font-weight="500" fill="rgba(10,10,11,.16)">词</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 抽象词的多重解读</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:32px">一个词或短语越抽象，人们就越有可能对其做出多重解读。</p>
+      <p class="pullquote" style="font-size:48px; margin-top:24px">词越抽象<br>孔越多<br>各填各的</p>
+      <div class="issue-row" style="margin-top:34px">
+        <span>具体词 · 一个意思</span><span class="dot"></span><span>抽象词 · 千人千解</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 我的教训·"尽快"翻车 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 期 -->
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">期</text>
+      <!-- 两个时钟：一个指今天，一个指这周 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 左钟：时针指"今天" -->
+        <circle cx="360" cy="1180" r="62"/>
+        <path d="M 360 1180 L 360 1140 M 360 1180 L 392 1180"/>
+        <!-- 右钟：时针偏到"这周" -->
+        <circle cx="760" cy="1180" r="62"/>
+        <path d="M 760 1180 L 760 1140 M 760 1180 L 726 1202"/>
+        <!-- 中间的"≠" -->
+        <path d="M 500 1155 L 620 1205 M 500 1205 L 620 1155" stroke-width="3"/>
+        <!-- 顶上飘一个"尽快"气泡 -->
+        <circle cx="540" cy="1040" r="40"/>
+        <path d="M 540 1080 l -14 20 l 9 -2"/>
+        <text x="540" y="1054" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="34" font-weight="500" fill="rgba(10,10,11,.18)">尽快</text>
+        <path d="M 540 1080 Q 450 1120 430 1150" stroke-dasharray="2 10"/>
+        <path d="M 540 1080 Q 640 1120 660 1150" stroke-dasharray="2 10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的翻车 · "尽快"</div>
+      <h2 class="h-xl" style="font-size:66px">我说"尽快给你"<br>他当"今天"<br>我当"这周"</h2>
+      <p class="lead" style="margin-top:12px">拖到周五，人家不高兴，我也委屈。后来才懂——"尽快"本身多孔，每个人往里塞的不一样。</p>
+      <p class="pullquote" style="font-size:48px; margin-top:8px">以为说清了<br>其实各说各话</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 责任甩锅·三句话 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 甩 -->
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">甩</text>
+      <!-- 一只手把包袱甩出去 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 手臂 + 手 -->
+        <path d="M 250 1240 Q 360 1180 470 1150"/>
+        <path d="M 470 1150 q 26 -10 40 8 q 10 14 -6 24 q -20 8 -34 -6"/>
+        <!-- 甩出去的包袱（系绳的包） -->
+        <circle cx="760" cy="1120" r="44"/>
+        <path d="M 716 1120 q 44 -50 88 0" />
+        <path d="M 760 1076 l 0 -16 M 760 1076 l -16 -12 M 760 1076 l 16 -12"/>
+        <!-- 飞行弧线 -->
+        <path d="M 510 1150 Q 640 1080 720 1110" stroke-dasharray="2 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">以前的我 · 甩三句</div>
+      <h2 class="h-xl" style="font-size:62px">"你看着弄吧"<br>"问题不大"<br>"到时候再说"</h2>
+      <p class="lead" style="margin-top:12px">说的时候轻松，责任甩出去了，后面怎么理解是你的事。</p>
+      <p class="pullquote" style="font-size:46px; margin-top:8px">不是轻松<br>是把麻烦转包<br>让别人去猜</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 快递点实战·"一会儿"→当场查 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 查 -->
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">查</text>
+      <!-- 手机 + 微信气泡"一会儿" 被划掉 → 旁边"现在查✓" -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 手机轮廓 -->
+        <rect x="300" y="1060" width="180" height="300" rx="22"/>
+        <line x1="300" y1="1120" x2="480" y2="1120"/>
+        <!-- 气泡"一会儿" -->
+        <rect x="330" y="1160" width="120" height="56" rx="14"/>
+        <!-- 删除线 -->
+        <path d="M 330 1188 L 450 1188" stroke-width="3"/>
+        <!-- 右侧勾选框"现在查" -->
+        <circle cx="700" cy="1230" r="46"/>
+        <path d="M 678 1230 l 14 16 l 28 -34" stroke-width="4"/>
+      </g>
+      <text x="390" y="1240" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" fill="rgba(10,10,11,.16)">一会儿</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">快递点 · 学乖了</div>
+      <h2 class="h-xl" style="font-size:64px">"一会儿帮你查"<br>拖到第二天<br>客户火了</h2>
+      <p class="lead" style="margin-top:12px">现在改口："现在查，两分钟给你结果。"就这么一句话的差别，纠纷少了一半。</p>
+      <p class="pullquote" style="font-size:48px">含糊的代价<br>比具体贵</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 表达系统·抽象换具体 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 系 -->
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">系</text>
+      <!-- 齿轮（稳定的表达系统）+ 左右箭头：抽象词→具体话 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 齿轮 -->
+        <circle cx="540" cy="1180" r="58"/>
+        <g>
+          <path d="M 540 1108 v -16 M 540 1252 v 16 M 468 1180 h -16 M 612 1180 h 16"/>
+          <path d="M 488 1128 l -11 -11 M 592 1232 l 11 11 M 592 1128 l 11 -11 M 488 1232 l -11 11"/>
+        </g>
+        <circle cx="540" cy="1180" r="22"/>
+        <!-- 左：抽象词 输入 -->
+        <path d="M 300 1180 L 460 1180" stroke-dasharray="2 10"/>
+        <rect x="210" y="1150" width="92" height="60" rx="12"/>
+        <!-- 右：具体话 输出 -->
+        <path d="M 620 1180 L 780 1180"/>
+        <rect x="780" y="1150" width="92" height="60" rx="12"/>
+      </g>
+      <text x="256" y="1188" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="22" fill="rgba(10,10,11,.16)">抽象</text>
+      <text x="826" y="1188" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="22" fill="rgba(10,10,11,.16)">具体</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">底层 · 表达系统</div>
+      <h2 class="h-xl" style="font-size:60px">表达不好<br>不是词汇少<br>是系统不稳</h2>
+      <p class="lead" style="margin-top:12px">把抽象词换成具体话：</p>
+      <p class="pullquote" style="font-size:44px; margin-top:6px">"很累"→"八点开到五点"<br>"尽快"→"周三下班前"</p>
+      <div class="issue-row" style="margin-top:30px">
+        <span>话变长</span><span class="dot"></span><span>对方不用猜</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 横贯：一个"词"泡分裂出两个大小不同的解读泡 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="520" cy="560" r="58"/>
+        <circle cx="900" cy="500" r="86"/>
+        <circle cx="1230" cy="600" r="48"/>
+        <path d="M 575 540 Q 740 510 820 510" stroke-dasharray="3 16"/>
+        <path d="M 565 585 Q 900 640 1188 598" stroke-dasharray="3 16"/>
+      </g>
+      <text x="520" y="582" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="52" font-weight="500" fill="rgba(10,10,11,.14)">词</text>
+      <!-- 大字水印 清 -->
+      <text x="1500" y="640" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="520" font-weight="500" fill="rgba(10,10,11,.026)">清</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1150px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 抽象词的多重解读</div>
+        <h1 class="h-display" style="font-size:140px">说清楚是种本分</h1>
+        <p class="h-sub">Say it clear — that's the basic duty. · 词越抽象，越容易各说各话</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第13天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="740" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">清</text>
+      <!-- 简版：词泡 → 两个解读泡 -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="400" cy="720" r="40"/>
+        <circle cx="650" cy="660" r="56"/>
+        <circle cx="820" cy="760" r="32"/>
+        <path d="M 436 700 Q 560 670 598 672" stroke-dasharray="2 12"/>
+        <path d="M 430 742 Q 660 780 790 762" stroke-dasharray="2 12"/>
+      </g>
+      <text x="400" y="738" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="36" font-weight="500" fill="rgba(10,10,11,.16)">词</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display">说清楚是种本分</h1>
+      <p class="h-sub" style="margin-bottom:0">词越抽象，越容易各说各话</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>掂分量 · 社card · 学会提问·理由与证据</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .interact-box { border:1.5px solid var(--line); border-radius:14px; padding:32px 36px; margin-top:8px; }
+    .interact-box .label-chat { font-family:var(--mono); font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin-bottom:14px; }
+    .interact-box .chat-q { font-family:var(--serif-zh); font-weight:500; font-size:28px; line-height:1.5; color:var(--ink); }
+
+    .poster.wide .h-display { font-size:128px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 掂（字号调小，位置偏下不压标题） -->
+      <text x="540" y="1120" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">掂</text>
+      <!-- 一杆秤：左手掂着"话"，右手秤砣沉底 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 秤杆 -->
+        <line x1="330" y1="1280" x2="780" y2="1280"/>
+        <!-- 提绳 + 手 -->
+        <path d="M 555 1280 l 0 -46 M 530 1255 q 25 -16 50 0"/>
+        <path d="M 505 1228 q 14 -22 36 -18 q 8 2 12 14 q 4 -10 12 -8 q 12 3 4 20 q -6 12 -22 16"/>
+        <!-- 左盘：装着"话"（轻，翘起） -->
+        <line x1="330" y1="1280" x2="290" y2="1328"/><line x1="330" y1="1280" x2="370" y2="1328"/>
+        <path d="M 282 1328 Q 330 1370 378 1328"/>
+        <circle cx="330" cy="1336" r="12"/>
+        <!-- 右盘：秤砣（沉） -->
+        <line x1="780" y1="1280" x2="780" y2="1330"/>
+        <path d="M 780 1330 q -20 -6 -22 10 q -2 16 22 18 q 24 -2 22 -18 q -2 -16 -22 -10 z"/>
+      </g>
+      <!-- 秤盘里冒出的气泡（话飘走） -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="2" fill="none" stroke-linecap="round">
+        <circle cx="330" cy="1280" r="26"/>
+        <circle cx="300" cy="1238" r="14"/>
+        <circle cx="352" cy="1226" r="10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 理由与证据</div>
+      <h1 class="h-display" style="font-size:128px">掂分量</h1>
+      <p class="h-sub">Weigh it before you trust it.</p>
+      <p class="lead" style="margin-top:10px; max-width:820px">一个观点值不值钱，得先看它背后有没有东西撑着。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>先看结论</span><span class="dot"></span>
+        <span>再掂理由</span><span class="dot"></span>
+        <span>后查来路</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里说·地基 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 基 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">基</text>
+      <!-- 房子 + 地基剖面 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 房子 -->
+        <path d="M 330 1150 l 210 -150 l 210 150"/>
+        <line x1="380" y1="1150" x2="380" y2="1040"/>
+        <line x1="540" y1="1150" x2="540" y2="1030"/>
+        <line x1="460" y1="1150" x2="460" y2="1060"/>
+        <!-- 地基土层 -->
+        <line x1="300" y1="1150" x2="780" y2="1150" stroke-width="4"/>
+        <path d="M 300 1180 q 60 -12 120 0 q 60 12 120 0 q 60 -12 120 0 q 60 12 120 0" stroke-width="3"/>
+        <path d="M 300 1210 q 60 -12 120 0 q 60 12 120 0 q 60 -12 120 0 q 60 12 120 0" stroke-width="2.5"/>
+      </g>
+      <!-- 承重墙标记 -->
+      <g fill="rgba(10,10,11,.10)">
+        <rect x="366" y="1040" width="28" height="110"/><rect x="526" y="1030" width="28" height="120"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 理由与证据</div>
+      <h2 class="h-xl" style="font-size:66px">只有找到支撑结论的<br>理由和证据<br>才能评判它的价值</h2>
+      <p class="pullquote" style="font-size:52px; margin-top:14px">地基不牢<br>终是空中楼阁</p>
+      <div class="issue-row" style="margin-top:34px">
+        <span>理由 · 为什么</span><span class="dot"></span><span>证据 · 凭什么</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 一听就热 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 热 -->
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">热</text>
+      <!-- 温度计式的心跳 + 火焰 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 上升的折线（一听就热） -->
+        <path d="M 260 1280 L 360 1280 L 380 1230 L 420 1230 L 440 1180 L 500 1180 L 520 1130 L 580 1130 L 600 1080 L 700 1080"/>
+        <!-- 箭头 -->
+        <path d="M 700 1080 l -34 12 M 700 1080 l -12 -34"/>
+        <!-- 火焰 -->
+        <path d="M 780 1240 C 760 1200 800 1170 782 1130 C 770 1140 752 1138 748 1152 C 742 1120 770 1096 764 1064 C 790 1080 800 1110 792 1140 C 808 1120 818 1132 810 1150 C 822 1140 826 1156 816 1170 C 806 1188 796 1210 780 1240 z" fill="rgba(10,10,11,.05)"/>
+      </g>
+      <!-- 房子倒塌 -->
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 180 1180 l 80 -58 l 80 58"/>
+        <line x1="220" y1="1180" x2="220" y2="1120"/>
+        <path d="M 196 1168 l 48 -8 M 196 1152 l 40 -12 M 208 1180 l 30 -20"/>
+        <line x1="150" y1="1180" x2="290" y2="1180"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">以前的我 · 一听就热</div>
+      <h2 class="h-xl" style="font-size:64px">"这个项目稳赚"<br>"这个方向能起来"</h2>
+      <p class="lead" style="margin-top:12px">心里一痒，恨不得当天上手。吭哧吭哧干半天，回头一看——人家压根没给理由，更没给证据。</p>
+      <p class="pullquote" style="font-size:50px; margin-top:10px">那个"稳赚"<br>就是没打地基的房子<br>看着漂亮，一推就倒</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 掂分量 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 掂 -->
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">掂</text>
+      <!-- 两片筛子叠加 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 第一层筛：证据网 -->
+        <ellipse cx="540" cy="1160" rx="240" ry="70"/>
+        <path d="M 540 1090 v 0 M 540 1090 q -60 6 -120 22 q -20 26 -20 48 M 540 1090 q 60 6 120 22 q 20 26 20 48"/>
+        <path d="M 420 1112 q 40 30 80 26 M 480 1096 q 40 24 80 18 M 540 1086 q 45 16 90 10"/>
+        <!-- 第二层筛：来路 -->
+        <ellipse cx="540" cy="1280" rx="200" ry="58"/>
+        <path d="M 540 1222 q -50 6 -100 18 q -16 22 -16 40 M 540 1222 q 50 6 100 18 q 16 22 16 40"/>
+        <!-- 漏下去的小点 -->
+        <g fill="rgba(10,10,11,.08)">
+          <circle cx="470" cy="1240" r="6"/><circle cx="580" cy="1232" r="5"/><circle cx="520" cy="1260" r="6"/><circle cx="610" cy="1252" r="4"/>
+        </g>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的土办法 · 掂分量</div>
+      <h2 class="h-xl" style="font-size:72px">先问一句<br>谁说的 · 图什么</h2>
+      <p class="pullquote" style="font-size:52px; margin-top:12px">掂量完分量<br>再决定信不信<br>动不动</p>
+      <div class="issue-row" style="margin-top:36px">
+        <span>第一层 · 理由证据站得住吗</span><span class="dot"></span><span>第二层 · 说这话的人可不可信</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 看店实战 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 盘 -->
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">盘</text>
+      <!-- 两个对话气泡：一个装着实在话，一个只剩泡泡 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 实在话的气泡：里面是格子（门道） -->
+        <rect x="240" y="1080" width="280" height="180" rx="22"/>
+        <path d="M 300 1140 h 120 M 300 1180 h 160 M 300 1220 h 100"/>
+        <path d="M 400 1230 l -26 26 l -14 -16"/>
+        <!-- 只有"相信我"的气泡：里面是空心 -->
+        <circle cx="780" cy="1130" r="70"/>
+        <circle cx="750" cy="1078" r="30"/>
+        <circle cx="815" cy="1046" r="18"/>
+        <path d="M 780 1200 q -30 20 -60 24"/>
+      </g>
+      <!-- 中间的天平微缩 -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2" fill="none" stroke-linecap="round">
+        <line x1="540" y1="1330" x2="540" y2="1380"/>
+        <line x1="470" y1="1358" x2="610" y2="1346"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">看店这几年 · 学乖了</div>
+      <h2 class="h-xl" style="font-size:66px">"现在做什么赚钱"<br>先问理由 · 再要证据</h2>
+      <p class="lead" style="margin-top:12px">能讲清楚门道的，我当回事。</p>
+      <p class="pullquote" style="font-size:52px">只有一句"相信我"<br>"我朋友在做"<br>我笑笑，不当真</p>
+      <div class="issue-row" style="margin-top:32px">
+        <span>能讲清门道 = 信息</span><span class="dot"></span><span>只剩相信我 = 情绪</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 06 收尾·材料是假的 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 塌 -->
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">塌</text>
+      <!-- 裂纹的房子：地基打了，墙裂了 -->
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 400 1080 l 140 -100 l 140 100"/>
+        <line x1="470" y1="1080" x2="470" y2="1020"/>
+        <line x1="540" y1="1080" x2="540" y2="1000"/>
+        <!-- 墙上的裂缝 -->
+        <path d="M 560 1040 l 26 -6 l -8 22 l 30 -10"/>
+        <path d="M 450 1055 l 18 6 l -10 18 l 26 -4"/>
+        <!-- 地基 -->
+        <line x1="380" y1="1080" x2="700" y2="1080" stroke-width="4"/>
+        <path d="M 380 1110 q 53 -10 106 0 q 53 10 106 0 q 54 -10 108 0"/>
+      </g>
+      <!-- 掉落的碎石 -->
+      <g fill="rgba(10,10,11,.08)">
+        <rect x="430" y="1140" width="14" height="14" transform="rotate(20 437 1147)"/>
+        <rect x="610" y="1152" width="12" height="12" transform="rotate(-15 616 1158)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">还有更阴的一种</div>
+      <h2 class="h-xl" style="font-size:64px">理由证据都摆上了<br>可惜材料是假的</h2>
+      <p class="lead" style="margin-top:12px">数据是编的，例子是挑着讲的，"我朋友月赚两万"是听来的。这种房子，看着地基都打了，塌起来更快。</p>
+      <p class="pullquote" style="font-size:48px; margin-top:8px">不是不信人<br>是不信没有地基<br>没有好材料的房子</p>
+      <div class="interact-box" style="margin-top:32px">
+        <div class="label-chat">留言聊聊</div>
+        <div class="chat-q">最近有没有哪个"稳赚""肯定行"让你心里一动？后来你找过它的理由和证据吗？</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 横贯全图：一座房子的地基剖面，左侧完好，右侧有裂缝 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 房子轮廓 -->
+        <path d="M 420 520 l 240 -172 l 240 172"/>
+        <line x1="500" y1="520" x2="500" y2="410"/>
+        <line x1="660" y1="520" x2="660" y2="388"/>
+        <!-- 墙裂缝（右半边） -->
+        <path d="M 700 460 l 40 -10 l -12 34 l 46 -16"/>
+        <!-- 地基线 + 土层 -->
+        <line x1="360" y1="520" x2="1020" y2="520" stroke-width="4"/>
+        <path d="M 360 560 q 82 -16 165 0 q 83 16 165 0 q 82 -16 165 0"/>
+      </g>
+      <!-- 大字水印 掂 -->
+      <text x="1350" y="620" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="500" font-weight="500" fill="rgba(10,10,11,.026)">掂</text>
+      <!-- 一杆小秤（右下） -->
+      <g stroke="rgba(10,10,11,.07)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="1560" y1="650" x2="1880" y2="650"/>
+        <path d="M 1720 650 l 0 -30"/>
+        <line x1="1560" y1="650" x2="1520" y2="690"/><line x1="1560" y1="650" x2="1600" y2="690"/>
+        <path d="M 1512 690 Q 1560 720 1608 690"/>
+        <line x1="1880" y1="650" x2="1880" y2="690"/>
+        <path d="M 1880 690 q -16 -5 -18 8 q -2 13 18 15 q 20 -2 18 -15 q -2 -13 -18 -8 z"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1150px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 理由与证据</div>
+        <h1 class="h-display" style="font-size:150px">掂分量</h1>
+        <p class="h-sub">Weigh it before you trust it. · 不是不信人，是不信没打地基的房子</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第12天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="720" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.03)">掂</text>
+      <!-- 简版：小房子+地基 -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 390 700 l 150 -108 l 150 108"/>
+        <line x1="540" y1="700" x2="540" y2="620"/>
+        <line x1="360" y1="700" x2="720" y2="700" stroke-width="4"/>
+        <path d="M 360 730 q 45 -9 90 0 q 45 9 90 0 q 45 -9 90 0"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display">掂分量</h1>
+      <p class="h-sub" style="margin-bottom:0">不是不信人，是不信没打地基的房子</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
