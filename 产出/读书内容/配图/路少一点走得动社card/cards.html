@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>路少一点走得动 · 社card · 学会提问·选择越多越不快乐</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:46px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:128px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 路 -->
+      <text x="540" y="1120" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="640" font-weight="500" fill="rgba(10,10,11,.03)">路</text>
+      <!-- 岔路口：一条直路 vs 分叉路 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 直路（走得动） -->
+        <path d="M 250 1320 L 540 1180"/>
+        <path d="M 300 1340 L 540 1200"/>
+        <path d="M 540 1180 L 760 1180"/>
+        <!-- 分叉路（腿软） -->
+        <path d="M 760 1180 Q 900 1120 980 1060"/>
+        <path d="M 760 1180 Q 900 1240 980 1300"/>
+        <!-- 路标牌 -->
+        <rect x="500" y="1130" width="80" height="40" rx="8"/>
+      </g>
+      <text x="540" y="1158" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.16)">一条路</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 选择越多越不快乐</div>
+      <h1 class="h-display" style="font-size:118px">路口少一点<br>走得动</h1>
+      <p class="h-sub">Fewer paths, further you go.</p>
+      <p class="lead" style="margin-top:10px; max-width:820px">选择越多，人越不快乐。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>选择越多</span><span class="dot"></span>
+        <span>越不快乐</span><span class="dot"></span>
+        <span>路少走得动</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里说·选择悖论 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 选 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">选</text>
+      <!-- 三组选项：1 / 5 / 10，下方快乐递减箭头 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 1 个 -->
+        <circle cx="330" cy="1150" r="26"/>
+        <!-- 5 个 -->
+        <circle cx="700" cy="1120" r="18"/><circle cx="745" cy="1120" r="18"/><circle cx="790" cy="1120" r="18"/><circle cx="725" cy="1158" r="18"/><circle cx="765" cy="1158" r="18"/>
+        <!-- 10 个（密） -->
+        <circle cx="540" cy="1270" r="13"/><circle cx="568" cy="1270" r="13"/><circle cx="596" cy="1270" r="13"/><circle cx="554" cy="1298" r="13"/><circle cx="582" cy="1298" r="13"/><circle cx="540" cy="1326" r="13"/><circle cx="568" cy="1326" r="13"/><circle cx="596" cy="1326" r="13"/><circle cx="526" cy="1354" r="13"/><circle cx="610" cy="1354" r="13"/>
+        <!-- 递减箭头 -->
+        <path d="M 360 1180 Q 540 1240 540 1252" stroke-dasharray="2 10"/>
+        <path d="M 760 1160 Q 640 1230 605 1258" stroke-dasharray="2 10"/>
+      </g>
+      <text x="330" y="1158" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.16)">1</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里说 · 选择悖论</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:30px">幸福感会随选择的增加而降低。面对 1 个、5 个或 10 个选择，选择越多，脑内啡释放越少。</p>
+      <p class="pullquote" style="font-size:50px; margin-top:24px">选择越多<br>越不快乐<br>脑内啡越少</p>
+      <div class="issue-row" style="margin-top:30px">
+        <span>1 个选择</span><span class="dot"></span><span>10 个选择</span><span class="dot"></span><span>快乐递减</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 我的对号·四件事绊住 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 岔 -->
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">岔</text>
+      <!-- 岔路口：四个方向各一个圈（四件事） -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="1190" r="20"/>
+        <path d="M 540 1190 L 540 1060"/>
+        <path d="M 540 1190 L 660 1100"/>
+        <path d="M 540 1190 L 420 1100"/>
+        <path d="M 540 1190 L 540 1320"/>
+        <circle cx="540" cy="1040" r="40"/>
+        <circle cx="690" cy="1080" r="40"/>
+        <circle cx="390" cy="1080" r="40"/>
+        <circle cx="540" cy="1340" r="40"/>
+      </g>
+      <text x="540" y="1050" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="22" font-weight="500" fill="rgba(10,10,11,.18)">军事</text>
+      <text x="690" y="1090" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" font-weight="500" fill="rgba(10,10,11,.18)">读书</text>
+      <text x="390" y="1090" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" font-weight="500" fill="rgba(10,10,11,.18)">PPT</text>
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="18" font-weight="500" fill="rgba(10,10,11,.18)">诗词</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的对号 · 四选一</div>
+      <h2 class="h-xl" style="font-size:64px">军事号 读书号<br>PPT 诗词小程序<br>哪个都舍不得</h2>
+      <p class="lead" style="margin-top:12px">一天到晚在几个念头里跳来跳去，等天黑一算，啥也没干成。</p>
+      <p class="pullquote" style="font-size:48px; margin-top:8px">哪个都舍不得<br>哪个都没做深</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 书里点醒·一条路 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 行 -->
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">行</text>
+      <!-- 左：一条直路；右：分叉腿软 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 直路 -->
+        <path d="M 250 1220 L 470 1220"/>
+        <path d="M 270 1255 L 470 1255"/>
+        <path d="M 470 1237 L 510 1217 M 470 1237 L 510 1257"/>
+        <!-- 分叉 -->
+        <path d="M 720 1240 Q 800 1180 880 1140"/>
+        <path d="M 720 1240 Q 800 1300 880 1340"/>
+        <path d="M 700 1240 L 740 1240"/>
+      </g>
+      <text x="360" y="1200" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="24" font-weight="500" fill="rgba(10,10,11,.16)">一条路</text>
+      <text x="800" y="1100" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="22" font-weight="500" fill="rgba(10,10,11,.16)">岔路口</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里点醒 · 路少一点</div>
+      <h2 class="h-xl" style="font-size:66px">就一条路<br>你只能往前<br>走着走着就到头</h2>
+      <p class="lead" style="margin-top:12px">路一多，你站在岔路口挑来挑去，腿先软了。</p>
+      <p class="pullquote" style="font-size:48px; margin-top:8px">路口少一点<br>人反而走得动</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 放下 vs 放弃 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 放 -->
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">放</text>
+      <!-- 左：清空背包（轻装，对勾）；右：瘫坐松手（斜线人） -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 背包 -->
+        <rect x="300" y="1120" width="120" height="130" rx="18"/>
+        <path d="M 330 1120 q 30 -40 60 0"/>
+        <!-- 清空箭头（向上飞出） -->
+        <path d="M 360 1100 Q 360 1060 380 1040" stroke-dasharray="2 10"/>
+        <path d="M 360 1100 Q 400 1070 420 1050" stroke-dasharray="2 10"/>
+        <!-- 对勾 -->
+        <circle cx="360" cy="1255" r="30"/>
+        <path d="M 342 1255 l 12 14 l 24 -28" stroke-width="4"/>
+        <!-- 右：瘫坐人 -->
+        <circle cx="780" cy="1150" r="26"/>
+        <path d="M 780 1176 L 760 1250 M 780 1176 L 810 1250 M 760 1200 L 800 1220"/>
+      </g>
+      <text x="360" y="1272" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="22" font-weight="500" fill="rgba(10,10,11,.16)">放下</text>
+      <text x="780" y="1278" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="22" font-weight="500" fill="rgba(10,10,11,.16)">放弃</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">做减法 · 放下 ≠ 放弃</div>
+      <h2 class="h-xl" style="font-size:62px">放下是清醒地砍<br>放弃是怕懒地松</h2>
+      <p class="lead" style="margin-top:12px">放下 = 知道自己要啥、主动砍其余；放弃 = 因为怕、因为懒，松了手还不知道自己要啥。</p>
+      <p class="pullquote" style="font-size:46px; margin-top:8px">放下不是放弃<br>清空背包再出发</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 我的排法·一主一副 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 大字水印 主 -->
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">主</text>
+      <!-- 时间轴：上午块(军事) + 下午块(读书) + 两个脑子切换 -->
+      <g stroke="rgba(10,10,11,.09)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="240" y1="1200" x2="840" y2="1200"/>
+        <!-- 上午块 -->
+        <rect x="240" y="1160" width="280" height="80" rx="12"/>
+        <!-- 下午块 -->
+        <rect x="560" y="1160" width="280" height="80" rx="12"/>
+        <!-- 两个脑子 -->
+        <circle cx="380" cy="1060" r="34"/>
+        <path d="M 360 1052 q 20 -16 40 0 M 360 1072 q 20 16 40 0"/>
+        <circle cx="700" cy="1060" r="34"/>
+        <path d="M 684 1052 q 16 -14 32 0 M 684 1072 q 16 14 32 0"/>
+        <path d="M 414 1060 Q 540 1010 666 1060" stroke-dasharray="2 10"/>
+      </g>
+      <text x="380" y="1178" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" fill="rgba(10,10,11,.16)">上午·军事</text>
+      <text x="700" y="1178" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" fill="rgba(10,10,11,.16)">下午·读书</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的排法 · 一主一副</div>
+      <h2 class="h-xl" style="font-size:62px">军事号上午主干<br>读书号下午副线</h2>
+      <p class="lead" style="margin-top:12px">主干做完了，有余力才碰副线。换个选题 = 换个脑子，反而清醒。</p>
+      <p class="pullquote" style="font-size:46px; margin-top:8px">主线吃黄金时间<br>副线吃边角</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <!-- 横贯：一条直路 + 分叉 -->
+      <g stroke="rgba(10,10,11,.06)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 240 640 L 700 640"/>
+        <path d="M 760 640 Q 900 560 1040 500 M 760 640 Q 900 720 1040 780"/>
+        <path d="M 700 640 L 740 620 M 700 640 L 740 660"/>
+      </g>
+      <text x="470" y="600" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="30" font-weight="500" fill="rgba(10,10,11,.12)">一条路</text>
+      <!-- 大字水印 路 -->
+      <text x="1560" y="660" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="520" font-weight="500" fill="rgba(10,10,11,.026)">路</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1150px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 选择越多越不快乐</div>
+        <h1 class="h-display" style="font-size:132px">路口少一点，走得动</h1>
+        <p class="h-sub">Fewer paths, further you go · 选择越多，人越不快乐</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第14天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="740" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">路</text>
+      <!-- 简版：直路 + 分叉 -->
+      <g stroke="rgba(10,10,11,.08)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 280 640 L 560 640"/>
+        <path d="M 600 640 Q 700 580 800 540 M 600 640 Q 700 700 800 740"/>
+        <path d="M 560 640 L 596 622 M 560 640 L 596 658"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display">路口少一点<br>走得动</h1>
+      <p class="h-sub" style="margin-bottom:0">选择越多，人越不快乐</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
