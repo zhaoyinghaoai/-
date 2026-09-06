@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>把读到的方法变成钥匙 · 社card · 学会提问</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:46px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:128px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">递</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="200" y="370" width="150" height="110" rx="10"/>
+        <rect x="390" y="370" width="150" height="110" rx="10"/>
+        <rect x="580" y="370" width="150" height="110" rx="10"/>
+        <rect x="770" y="370" width="150" height="110" rx="10"/>
+        <path d="M 350 425 L 380 425 M 360 410 L 380 425 L 360 440"/>
+        <path d="M 540 425 L 570 425 M 550 410 L 570 425 L 550 440"/>
+        <path d="M 730 425 L 760 425 M 740 410 L 760 425 L 740 440"/>
+      </g>
+      <text x="275" y="432" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.24)">1 找鸿沟</text>
+      <text x="465" y="432" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.24)">2 找支撑</text>
+      <text x="655" y="432" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.24)">3 换位</text>
+      <text x="845" y="432" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.24)">4 深学</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 像批判性思维者那样写作发言</div>
+      <h1 class="h-display" style="font-size:104px">把读到的方法<br>变成钥匙</h1>
+      <p class="h-sub">Reading is to turn methods into keys.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">读书不只是改变自己，是把读到的方法，变成能递出去的解决问题的钥匙。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>找鸿沟</span><span class="dot"></span>
+        <span>找支撑</span><span class="dot"></span>
+        <span>换位</span><span class="dot"></span>
+        <span>深学</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 身份转变：消费→生产 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">变</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="280" y="1040" width="92" height="124" rx="6"/>
+        <path d="M 326 1040 L 326 1164"/>
+        <path d="M 500 1102 L 624 1102 M 598 1082 L 624 1102 L 598 1122"/>
+        <circle cx="726" cy="1102" r="64"/>
+        <path d="M 726 1040 L 726 1060 M 726 1144 L 726 1164 M 664 1102 L 684 1102 M 768 1102 L 788 1102 M 688 1064 L 702 1078 M 750 1126 L 764 1140 M 688 1140 L 702 1126 M 750 1078 L 764 1064"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我的第一反应</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:30px">盯着四步清单，我脑子里冒出来的不是"哦我懂了"，而是——能不能做成 Skill，递给别人？</p>
+      <h2 class="h-xl" style="font-size:64px; margin-top:28px">读完不是划个线<br>是想攒成工具</h2>
+      <p class="pullquote" style="font-size:46px; margin-top:8px">从消费方法<br>到生产方法</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 底层代码 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="800" text-anchor="middle" font-family="Playfair Display,serif" font-size="340" font-style="italic" fill="rgba(10,10,11,.045)">{ }</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 420 980 C 420 1040 540 1040 540 1100 M 540 1100 L 360 1190 M 540 1100 L 720 1190"/>
+        <rect x="270" y="1170" width="180" height="84" rx="8"/>
+        <rect x="450" y="1170" width="180" height="84" rx="8"/>
+        <rect x="630" y="1170" width="180" height="84" rx="8"/>
+      </g>
+      <text x="360" y="1224" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="24" fill="rgba(10,10,11,.26)">军事号</text>
+      <text x="540" y="1224" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="24" fill="rgba(10,10,11,.26)">店里</text>
+      <text x="720" y="1224" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="24" fill="rgba(10,10,11,.26)">找方向</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里那句硬话</div>
+      <p class="lead" style="font-size:30px">努力积累的是经验，一换环境就失灵；底层能力才是底层代码，代码对了跑什么程序都能跑。</p>
+      <p class="pullquote" style="font-size:56px; margin-top:24px">四步是底层代码<br>到哪都能跑</p>
+      <p class="body" style="margin-top:20px">军事号掂量消息 · 店里判断人话 · 找方向捋念头</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 壳不是代码 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">壳</text>
+      <ellipse cx="540" cy="1070" rx="230" ry="130" fill="none" stroke="rgba(10,10,11,.12)" stroke-width="2.5"/>
+      <text x="540" y="1102" text-anchor="middle" font-family="Playfair Display,serif" font-size="92" font-style="italic" fill="rgba(10,10,11,.18)">&lt;/&gt;</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我想做的 Skill 是什么</div>
+      <h2 class="h-xl" style="font-size:80px">是壳，不是代码</h2>
+      <p class="lead" style="margin-top:12px">底层代码递不出去，你只能递出"练出能力的入口"。壳不是低一等，是把能力翻译成第一步动作。</p>
+      <p class="pullquote" style="font-size:46px; margin-top:8px">递出去的<br>是下手的起点</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 改代码：想问题前置 + 砍深学 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="150" y="1050" width="150" height="92" rx="8"/>
+        <rect x="332" y="1050" width="150" height="92" rx="8"/>
+        <rect x="514" y="1050" width="150" height="92" rx="8"/>
+        <rect x="696" y="1050" width="150" height="92" rx="8"/>
+        <rect x="878" y="1050" width="150" height="92" rx="8"/>
+        <path d="M 300 1096 L 325 1096 M 308 1084 L 325 1096 L 308 1108"/>
+        <path d="M 482 1096 L 507 1096 M 490 1084 L 507 1096 L 490 1108"/>
+        <path d="M 664 1096 L 689 1096 M 672 1084 L 689 1096 L 672 1108"/>
+        <path d="M 846 1096 L 871 1096 M 854 1084 L 871 1096 L 854 1108"/>
+      </g>
+      <text x="225" y="1106" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="22" font-weight="500" fill="rgba(10,10,11,.32)">想问题</text>
+      <text x="407" y="1106" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" fill="rgba(10,10,11,.22)">找鸿沟</text>
+      <text x="589" y="1106" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" fill="rgba(10,10,11,.22)">找支撑</text>
+      <text x="771" y="1106" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" fill="rgba(10,10,11,.22)">换位</text>
+      <text x="953" y="1106" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" fill="rgba(10,10,11,.22)">深学</text>
+      <path d="M 884 1062 L 1022 1132" stroke="rgba(10,10,11,.32)" stroke-width="3"/>
+      <circle cx="225" cy="1050" r="14" fill="rgba(10,10,11,.16)"/>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 我改了代码</div>
+      <h2 class="h-xl" style="font-size:66px">找鸿沟之前<br>先想清楚问题</h2>
+      <p class="lead" style="margin-top:12px">书里四步默认理由结论已在那了。可很多人连"在想什么问题"都没理清，就冲去找鸿沟——跑得越快越偏。</p>
+      <p class="pullquote" style="font-size:44px; margin-top:8px">砍掉"深学论题"<br>只是延后，不是删除</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 武功秘籍 / 江湖 / 学校门派 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="400" font-weight="500" fill="rgba(10,10,11,.03)">秘</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="360" y="1030" width="120" height="140" rx="6"/>
+        <path d="M 350 1030 Q 360 1010 380 1010 M 380 1010 Q 400 1010 400 1030"/>
+        <path d="M 350 1170 Q 360 1190 380 1190 M 380 1190 Q 400 1190 400 1170"/>
+        <path d="M 520 1100 L 760 1100" stroke-dasharray="10 12"/>
+        <circle cx="788" cy="1100" r="42"/>
+      </g>
+      <text x="420" y="1108" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="22" fill="rgba(10,10,11,.22)">秘籍</text>
+      <text x="788" y="1108" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="20" fill="rgba(10,10,11,.22)">江湖</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">学习不也是这样吗</div>
+      <h2 class="h-xl" style="font-size:58px">学皮毛 → 武功秘籍<br>闯江湖 → 传世人</h2>
+      <p class="lead" style="margin-top:12px">把基础版秘籍传给世人，只盼对别人练就自己的独门秘籍，有一点点帮助。</p>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">我们在"学校"这个门派<br>学到的不正是这能力吗</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1750" y="680" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">递</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="300" y="300" width="180" height="120" rx="10"/>
+        <rect x="540" y="300" width="180" height="120" rx="10"/>
+        <rect x="780" y="300" width="180" height="120" rx="10"/>
+        <rect x="1020" y="300" width="180" height="120" rx="10"/>
+        <path d="M 480 360 L 525 360 M 495 345 L 525 360 L 495 375"/>
+        <path d="M 720 360 L 765 360 M 735 345 L 765 360 L 735 375"/>
+        <path d="M 960 360 L 1005 360 M 975 345 L 1005 360 L 975 375"/>
+      </g>
+      <text x="390" y="372" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="30" font-weight="500" fill="rgba(10,10,11,.24)">1 找鸿沟</text>
+      <text x="630" y="372" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="30" font-weight="500" fill="rgba(10,10,11,.24)">2 找支撑</text>
+      <text x="870" y="372" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="30" font-weight="500" fill="rgba(10,10,11,.24)">3 换位</text>
+      <text x="1110" y="372" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="30" font-weight="500" fill="rgba(10,10,11,.24)">4 深学</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1280px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 像批判性思维者那样写作发言</div>
+        <h1 class="h-display" style="font-size:128px">把读到的方法，变成钥匙</h1>
+        <p class="h-sub">Reading is to turn methods into keys · 把方法变成能递出去的钥匙</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第18天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="780" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="600" font-weight="500" fill="rgba(10,10,11,.03)">递</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display">把读到的方法<br>变成钥匙</h1>
+      <p class="h-sub" style="margin-bottom:0">把方法变成能递出去的钥匙</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
