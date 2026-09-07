@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>别等风来先动真的一步 · 社card · 学会提问</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:46px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:128px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1240" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="640" font-weight="500" fill="rgba(10,10,11,.03)">步</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="360" cy="430" r="70"/>
+        <path d="M 360 360 L 360 500 M 312 430 L 408 430"/>
+        <path d="M 620 470 L 740 470 M 712 446 L 740 470 L 712 494"/>
+        <circle cx="800" cy="430" r="70"/>
+        <path d="M 770 400 L 830 460 M 830 400 L 770 460"/>
+      </g>
+      <text x="360" y="640" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.24)">不动</text>
+      <text x="800" y="640" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.24)">乱动</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 部分解决与诉诸公众</div>
+      <h1 class="h-display" style="font-size:108px">别等风来<br>先动真的一步</h1>
+      <p class="h-sub">Don't wait for the wind. Take a real step.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">想太多，动太少，是我的病根。先动手，再纠偏。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>部分解决</span><span class="dot"></span>
+        <span>诉诸公众</span><span class="dot"></span>
+        <span>先动真的一步</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 句1 部分解决 > 束手无策 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">一</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="300" y="1040" width="200" height="120" rx="8"/>
+        <rect x="580" y="1040" width="200" height="120" rx="8"/>
+        <path d="M 500 1100 L 580 1100 M 560 1082 L 580 1100 L 560 1118"/>
+        <path d="M 780 1100 L 860 1100 M 840 1082 L 860 1100 L 840 1118"/>
+      </g>
+      <text x="400" y="1114" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="28" font-weight="500" fill="rgba(10,10,11,.26)">部分</text>
+      <text x="680" y="1114" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="28" font-weight="500" fill="rgba(10,10,11,.26)">全解</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里第一句</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:30px">能提出一个部分解决问题的方案，总比束手无策要强得多。</p>
+      <h2 class="h-xl" style="font-size:60px; margin-top:24px">部分解决 &gt; 不动</h2>
+      <p class="pullquote" style="font-size:44px; margin-top:8px">先完成再完美<br>高手花一百块买反馈</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 句2 诉诸公众 = 随波逐流 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">众</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="430" cy="1080" r="38"/><circle cx="510" cy="1080" r="38"/><circle cx="590" cy="1080" r="38"/>
+        <circle cx="670" cy="1080" r="38"/><circle cx="750" cy="1080" r="38"/>
+        <path d="M 468 1080 L 552 1080 M 628 1080 L 712 1080"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里第二句</div>
+      <p class="lead" style="font-size:30px">诉诸公众谬误：以为很多人支持的事就可取。</p>
+      <h2 class="h-xl" style="font-size:68px; margin-top:24px">随波逐流<br>经不起时间</h2>
+      <p class="pullquote" style="font-size:44px; margin-top:8px">流行的像快餐<br>真东西是熬出来的</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 两敌：不动 vs 乱动 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">敌</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="280" y="1030" width="220" height="150" rx="10"/>
+        <rect x="580" y="1030" width="220" height="150" rx="10"/>
+        <path d="M 500 1105 L 580 1105 M 560 1085 L 580 1105 L 560 1125"/>
+      </g>
+      <text x="390" y="1112" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="28" font-weight="500" fill="rgba(10,10,11,.26)">不动</text>
+      <text x="690" y="1112" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="28" font-weight="500" fill="rgba(10,10,11,.26)">乱动</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 两句打两个敌人</div>
+      <h2 class="h-xl" style="font-size:84px">不动 vs 乱动</h2>
+      <p class="lead" style="margin-top:12px">句1治<strong>不动</strong>：想透才动，结果一件没落地。<br>句2治<strong>乱动</strong>：追热点散精力，哪个热往哪凑。</p>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">你被哪个困着？</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 尺子：真正要解决 + 可迁移 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="800" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="420" font-weight="500" fill="rgba(10,10,11,.03)">尺</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 360 1080 L 720 1080"/>
+        <path d="M 360 1062 L 360 1098 M 440 1072 L 440 1088 M 520 1062 L 520 1098 M 600 1072 L 600 1088 M 680 1062 L 680 1098"/>
+        <path d="M 720 1080 L 700 1064 M 720 1080 L 700 1096"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 我的尺子</div>
+      <h2 class="h-xl" style="font-size:60px">真正要解决<br>+ 可迁移</h2>
+      <p class="lead" style="margin-top:12px">挑真正卡自己的事，它长出的本事能迁移，就先解决一部分。</p>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">快递点=过渡<br>写作能力=真地基</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 热点边界：我用热点练本事 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="420" font-weight="500" fill="rgba(10,10,11,.03)">火</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 640 1050 C 600 1080 600 1110 640 1140 M 520 1080 C 560 1090 560 1120 540 1140"/>
+        <circle cx="420" cy="1095" r="46"/>
+        <path d="M 420 1058 L 420 1132 M 383 1095 L 457 1095"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">那军事号蹭热点呢</div>
+      <h2 class="h-xl" style="font-size:56px">我用热点练本事<br>不是热点用我</h2>
+      <p class="lead" style="margin-top:12px">热点是素材、练功场。长出来的是自己的拆解表达——可迁移真本事。让热点替你想的，才是随波逐流。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">谁用谁，分得清</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1780" y="680" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">步</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="300" cy="320" r="58"/>
+        <path d="M 300 262 L 300 378 M 262 320 L 338 320"/>
+        <path d="M 540 352 L 640 352 M 616 332 L 640 352 L 616 372"/>
+        <circle cx="760" cy="320" r="58"/>
+        <path d="M 732 292 L 788 348 M 788 292 L 732 348"/>
+      </g>
+      <text x="300" y="440" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.24)">不动</text>
+      <text x="760" y="440" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="26" font-weight="500" fill="rgba(10,10,11,.24)">乱动</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1280px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 部分解决与诉诸公众</div>
+        <h1 class="h-display" style="font-size:128px">别等风来，先动真的一步</h1>
+        <p class="h-sub">不动和乱动，都是病 · 先动真的一步</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第19天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="800" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">步</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display">别等风来<br>先动真的一步</h1>
+      <p class="h-sub" style="margin-bottom:0">想太多动太少，是我的病根</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
