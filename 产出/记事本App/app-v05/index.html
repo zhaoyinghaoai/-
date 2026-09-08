@@ -181,6 +181,22 @@
   .srow.danger{color:#C0392B}
   .srow small{color:var(--ink3);font-size:13px;margin-left:auto;font-weight:400}
 
+  /* ============ 类目条（小米笔记式） ============ */
+  .catbar{flex:none;display:flex;gap:8px;overflow-x:auto;padding:4px 18px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .catbar::-webkit-scrollbar{display:none}
+  .catpill{flex:none;font-size:16px;font-weight:700;padding:9px 20px;border-radius:30px;background:#fff;border:1px solid var(--line);color:var(--ink2);cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .catpill.on{background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;border-color:transparent;box-shadow:0 3px 10px rgba(192,86,33,.35)}
+  .catpill:active{transform:scale(.96)}
+  /* 保存大按钮 */
+  .btn-save{border:none;cursor:pointer;background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;font-size:16px;font-weight:800;border-radius:14px;padding:10px 18px;box-shadow:0 3px 10px rgba(192,86,33,.35);letter-spacing:1px}
+  .btn-save:active{transform:scale(.96)}
+  /* 记一条：类目选择 + 大贴图按钮 */
+  .catpick{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 12px}
+  .catpick .cpill{font-size:14.5px;font-weight:600;padding:7px 15px;border-radius:30px;background:#fff;border:1px solid var(--line);color:var(--ink2);cursor:pointer}
+  .catpick .cpill.on{background:var(--accent-soft);color:var(--accent-deep);border-color:var(--accent)}
+  .imgbigbtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#fff;border:1.5px dashed #D8CBB2;border-radius:16px;padding:15px;font-size:16px;font-weight:700;color:var(--ink2);cursor:pointer;margin-bottom:12px}
+  .imgbigbtn:active{background:#F7F2E8}
+
   /* toast */
   #toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(16px);z-index:99;background:#2B2620;color:#fff;font-size:16px;padding:13px 22px;border-radius:40px;opacity:0;pointer-events:none;transition:all .28s cubic-bezier(.2,.8,.2,1);box-shadow:0 10px 30px rgba(0,0,0,.3);max-width:88vw;text-align:center}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -197,6 +213,7 @@
         <div class="page-num" id="pageNum" data-page-node-id="eEsYEdepKH2ltmdH1ldGEU"></div>
         <div class="top-right" data-page-node-id="UxW2nNvHlNFQn1roRBeGwt"><button class="iconbtn" onclick="openSheet('menu')" data-page-node-id="X28lGqdaJp4AmdQeYawUCz">⋯</button></div>
       </div>
+      <div class="catbar" id="catbar"></div>
       <div class="flipwrap" id="flipwrap" data-page-node-id="B2D1G3UxpFRSZYpTxire7t"></div>
       <div class="flipnav" id="flipNav">
         <button id="prevCard" title="上一张">↑</button>
@@ -209,15 +226,15 @@
       <div class="nav" data-page-node-id="Mpuj0tIw8gb9edRLLKS5hq">
         <button class="back" onclick="backHome()" data-page-node-id="qPPRLr7fEGYdUAWB2eqSnf">‹</button>
         <div class="ttl" data-page-node-id="xgKTGEjh3pXAXoOHpLkhWU">记一条</div>
-        <button class="act" onclick="saveNote()" data-page-node-id="AHrzOQsfgPxKQDU3jjmHFE">存</button>
+        <button class="btn-save" onclick="saveNote()">保存</button>
       </div>
-      <div class="tip-card" id="voiceTip" style="display:none" data-page-node-id="DsTQSsS1fZdHg5LsPoRluE"></div>
-      <div class="attach-box" id="attachBox" data-page-node-id="b9vVMXmCcUCC04wkJVyZz6"></div>
+      <div class="catpick" id="catpick"></div>
+      <label class="imgbigbtn" for="picFile">＋ 贴一张图（可选）</label>
+      <input type="file" id="picFile" accept="image/*" style="display:none">
+      <div class="attach-box" id="attachBox"></div>
       <textarea class="editor" id="editor" placeholder="写点什么…（灵感 / 素材 / 金句）&#10;&#10;不方便打字？按住下方话筒说话，或点输入框用键盘的语音键。"></textarea>
       <div class="inputtools" data-page-node-id="GfKWDHphXpoks6RUvXYLpw">
         <button class="toolbtn mic" id="micBtn" data-page-node-id="9u8FDNtXODLv7LSQqqDh1w">🎤 按住说话</button>
-        <label class="toolbtn pic" for="picFile" data-page-node-id="QaIZ9eU4i0f3rQaOQFhbA4">🖼 贴图</label>
-        <input type="file" id="picFile" accept="image/*" style="display:none" data-page-node-id="nCMA6AGPqMCkAsjcgtqOZ9">
       </div>
     </section>
 
@@ -283,6 +300,11 @@ try{ items = JSON.parse(localStorage.getItem(KEY)) || []; }catch(e){ items = [];
 function save(){ localStorage.setItem(KEY, JSON.stringify(items)); }
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 
+/* ================= 分类（类目，小米笔记式） ================= */
+const CATS=['写作','读书','灵感','生活','杂记'];
+let curCat='全部';
+let newCat='写作';
+
 /* ================= 工具 ================= */
 const $ = s => document.querySelector(s);
 const esc = s => String(s==null?'':s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -319,7 +341,7 @@ function backHome(){ go('home'); renderHome(); }
 /* ================= 首页翻卡渲染 ================= */
 function flipCardHTML(it, idx, total){
   const media = it.img ? '<img class="fc-media" src="'+it.img+'" onclick="event.stopPropagation()">' : '';
-  const tag = it.tag ? '<span class="tag">'+esc(it.tag)+'</span>' : '';
+  const tag = it.category ? '<span class="tag">'+esc(it.category)+'</span>' : '';
   return '<article class="flipcard" data-id="'+it.id+'">'+
     '<div class="fc-pad"><div class="fc-card'+(idx===0?' flash':'')+'">'+
       '<div class="fc-meta"><span class="kind '+(it.kind==='img'?'img':'')+'"></span>'+tag+'<span class="t">'+fmtDate(it.ts)+'</span></div>'+
@@ -332,10 +354,10 @@ function flipCardHTML(it, idx, total){
     '</div></article>';
 }
 function renderHome(){
-  const list = sorted();
+  const list = filtered();
   const w = $('#flipwrap');
   if(!list.length){
-    w.innerHTML = '<div class="flip-empty"><span class="big">📥</span><div>随手库还空着<br>点下面 ＋ 记第一条素材</div><button onclick="openNew()">＋ 记一条</button></div>';
+    w.innerHTML = '<div class="flip-empty"><span class="big">'+(curCat==='全部'?'📥':'🗂')+'</span><div>'+(curCat==='全部'?'随手库还空着<br>点下面 ＋ 记第一条素材':'「'+curCat+'」还没有内容<br>换一类看看，或记一条归进来')+'</div><button onclick="openNew()">＋ 记一条</button></div>';
     $('#pageNum').textContent = '';
     return;
   }
@@ -343,9 +365,24 @@ function renderHome(){
   w.scrollTop = 0;
   updatePageNum();
 }
+function filtered(){ const l=sorted(); return curCat==='全部'? l : l.filter(it=>it.category===curCat); }
+function renderCatbar(){
+  const cats=['全部'].concat(CATS);
+  $('#catbar').innerHTML = cats.map(c=>'<button class="catpill'+(c===curCat?' on':'')+'" onclick="pickCat(\''+c+'\')">'+c+'</button>').join('');
+}
+function pickCat(c){ curCat=c; renderCatbar(); renderHome(); }
+function renderCatpick(){
+  $('#catpick').innerHTML = '<span style="font-size:13px;color:var(--ink3);align-self:center;flex:none;margin-right:2px">归类</span>'+
+    CATS.map(c=>'<button class="cpill'+(c===newCat?' on':'')+'" onclick="setNewCat(\''+c+'\')">'+c+'</button>').join('');
+}
+function setNewCat(c){ newCat=c; renderCatpick(); }
+function setItemCat(c){
+  const it=getCur(); if(!it) return;
+  it.category=c; save(); closeSheet(); renderHome(); toast('已归到「'+c+'」');
+}
 function updatePageNum(){
   const w=$('#flipwrap'); if(!w) return;
-  const list=sorted();
+  const list=filtered();
   if(!list.length){ $('#pageNum').textContent=''; return; }
   const cardH = (w.querySelector('.flipcard')||{offsetHeight:1}).offsetHeight || 1;
   let idx = Math.round(w.scrollTop / cardH);
@@ -366,7 +403,7 @@ function updatePageNum(){
 /* 电脑预览翻页：箭头 + 键盘（手机触摸滑动时不受影响） */
 function flipBy(dir){
   const w=$('#flipwrap'); if(!w) return;
-  const list=sorted(); if(!list.length) return;
+  const list=filtered(); if(!list.length) return;
   const cardH=w.clientHeight;
   const cur=Math.round(w.scrollTop/cardH);
   const target=Math.max(0, Math.min(list.length-1, cur+dir));
@@ -400,7 +437,7 @@ function copyIt(id){ const it=items.find(x=>x.id===id); if(it) copyText(it.text)
 
 /* ================= 新建 ================= */
 let pendingImgs = [];
-function openNew(){ pendingImgs=[]; $('#attachBox').innerHTML=''; $('#editor').value=''; renderVoiceState(); go('new'); setTimeout(()=>$('#editor').focus(),150); }
+function openNew(){ pendingImgs=[]; $('#attachBox').innerHTML=''; $('#editor').value=''; renderCatpick(); renderVoiceState(); go('new'); setTimeout(()=>$('#editor').focus(),150); }
 $('#picFile').addEventListener('change', e=>{
   const f=e.target.files[0]; if(!f) return;
   if(pendingImgs.length>=3) return toast('最多 3 张图（第一版先这样）');
@@ -428,7 +465,7 @@ function compressImg(durl, cb){
 function saveNote(){
   const t=$('#editor').value.trim();
   if(!t && !pendingImgs.length) return toast('写点什么，或按住话筒说一句');
-  const it={ id:uid(), kind:pendingImgs.length?'img':'text', text:t||'(图片)', img:pendingImgs[0]||null, tag:'', ts:Date.now() };
+  const it={ id:uid(), kind:pendingImgs.length?'img':'text', text:t||'(图片)', img:pendingImgs[0]||null, category:newCat, ts:Date.now() };
   items.push(it); save(); renderHome();
   pendingImgs=[]; $('#attachBox').innerHTML=''; $('#editor').value='';
   go('home'); toast('已存为卡片 ✓');
@@ -514,10 +551,16 @@ function openSheet(kind){
     + row('📥','导入备份','从备份文件恢复/合并','import')
     + row('🗑','清空全部内容','清空后不可恢复','wipe',true);
   }else if(kind==='item'){
+    const _it=getCur();
     h='<h3>这条素材</h3>'
     + row('📋','复制全文','','copyCur')
-    + row('🏷','加标签','v1 版本再做')
+    + row('📂','归类到…','当前：'+(_it&&_it.category?_it.category:'未分类'),'cat')
     + row('🗑','删除这条','','delCur',true);
+  }else if(kind==='cat'){
+    const _c=getCur();
+    h='<h3>归到哪一类？</h3><div style="display:flex;flex-wrap:wrap;gap:8px;padding:8px 0 4px">'
+      + CATS.map(c=>'<button class="cpill'+( _c&&_c.category===c?' on':'')+'" style="font-size:16px;padding:10px 20px" onclick="setItemCat(\''+c+'\')">'+c+'</button>').join('')
+      +'</div><div style="font-size:13px;color:var(--ink3);margin-top:8px;text-align:center">点一下即归类完成</div>';
   }else if(kind==='help'){
     h='<h3>装到手机桌面</h3><div class="tip-card" style="line-height:2;font-size:15px"><b style="color:#A34419">⚠️ 小米浏览器的 PWA 安装支持不完整</b>，看不到"添加到主屏幕"很正常。<br><br><b>① 装 Chrome 或 Edge</b><br>小米应用商店搜 <b>「Chrome」</b> 或 <b>「Edge」</b> 装上（免费，几十 MB）。<br><br><b>② 用 Chrome / Edge 打开此链接</b><br>把链接复制过去，或用新浏览器打开文件传输助手里的链接。<br><br><b>③ 装到桌面</b><br>浏览器右上角 ⋮ 菜单 → 选 <b>「安装应用」</b>（Chrome）或 <b>「添加到主屏幕」</b>（Edge）。<br><br><b>④ 完成</b><br>桌面出现橙色"随"字图标 = 装好了，以后点它就用。<br><br><b>兜底：</b>小米浏览器可以菜单 → "收藏到桌面"凑合当快捷方式，但不是全屏 App 体验。</div>';
   }
@@ -533,6 +576,7 @@ function sheetAction(fn){
   if(fn==='import') $('#impFile').click();
   if(fn==='wipe'){ if(confirm('确定清空全部内容？此操作不可恢复（建议先导出备份）')){ items=[]; save(); renderHome(); toast('已清空'); } }
   if(fn==='help') openSheet('help');
+  if(fn==='cat') openSheet('cat');
   if(fn==='copyCur') copyDetail();
   if(fn==='delCur'){ if(confirm('删除这条素材？')) delCur(); }
 }
@@ -575,7 +619,7 @@ function exportBackup(){
     ];
     save();
   }
-  renderHome(); renderChips();
+  renderHome(); renderCatbar(); renderChips();
   const isNarrow=matchMedia('(max-width:500px)').matches;
   const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
   if(isNarrow||standalone) document.body.classList.remove('desktop');
