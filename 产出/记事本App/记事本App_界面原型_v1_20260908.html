@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="W0VFrYQpsKRDU5rxFYqgUS">
+<head data-page-node-id="YOWrielIcwI2mCbHir57pg">
+<meta charset="UTF-8" data-page-node-id="tszq03SxozCSf0eGjHjrw9">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="hHkwWo8vT956yISbUTatpE">
+<title>随手库 · 界面原型 v1</title>
+<style>
+  :root{
+    --bg:#F5F0E6;          /* 暖纸底 */
+    --card:#FFFFFF;
+    --ink:#2B2620;         /* 深墨 */
+    --ink2:#6E6659;
+    --ink3:#ADA493;
+    --accent:#C05621;      /* 赤陶橙 - 行动点 */
+    --accent-deep:#A34419;
+    --accent-soft:#F6E7DA;
+    --line:#EDE5D6;
+    --shadow:0 1px 2px rgba(60,45,20,.05),0 8px 24px rgba(60,45,20,.07);
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:radial-gradient(1200px 700px at 70% -10%,#EFE7D8 0%,#E4DAC6 55%,#DDD2BC 100%);
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    min-height:100vh;padding:28px 12px;
+  }
+  .stage{display:flex;flex-direction:column;align-items:center;gap:18px}
+  .phone{
+    width:390px;height:812px;background:var(--bg);border-radius:52px;position:relative;
+    overflow:hidden;box-shadow:0 30px 80px rgba(50,35,10,.35),0 0 0 10px #1B1916,0 0 0 12px #333;
+    flex:none;
+  }
+  .statusbar{height:48px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 8px;font-size:14px;font-weight:600;background:var(--bg);position:relative;z-index:5}
+  .statusbar svg{display:block}
+  .sbar-right{display:flex;gap:5px;align-items:center}
+
+  .screens{position:absolute;inset:48px 0 74px;overflow:hidden}
+  .screen{position:absolute;inset:0;overflow-y:auto;padding:6px 18px 26px;display:none;scrollbar-width:none}
+  .screen::-webkit-scrollbar{display:none}
+  .screen.active{display:block}
+
+  /* ---------- 首页 ---------- */
+  .home-top{display:flex;align-items:baseline;justify-content:space-between;padding:10px 2px 2px}
+  .home-title{font-size:26px;font-weight:800;letter-spacing:.5px}
+  .home-count{font-size:12px;color:var(--ink3)}
+  .searchbar{
+    display:flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid var(--line);
+    border-radius:14px;padding:11px 14px;margin:12px 0 4px;color:var(--ink3);font-size:15px;
+    box-shadow:0 1px 2px rgba(0,0,0,.03);cursor:pointer;
+  }
+  .searchbar .mag{flex:none}
+  .grouptitle{font-size:12px;color:var(--ink3);font-weight:600;letter-spacing:2px;margin:20px 2px 10px}
+  .card{
+    background:var(--card);border-radius:var(--radius);padding:15px 16px 11px;margin-bottom:12px;
+    box-shadow:var(--shadow);cursor:pointer;border:1px solid rgba(237,229,214,.6);
+    transition:transform .12s ease;
+  }
+  .card:active{transform:scale(.985)}
+  .card.flash{animation:flash 1.6s ease}
+  @keyframes flash{0%{box-shadow:0 0 0 3px rgba(192,86,33,.45)}100%{box-shadow:var(--shadow)}}
+  .card-head{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--ink3);margin-bottom:8px}
+  .card-head .kind{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+  .card-head .kind.img{background:#8A9B7E}
+  .card-head .tag{margin-left:auto;background:var(--accent-soft);color:var(--accent-deep);font-weight:600;padding:2px 8px;border-radius:20px}
+  .card-text{font-size:15px;line-height:1.68;color:var(--ink);white-space:pre-wrap;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+  .card.media .media-row{display:flex;gap:10px;align-items:stretch}
+  .card.media .imgph{width:78px;height:78px;border-radius:12px;flex:none;overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:6px}
+  .card.media .imgph span{font-size:9px;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:1px}
+  .card.media .card-text{-webkit-line-clamp:3;font-size:14.5px}
+  .card-actions{display:flex;align-items:center;gap:4px;margin-top:10px;padding-top:9px;border-top:1px solid #F3EDE1}
+  .btn-copy{margin-left:auto;display:flex;align-items:center;gap:5px;color:var(--accent);font-size:13px;font-weight:700;background:none;border:none;cursor:pointer;padding:6px 8px;border-radius:9px}
+  .btn-copy:active{background:var(--accent-soft)}
+  .btn-menu{color:var(--ink3);border:none;background:none;font-size:16px;cursor:pointer;padding:4px 8px;border-radius:8px}
+  .empty{padding:60px 0;text-align:center;color:var(--ink3);font-size:14px;line-height:2}
+
+  /* ---------- 底部导航 ---------- */
+  .tabbar{
+    position:absolute;left:0;right:0;bottom:0;height:74px;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(10px);border-top:1px solid var(--line);
+    display:flex;align-items:stretch;z-index:10;
+  }
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;cursor:pointer;color:var(--ink3);font-size:10.5px}
+  .tab.active{color:var(--accent)}
+  .tab .ico{font-size:20px;line-height:1}
+  .tab-plus-wrap{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+  .tab-plus{
+    width:58px;height:58px;border-radius:50%;border:none;cursor:pointer;margin-top:-24px;
+    background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;font-size:26px;line-height:1;
+    box-shadow:0 6px 18px rgba(192,86,33,.45);display:flex;align-items:center;justify-content:center;
+  }
+  .tab-plus:active{transform:scale(.94)}
+  .homebar{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:132px;height:5px;border-radius:3px;background:#1B1916;z-index:12}
+
+  /* ---------- 通用顶栏 ---------- */
+  .nav{display:flex;align-items:center;gap:10px;padding:8px 2px 4px}
+  .nav .back{border:none;background:none;font-size:22px;color:var(--ink);cursor:pointer;padding:6px 10px 6px 2px}
+  .nav .ttl{font-size:17px;font-weight:700;flex:1}
+  .nav .act{border:none;background:none;color:var(--accent);font-size:15px;font-weight:700;cursor:pointer;padding:6px 4px}
+  .nav .act.dim{color:var(--ink3);font-weight:600}
+
+  /* ---------- 新建页 ---------- */
+  .new-hint{font-size:12px;color:var(--ink3);background:#FBF7EE;border:1px dashed #E2D6C0;border-radius:12px;padding:9px 12px;margin:6px 0 12px;line-height:1.6}
+  .editor{
+    width:100%;min-height:200px;border:none;outline:none;background:transparent;resize:none;
+    font-size:17px;line-height:1.75;color:var(--ink);font-family:inherit;padding:6px 2px;
+  }
+  .editor::placeholder{color:var(--ink3)}
+  .attach-box{display:flex;gap:10px;flex-wrap:wrap;padding:4px 0 8px}
+  .imgth{width:96px;height:96px;border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:8px}
+  .imgth .x{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;border:none;font-size:12px;cursor:pointer;line-height:1}
+  .inputtools{position:sticky;bottom:0;display:flex;gap:8px;padding:8px 0 2px;background:linear-gradient(180deg,rgba(245,240,230,0) 0%,var(--bg) 40%)}
+  .toolbtn{
+    display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:9px 13px;font-size:13.5px;font-weight:600;color:var(--ink2);cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  .toolbtn:active{background:#F7F2E8}
+  .toolbtn.mic{background:var(--accent);border-color:var(--accent);color:#fff;flex:1;justify-content:center;font-size:14.5px}
+
+  /* ---------- 录音遮罩 ---------- */
+  .micoverlay{
+    position:absolute;inset:0;background:rgba(43,38,32,.72);backdrop-filter:blur(6px);z-index:40;
+    display:none;align-items:center;justify-content:center;flex-direction:column;gap:22px;
+  }
+  .micoverlay.on{display:flex}
+  .mic-ring{width:120px;height:120px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 0 rgba(192,86,33,.5);animation:pulse 1.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(192,86,33,.45)}70%{box-shadow:0 0 0 34px rgba(192,86,33,0)}100%{box-shadow:0 0 0 0 rgba(192,86,33,0)}}
+  .mic-ring svg{width:44px;height:44px;fill:#fff}
+  .mic-wave{display:flex;gap:5px;align-items:center;height:34px}
+  .mic-wave i{width:4px;border-radius:2px;background:#fff;animation:wave 1s ease-in-out infinite}
+  .mic-wave i:nth-child(1){height:14px}.mic-wave i:nth-child(2){height:30px;animation-delay:.1s}
+  .mic-wave i:nth-child(3){height:20px;animation-delay:.2s}.mic-wave i:nth-child(4){height:32px;animation-delay:.3s}
+  .mic-wave i:nth-child(5){height:16px;animation-delay:.4s}.mic-wave i:nth-child(6){height:28px;animation-delay:.15s}
+  .mic-wave i:nth-child(7){height:12px;animation-delay:.35s}
+  @keyframes wave{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1.15)}}
+  .mic-label{color:#fff;font-size:15px;font-weight:600;letter-spacing:1px}
+  .mic-sub{color:rgba(255,255,255,.75);font-size:12px}
+
+  /* ---------- 详情/编辑 ---------- */
+  .detail-time{font-size:12px;color:var(--ink3);margin:2px 2px 14px}
+  .d-body{
+    background:var(--card);border:1px solid rgba(237,229,214,.6);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:18px;min-height:300px;
+  }
+  .d-body textarea{width:100%;min-height:240px;border:none;outline:none;background:transparent;font-size:16.5px;line-height:1.8;color:var(--ink);font-family:inherit;resize:vertical}
+  .d-bar{position:absolute;left:0;right:0;bottom:0;height:74px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 18px;z-index:9}
+  .d-main{
+    display:flex;align-items:center;justify-content:center;gap:6px;flex:1;
+    background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;border:none;border-radius:14px;height:48px;
+    font-size:15.5px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(192,86,33,.35);
+  }
+  .d-main:active{transform:scale(.98)}
+  .d-sec{width:48px;height:48px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink2);font-size:19px;cursor:pointer}
+
+  /* ---------- 搜索页 ---------- */
+  .s-input{
+    display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:11px 13px;box-shadow:0 1px 2px rgba(0,0,0,.03);
+  }
+  .s-input input{border:none;outline:none;flex:1;font-size:16px;background:transparent;color:var(--ink);font-family:inherit}
+  .s-input input::placeholder{color:var(--ink3)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
+  .chip{font-size:12.5px;background:#fff;border:1px solid var(--line);color:var(--ink2);padding:6px 13px;border-radius:30px;cursor:pointer}
+  .chip:active{background:var(--accent-soft)}
+  .s-result-title{font-size:12px;color:var(--ink3);margin:16px 2px 10px}
+  mark{background:#F6D9A8;color:inherit;border-radius:3px;padding:0 1px}
+  .hint-note{text-align:center;color:var(--ink3);font-size:13px;line-height:1.9;margin-top:26px;padding:0 20px}
+  .hint-note b{color:var(--accent)}
+
+  /* ---------- toast ---------- */
+  #toast{
+    position:fixed;left:50%;bottom:64px;transform:translateX(-50%) translateY(20px);z-index:99;
+    background:#2B2620;color:#fff;font-size:13.5px;padding:12px 20px;border-radius:40px;
+    opacity:0;pointer-events:none;transition:all .28s cubic-bezier(.2,.8,.2,1);box-shadow:0 10px 30px rgba(0,0,0,.3);
+    display:flex;align-items:center;gap:8px;white-space:nowrap;
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .caption{color:#7A6F5C;font-size:12.5px;text-align:center;max-width:420px;line-height:1.9}
+  .caption b{color:#5A4E38}
+</style>
+</head>
+<body data-page-node-id="rQU7zWpHr2ztTYk1FEDbOI">
+<div class="stage" data-page-node-id="443un7wV1gUC6mjMv3FaRs">
+  <div class="phone" data-page-node-id="uUGl2ZsdLYuD8UeWbdQkhY">
+    <div class="statusbar" data-page-node-id="3c0bbywSLR1vkd6fuhFe9w">
+      <span data-page-node-id="8qjJGHdvzjd7lmnrtQHFpA">9:41</span>
+      <div class="sbar-right" data-page-node-id="6Kt28FC6mFwaignCIXkw0v">
+        <svg width="16" height="12" viewBox="0 0 16 12" data-page-node-id="2vEH5jA6z8yFphNJJA9CLX"><path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" fill="#2B2620" data-page-node-id="ss8CXpYRU7VIwpmDc5Ysse"/><path d="M4.3 7.3a5.5 5.5 0 0 1 7.4 0" stroke="#2B2620" stroke-width="1.6" fill="none" stroke-linecap="round" data-page-node-id="pXZjlZzZsHEGXmG3gYlt4p"/><path d="M1.6 4.6a9.5 9.5 0 0 1 12.8 0" stroke="#2B2620" stroke-width="1.6" fill="none" stroke-linecap="round" data-page-node-id="kt0wMJPOWoxk4bgFFGQbiM"/></svg>
+        <svg width="17" height="12" viewBox="0 0 17 12" data-page-node-id="7dDRnIPJDnWSpNjcPATXUG"><path d="M1.5 7.5a8 8 0 0 1 14 0" stroke="#2B2620" stroke-width="1.6" fill="none" stroke-linecap="round" data-page-node-id="Qcxepib7oBokaE6c8BoMYN"/><rect x="3.8" y="8.4" width="9.4" height="3.2" rx="1" fill="#2B2620" data-page-node-id="1kiabFtUs7GtaQhfw4E3sE"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" data-page-node-id="MCXMbyYBXXb2uiorysM9Zk"><rect x="0.5" y="0.5" width="21" height="11" rx="3" fill="none" stroke="#2B2620" stroke-width="1" data-page-node-id="RmNy7Qr0yzbVMx8jANWCHE"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="#2B2620" data-page-node-id="VndTzFdEBMnEJotegwqTK8"/><rect x="23" y="4" width="2" height="4" rx="1" fill="#2B2620" data-page-node-id="w0jFrGBUFZLK5undbndTFz"/></svg>
+      </div>
+    </div>
+
+    <div class="screens" data-page-node-id="PINJAMsHpBIwsn3ZzFqAhZ">
+      <!-- ============ 首页 ============ -->
+      <section class="screen active" id="home" data-page-node-id="QCA4YGph0RwFrMa6OMsIVi">
+        <div class="home-top" data-page-node-id="5zdFfHCnPaIbHsB6H7IDwK">
+          <div class="home-title" data-page-node-id="K81vJKXcOujQm9LhYYMxXX">随手库</div>
+          <div class="home-count" id="homeCount" data-page-node-id="gt9yb7KUmuquSa0ujkxfaS"></div>
+        </div>
+        <div class="searchbar" onclick="go('search')" data-page-node-id="7QfxFQftp6EWTQtcKLlu3B">
+          <svg class="mag" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ADA493" stroke-width="2.4" stroke-linecap="round" data-page-node-id="qJQ7nUCJHPmgf3N4fRWNdk"><circle cx="11" cy="11" r="7" data-page-node-id="FxOqEyslPYbcXffRQda7SI"/><path d="m20 20-3.5-3.5" data-page-node-id="natiQZFErrIKxxCXGXFlzE"/></svg>
+          搜索文字、标签、图片…
+        </div>
+        <div class="grouptitle" data-page-node-id="Q2S6C35jDOU9rXePzSA6DB">今天</div>
+        <div id="listToday" data-page-node-id="5twHWPaegdozX8vz1jfWX4"></div>
+        <div class="grouptitle" id="grpPrev" data-page-node-id="1XCIfW3JQ2w5sw8D70UV73">昨天</div>
+        <div id="listPrev" data-page-node-id="5SiyVHgtFUNdJJz9mokAdN"></div>
+      </section>
+
+      <!-- ============ 新建 ============ -->
+      <section class="screen" id="new" data-page-node-id="8IIZE0hF4hJAypenTWNfL6">
+        <div class="nav" data-page-node-id="6qAiJGfVMsLB9ookP0y6Xi">
+          <button class="back" onclick="go('home')" data-page-node-id="2kLYOC0pqun4fKPYrD4KQf">‹</button>
+          <div class="ttl" data-page-node-id="UBHVaX8Dlvv3kQrVI09AoP">记一条</div>
+          <button class="act" onclick="saveNote()" data-page-node-id="XguZrLtMvY0DnHfbqDfBdB">存为卡片</button>
+        </div>
+        <div class="new-hint" data-page-node-id="sbZivjnVg7fhA9ckWGaLha">💡 现在你记下的东西，以后都从这里"一键复制"出去——写作素材、灵感、金句，先都丢进来。</div>
+        <div class="attach-box" id="attachBox" data-page-node-id="HwUqc6N29NBDBxYXisMA0H"></div>
+        <textarea class="editor" id="editor" placeholder="写点什么…（灵感 / 素材 / 金句）"></textarea>
+        <div class="inputtools" data-page-node-id="6yojHU7OJLHDNytuwOo7zj">
+          <button class="toolbtn mic" id="micBtn" data-page-node-id="83NW76ibaiBEOyeMBWh6FJ">🎤 按住说话</button>
+          <button class="toolbtn" onclick="addImageDemo()" data-page-node-id="QtrEAdTYSC55zbgMwytah4">🖼 贴图</button>
+        </div>
+      </section>
+
+      <!-- ============ 详情 ============ -->
+      <section class="screen" id="detail" data-page-node-id="7EBSSWiW4aEp6AtAtq9ZTW">
+        <div class="nav" data-page-node-id="fUYKU9lJNvKYhxGaXghKuc">
+          <button class="back" onclick="go('home')" data-page-node-id="FghneeAnMDnrkmJrVlbULA">‹</button>
+          <div class="ttl" id="dTitle" data-page-node-id="ZRzaghC7QbcUF9M7NPVrQJ">素材</div>
+          <button class="act dim" onclick="toast('演示版暂不提供删除')" data-page-node-id="4XpWy6RwxkDTEI77c1N3hX">⋯</button>
+        </div>
+        <div class="detail-time" id="dTime" data-page-node-id="5wYMg5Pf5cjOZKe1MuZ675"></div>
+        <div class="d-body" id="dBody" data-page-node-id="rF7T8OWqHC613lFUgjxOGd"></div>
+      </section>
+
+      <!-- ============ 搜索 ============ -->
+      <section class="screen" id="search" data-page-node-id="Hjx39WHB69AgrhpZRytJJc">
+        <div class="nav" data-page-node-id="6moVlFvP32auiSLJp6PAZo">
+          <button class="back" onclick="go('home')" data-page-node-id="eEU78xg5C9cDX6RAADhA34">‹</button>
+          <div class="s-input" style="flex:1" data-page-node-id="AGKWrNAiBr13gMMkIRhA8j">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ADA493" stroke-width="2.4" stroke-linecap="round" data-page-node-id="nmUzCLDTAwtcCDk4RaFqsR"><circle cx="11" cy="11" r="7" data-page-node-id="AcxOEbRRJOgbCoxuct7U2b"/><path d="m20 20-3.5-3.5" data-page-node-id="sJZJ535YMBcCtLqlvJ1OlO"/></svg>
+            <input id="sBox" placeholder="搜点什么…" oninput="doSearch(this.value)" data-page-node-id="Pq0aojGMRzJAy2zwkjWpt8">
+          </div>
+        </div>
+        <div class="chips" id="chips" data-page-node-id="KI9ESiHbSEYQxLsB1FdIdi"></div>
+        <div class="s-result-title" id="sCount" data-page-node-id="xnb6hn3yawKfmMjrPwRE8E"></div>
+        <div id="sResults" data-page-node-id="f1xTzaAFzw1rFNV2nWINVu"></div>
+        <div class="hint-note" id="sHint" style="display:none" data-page-node-id="1hrKCj47I9BeKGmNKkDde1">
+          演示说明：搜索会真的过滤下面的素材。<br data-page-node-id="SGIQaE64kRqpbgd3n6w74e">
+          未来升级方向：<b data-page-node-id="CaNdYFQN2vkpO5Zy4foiYl">语音搜</b>（说一句就能找）、<b data-page-node-id="RRn8W7jAFzj1N0oSmS262G">搜到图片里的字</b>。
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ 底部导航 ============ -->
+    <nav class="tabbar" data-page-node-id="aUUY7u2U8DDb2uevF82D39">
+      <button class="tab active" id="tab-home" onclick="go('home')" data-page-node-id="5BR0oGLWOs02JFOcmNJxN4"><span class="ico" data-page-node-id="X3U3M5PCNvbBw2O3zLB88r">▤</span>笔记</button>
+      <div class="tab-plus-wrap" data-page-node-id="LG5usDSnN90j665qx3VJ5B"><button class="tab-plus" onclick="openNew()" data-page-node-id="qAyoohghACJWEIs7RXpoLM">＋</button></div>
+      <button class="tab" id="tab-search" onclick="go('search')" data-page-node-id="3qNKwDBOfAQ3U1KteDXT0Y"><span class="ico" data-page-node-id="HHqoWt6zsCKznYgZ1NhP4T">◎</span>搜索</button>
+    </nav>
+    <div class="homebar" data-page-node-id="gPHJMeDz9jev86yV99eXGb"></div>
+
+    <!-- 录音遮罩 -->
+    <div class="micoverlay" id="micOv" data-page-node-id="Pvkvyfaml2ZGclRQvhJnBQ">
+      <div class="mic-ring" data-page-node-id="8z9PyIqiojgIEWs03sDX2L"><svg viewBox="0 0 24 24" data-page-node-id="6GptUKlGv5EwDuTf0gVB9T"><path d="M12 15a3.5 3.5 0 0 0 3.5-3.5V6a3.5 3.5 0 0 0-7 0v5.5A3.5 3.5 0 0 0 12 15z" data-page-node-id="wlQXMfXTu1u5o7dUJxrT2I"/><path d="M18 11.5a6 6 0 0 1-12 0M12 17.5V21M9 21h6" data-page-node-id="oFjgZCfziiXEIz0kBDZNmw"/></svg></div>
+      <div class="mic-wave" data-page-node-id="fDxoWg1g8NfBDVMGvXRnPw"><i data-page-node-id="RaGzgIc7c2O5U4HDdTxJKY"></i><i data-page-node-id="hBNaHovlLijwlPQZ4nEDZK"></i><i data-page-node-id="Vbt7NV9iuEVSBmXQ0TJdX2"></i><i data-page-node-id="9CG8X6uespD3F0xV7ZVj3a"></i><i data-page-node-id="UaA9OSzcG9xWOrnMCEExnE"></i><i data-page-node-id="3SHgg9iLeFtbeNaniI4AQN"></i><i data-page-node-id="d7X4N1RGeeVpfKvpOiCP1P"></i></div>
+      <div class="mic-label" data-page-node-id="eprPsZtSnncvBc1snXxZPb">正在听…</div>
+      <div class="mic-sub" data-page-node-id="KlpwVcykkFwECQocq152Ph">松开手指结束</div>
+    </div>
+  </div>
+
+  <div id="toast" data-page-node-id="wldFiJKP4F2GGHzQxwEcro"></div>
+  <div class="caption" data-page-node-id="MiFAzQGkdtP5ETGE5Bc4IS">
+    <b data-page-node-id="vo5jcaeFn2RcEpwQ3CVbKD">随手库</b> · 手机界面原型 v1（可点击操作）　|　建议点：<b data-page-node-id="FtrTU7E0IaOMbZCEwSStwf">＋记一条</b> → 按住说话 → 存为卡片 → 回首页点卡片<b data-page-node-id="uph8CuHADRsqmSlJ7MYDFW">复制</b> → 顶部<b data-page-node-id="CHBjseLkQzD6Sr3OCCHgaf">搜索</b>「战争」
+  </div>
+</div>
+
+<script>
+/* ================= 模拟数据 ================= */
+let items = [
+  {id:1, kind:'text', dateLabel:'今天', time:'09:12', tag:'读书', text:'《学会提问》第18天：批判性思维是一把尺子。写之前先量两下——我真正要解决什么问题？这个想法能迁移到别处吗？'},
+  {id:2, kind:'img',  dateLabel:'今天', time:'08:47', tag:'公众号', grad:'linear-gradient(135deg,#C9A227,#8A5A24)', pic:'配图', text:'卡片定稿：抄近道才是绕最远的路。21:9 封面 + 1:1 方图都导好了，等浩总定哪天发。'},
+  {id:3, kind:'text', dateLabel:'今天', time:'07:58', tag:'', text:'灵感：下午两点到三点快递少，固定拿来听播客。听到带钩子的话直接丢进来，晚上统一整理。'},
+  {id:4, kind:'text', dateLabel:'昨天', time:'18:20', tag:'金句', text:'金句可复用——"天气的脾气改不了，自家的准备自己说了算。"（英国篇用过，同类题材能再起）'},
+  {id:5, kind:'text', dateLabel:'昨天', time:'11:05', tag:'复盘', text:'战争手册角度复盘：英国重启 War Book = 民防回归，冷战遗产。以后写"欧洲民生+军事"能反复用这个钩子。'},
+  {id:6, kind:'img',  dateLabel:'昨天', time:'09:30', tag:'配图', grad:'linear-gradient(135deg,#B4653A,#5C3A22)', pic:'旱情', text:'封面候选：池塘龟裂（旱情图，新华社摄）。以后写干旱/粮食题材可以直接复用。'},
+];
+let nextId = 7;
+const STT_TEXT = '灵感：抢购潮里，老李蹲在门口修水管——小事起笔，钩子落在"防备"两个字上，能当军事文章的冷开头。';
+const CHIPS = ['战争','金句','配图','学会提问','播客'];
+
+/* ================= 工具 ================= */
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let toastTimer;
+function toast(msg){
+  const t = $('#toast'); t.innerHTML = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove('show'), 2100);
+}
+function highlight(text, q){
+  if(!q) return esc(text);
+  const i = text.toLowerCase().indexOf(q.toLowerCase());
+  if(i < 0) return esc(text);
+  return esc(text.slice(0,i)) + '<mark>' + esc(text.slice(i, i+q.length)) + '</mark>' + esc(text.slice(i+q.length));
+}
+
+/* ================= 页面导航 ================= */
+function go(name){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  $('#'+name).classList.add('active');
+  document.querySelector('.screen.active').scrollTop = 0;
+  $('#tab-home').classList.toggle('active', name==='home');
+  $('#tab-search').classList.toggle('active', name==='search');
+  if(name==='search'){ $('#sBox').focus(); doSearch($('#sBox').value); }
+}
+function openNew(){
+  go('new'); $('#editor').value=''; $('#attachBox').innerHTML='';
+  setTimeout(()=>$('#editor').focus(), 120);
+}
+
+/* ================= 首页渲染 ================= */
+function cardHTML(it){
+  const cls = it.kind==='img' ? 'card media' : 'card';
+  const head = '<div class="card-head"><span class="kind '+(it.kind==='img'?'img':'')+'"></span>'+it.dateLabel+' '+it.time
+    +(it.tag?'<span class="tag">'+it.tag+'</span>':'<span class="tag" style="visibility:hidden">t</span>')+'</div>';
+  const media = it.kind==='img'
+    ? '<div class="media-row"><div class="imgph" style="background:'+it.grad+'"><span>'+it.pic+'</span></div><div class="card-text">'+esc(it.text)+'</div></div>'
+    : '<div class="card-text">'+esc(it.text)+'</div>';
+  return '<article class="'+cls+'" data-id="'+it.id+'" onclick="openDetail('+it.id+')">'+head+media+
+    '<div class="card-actions"><span style="font-size:11px;color:#C9BFA9">'+it.time+'</span>'+
+    '<button class="btn-copy" onclick="event.stopPropagation();copyIt('+it.id+')">⧉ 复制</button>'+
+    '<button class="btn-menu" onclick="event.stopPropagation();toast(\'编辑 / 移动 / 删除 在正式版提供\')">⋯</button></div></article>';
+}
+function renderHome(){
+  const today = items.filter(i=>i.dateLabel==='今天');
+  const prev  = items.filter(i=>i.dateLabel!=='今天');
+  $('#homeCount').textContent = '共 '+items.length+' 条';
+  $('#listToday').innerHTML = today.map(cardHTML).join('') || '<div class="empty">今天还没记东西<br>点中间 ＋ 记一条</div>';
+  $('#listPrev').innerHTML = prev.map(cardHTML).join('');
+  $('#grpPrev').style.display = prev.length ? 'block' : 'none';
+}
+
+/* ================= 详情 ================= */
+let curItem = null;
+function openDetail(id){
+  curItem = items.find(i=>i.id===id); if(!curItem) return;
+  $('#dTitle').textContent = curItem.tag || '素材';
+  $('#dTime').textContent = curItem.dateLabel + ' ' + curItem.time + ' · ' + (curItem.kind==='img'?'图文':'文本');
+  $('#dBody').innerHTML =
+    (curItem.kind==='img' ? '<div class="imgph" style="background:'+curItem.grad+';width:100%;height:120px;margin-bottom:14px"><span>'+curItem.pic+'</span></div>' : '') +
+    '<textarea id="dText">'+esc(curItem.text)+'</textarea>';
+  go('detail');
+}
+
+/* ================= 复制 ================= */
+function copyText(raw){
+  const done = ()=>toast('⧉ 已复制到剪贴板 — 去别处粘贴吧');
+  const fail = ()=>toast('复制失败：演示环境限制，长按文字可手动复制');
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(raw).then(done).catch(()=>fallbackCopy(raw)?done():fail());
+  } else fallbackCopy(raw) ? done() : fail();
+}
+function fallbackCopy(text){
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText='position:fixed;opacity:0';
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand('copy'); document.body.removeChild(ta); return ok;
+  }catch(e){ return false; }
+}
+function copyIt(id){ const it = items.find(i=>i.id===id); if(it) copyText(it.text); }
+
+/* ================= 新建 + 保存 ================= */
+function addImageDemo(){
+  const box = $('#attachBox');
+  if(box.children.length >= 2) return toast('演示：正式版可多选图片');
+  const div = document.createElement('div');
+  div.className = 'imgth';
+  div.style.background = 'linear-gradient(135deg,#7A9B76,#4C6B4A)';
+  div.innerHTML = '<button class="x" onclick="this.parentNode.remove()">✕</button><span>配图</span>';
+  box.appendChild(div);
+  toast('已贴入一张图片（演示）');
+}
+
+/* —— 按住说话 —— */
+(function(){
+  const btn = $('#micBtn'), ov = $('#micOv');
+  let down = false;
+  function start(e){ down = true; ov.classList.add('on'); e.preventDefault(); }
+  function end(){
+    if(!down) return; down = false; ov.classList.remove('on');
+    typeInto(STT_TEXT); // 模拟语音转文字
+  }
+  btn.addEventListener('pointerdown', start);
+  btn.addEventListener('pointerup', end);
+  btn.addEventListener('pointerleave', end);
+})();
+function typeInto(text){
+  const ta = $('#editor'); ta.value = '';
+  const btn = $('#micBtn'); btn.disabled = true; btn.style.opacity = .55;
+  let i = 0;
+  const timer = setInterval(()=>{
+    ta.value = text.slice(0, ++i);
+    ta.scrollTop = ta.scrollHeight;
+    if(i >= text.length){ clearInterval(timer); btn.disabled = false; btn.style.opacity = 1; toast('已转成文字，检查一下就能存'); }
+  }, 26);
+}
+function saveNote(){
+  const t = $('#editor').value.trim();
+  if(!t) return toast('先写点什么，或按住话筒说一句');
+  const hasImg = $('#attachBox').children.length > 0;
+  const now = new Date();
+  const it = {
+    id: nextId++, kind: hasImg?'img':'text', dateLabel:'今天',
+    time: String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0'),
+    tag:'', text:t, grad:'linear-gradient(135deg,#7A9B76,#4C6B4A)', pic:'配图'
+  };
+  items.unshift(it);
+  renderHome();
+  const card = document.querySelector('#listToday article');
+  if(card) card.classList.add('flash');
+  go('home');
+  toast('✓ 已存为卡片 — 就在列表最上面');
+}
+
+/* ================= 搜索 ================= */
+function renderChips(){
+  $('#chips').innerHTML = CHIPS.map(c=>'<button class="chip" onclick="useChip(\''+c+'\')">'+c+'</button>').join('');
+}
+function useChip(c){ $('#sBox').value = c; doSearch(c); }
+function doSearch(q){
+  q = (q||'').trim();
+  const res = q ? items.filter(i => i.text.toLowerCase().includes(q.toLowerCase()) || (i.tag||'').includes(q)) : [];
+  $('#sCount').textContent = q ? (res.length ? '找到 '+res.length+' 条' : '') : '最近记的';
+  $('#sResults').innerHTML = q
+    ? (res.length ? res.map(it=>{
+        const cls = it.kind==='img'?'card media':'card';
+        const media = it.kind==='img'
+          ? '<div class="media-row"><div class="imgph" style="background:'+it.grad+'"><span>'+it.pic+'</span></div><div class="card-text">'+highlight(it.text,q)+'</div></div>'
+          : '<div class="card-text">'+highlight(it.text,q)+'</div>';
+        return '<article class="'+cls+'" onclick="openDetail('+it.id+')">'+
+          '<div class="card-head"><span class="kind '+(it.kind==='img'?'img':'')+'"></span>'+it.dateLabel+' '+it.time+'</div>'+media+
+          '<div class="card-actions"><button class="btn-copy" style="margin-left:auto" onclick="event.stopPropagation();copyIt('+it.id+')">⧉ 复制</button></div></article>';
+      }).join('')
+      : '<div class="empty">没有找到「'+esc(q)+'」<br>换个词试试，或直接语音问</div>')
+    : items.slice(0,3).map(cardHTML).join('');
+  $('#sHint').style.display = q ? 'block' : 'none';
+}
+
+/* ================= init ================= */
+renderHome();
+renderChips();
+</script>
+</body>
+</html>

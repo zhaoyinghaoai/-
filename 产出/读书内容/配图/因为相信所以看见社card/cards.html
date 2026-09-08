@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>因为相信所以看见 · 社card · 学会提问</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:80px; line-height:1.12; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:46px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:128px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1240" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="640" font-weight="500" fill="rgba(10,10,11,.03)">信</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 250 470 C 400 350 520 560 660 430 C 780 320 860 520 900 400"/>
+        <path d="M 250 560 C 400 440 520 650 660 520 C 780 410 860 610 900 490"/>
+        <circle cx="900" cy="400" r="10" fill="rgba(10,10,11,.18)"/>
+        <circle cx="900" cy="490" r="10" fill="rgba(10,10,11,.18)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 信念与看见</div>
+      <h1 class="h-display" style="font-size:112px">因为相信<br>所以看见</h1>
+      <p class="h-sub">Believe first, then you see.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">眼见为实的反面——你信什么，就看见什么。方向不是找出来的，是走出来的。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>信了才看见</span><span class="dot"></span>
+        <span>看清了才信</span><span class="dot"></span>
+        <span>自己就是风</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里原句：你相信什么就看见什么 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">见</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 360 1050 C 300 1010 300 1070 360 1030 C 420 990 420 1070 480 1030"/>
+        <circle cx="420" cy="1030" r="60"/>
+        <circle cx="400" cy="1014" r="14" fill="rgba(10,10,11,.22)"/>
+        <path d="M 360 1110 L 480 1110 M 460 1092 L 480 1110 L 460 1128"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里这句话 · 盯了挺久</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:30px">我们常说眼见为实，相反的情况也常常出现：你相信什么就会看见什么！</p>
+      <h2 class="h-xl" style="font-size:64px; margin-top:24px">眼见为实 → 信了才看见</h2>
+      <p class="pullquote" style="font-size:44px; margin-top:8px">不是先看见方向再抬脚<br>是信了，眼睛才认得出它</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 等东风困局 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">等</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 300 1060 C 420 980 480 1100 600 1020 C 700 950 760 1080 860 1000"/>
+        <path d="M 300 1130 C 420 1050 480 1170 600 1090 C 700 1020 760 1150 860 1070"/>
+        <circle cx="540" cy="700" r="44" fill="rgba(10,10,11,.05)"/>
+        <path d="M 540 700 m -44 0 a 44 44 0 1 0 88 0 a 44 44 0 1 0 -88 0" stroke="rgba(10,10,11,.14)"/>
+        <circle cx="525" cy="690" r="4" fill="rgba(10,10,11,.2)"/>
+        <circle cx="555" cy="690" r="4" fill="rgba(10,10,11,.2)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我自己的困局</div>
+      <h2 class="h-xl" style="font-size:84px">越等越不敢动</h2>
+      <p class="lead" style="margin-top:12px">守着快递点，老想等一个一眼能看见回报的机会。越等，越看不见路在哪。</p>
+      <p class="pullquote" style="font-size:44px; margin-top:8px">东风不在外头<br>在外头，就永远等不到</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 三句话串起 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">风</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="360" y="1010" width="150" height="110" rx="8"/>
+        <path d="M 384 1044 L 486 1044 M 384 1072 L 460 1072 M 384 1100 L 470 1100"/>
+        <path d="M 560 1065 C 640 1000 700 1110 780 1045 M 560 1130 C 640 1065 700 1175 780 1110"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">三句话，串起来了</div>
+      <h2 class="h-xl" style="font-size:68px">风从未改变</h2>
+      <p class="lead" style="margin-top:12px">再高明的建议也要自己斟酌，秘籍自己用不上也是白搭；同频的人会遇见；风从未变，变的是人。</p>
+      <p class="pullquote" style="font-size:44px; margin-top:8px">等把心定下来<br>自己就是那股风</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 看清了才信 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="800" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="420" font-weight="500" fill="rgba(10,10,11,.03)">量</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 340 1080 L 740 1080"/>
+        <path d="M 340 1062 L 340 1098 M 420 1072 L 420 1088 M 500 1062 L 500 1098 M 580 1072 L 580 1088 M 660 1062 L 660 1098"/>
+        <path d="M 740 1080 L 720 1064 M 740 1080 L 720 1096"/>
+        <path d="M 380 1060 L 380 1010 L 700 1010 L 700 1060"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 信的哪一种</div>
+      <h2 class="h-xl" style="font-size:72px">看清了才信</h2>
+      <p class="lead" style="margin-top:12px">82 个粉、182 块钱、爆量四件套打底。不是心一热说「这回能对」，是数据撑起的信念。</p>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">先量清 → 再信 → 才看见</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 养号期=新东风 被摘下 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="420" font-weight="500" fill="rgba(10,10,11,.03)">动</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="420" cy="1090" r="46"/>
+        <path d="M 520 1090 L 640 1090 M 618 1070 L 640 1090 L 618 1110"/>
+        <path d="M 680 1070 L 760 1070 L 760 1150 M 740 1130 L 760 1150 L 780 1130"/>
+        <circle cx="760" cy="1150" r="10" fill="rgba(10,10,11,.18)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 摘下新东风</div>
+      <h2 class="h-xl" style="font-size:60px">养号期不是缓冲期</h2>
+      <p class="lead" style="margin-top:12px">「等养号期过了再动」，是把东风换了个名字。真实状态是一篇篇发出来的，不是等出来的。</p>
+      <p class="pullquote" style="font-size:44px; margin-top:8px">明天，抬脚</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 信了才看见的本质 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="420" font-weight="500" fill="rgba(10,10,11,.03)">框</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="360" y="1020" width="360" height="120" rx="10"/>
+        <circle cx="440" cy="1080" r="16" fill="rgba(10,10,11,.18)"/>
+        <circle cx="540" cy="1080" r="16" fill="rgba(10,10,11,.10)"/>
+        <circle cx="640" cy="1080" r="16" fill="rgba(10,10,11,.18)"/>
+        <path d="M 700 1080 L 760 1080 M 742 1062 L 760 1080 L 742 1098"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 看见的是什么</div>
+      <h2 class="h-xl" style="font-size:60px">心里有，才认得出</h2>
+      <p class="lead" style="margin-top:12px">信了才看见，是心里有框架，才认得出真正重要的信号。不然信息擦肩而过，也不觉得可惜。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">尺子防偏见<br>长出来的是真地基</p>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1780" y="680" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">信</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 280 520 C 420 420 520 600 660 480 C 780 380 860 540 940 440"/>
+        <path d="M 280 600 C 420 500 520 680 660 560 C 780 460 860 620 940 520"/>
+        <circle cx="940" cy="440" r="10" fill="rgba(10,10,11,.16)"/>
+        <circle cx="940" cy="520" r="10" fill="rgba(10,10,11,.16)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1280px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 信念与看见</div>
+        <h1 class="h-display" style="font-size:128px">因为相信，所以看见</h1>
+        <p class="h-sub">信了才看见，不是看见了才信</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第20天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 09 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="800" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">信</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display">因为相信<br>所以看见</h1>
+      <p class="h-sub" style="margin-bottom:0">自己就是那股风</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
