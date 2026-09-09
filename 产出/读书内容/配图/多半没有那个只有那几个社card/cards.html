@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>多半没有那个只有那几个 · 社card · 学会提问</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:120px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1240" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">个</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="330" cy="440" r="52"/>
+        <circle cx="470" cy="360" r="34"/>
+        <circle cx="600" cy="440" r="46"/>
+        <circle cx="730" cy="360" r="30"/>
+        <circle cx="360" cy="560" r="26"/>
+        <circle cx="520" cy="540" r="20"/>
+        <path d="M 300 660 C 420 600 620 640 780 580"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 视角与原因</div>
+      <h1 class="h-display" style="font-size:86px">多半没有「那个」<br>只有「那几个」</h1>
+      <p class="h-sub">One cause is never the whole story.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">1000 个人眼里有 1000 个哈姆雷特。一件事的"淡"，往往是好几个原因叠出来的。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>视角管眼睛</span><span class="dot"></span>
+        <span>原因管拼图</span><span class="dot"></span>
+        <span>先动手验证</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 视角：1000个哈姆雷特 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">角</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="380" cy="1060" r="70"/>
+        <circle cx="360" cy="1040" r="12" fill="rgba(10,10,11,.2)"/>
+        <path d="M 450 1060 L 560 1060 M 540 1040 L 560 1060 L 540 1080"/>
+        <path d="M 620 1000 L 660 1000 M 620 1120 L 660 1120 M 640 1000 L 640 1120"/>
+        <path d="M 700 1000 C 760 1060 700 1120 760 1120"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里这句话 · 盯了挺久</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:30px">当我们试图理解人们为何那样行事时，不同的视角或观点，往往影响我们选择何种原因加以考虑。</p>
+      <h2 class="h-xl" style="font-size:58px; margin-top:24px">1000 个人眼里<br>1000 个哈姆雷特</h2>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">站的角度不一样<br>看到的原因不一样</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 搬到网上也管用：这话谁说的图什么 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">话</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 360 1010 h 200 l 24 30 -24 30 h -200 z"/>
+        <path d="M 560 1010 h 200 l 24 30 -24 30 h -200 z" stroke-dasharray="14 18" opacity=".5"/>
+        <path d="M 470 1070 l 40 40 M 510 1070 l -40 40"/>
+        <circle cx="760" cy="1110" r="40"/>
+        <path d="M 740 1110 l 14 -22 M 780 1110 l -14 -22 M 752 1130 q 8 10 16 0"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">搬到网上 · 也管用</div>
+      <h2 class="h-xl" style="font-size:72px">这话谁说的<br>他图什么</h2>
+      <p class="lead" style="margin-top:12px">刷视频天天有人讲风口、躺赚。我现在会先停一下，问一句——这话谁说的，他图什么。</p>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">真话不全说<br>比说假话还坑人</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 替代原因：一个≠唯一 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">因</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="1080" r="120" stroke="rgba(10,10,11,.18)"/>
+        <circle cx="540" cy="1080" r="72"/>
+        <circle cx="540" cy="1080" r="26" fill="rgba(10,10,11,.16)"/>
+        <path d="M 470 930 h 140 M 540 900 v 60"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里另一句 · 当场记下</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:29px">我们找出的任何一个单独的原因，都极有可能是导致事件发生的原因之一，而不是其唯一的原因。</p>
+      <h2 class="h-xl" style="font-size:64px; margin-top:24px">一个 ≠ 唯一</h2>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">你揪出来的那个<br>是主导，还是只是其中一个？</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 拿自己开刀：水平vs方法 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">水</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="560" cy="1060" r="120"/>
+        <path d="M 500 1010 L 500 930 L 560 930 L 560 1010"/>
+        <circle cx="530" cy="1000" r="10" fill="rgba(10,10,11,.16)"/>
+        <path d="M 448 1120 L 660 1120"/>
+        <path d="M 640 1102 L 660 1120 L 640 1138"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 拿自己开刀</div>
+      <h2 class="h-xl" style="font-size:62px">我把「水平不行」<br>当成了唯一原因</h2>
+      <p class="lead" style="margin-top:12px">军事号 82 粉涨不动，原以为得有听风的蚕的水平。可 8 月底那篇美伊，水平没变、方法一改，12 小时 4503——</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">瓶颈不在水平<br>在方法</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 多想vs不动：先动手 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">动</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 340 1080 L 660 1080 M 640 1060 L 660 1080 L 640 1100"/>
+        <circle cx="300" cy="1080" r="14" fill="rgba(10,10,11,.2)"/>
+        <path d="M 460 1120 v 60 M 460 1180 l -18 -18 M 460 1180 l 18 -18"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 画条线</div>
+      <h2 class="h-xl" style="font-size:72px">能动手验证的<br>先动手</h2>
+      <p class="lead" style="margin-top:12px">发出去就有数据的，想破头也没用；想一百层没反馈的，才要多想。</p>
+      <p class="pullquote" style="font-size:44px; margin-top:8px">军事号——先动手<br>不是再想想</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1720" y="680" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.028)">个</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="300" cy="480" r="52"/>
+        <circle cx="430" cy="410" r="32"/>
+        <circle cx="550" cy="490" r="44"/>
+        <circle cx="330" cy="600" r="24"/>
+        <path d="M 300 700 C 460 630 700 660 900 600"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1320px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 视角与原因</div>
+        <h1 class="h-display" style="font-size:104px">多半没有「那个」<br>只有「那几个」</h1>
+        <p class="h-sub">视角管眼睛 · 原因管拼图 · 先动手验证</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第21天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="600" font-weight="500" fill="rgba(10,10,11,.03)">个</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display" style="font-size:92px">多半没有「那个」<br>只有「那几个」</h1>
+      <p class="h-sub" style="margin-bottom:0">多看一眼，多想一层</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
