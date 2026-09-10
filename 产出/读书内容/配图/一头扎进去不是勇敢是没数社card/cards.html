@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>一头扎进去不是勇敢是没数 · 社card · 学会提问</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:120px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1220" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">数</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="330" y="1060" width="180" height="54"/>
+        <rect x="510" y="1060" width="180" height="54"/>
+        <rect x="420" y="1006" width="180" height="54"/>
+        <rect x="510" y="952" width="180" height="54"/>
+        <path d="M 300 1140 h 480"/>
+        <path d="M 700 1000 l 60 -40 M 760 960 l -18 4 M 760 960 l 8 16"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 自主思考的前提</div>
+      <h1 class="h-display" style="font-size:86px">一头扎进去<br>不是勇敢，是没数</h1>
+      <p class="h-sub">Think on real data, not on imagination.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">想事情，不能光靠脑子里的想象，得拿点真东西垫底。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>信息要够</span><span class="dot"></span>
+        <span>数据要真</span><span class="dot"></span>
+        <span>样本有代表性</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里那句话：自主思考是有前提的 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">思</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 540 940 v 200"/>
+        <path d="M 540 1140 l -26 -30 M 540 1140 l 26 -30"/>
+        <path d="M 420 1010 h 240" stroke-dasharray="10 16"/>
+        <circle cx="540" cy="930" r="26"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里这句话 · 划了线</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:30px">批判性思维者追求自主思考，但如果他们做决定的基础是极为有限的一点信息，那么他们很难真正思考。</p>
+      <h2 class="h-xl" style="font-size:58px; margin-top:24px">自主思考是有前提的</h2>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">凭一丁点东西下判断<br>那叫自己哄自己</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 我觉得行：先花100块拿反馈 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">行</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="430" cy="1080" r="66"/>
+        <path d="M 430 1030 v 100 M 400 1060 h 60 M 400 1100 h 60"/>
+        <path d="M 520 1080 h 190 M 690 1060 l 20 20 l -20 20"/>
+        <rect x="740" y="1040" width="90" height="80" rx="6"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我是那个爱拍脑袋的人</div>
+      <h2 class="h-xl" style="font-size:72px">「我觉得行」<br>靠什么撑着</h2>
+      <p class="lead" style="margin-top:12px">靠我刷到的那一条视频，还是靠我脑补出来的画面？多半是后者。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">先花 100 块拿反馈<br>结果出来再决定投不投</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 地铁那个例子：概率≠必然 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">率</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="480" cy="1080" r="90"/>
+        <path d="M 480 1080 L 480 990 A 90 90 0 0 1 570 1080 Z" fill="rgba(10,10,11,.10)"/>
+        <path d="M 640 1030 h 150 M 640 1080 h 150 M 640 1130 h 150" stroke-dasharray="12 14"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里另一个例子 · 盯上了那几个数</div>
+      <p class="lead" style="font-size:28px">「地铁盗窃中的失窃物 70% 都是小型电子产品」，推不出「你坐地铁十有八九手机被偷」。</p>
+      <h2 class="h-xl" style="font-size:64px; margin-top:20px">70% ≠ 十有八九</h2>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">我们把「有可能」<br>听成了「一定行」</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 学别人：当假设不当答案 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">路</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 440 1140 L 440 1060"/>
+        <path d="M 440 1060 L 340 960 M 440 1060 L 540 960"/>
+        <circle cx="340" cy="950" r="16" fill="rgba(10,10,11,.16)"/>
+        <circle cx="540" cy="950" r="16"/>
+        <circle cx="440" cy="1150" r="14" fill="rgba(10,10,11,.2)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 该不该学别人</div>
+      <h2 class="h-xl" style="font-size:62px">拿他的做法当假设<br>不是当答案</h2>
+      <p class="lead" style="margin-top:12px">粉丝多不等于方法对，这叫用结果证明过程。更该问的是：他哪一条动作，是我能单独拿出来试的？</p>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">试对的留下<br>试错的扔掉</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 联想 vs 验证：动没动过手 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">验</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="380" cy="1080" r="70"/>
+        <path d="M 350 1080 h 60 M 380 1050 v 60"/>
+        <path d="M 500 1080 h 140 M 620 1060 l 20 20 l -20 20"/>
+        <rect x="700" y="1030" width="120" height="100" rx="6"/>
+        <path d="M 720 1060 h 80 M 720 1090 h 50"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 拿自己开刀</div>
+      <h2 class="h-xl" style="font-size:64px">差别不在数据多详细<br>在动没动过手</h2>
+      <p class="lead" style="margin-top:12px">82 粉涨不动，我给它编了个原因「水平不行」；美伊那篇改了方法，12 小时 4503 展现，是之前的 5.4 倍。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">改一个动作<br>等系统给个回响</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1760" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.028)">数</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1180" y="700" width="150" height="46"/>
+        <rect x="1330" y="700" width="150" height="46"/>
+        <rect x="1255" y="654" width="150" height="46"/>
+        <path d="M 1160 780 h 420"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1400px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 自主思考的前提</div>
+        <h1 class="h-display" style="font-size:100px">一头扎进去<br>不是勇敢，是没数</h1>
+        <p class="h-sub">信息要够 · 数据要真 · 样本有代表性</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第22天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="580" font-weight="500" fill="rgba(10,10,11,.03)">数</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display" style="font-size:84px">一头扎进去<br>不是勇敢，是没数</h1>
+      <p class="h-sub" style="margin-bottom:0">我有数吗？这数是真的吗？</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

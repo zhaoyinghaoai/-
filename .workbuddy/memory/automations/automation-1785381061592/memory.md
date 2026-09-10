@@ -7,8 +7,8 @@
 - 远程新增 14 个文件（2书摘原文 + 2 source页 + 2 concept页 + 每日记录 + 摄入报告 + 6个主题页双向链接更新 + 素材索引 + 读书文章）
 - 合并后 commit，同步完成
 
-## [2026-09-08 12:30] 同步成功
-- 本地有 2 个未提交改动（记事本App/index.html + automation memory），先 commit 保存
-- git pull 成功，远程无新提交（Already up to date）
-- 无冲突，无需合并
-- 同步完成
+## [2026-09-09 15:56] 同步失败（网络不通）
+- 本地有 36 个未提交改动，先 commit 保存（commit 26db16b）
+- git pull 两次均失败（github.com 连接被重置）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（main 领先 origin/main 23 commits）

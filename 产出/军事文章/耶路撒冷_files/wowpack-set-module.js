@@ -1,0 +1,1 @@
+window.wowpackLoader.setModule('Garfish', function(){ return window.Garfish });
