@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>最难看清的人是自己 · 社card · 学会提问</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:120px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1220" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">己</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="420" cy="1060" r="58"/>
+        <path d="M 340 1200 q 80 -70 160 0"/>
+        <circle cx="660" cy="1060" r="58" stroke-dasharray="12 14"/>
+        <path d="M 580 1200 q 80 -70 160 0" stroke-dasharray="12 14"/>
+        <path d="M 540 1040 v 130" stroke-dasharray="6 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 偏见与一厢情愿</div>
+      <h1 class="h-display" style="font-size:86px">最难看清的人<br>是自己</h1>
+      <p class="h-sub">The hardest person to see is yourself.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">我们最大的偏见，可能正是认为只有我们自己没有偏见。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>纠错器</span><span class="dot"></span>
+        <span>方向盘</span><span class="dot"></span>
+        <span>先对自己诚实</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 偏见：觉得自己没偏见 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">偏</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 340 1080 q 100 -70 200 0 q -100 70 -200 0 z"/>
+        <circle cx="440" cy="1080" r="26" fill="rgba(10,10,11,.16)"/>
+        <path d="M 600 1040 l 60 -40 M 600 1120 l 60 40" stroke-dasharray="10 12"/>
+        <circle cx="740" cy="1080" r="60" stroke-dasharray="10 16"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里那句话 · 钉在椅子上</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:29px">我们最大的偏见可能正是认为只有我们自己没有偏见，而那些和我们意见不同的人都心怀偏见。</p>
+      <h2 class="h-xl" style="font-size:58px; margin-top:22px">觉得自己没偏见<br>就是最大的偏见</h2>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">我们眼中的自己<br>和别人眼中的自己，是两个人</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 栽完了还不服 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">服</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 380 1000 v 160 M 380 1080 h 120" />
+        <circle cx="340" cy="980" r="18" fill="rgba(10,10,11,.16)"/>
+        <path d="M 560 1000 h 180 M 560 1060 h 180 M 560 1120 h 120" stroke-dasharray="12 14"/>
+        <path d="M 780 1000 v 120" />
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">栽完了，还不服</div>
+      <h2 class="h-xl" style="font-size:64px">环境不行 运气不好<br>别人不懂我</h2>
+      <p class="lead" style="margin-top:12px">嘴上说复盘，心里想的全是别人的问题。栽完了还不服，其实是我不愿意承认——错的是我自己。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">说到底是我不愿意承认<br>错的是我自己</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 一厢情愿：嘴上忠于内心 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">忠</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 340 1120 h 180 M 430 1120 v -120"/>
+        <path d="M 360 1000 h 140" stroke-dasharray="1 0"/>
+        <path d="M 340 1120 l -40 60 M 520 1120 l 40 60" />
+        <path d="M 620 1040 h 180 M 620 1100 h 180 M 620 1160 h 110" stroke-dasharray="12 16"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里第二段 · 一厢情愿</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:28px">宁愿相信那些他希望是真的概念或事实，而不愿相信那些业已证明为真的概念或事实，他就在忠于内心而非真相。</p>
+      <h2 class="h-xl" style="font-size:62px; margin-top:20px">嘴上忠于内心<br>脚下一步没动</h2>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">那不叫忠于内心<br>那叫给自己找借口</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 两个笨办法：别非黑即白 + 谦卑 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">谦</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="360" cy="1080" r="34"/>
+        <circle cx="540" cy="1080" r="34" fill="rgba(10,10,11,.14)"/>
+        <circle cx="720" cy="1080" r="34"/>
+        <path d="M 395 1080 h 110 M 575 1080 h 110" stroke-dasharray="8 12"/>
+        <path d="M 300 1180 h 480"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里给的两个笨办法 · 都不新鲜但管用</div>
+      <h2 class="h-xl" style="font-size:62px">别非黑即白<br>保持谦卑</h2>
+      <p class="lead" style="margin-top:12px">同一件事，至少站三个角度：旁观者怎么看、正方怎么看、反方怎么看。批判性思维最重要的价值观，是谦卑。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">谦虚使人进步<br>骄傲使人落后</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 判据：能不能长写作能力 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">写</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="360" y="1000" width="130" height="170" rx="6"/>
+        <path d="M 395 1040 h 60 M 395 1080 h 60 M 395 1120 h 40"/>
+        <path d="M 530 1080 h 90 M 600 1060 l 20 20 l -20 20"/>
+        <path d="M 660 1010 l 60 60 l 90 -110" />
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">忠于内心和忠于真相 · 我划了条线</div>
+      <h2 class="h-xl" style="font-size:58px">忠于内心不是<br>想干嘛就干嘛</h2>
+      <p class="lead" style="margin-top:12px">它是拿一件事去喂自己的能力。喂得进去的，就守；喂不进去的，就让。判据只有一条——能不能长我的写作能力。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">读 + 写<br>才是把输入变成能力那一步</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1760" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.028)">己</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="1180" cy="600" r="52"/>
+        <path d="M 1108 720 q 72 -62 144 0"/>
+        <circle cx="1400" cy="600" r="52" stroke-dasharray="12 14"/>
+        <path d="M 1328 720 q 72 -62 144 0" stroke-dasharray="12 14"/>
+        <path d="M 1290 580 v 110" stroke-dasharray="6 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1320px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 偏见与一厢情愿</div>
+        <h1 class="h-display" style="font-size:104px">最难看清的人<br>是自己</h1>
+        <p class="h-sub">纠错器 · 方向盘 · 先对自己诚实</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第24天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="580" font-weight="500" fill="rgba(10,10,11,.03)">己</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display" style="font-size:88px">最难看清的人<br>是自己</h1>
+      <p class="h-sub" style="margin-bottom:0">承认自己也会骗自己，不是认怂</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -31,7 +31,7 @@
   @media (min-width:520px){body:not(.desktop){display:flex;align-items:center;justify-content:center;background:radial-gradient(1200px 700px at 70% -10%,#EFE7D8 0%,#E4DAC6 55%,#DDD2BC 100%)}body:not(.desktop) .phone{width:400px;height:min(860px,96vh);border-radius:52px;box-shadow:0 30px 80px rgba(50,35,10,.35),0 0 0 10px #1B1916,0 0 0 12px #333}}
 
   .screens{flex:1;position:relative;overflow:hidden}
-  .screen{position:absolute;inset:0;overflow-y:auto;padding:0 18px calc(18px + env(safe-area-inset-bottom,0px));display:none;scrollbar-width:none}
+  .screen{position:absolute;inset:0;overflow-y:auto;padding:0 18px calc(18px + env(safe-area-inset-bottom,0px));display:none;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
   .screen::-webkit-scrollbar{display:none}
   .screen.active{display:block}
 
@@ -47,7 +47,7 @@
   .top-right{margin-left:auto;display:flex}
   .iconbtn{border:none;background:none;width:40px;height:40px;border-radius:12px;font-size:21px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink2)}
   .iconbtn:active{background:#ECE4D4}
-  .flipwrap{flex:1;overflow-y:auto;scrollbar-width:none;overscroll-behavior:contain;padding:6px 0 24px;-webkit-overflow-scrolling:touch}
+  .flipwrap{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;overscroll-behavior:contain;padding:6px 0 24px;-webkit-overflow-scrolling:touch}
   .flipwrap::-webkit-scrollbar{display:none}
   .flipcard{
     display:block;padding:7px 14px;animation:fadeUp .35s ease;
@@ -61,7 +61,6 @@
     display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);
   }
   body.desktop .flipnav button:active{transform:scale(.94)}
-  #home{position:relative}
   @keyframes fadeUp{from{opacity:.4;transform:translateY(10px)}to{opacity:1;transform:none}}
   .fc-pad{overflow:visible;flex:none}
   .fc-pad::-webkit-scrollbar{display:none}

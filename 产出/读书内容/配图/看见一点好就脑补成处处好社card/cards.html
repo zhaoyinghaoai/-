@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>看见一点好就脑补成处处好 · 社card · 学会提问</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:120px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1220" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">晕</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="1080" r="26" fill="rgba(10,10,11,.16)"/>
+        <circle cx="540" cy="1080" r="80"/>
+        <circle cx="540" cy="1080" r="150" stroke-dasharray="10 16"/>
+        <circle cx="540" cy="1080" r="220" stroke-dasharray="6 20"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 晕轮效应</div>
+      <h1 class="h-display" style="font-size:86px">看见一点好<br>就脑补成处处好</h1>
+      <p class="h-sub">One bright spot is not the whole picture.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">一个人赚钱了，我就默认他哪儿都靠谱。看到一点光，就脑补成处处好。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>以点概面</span><span class="dot"></span>
+        <span>以偏概全</span><span class="dot"></span>
+        <span>别让第一印象替我拿主意</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 书里那段话：以点概面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">点</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="420" cy="1070" r="18" fill="rgba(10,10,11,.2)"/>
+        <circle cx="420" cy="1070" r="60"/>
+        <circle cx="420" cy="1070" r="110" stroke-dasharray="8 14"/>
+        <path d="M 560 1070 h 180 M 720 1050 l 18 20 l -18 20"/>
+        <rect x="760" y="1020" width="110" height="100" rx="6"/>
+        <path d="M 780 1050 h 70 M 780 1080 h 45"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里那段话 · 划了线</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:30px">先认识到一个人身上所具有的一个积极或消极特征，然后就把这一特征和这个人的其他一切都联系起来。</p>
+      <h2 class="h-xl" style="font-size:60px; margin-top:24px">以点概面，以偏概全</h2>
+      <p class="pullquote" style="font-size:42px; margin-top:8px">看到一点好<br>就脑补成处处好</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 自信 vs 上头：谁先做的决定 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">断</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 520 940 v 260"/>
+        <path d="M 400 1010 h 240 M 400 1130 h 240"/>
+        <circle cx="520" cy="1000" r="20" fill="rgba(10,10,11,.16)"/>
+        <path d="M 660 1000 h 150 M 660 1140 h 150" stroke-dasharray="10 14"/>
+        <circle cx="660" cy="1000" r="16"/>
+        <circle cx="660" cy="1140" r="16"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 那不是自信</div>
+      <h2 class="h-xl" style="font-size:66px">是谁先做的决定</h2>
+      <p class="lead" style="margin-top:12px">自信是判断先动，上头是情绪先动。更狠的一条：你算账用的那些数，是从自己手里长出来的，还是从卖你东西那人嘴里来的？</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">自信是「我算过了」<br>上头是「我感觉行」</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 放慢：凡遇大事人须静 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">静</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="520" cy="1080" r="90"/>
+        <path d="M 520 1080 v -50 M 520 1080 l 36 22"/>
+        <path d="M 430 980 a 110 110 0 0 1 180 0"/>
+        <path d="M 660 1120 h 120 M 760 1102 l 18 18 l -18 18"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里第二句 · 两个字概括全书</div>
+      <div class="quote-mark">"</div>
+      <p class="lead" style="font-size:29px">在你思考重大事情的时候，一定要"放慢"。</p>
+      <h2 class="h-xl" style="font-size:68px; margin-top:20px">凡遇大事，人须静</h2>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">急中生乱<br>比急中生智的概率大得多</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 三问尺子 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">问</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 380 1010 h 300 M 380 1080 h 300 M 380 1150 h 220"/>
+        <path d="M 700 1010 h 60 M 700 1080 h 60 M 700 1150 h 60" stroke-dasharray="10 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">把「这项目行不行」换成三句实在的</div>
+      <h2 class="h-xl" style="font-size:56px">它靠什么赚钱？<br>我干不干得了？<br>最坏能亏多少？</h2>
+      <p class="lead" style="margin-top:12px">问完，热乎劲儿就凉下来一点，剩下的才是真能上手的东西。</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 量出来：经得起问的是我已有的 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">量</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 330 1080 h 420"/>
+        <path d="M 360 1040 v 80 M 700 1040 v 80"/>
+        <path d="M 360 1010 h 250 M 610 1010 l -20 -16 M 610 1010 l -20 16"/>
+        <path d="M 700 1160 v 40 M 540 1160 v 40 M 540 1180 h 160" stroke-dasharray="8 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">考官结晶 · 拿尺子量了量</div>
+      <h2 class="h-xl" style="font-size:60px">经得起问的<br>竟是我已经有的</h2>
+      <p class="lead" style="margin-top:12px">军事号三问全答得上：靠点击阅读赚钱、完全干得了、最亏就是亏时间。"日入过千"一问都答不上来。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">讲不清钱从谁口袋来<br>它赚的就是你的钱</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1760" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.028)">晕</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="1230" cy="620" r="20" fill="rgba(10,10,11,.12)"/>
+        <circle cx="1230" cy="620" r="62"/>
+        <circle cx="1230" cy="620" r="115" stroke-dasharray="8 16"/>
+        <circle cx="1230" cy="620" r="170" stroke-dasharray="5 20"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1320px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 晕轮效应</div>
+        <h1 class="h-display" style="font-size:100px">看见一点好<br>就脑补成处处好</h1>
+        <p class="h-sub">以点概面 · 以偏概全 · 凡遇大事人须静</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第23天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="580" font-weight="500" fill="rgba(10,10,11,.03)">晕</text>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display" style="font-size:84px">看见一点好<br>就脑补成处处好</h1>
+      <p class="h-sub" style="margin-bottom:0">能兜底的快，兜不了底的慢</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
