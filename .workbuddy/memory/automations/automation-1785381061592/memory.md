@@ -12,3 +12,9 @@
 - git pull 两次均失败（github.com 连接被重置）
 - 网络不通，按指令不重试，下次自动重试
 - 本地已 commit 未推送（main 领先 origin/main 23 commits）
+
+## [2026-09-11 14:49] 同步失败（网络不通）
+- 本地有 34 个未提交改动，先 commit 保存（commit da60cfa）
+- git pull 失败（github.com 无法解析）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（main 领先 origin/main 26 commits）

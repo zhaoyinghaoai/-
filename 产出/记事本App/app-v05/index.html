@@ -2,7 +2,7 @@
 <html lang="zh-CN" data-page-node-id="prqCAb2gyd99bO5UrVSo5i">
 <head data-page-node-id="9qejXB2YCb22PYrNIsRCXd">
 <meta charset="UTF-8" data-page-node-id="fynsY7DYLO31CAwqOlVQJN">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" data-page-node-id="QHnKOwOL51NndUOMOZidqz">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no, interactive-widget=resizes-content" data-page-node-id="QHnKOwOL51NndUOMOZidqz">
 <title>随手库</title>
 <meta name="description" content="随手库 — 你的统一素材口子：随手记，一键复制出去用。" data-page-node-id="kZ5Wt1zBJc53xJ2HPyWdRq">
 <meta name="theme-color" content="#F5F0E6" data-page-node-id="o5k8HyhtSDHQA6s3J7Zub9">
@@ -212,6 +212,8 @@
   .catinput{flex:1;border:1px solid var(--line);border-radius:14px;padding:11px 14px;font-size:16px;outline:none;background:#fff;font-family:inherit;min-width:0}
   .catinput:focus{border-color:var(--accent)}
   .delcat{width:36px;height:36px;border-radius:50%;border:none;background:#FBE9E4;color:#C0392B;font-size:15px;cursor:pointer;flex:none}
+  .rencat{height:36px;padding:0 14px;border-radius:18px;border:none;background:#EEF3F8;color:#3A6B9C;font-size:14.5px;font-weight:600;cursor:pointer;flex:none}
+  .rencat:active{background:#DDE9F3}
   .delcat:active{transform:scale(.92)}
   /* 保存大按钮 */
   .btn-save{border:none;cursor:pointer;background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;font-size:16px;font-weight:800;border-radius:14px;padding:10px 18px;box-shadow:0 3px 10px rgba(192,86,33,.35);letter-spacing:1px}
@@ -230,6 +232,27 @@
   /* toast */
   #toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(16px);z-index:99;background:#2B2620;color:#fff;font-size:16px;padding:13px 22px;border-radius:40px;opacity:0;pointer-events:none;transition:all .28s cubic-bezier(.2,.8,.2,1);box-shadow:0 10px 30px rgba(0,0,0,.3);max-width:88vw;text-align:center}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* ============ 手机端：整页自然滚动（v0.94） ============
+     之前内容在 .flipwrap 内部滚动，body 整页不动 → 小米/系统截长图靠滚动整页拼接，截不了。
+     改法：手机上解除固定高度壳，让 document 本身可滚，底栏改 fixed 悬浮。电脑预览不受影响。 */
+  @media (max-width:500px){
+    body:not(.desktop){overflow-y:auto;height:auto}
+    body:not(.desktop) .shell{position:static;inset:auto;display:block;background:transparent}
+    body:not(.desktop) .phone{position:static;height:auto;min-height:100vh;display:block;overflow:visible}
+    body:not(.desktop) .screens{position:static;overflow:visible}
+    body:not(.desktop) .screen{position:static;inset:auto;overflow:visible;display:none;padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))}
+    body:not(.desktop) .screen.active{display:block}
+    body:not(.desktop) #home{display:none}
+    body:not(.desktop) #home.active{display:block}
+    body:not(.desktop) .flipwrap{flex:none;min-height:0;overflow:visible;padding-bottom:4px}
+    body:not(.desktop) .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30}
+    body:not(.desktop) .home-top{position:sticky;top:0;z-index:8;background:var(--bg)}
+    body:not(.desktop) .catbar{position:sticky;top:54px;z-index:7;background:var(--bg)}
+    body:not(.desktop) .nav{position:sticky;top:0;z-index:8}
+    body:not(.desktop) .inputtools{position:static;background:none}
+    body:not(.desktop) .sheet-mask{z-index:50}
+  }
 </style>
 </head>
 <body class="desktop" data-page-node-id="9eMIjTuu9CQRWv9T77Qcnt">
@@ -355,11 +378,68 @@ let newCat='写作';
 function buildCatsHTML(){
   return '<h3>管理类目</h3>'
     +'<div style="margin:8px 0 2px">'
-    + CATS.map(c=>'<div style="display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px solid #F1EADA"><span class="cpill on" style="margin:0">'+esc(c)+'</span><span style="flex:1"></span>'
-      +(c==='杂记'?'<small style="color:var(--ink3);font-size:13px">兜底类，素材不会丢，不可删</small>':'<button class="delcat" onclick="delCat(\''+c+'\')">✕</button>')+'</div>').join('')
+    + CATS.map(catRow).join('')
     +'</div>'
-    +'<div style="display:flex;gap:8px;margin-top:14px"><input id="catInput" class="catinput" placeholder="新类目名，如：军事（≤6字）" maxlength="6"><button class="btn-save" onclick="addCat()" style="padding:0 16px;flex:none">＋ 添加</button></div>'
-    +'<div style="font-size:13px;color:var(--ink3);margin-top:12px;line-height:1.9">删除类目后，它里面的素材会自动转进「杂记」，一条都不会丢。</div>';
+    +'<div style="display:flex;gap:8px;margin-top:14px"><input id="catInput" class="catinput" placeholder="新类目名，如：军事（≤10字）" maxlength="10"><button class="btn-save" onclick="addCat()" style="padding:0 16px;flex:none">＋ 添加</button></div>'
+    +'<div style="font-size:13px;color:var(--ink3);margin-top:12px;line-height:1.9">点「改名」，名字直接在这一行里改，改完点「确定」；删除类目后，它里面的素材会自动转进「杂记」，一条都不会丢。</div>';
+}
+let renaming=null, delArm=null;
+function catRow(c){
+  if(renaming===c){
+    return '<div style="display:flex;align-items:center;gap:8px;padding:10px 2px;border-bottom:1px solid #F1EADA">'
+      +'<input id="renameInput" class="catinput" value="'+esc(c)+'" maxlength="10" style="flex:1">'
+      +'<button class="rencat" style="background:var(--accent);color:#fff" onclick="confirmRename()">确定</button>'
+      +'<button class="rencat" style="background:#F1EADA;color:var(--ink2)" onclick="cancelRename()">取消</button></div>';
+  }
+  return '<div style="display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px solid #F1EADA"><span class="cpill on" style="margin:0">'+esc(c)+'</span><span style="flex:1"></span>'
+    +(c==='杂记'?'<small style="color:var(--ink3);font-size:13px">兜底类，素材不会丢，不可删改</small>'
+      :'<button class="rencat" onclick="startRename(\''+c+'\')">改名</button>'
+       +(delArm===c
+         ?'<button class="delcat" style="width:auto;padding:0 12px;border-radius:18px;background:#C0392B;color:#fff" onclick="doDelCat(\''+c+'\')">确认删?</button>'
+         :'<button class="delcat" onclick="armDel(\''+c+'\')">✕</button>'))+'</div>';
+}
+/* 改名：面板内输入（不用 prompt——部分手机浏览器/桌面图标模式会静默拦截弹窗） */
+function startRename(c){
+  renaming=c; delArm=null;
+  $('#sheetBody').innerHTML=buildCatsHTML();
+  const i=$('#renameInput');
+  if(i){ i.focus(); try{ i.select(); }catch(e){}
+    i.addEventListener('keydown',e=>{ if(e.key==='Enter') confirmRename(); });
+  }
+}
+function cancelRename(){ renaming=null; $('#sheetBody').innerHTML=buildCatsHTML(); }
+function confirmRename(){
+  const i=$('#renameInput'); if(!i||!renaming) return;
+  const c=renaming, nv=i.value.trim();
+  if(!nv) return toast('名字不能为空');
+  if(nv.length>10) return toast('最多10个字');
+  if(nv===c){ cancelRename(); return; }
+  if(CATS.includes(nv)) return toast('已经有「'+nv+'」了');
+  CATS=CATS.map(x=>x===c?nv:x); saveCats();
+  items.forEach(it=>{ if(it.category===c) it.category=nv; }); save();
+  if(curCat===c) curCat=nv;
+  if(newCat===c) newCat=nv;
+  renaming=null;
+  $('#sheetBody').innerHTML=buildCatsHTML();
+  renderCatbar(); renderCatpick(); renderHome();
+  toast('已改名「'+c+'」→「'+nv+'」');
+}
+/* 删除：两步确认（第一步✕变红「确认删?」，再点一次才真删；4秒不点自动复位） */
+function armDel(c){
+  if(c==='杂记') return;
+  delArm=c; renaming=null;
+  $('#sheetBody').innerHTML=buildCatsHTML();
+  setTimeout(()=>{ if(delArm===c && !renaming){ delArm=null; $('#sheetBody').innerHTML=buildCatsHTML(); } },4000);
+}
+function doDelCat(c){
+  delArm=null;
+  items.forEach(it=>{ if(it.category===c) it.category='杂记'; });
+  CATS=CATS.filter(x=>x!==c); save(); saveCats();
+  if(curCat===c) curCat='全部';
+  if(newCat===c) newCat='杂记';
+  $('#sheetBody').innerHTML=buildCatsHTML();
+  renderCatbar(); renderCatpick(); renderHome();
+  toast('已删「'+c+'」，素材都转进杂记了');
 }
 function addCat(){
   const v=$('#catInput').value.trim();
@@ -371,17 +451,7 @@ function addCat(){
   renderCatbar(); renderCatpick();
   toast('已添加「'+v+'」');
 }
-function delCat(c){
-  if(c==='杂记') return;
-  if(!confirm('删除类目「'+c+'」？\n它里面的素材会自动转进「杂记」，素材不会丢。')) return;
-  items.forEach(it=>{ if(it.category===c) it.category='杂记'; });
-  CATS=CATS.filter(x=>x!==c); save(); saveCats();
-  if(curCat===c) curCat='全部';
-  if(newCat===c) newCat='杂记';
-  $('#sheetBody').innerHTML=buildCatsHTML();
-  renderCatbar(); renderCatpick(); renderHome();
-  toast('已删「'+c+'」，素材都转进杂记了');
-}
+function delCat(c){ doDelCat(c); }
 
 /* ================= 工具 ================= */
 const $ = s => document.querySelector(s);
@@ -704,7 +774,7 @@ function highlight(text,q){
 function openSheet(kind){
   let h='';
   if(kind==='menu'){
-    h='<h3>随手库 v0.9</h3>'
+    h='<h3>随手库 v0.94</h3>'
     + row('🗂','管理类目','自己加类 / 删类','cats')
     + row('📲','装到桌面图标','小米浏览器请换 Chrome/Edge','help')
     + row('📤','导出备份','全部 '+items.length+' 条下载成文件','export')
@@ -787,6 +857,28 @@ function exportBackup(){
   const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
   if(isNarrow||standalone) document.body.classList.remove('desktop');
 })();
+/* ===== 键盘遮挡兜底（v0.94）：输入时保证光标/文字不被键盘压住 ===== */
+(function(){
+  const vv = window.visualViewport;
+  const isEdit = el => el && (el.tagName==='TEXTAREA' || el.tagName==='INPUT');
+  function fix(){
+    const el = document.activeElement;
+    if(!isEdit(el)) return;
+    requestAnimationFrame(function(){
+      try{
+        const r = el.getBoundingClientRect();
+        const kbTop = vv ? (vv.height + vv.offsetTop) : window.innerHeight;
+        if(r.bottom > kbTop - 14 || r.top < 0){
+          try{ el.scrollIntoView({block:'center'}); }catch(e){ el.scrollIntoView(); }
+        }
+      }catch(e){}
+    });
+  }
+  document.addEventListener('focusin', fix);
+  document.addEventListener('input', function(e){ if(isEdit(e.target)) fix(); }, true);
+  if(vv){ vv.addEventListener('resize', fix); vv.addEventListener('scroll', fix); }
+})();
+
 /* ===== PWA 缓存根治：检测到新版本 → 弹条提醒刷新 ===== */
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
   window.addEventListener('load', ()=>{

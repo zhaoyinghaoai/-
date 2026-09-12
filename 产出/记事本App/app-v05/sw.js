@@ -1,7 +1,7 @@
 /* 随手库 Service Worker v09
    策略：页面(navigate)走"网络优先"永远拿最新版；静态资源缓存优先保离线
-   v09：与页面 v0.9 对齐（块式富媒体：文字/图片/视频穿插），cache名升版强制所有老用户触发全新安装（根治旧缓存锁死） */
-const CACHE = 'suishouku-v091';
+   v094：手机端整页自然滚动（支持系统截长图）+ 键盘遮挡兜底 + interactive-widget=resizes-content */
+const CACHE = 'suishouku-v094';
 const ASSETS = ['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install', e => {
