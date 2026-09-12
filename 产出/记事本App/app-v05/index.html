@@ -774,7 +774,7 @@ function highlight(text,q){
 function openSheet(kind){
   let h='';
   if(kind==='menu'){
-    h='<h3>随手库 v0.94</h3>'
+    h='<h3>随手库 v0.95</h3>'
     + row('🗂','管理类目','自己加类 / 删类','cats')
     + row('📲','装到桌面图标','小米浏览器请换 Chrome/Edge','help')
     + row('📤','导出备份','全部 '+items.length+' 条下载成文件','export')
@@ -857,25 +857,72 @@ function exportBackup(){
   const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
   if(isNarrow||standalone) document.body.classList.remove('desktop');
 })();
-/* ===== 键盘遮挡兜底（v0.94）：输入时保证光标/文字不被键盘压住 ===== */
+/* ===== 键盘遮挡根治 v2（v0.95）：光标级定位 + 不缩视口浏览器的估算兜底 ===== */
 (function(){
   const vv = window.visualViewport;
   const isEdit = el => el && (el.tagName==='TEXTAREA' || el.tagName==='INPUT');
+  let maxVH = 0; // 记录见过的最大视口高（键盘收起时），用于判断键盘是否真把视口压矮了
+
+  // 镜像测算：光标在屏幕上的 Y 位置（textarea 不用 getBoundingClientRect 的底边，因为光标可能在中途）
+  function caretBottomY(el){
+    const r = el.getBoundingClientRect();
+    if(el.tagName !== 'TEXTAREA') return r.bottom;
+    const cs = getComputedStyle(el);
+    const pos = el.selectionStart == null ? el.value.length : el.selectionStart;
+    const m = document.createElement('div');
+    m.style.cssText = 'position:absolute;visibility:hidden;left:-9999px;top:0;white-space:pre-wrap;word-wrap:break-word;box-sizing:content-box;padding:0;border:0';
+    m.style.fontFamily = cs.fontFamily; m.style.fontSize = cs.fontSize;
+    m.style.fontWeight = cs.fontWeight; m.style.lineHeight = cs.lineHeight;
+    m.style.letterSpacing = cs.letterSpacing;
+    m.style.width = Math.max(0, el.clientWidth - parseFloat(cs.paddingLeft||'0') - parseFloat(cs.paddingRight||'0')) + 'px';
+    m.textContent = el.value.substring(0, pos);
+    const s = document.createElement('span');
+    s.textContent = '\u200b';
+    m.appendChild(s);
+    document.body.appendChild(m);
+    const y = r.top + s.offsetTop + (parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) || 16) + 4;
+    document.body.removeChild(m);
+    return y;
+  }
+
   function fix(){
     const el = document.activeElement;
     if(!isEdit(el)) return;
     requestAnimationFrame(function(){
       try{
-        const r = el.getBoundingClientRect();
-        const kbTop = vv ? (vv.height + vv.offsetTop) : window.innerHeight;
-        if(r.bottom > kbTop - 14 || r.top < 0){
-          try{ el.scrollIntoView({block:'center'}); }catch(e){ el.scrollIntoView(); }
-        }
+        const inner = vv ? vv.height : window.innerHeight;
+        if(inner > maxVH) maxVH = inner;
+        const vh = vv ? (vv.height + (vv.offsetTop||0)) : window.innerHeight;
+        const shrunk = maxVH - (vv ? vv.height : window.innerHeight);
+        const kbLine = shrunk > 80
+          ? vh - 10                                        // 键盘真缩了视口：键盘顶=视口底
+          : vh - Math.min((window.screen && window.screen.height || 700) * 0.42, 320) - 10; // 小米类悬浮键盘：估算
+        const cb = caretBottomY(el);
+        if(cb > kbLine) window.scrollBy(0, cb - kbLine);
       }catch(e){}
     });
   }
-  document.addEventListener('focusin', fix);
+  document.addEventListener('focusin', function(e){
+    if(!isEdit(e.target)) return;
+    // 垫底部空间：保证文档有足够滚动余量，最后一块字也不会被顶死在页底
+    if(document.body && !document.body.dataset.kbPad){
+      document.body.dataset.kbPad = '1';
+      document.body.style.paddingBottom = '45vh';
+    }
+    fix();
+    [120, 300, 600, 900].forEach(function(t){ setTimeout(fix, t); });
+  }, true);
+  document.addEventListener('focusout', function(){
+    setTimeout(function(){
+      const el = document.activeElement;
+      if(!isEdit(el) && document.body && document.body.dataset.kbPad){
+        delete document.body.dataset.kbPad;
+        document.body.style.paddingBottom = '';
+      }
+    }, 60);
+  });
   document.addEventListener('input', function(e){ if(isEdit(e.target)) fix(); }, true);
+  window.addEventListener('resize', fix);
   if(vv){ vv.addEventListener('resize', fix); vv.addEventListener('scroll', fix); }
 })();
 

@@ -65,10 +65,31 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 5,
-  "lastSyncTime": 1787581160348,
-  "lastSyncBookCount": 0,
+  "lastSyncTime": 1789181071583,
+  "lastSyncBookCount": 2,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1789181070329",
+      "timestamp": 1789181070329,
+      "totalBooks": 3,
+      "syncedBooks": 2,
+      "skippedBooks": 0,
+      "duration": 1.254,
+      "notes": [
+        {
+          "bookId": "27403440",
+          "title": "芙蓉镇（第一届茅盾文学奖获奖作品｜同名电影原著）",
+          "filePath": "原始材料/书摘/27403440.md"
+        },
+        {
+          "bookId": "39980443",
+          "title": "学会提问（原书第12版）",
+          "filePath": "原始材料/书摘/39980443.md"
+        }
+      ],
+      "success": true
+    },
     {
       "id": "sync-1787581160118",
       "timestamp": 1787581160118,
@@ -168,22 +189,6 @@
       "skippedBooks": 0,
       "duration": 0.198,
       "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1787193225117",
-      "timestamp": 1787193225117,
-      "totalBooks": 1,
-      "syncedBooks": 1,
-      "skippedBooks": 0,
-      "duration": 1.011,
-      "notes": [
-        {
-          "bookId": "43696907",
-          "title": "人生设计课：如何设计充实且快乐的人生",
-          "filePath": "原始材料/书摘/43696907.md"
-        }
-      ],
       "success": true
     }
   ],

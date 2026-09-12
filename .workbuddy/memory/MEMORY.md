@@ -2,7 +2,8 @@
 
 ## 随手库记事本 App（PWA，手机主力工具）
 - 位置：`产出/记事本App/app-v05/`（index.html 单文件 + sw.js）；线上 `https://b53a9573c1ea43de997628d11a55b433.app.workbuddy.link`，**铁律：绝不换域名**（换 origin 丢手机 localStorage 数据）
-- 当前版本 **v0.94**（2026-09-12）：块式编辑器（文字/图片/链接穿插）、类目面板内改名（10字上限、prompt 被手机拦截不能用）、复制左编辑右、字号14、无语音按钮、单条改归类在详情页「⋯→📂归类到…」
+- 当前版本 **v0.95**（2026-09-12）：块式编辑器（文字/图片/链接穿插）、类目面板内改名（10字上限、prompt 被手机拦截不能用）、复制左编辑右、字号14、无语音按钮、单条改归类在详情页「⋯→📂归类到…」
+- **v0.95 键盘遮挡根治（光标级）**：小米浏览器悬浮键盘不缩 visualViewport、也不支持 interactive-widget → 必须镜像测光标Y + 键盘高估算(屏高×0.42封顶320) + focusin 垫 45vh 底部空间 + 主动 scrollBy 四次补滚。教训：**移动端键盘适配别依赖 viewport 参数/viewport resize 事件**
 - **v0.94 两处根治**：①键盘遮挡=viewport `interactive-widget=resizes-content` + visualViewport 兜底 scrollIntoView；②截长图=手机端改**整页自然滚动**（body 不锁死、tabbar 改 fixed、吸顶 sticky），内部滚动容器会导致小米系统截长图截不了——**以后做移动端页面默认整页滚，别用固定壳+内部滚动**
 - **发布经验（三次验证）**：sites_deploy 报"域名未绑定"=非致命，内容实际已上线，一律 curl grep 新功能特征串验证，不换域名不硬怼重试
 - sw 缓存版本随改动递增（现 `suishouku-v094`），否则手机锁旧版

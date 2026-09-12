@@ -20,8 +20,25 @@
               "icon": "lucide-file",
               "title": "学习方法-你不是废柴你只是在对自己下毒"
             }
+          },
+          {
+            "id": "49c1e21f50e2f6d7",
+            "type": "leaf",
+            "state": {
+              "type": "weread-book-detail-view",
+              "state": {
+                "bookId": "39980443",
+                "bookTitle": "学会提问（原书第12版）",
+                "bookCover": "https://cdn.weread.qq.com/weread/cover/68/YueWen_39980443/t6_YueWen_39980443.jpg",
+                "localFilePath": "原始材料/书摘/39980443.md",
+                "currentTab": "notes"
+              },
+              "icon": "book-open",
+              "title": "学会提问（原书第12版）"
+            }
           }
         ],
+        "currentTab": 1,
         "stacked": true
       }
     ],
@@ -195,8 +212,9 @@
       "obsidian-weread-plugin:打开微信读书书架": false
     }
   },
-  "active": "add1f1ca56ac5b3d",
+  "active": "49c1e21f50e2f6d7",
   "lastOpenFiles": [
+    "原始材料/书摘/27403440.md",
     "conflict-files-obsidian-git.md",
     "原始材料/书摘/39980443.md",
     "产出/学习方法-你不是废柴你只是在对自己下毒.md",
@@ -222,7 +240,6 @@
     "原始材料/文章/军事-互动率改进清单.md",
     "原始材料/文章/军事-事实合规避坑清单.md",
     "原始材料/文章/个人成长-饮食与大脑性能.md",
-    "产出/军事文章/基辅无人机展篇_流量池改进清单_v1_20260729.md",
     "原始材料/文章/商业-马云开快餐店_参与感六步法.txt",
     "原始材料/文章/商业-雷军开小吃店_小米模式六步法.txt",
     "原始材料/文章/商业-闲鱼闷声发财小生意_PDF改字聊天记录导出.txt",
