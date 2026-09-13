@@ -22,23 +22,41 @@ agent_created: true
    - 路径：`C:/Users/Administrator/.workbuddy/binaries/node/workspace/node_modules/puppeteer-core`
    - 已验证版本：25.6.0
 2. 系统已安装 Chrome/Edge。优先查找：
-   - `C:/Users/Administrator/AppData/Local/Google/Chrome/Application/chrome.exe`
+   - `C:/Users/Administrator/AppData/Local/Google/Chrome/Application/chrome.exe` ✅ 实测可用（2026-09-12 一次渲出 8 张）
    - `C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe`
    - `C:/Program Files/Microsoft/Edge/Application/msedge.exe`
 3. 如果以上都没有，不要尝试 `npm install puppeteer`（沙箱会阻止 postinstall 的 cmd.exe spawn）。改用其他方案或告知用户手动安装 Chrome。
+
+### ⚠️ 两个必踩的坑（每次都要先处理）
+
+**坑 1：Bash 的 PATH 常年损坏**（报 `dirname: command not found` / `ls: command not found` / `cd: null directory`）。
+→ 任何 bash 命令前先补 PATH：
+```bash
+export PATH="/c/Users/Administrator/.workbuddy/binaries/PortableGit/versions/1.2.0/usr/bin:/c/Users/Administrator/.workbuddy/binaries/PortableGit/versions/1.2.0/bin:/c/Windows/System32:/c/Windows:$PATH"
+```
+
+**坑 2：node 版本目录名会变**（历次见过 `22.22.2` → `22.22.2-2` → `22.22.2-3`，硬编码必失效）。
+→ 先跑 `ls /c/Users/Administrator/.workbuddy/binaries/node/versions/` 取实际目录名，再拼路径。**不要照抄下面示例里的版本号。**
+
+**坑 3：PowerShell 的 stdout 有时捕获为空**（`Test-Path` / `Get-ChildItem` 都没输出）。
+→ 别用它做诊断；一切检查走 bash。
 
 ## 渲染流程
 
 1. 定位 `cards.html` 所在目录
 2. 在该目录下创建或更新 `render.js`，使用 `puppeteer-core` 并指定系统 Chrome 的 `executablePath`
-3. 运行：
+3. 运行（**先补 PATH、先确认 node 版本目录名**，见上方"两个必踩的坑"）：
    ```bash
+   export PATH="/c/Users/Administrator/.workbuddy/binaries/PortableGit/versions/1.2.0/usr/bin:/c/Windows/System32:/c/Windows:$PATH"
+   ls /c/Users/Administrator/.workbuddy/binaries/node/versions/     # ← 取实际目录名，别照抄
    cd <cards.html 所在目录>
    NODE_PATH="C:/Users/Administrator/.workbuddy/binaries/node/workspace/node_modules" \
-     "C:/Users/Administrator/.workbuddy/binaries/node/versions/22.22.2/node.exe" render.js
+     "C:/Users/Administrator/.workbuddy/binaries/node/versions/<实际版本目录>/node.exe" render.js
    ```
-4. 检查输出 PNG 文件是否存在，尺寸是否正确
-5. 用 `present_files` 把 PNG 展示给用户
+4. 检查输出文件是否存在、尺寸是否正确（**实际产物是 JPG quality 92，不是 PNG**）
+5. 校验用 PIL —— ⚠️ 基础解释器 `versions/*/python.exe` **没有 PIL**，必须用 venv：
+   `C:/Users/Administrator/.workbuddy/binaries/python/envs/default/Scripts/python.exe`
+6. 用 `present_files` 把图片展示给用户
 
 ## 关键代码
 

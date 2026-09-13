@@ -233,6 +233,43 @@
   #toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(16px);z-index:99;background:#2B2620;color:#fff;font-size:16px;padding:13px 22px;border-radius:40px;opacity:0;pointer-events:none;transition:all .28s cubic-bezier(.2,.8,.2,1);box-shadow:0 10px 30px rgba(0,0,0,.3);max-width:88vw;text-align:center}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+  /* ============ 定时提醒（v1.01） ============ */
+  .rbox{background:#FFFCF6;border:1px solid #EFE6D4;border-radius:16px;padding:12px 13px 13px;margin:0 0 12px}
+  .rbox.on{background:#FFF6E8;border-color:#E9C89B}
+  .rhead{font-size:14.5px;font-weight:800;color:var(--ink);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .rhead span{font-size:12.5px;font-weight:400;color:var(--ink3)}
+  .rtabs{font-size:13px;color:var(--ink2);margin:10px 0 6px}
+  .rtabs b{font-size:13.5px;color:var(--accent-deep)}
+  .roff{display:flex;flex-wrap:wrap;gap:7px}
+  .rbtn{font-size:13.5px;font-weight:600;padding:7px 13px;border-radius:20px;border:1px solid #E4D8C2;background:#fff;color:var(--ink2);cursor:pointer}
+  .rbtn:active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-deep)}
+  .rclock{display:flex;align-items:center;gap:7px}
+  .rsel{font-size:14.5px;padding:8px 9px;border-radius:12px;border:1px solid #E4D8C2;background:#fff;font-family:inherit;color:var(--ink);outline:none}
+  .rnum{width:58px;font-size:16px;font-weight:700;text-align:center;padding:8px 4px;border-radius:12px;border:1px solid #E4D8C2;background:#fff;font-family:inherit;color:var(--ink);outline:none}
+  .rnum:focus,.rsel:focus{border-color:var(--accent)}
+  .rsep{font-size:16px;font-weight:800;color:var(--ink2)}
+  .rgo{margin-left:auto;font-size:14.5px;font-weight:700;padding:9px 18px;border-radius:12px;border:none;background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;cursor:pointer}
+  .rgo:active{transform:scale(.96)}
+  .rhint{font-size:12.5px;color:var(--ink3);margin-top:9px;line-height:1.7}
+  .rline{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .rline b{font-size:16px;color:var(--accent-deep)}
+  .rline .rl{font-size:13px;color:var(--ink2)}
+  .rmini{margin-left:auto;font-size:13px;padding:6px 12px;border-radius:18px;border:none;background:#FBE9E4;color:#C0392B;font-weight:600;cursor:pointer}
+  /* 卡片上的提醒角标 */
+  .rtag{display:inline-flex;align-items:center;gap:3px;font-size:12.5px;font-weight:700;color:var(--accent-deep);background:#FBEEDC;border-radius:12px;padding:3px 9px;margin-left:8px}
+  .rtag.done{color:#8A7C63;background:#F1EADA}
+  /* 到点提醒弹窗 */
+  #ringMask{position:fixed;inset:0;z-index:80;background:rgba(43,38,32,.5);display:none;align-items:center;justify-content:center;padding:24px}
+  #ringMask.on{display:flex}
+  .ring{width:min(380px,100%);background:#FFFDF8;border-radius:24px;padding:22px 20px 18px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.3);animation:up .28s cubic-bezier(.2,.8,.2,1)}
+  .ring .ricon{font-size:44px;line-height:1;margin-bottom:8px}
+  .ring h3{font-size:18px;font-weight:800;margin-bottom:12px}
+  .ring .rbody{font-size:15px;color:var(--ink2);line-height:1.85;text-align:left;background:#F8F3E8;border-radius:14px;padding:12px 14px;max-height:42vh;overflow-y:auto}
+  .ring .rbtns{display:flex;gap:10px;margin-top:16px}
+  .ring .rbtns button{flex:1;font-size:15.5px;font-weight:700;padding:12px;border-radius:14px;border:none;cursor:pointer;font-family:inherit}
+  .ring .rbtns .ok{background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff}
+  .ring .rbtns .go{background:#F1EADA;color:var(--ink2)}
+
   /* ============ 手机端：整页自然滚动（v0.94） ============
      之前内容在 .flipwrap 内部滚动，body 整页不动 → 小米/系统截长图靠滚动整页拼接，截不了。
      改法：手机上解除固定高度壳，让 document 本身可滚，底栏改 fixed 悬浮。电脑预览不受影响。 */
@@ -256,8 +293,7 @@
 </style>
 </head>
 <body class="desktop" data-page-node-id="9eMIjTuu9CQRWv9T77Qcnt">
-<div class="shell" data-page-node-id="MqPAFo9qlpNsu9LMirGNC7"><div class="phone" data-page-node-id="8QMo6FuROxW18YrgsMkp1O">
-  <div class="screens" data-page-node-id="EPnASfFa08mQTFuDFQNser">
+<div class="shell" data-page-node-id="MqPAFo9qlpNsu9LMirGNC7"><div class="phone" data-page-node-id="8QMo6FuROxW18YrgsMkp1O">  <div class="screens" data-page-node-id="EPnASfFa08mQTFuDFQNser">
 
     <!-- ===== 首页：翻卡 ===== -->
     <section class="screen active" id="home" data-page-node-id="SfkRp3XlUufy2xo7z58mgh">
@@ -278,6 +314,7 @@
         <button class="btn-save" onclick="saveNote()">保存</button>
       </div>
       <div class="catpick" id="catpick"></div>
+      <div id="remindBox"></div>
       <div id="newEditor" class="blkedit"></div>
       <div class="addtools">
         <button class="add-btn" onclick="addBlock('t')">＋ 文字</button>
@@ -332,6 +369,19 @@
   </div>
 </div>
 <div id="toast" data-page-node-id="4TJSGXPIr6QdmRfjCKbPy3"></div>
+
+<!-- 到点提醒弹窗 -->
+<div id="ringMask" onclick="if(event.target===this)closeRing()">
+  <div class="ring">
+    <div class="ricon">⏰</div>
+    <h3 id="ringTitle">提醒到点了</h3>
+    <div class="rbody" id="ringBody"></div>
+    <div class="rbtns">
+      <button class="go" onclick="ringGoEdit()">去看看</button>
+      <button class="ok" onclick="closeRing()">知道了</button>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ================= 存储（v0.9：块式内容，一条可含文字/图片/视频链接，任意穿插） ================= */
@@ -473,6 +523,137 @@ function shortDate(ts){
 }
 function sorted(){ return items.slice().sort((a,b)=>b.ts-a.ts); }
 
+/* ================= 定时提醒（v1.01） =================
+   两种设定方式：
+   ① 加时间段：从现在起 N 分钟 / N 小时 / N 天（如 11:54 + 1小时 = 12:54）
+   ② 加时刻：像闹钟一样指定 今天/明天 HH:MM
+   数据落在条目上：it.remindAt = 时间戳；it.reminded = 是否已提醒过 */
+const R_OFFSETS=[
+  {label:'+15 分钟', ms:15*60e3},
+  {label:'+30 分钟', ms:30*60e3},
+  {label:'+1 小时', ms:60*60e3},
+  {label:'+2 小时', ms:2*60*60e3},
+  {label:'+3 小时', ms:3*60*60e3},
+  {label:'+明天此刻', ms:24*60*60e3}
+];
+let draftRemind = null; // 编辑中的提醒时间戳（未保存前）
+let clockTimer = null;
+
+function fmtRemind(ts){
+  if(!ts) return '';
+  const d=new Date(ts), now=new Date();
+  const y=x=>x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');
+  const hm=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+  let day;
+  if(y(d)===y(now)) day='今天';
+  else { const t=new Date(now); t.setDate(now.getDate()+1); day=(y(d)===y(t))?'明天':((d.getMonth()+1)+'月'+d.getDate()+'日'); }
+  return day+' '+hm;
+}
+function remindLeft(ts){
+  const ms=ts-Date.now();
+  if(ms<=0) return '已到时间';
+  const m=Math.round(ms/60000);
+  if(m<60) return m+' 分钟后';
+  const h=Math.floor(m/60), mm=m%60;
+  if(h<24) return mm? h+' 小时 '+mm+' 分后' : h+' 小时后';
+  return Math.floor(h/24)+' 天后';
+}
+function setDraftRemind(ts){ draftRemind=ts; renderRemindBox(); renderClock(); }
+function clearDraftRemind(){ draftRemind=null; renderRemindBox(); renderClock(); }
+function addRemindOffset(ms){ setDraftRemind(Date.now()+ms); }
+function setRemindClock(){
+  const hEl=$('#rHour'), mEl=$('#rMin'), dEl=$('#rDay');
+  if(!hEl||!mEl||!dEl) return;
+  let h=parseInt(hEl.value,10), mi=parseInt(mEl.value,10);
+  if(isNaN(h)||isNaN(mi)||h<0||h>23||mi<0||mi>59) return toast('时间填 0-23 点 / 0-59 分');
+  const d=new Date(); d.setSeconds(0,0); d.setHours(h,mi,0,0);
+  if(dEl.value==='tomorrow' || d.getTime()<=Date.now()) d.setDate(d.getDate()+1);
+  setDraftRemind(d.getTime());
+  toast('已设 '+fmtRemind(d.getTime()));
+}
+function quickRemind(ts){
+  // 详情页：直接给这条素材定闹钟
+  const it=getCur(); if(!it) return;
+  it.remindAt=ts; it.reminded=false; save(); renderHome();
+  if(curId) openDetail(curId);
+  toast('⏰ 已设 '+fmtRemind(ts)+'（'+remindLeft(ts)+'）');
+}
+function cancelRemind(id){
+  const it=id? items.find(x=>x.id===id) : getCur(); if(!it) return;
+  it.remindAt=null; it.reminded=false; save(); renderHome();
+  if(curId&&id!==undefined) openDetail(curId);
+  toast('已取消提醒');
+}
+function dueItems(){
+  const now=Date.now();
+  return items.filter(x=>x.remindAt && !x.reminded && x.remindAt<=now);
+}
+function remindBadge(it){
+  if(!it.remindAt) return '';
+  const done=it.reminded||it.remindAt<=Date.now();
+  return '<span class="rtag'+(done?' done':'')+'">⏰ '+fmtRemind(it.remindAt)+'</span>';
+}
+let ringingIds=[];
+function checkRemind(){
+  const due=dueItems();
+  if(!due.length) return;
+  due.forEach(it=>{ it.reminded=true; });
+  save();
+  ringingIds=due.map(x=>x.id);
+  const body=due.map(it=>'· '+(textOf(it).replace(/\s+/g,' ').slice(0,40)||'(图片/链接)')).join('<br>');
+  const first=textOf(due[0]).replace(/\s+/g,' ').slice(0,40)||'随手库提醒';
+  $('#ringTitle').textContent = due.length>1 ? (due.length+' 条提醒到点了') : '⏰ 提醒到点了';
+  $('#ringBody').innerHTML = body;
+  $('#ringMask').classList.add('on');
+  renderHome(); if(curId) openDetail(curId);
+  try{
+    if(navigator.vibrate) navigator.vibrate([180,90,180]);
+    if('Notification' in window && Notification.permission==='granted'){
+      new Notification('随手库提醒 · '+fmtRemind(due[0].remindAt), {body:first});
+    }
+  }catch(e){}
+}
+function closeRing(){ $('#ringMask').classList.remove('on'); }
+function ringGoEdit(){
+  const id=ringingIds[0]; closeRing();
+  if(id){ go('home'); setTimeout(()=>editItem(id),120); }
+}
+/* 提醒时间到了但当时页面没开 → 下次打开时补提醒 */
+function missedRemind(){
+  const now=Date.now();
+  return items.filter(x=>x.remindAt && !x.reminded && x.remindAt<=now);
+}
+
+/* ---- 提醒 UI：编辑页里的设置区 ---- */
+function renderRemindBox(){
+  const w=$('#remindBox'); if(!w) return;
+  if(draftRemind){
+    w.innerHTML='<div class="rbox on">'
+      +'<div class="rline"><b>⏰ '+fmtRemind(draftRemind)+'</b><span class="rl">'+remindLeft(draftRemind)+'</span></div>'
+      +'<button class="rmini" onclick="clearDraftRemind()">取消提醒</button></div>';
+    return;
+  }
+  const now=new Date();
+  w.innerHTML='<div class="rbox">'
+    +'<div class="rhead">⏰ 定时提醒 <span>到点会弹提醒，不设就不提醒</span></div>'
+    +'<div class="rtabs"><b>加时间段</b></div>'
+    +'<div class="roff">'+R_OFFSETS.map(o=>'<button class="rbtn" onclick="addRemindOffset('+o.ms+')">'+o.label+'</button>').join('')+'</div>'
+    +'<div class="rtabs"><b>加时刻</b>（像闹钟）</div>'
+    +'<div class="rclock">'
+      +'<select id="rDay" class="rsel"><option value="today">今天</option><option value="tomorrow">明天</option></select>'
+      +'<input id="rHour" class="rnum" type="number" min="0" max="23" value="'+String(now.getHours()).padStart(2,'0')+'" inputmode="numeric">'
+      +'<span class="rsep">:</span>'
+      +'<input id="rMin" class="rnum" type="number" min="0" max="59" value="'+String(now.getMinutes()).padStart(2,'0')+'" inputmode="numeric">'
+      +'<button class="rgo" onclick="setRemindClock()">设定</button>'
+    +'</div>'
+    +'<div class="rhint">现在是 '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+'；填的时刻已过，就自动按明天算。</div>'
+    +'</div>';
+}
+function renderClock(){
+  const el=$('#clockNow'); if(!el) return;
+  el.textContent='此刻 '+new Date().toTimeString().slice(0,5);
+}
+
 /* ================= 页面 ================= */
 function go(name){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
@@ -505,7 +686,7 @@ function flipCardHTML(it){
   const kindCls = hasMedia(it) ? 'img' : '';
   return '<article class="flipcard" data-id="'+it.id+'">'+
     '<div class="fc-pad"><div class="fc-card">'+
-      '<div class="fc-meta"><span class="kind '+(kindCls?'img':'')+'"></span>'+tag+'<span class="t">'+fmtDate(it.ts)+'</span></div>'+
+      '<div class="fc-meta"><span class="kind '+(kindCls?'img':'')+'"></span>'+tag+'<span class="t">'+fmtDate(it.ts)+'</span>'+remindBadge(it)+'</div>'+
       blocksHTML(it)+
     '</div></div>'+
     '<div class="fc-actions">'+
@@ -576,7 +757,7 @@ function copyIt(id){ const it=items.find(x=>x.id===id); if(it) copyText(copyText
 let draftBlocks = [];
 let editId = null; // null=新建，否则=正在编辑的条目id
 
-function openNew(){ editId=null; draftBlocks=[{type:'t',t:''}]; var tl=$('#newTitle'); if(tl) tl.textContent='记一条'; renderNewEditor(); renderCatpick(); renderVoiceState(); go('new'); focusText(); }
+function openNew(){ editId=null; draftBlocks=[{type:'t',t:''}]; draftRemind=null; var tl=$('#newTitle'); if(tl) tl.textContent='记一条'; renderNewEditor(); renderCatpick(); renderRemindBox(); renderClock(); renderVoiceState(); go('new'); focusText(); }
 
 function renderNewEditor(){
   const w=$('#newEditor'); if(!w) return; w.innerHTML='';
@@ -685,17 +866,21 @@ function saveNote(){
     it.blocks=blocks; it.text=textOf(it); const m=firstMedia(it);
     it.kind=(m&&m.type==='img')?'img':(m&&m.type==='video'?'video':'text');
     if(m&&m.type==='img') it.img=m.d; else it.img=null;
-    save(); renderHome(); go('home'); toast('已保存 ✓');
+    // 提醒：改了时间要重置"已提醒"，否则新时间不会响
+    if(it.remindAt!==draftRemind) it.reminded=false;
+    it.remindAt=draftRemind||null;
+    save(); renderHome(); go('home'); toast(draftRemind? ('已保存 ✓ 提醒 '+fmtRemind(draftRemind)) : '已保存 ✓');
   }else{ // 新建
     const m=firstMedia({blocks:blocks});
     const it={ id:uid(), category:newCat, ts:Date.now(), blocks:blocks, text:textOf({blocks:blocks}) };
     if(m&&m.type==='img'){ it.kind='img'; it.img=m.d; }
     else if(m&&m.type==='video'){ it.kind='video'; }
     else it.kind='text';
+    if(draftRemind){ it.remindAt=draftRemind; it.reminded=false; }
     items.push(it); save(); renderHome();
-    go('home'); toast('已存为卡片 ✓');
+    go('home'); toast(draftRemind? ('已存为卡片 ✓ 提醒 '+fmtRemind(draftRemind)) : '已存为卡片 ✓');
   }
-  editId=null; draftBlocks=[{type:'t',t:''}];
+  editId=null; draftBlocks=[{type:'t',t:''}]; draftRemind=null;
 }
 
 
@@ -720,9 +905,22 @@ function openDetail(id){
   curId=id;
   $('#dTitle').textContent = it.category || '素材';
   const kindCls = hasMedia(it)?'图文':'文本';
-  $('#dTime').textContent = fmtDate(it.ts) + ' · ' + kindCls;
-  $('#dBody').innerHTML = blocksHTML(it) + (function(){ const n=(blks(it)||[]).length; return '<div class="blk-count" style="font-size:13px;color:var(--ink3);margin-top:14px">共 '+(n||1)+' 块 · 点下方"编辑"可在任意位置插图片/视频</div>'; })();
+  $('#dTime').textContent = fmtDate(it.ts) + ' · ' + kindCls + (it.remindAt? (' · ⏰ 提醒：'+fmtRemind(it.remindAt)+(it.reminded?'（已提醒）':'')) : '');
+  $('#dBody').innerHTML = blocksHTML(it) + remindDetailHTML(it) + (function(){ const n=(blks(it)||[]).length; return '<div class="blk-count" style="font-size:13px;color:var(--ink3);margin-top:14px">共 '+(n||1)+' 块 · 点下方"编辑"可在任意位置插图片/视频</div>'; })();
   go('detail');
+}
+/* 详情页的提醒区：没设 → 快捷按钮；已设 → 显示 + 取消 */
+function remindDetailHTML(it){
+  if(it.remindAt){
+    return '<div class="rbox on" style="margin-top:16px">'
+      +'<div class="rline"><b>⏰ '+fmtRemind(it.remindAt)+'</b><span class="rl">'+(it.reminded?'已提醒过':remindLeft(it.remindAt))+'</span>'
+      +'<button class="rmini" onclick="cancelRemind(\''+it.id+'\')">取消提醒</button></div></div>';
+  }
+  const now=Date.now();
+  const quick=[{l:'+30 分钟',ms:30*60e3},{l:'+1 小时',ms:60*60e3},{l:'+3 小时',ms:3*60*60e3},{l:'+明天此刻',ms:24*60*60e3}];
+  return '<div class="rbox" style="margin-top:16px"><div class="rhead">⏰ 定时提醒 <span>点一下就设好</span></div>'
+    +'<div class="roff" style="margin-top:9px">'+quick.map(q=>'<button class="rbtn" onclick="quickRemind('+(now+q.ms)+')">'+q.l+'</button>').join('')
+    +'<button class="rbtn" onclick="go(\'home\');setTimeout(function(){editItem(\''+it.id+'\')},80)">自定义时刻…</button></div></div>';
 }
 function getCur(){ return items.find(x=>x.id===curId); }
 function editCurrent(){ const it=getCur(); if(!it)return; editItem(it.id); }
@@ -732,8 +930,9 @@ function editItem(id){
   // 深拷贝现有 blocks
   draftBlocks = (blks(it)||[]).map(function(b){ return b.type==='t'?{type:'t',t:b.t||''}:b.type==='img'?{type:'img',d:b.d}:{type:'video',u:b.u||'',vdata:b.vdata||'',vname:b.vname||'',title:b.title||''}; });
   if(!draftBlocks.length) draftBlocks=[{type:'t',t:''}];
+  draftRemind = it.remindAt || null;
   var tl=$('#newTitle'); if(tl) tl.textContent='改这条';
-  renderNewEditor(); renderCatpick(); renderVoiceState();
+  renderNewEditor(); renderCatpick(); renderRemindBox(); renderClock(); renderVoiceState();
   go('new'); focusText();
 }
 function backNew(){
@@ -774,7 +973,7 @@ function highlight(text,q){
 function openSheet(kind){
   let h='';
   if(kind==='menu'){
-    h='<h3>随手库 v0.95</h3>'
+    h='<h3>随手库 v1.01</h3>'
     + row('🗂','管理类目','自己加类 / 删类','cats')
     + row('📲','装到桌面图标','小米浏览器请换 Chrome/Edge','help')
     + row('📤','导出备份','全部 '+items.length+' 条下载成文件','export')
@@ -787,6 +986,9 @@ function openSheet(kind){
     h='<h3>这条素材</h3>'
     + row('📋','复制全文','','copyCur')
     + row('📂','归类到…','当前：'+(_it&&_it.category?_it.category:'未分类'),'cat')
+    + (_it&&_it.remindAt
+        ? row('⏰','取消提醒',fmtRemind(_it.remindAt)+(_it.reminded?'（已提醒）':''),'unremind')
+        : row('⏰','设个提醒','到点弹窗叫我',null))
     + row('🗑','删除这条','','delCur',true);
   }else if(kind==='cat'){
     const _c=getCur();
@@ -811,6 +1013,7 @@ function sheetAction(fn){
   if(fn==='cats') openSheet('cats');
   if(fn==='cat') openSheet('cat');
   if(fn==='copyCur') copyDetail();
+  if(fn==='unremind') cancelRemind();
   if(fn==='delCur'){ if(confirm('删除这条素材？')) delCur(); }
 }
 function closeSheet(){ $('#sheetMask').classList.remove('on'); }
@@ -856,14 +1059,25 @@ function exportBackup(){
   const isNarrow=matchMedia('(max-width:500px)').matches;
   const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
   if(isNarrow||standalone) document.body.classList.remove('desktop');
+  /* ---- 提醒：定时检测 + 回前台补检测 ---- */
+  renderClock();
+  setInterval(function(){
+    renderClock();
+    if(document.hidden) return;   // 页面在后台时先不弹，回到前台立刻补弹
+    checkRemind();
+  }, 20000);
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden){ checkRemind(); renderClock(); } });
+  setTimeout(function(){ checkRemind(); }, 1200);  // 打开即补检：错过的提醒立刻补上
+  window.addEventListener('focus', function(){ checkRemind(); });
 })();
-/* ===== 键盘遮挡根治 v2（v0.95）：光标级定位 + 不缩视口浏览器的估算兜底 ===== */
+/* ===== 键盘遮挡根治 v4（v0.99）：按键盘顶定位，停靠键盘上方两行 ===== */
 (function(){
   const vv = window.visualViewport;
   const isEdit = el => el && (el.tagName==='TEXTAREA' || el.tagName==='INPUT');
-  let maxVH = 0; // 记录见过的最大视口高（键盘收起时），用于判断键盘是否真把视口压矮了
+  const isMobile = () => window.matchMedia && matchMedia('(max-width:500px)').matches && !document.body.classList.contains('desktop');
+  let maxVH = 0; // 键盘收起时见过的最大可视区高，用来判断键盘是否把可视区压矮了
 
-  // 镜像测算：光标在屏幕上的 Y 位置（textarea 不用 getBoundingClientRect 的底边，因为光标可能在中途）
+  // 镜像测算：光标在屏幕上的 Y 位置
   function caretBottomY(el){
     const r = el.getBoundingClientRect();
     if(el.tagName !== 'TEXTAREA') return r.bottom;
@@ -885,25 +1099,37 @@ function exportBackup(){
     return y;
   }
 
+  function scrollWinBy(dy){
+    const before = window.pageYOffset;
+    try{ window.scrollBy(0, dy); }catch(e){}
+    // 个别 WebView window.scrollBy 无效时直接滚 body
+    if(Math.abs(window.pageYOffset - before) < 1 && document.body && document.body.scrollHeight > document.body.clientHeight){
+      document.body.scrollTop += dy;
+    }
+  }
+
   function fix(){
     const el = document.activeElement;
-    if(!isEdit(el)) return;
+    if(!isEdit(el) || !isMobile()) return;
     requestAnimationFrame(function(){
       try{
         const inner = vv ? vv.height : window.innerHeight;
         if(inner > maxVH) maxVH = inner;
-        const vh = vv ? (vv.height + (vv.offsetTop||0)) : window.innerHeight;
-        const shrunk = maxVH - (vv ? vv.height : window.innerHeight);
-        const kbLine = shrunk > 80
-          ? vh - 10                                        // 键盘真缩了视口：键盘顶=视口底
-          : vh - Math.min((window.screen && window.screen.height || 700) * 0.42, 320) - 10; // 小米类悬浮键盘：估算
+        const shrunk = (maxVH - inner) > 80;      // 键盘弹出时是否把可视区压矮了
+        const kbLine = shrunk
+          ? inner - 6                              // 压矮了：可视区底边就是键盘顶，直接用
+          : inner * 0.62;                          // 悬浮键盘：按屏高62%估算键盘顶
+        const lineH = 26;                          // 14px × 1.85 行高
+        const target = kbLine - 3.4 * lineH;       // 停靠：键盘上方约三行
+        const limit = kbLine - 1.6 * lineH;        // 离键盘一行半以内才滚，平时不动
         const cb = caretBottomY(el);
-        if(cb > kbLine) window.scrollBy(0, cb - kbLine);
+        if(cb > limit) scrollWinBy(cb - target);
+        else if(cb < 0) scrollWinBy(cb - 20);
       }catch(e){}
     });
   }
   document.addEventListener('focusin', function(e){
-    if(!isEdit(e.target)) return;
+    if(!isEdit(e.target) || !isMobile()) return;
     // 垫底部空间：保证文档有足够滚动余量，最后一块字也不会被顶死在页底
     if(document.body && !document.body.dataset.kbPad){
       document.body.dataset.kbPad = '1';

@@ -18,3 +18,11 @@
 - git pull 失败（github.com 无法解析）
 - 网络不通，按指令不重试，下次自动重试
 - 本地已 commit 未推送（main 领先 origin/main 26 commits）
+
+## [2026-09-12 12:30] 同步成功
+- 本地有 8 个未提交改动，先 commit 保存（commit 46fd348）
+- git pull 成功，远程 2 个新提交（a6d15a0: 9-11每日自动摄入；638bc59: 9-12每日自动摄入）
+- 冲突文件：Index.md + Log.md + 3个主题页 + AGENTS.md + 2个技能文件 + 书摘 + 自动化记忆，自动解决（保留远程版本）
+- 远程新增 17 个文件：4 篇每日阅读书摘原文 + 4 个 source 页 + 4 个 concept 页 + 2 个每日记录 + 2 个摄入报告 + 1 篇读书公众号文章
+- 合并后 commit（db08df9），同步完成
+- 本地 main 领先 origin/main 28 commits（含本次合并）
