@@ -249,6 +249,7 @@
   .rnum:focus,.rsel:focus{border-color:var(--accent)}
   .rsep{font-size:16px;font-weight:800;color:var(--ink2)}
   .rgo{margin-left:auto;font-size:14.5px;font-weight:700;padding:9px 18px;border-radius:12px;border:none;background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;cursor:pointer}
+  .rlead{font-size:13.5px;color:var(--ink2);flex:none}
   .rgo:active{transform:scale(.96)}
   .rhint{font-size:12.5px;color:var(--ink3);margin-top:9px;line-height:1.7}
   .rline{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
@@ -561,6 +562,19 @@ function remindLeft(ts){
 function setDraftRemind(ts){ draftRemind=ts; renderRemindBox(); renderClock(); }
 function clearDraftRemind(){ draftRemind=null; renderRemindBox(); renderClock(); }
 function addRemindOffset(ms){ setDraftRemind(Date.now()+ms); }
+/* 自定义时间段：自己填数字 + 选单位（分钟/小时/天） */
+function setRemindOffset(){
+  const nEl=$('#rOffNum'), uEl=$('#rOffUnit');
+  if(!nEl||!uEl) return;
+  const n=parseFloat(nEl.value);
+  if(isNaN(n)||n<=0) return toast('先填个数字，比如 45');
+  const unit=parseFloat(uEl.value)||60000;
+  const ms=Math.round(n*unit);
+  if(ms>365*24*60*60e3) return toast('最多一年以内');
+  const ts=Date.now()+ms;
+  setDraftRemind(ts);
+  toast('已设 '+fmtRemind(ts)+'（'+remindLeft(ts)+'）');
+}
 function setRemindClock(){
   const hEl=$('#rHour'), mEl=$('#rMin'), dEl=$('#rDay');
   if(!hEl||!mEl||!dEl) return;
@@ -638,6 +652,13 @@ function renderRemindBox(){
     +'<div class="rhead">⏰ 定时提醒 <span>到点会弹提醒，不设就不提醒</span></div>'
     +'<div class="rtabs"><b>加时间段</b></div>'
     +'<div class="roff">'+R_OFFSETS.map(o=>'<button class="rbtn" onclick="addRemindOffset('+o.ms+')">'+o.label+'</button>').join('')+'</div>'
+    +'<div class="rclock" style="margin-top:8px">'
+      +'<span class="rlead">自定义</span>'
+      +'<input id="rOffNum" class="rnum" type="number" min="1" max="999" value="45" inputmode="numeric">'
+      +'<select id="rOffUnit" class="rsel"><option value="60000">分钟</option><option value="3600000">小时</option><option value="86400000">天</option></select>'
+      +'<button class="rgo" onclick="setRemindOffset()">加</button>'
+    +'</div>'
+    +'<div class="rhint" id="rOffHint"></div>'
     +'<div class="rtabs"><b>加时刻</b>（像闹钟）</div>'
     +'<div class="rclock">'
       +'<select id="rDay" class="rsel"><option value="today">今天</option><option value="tomorrow">明天</option></select>'
@@ -920,7 +941,7 @@ function remindDetailHTML(it){
   const quick=[{l:'+30 分钟',ms:30*60e3},{l:'+1 小时',ms:60*60e3},{l:'+3 小时',ms:3*60*60e3},{l:'+明天此刻',ms:24*60*60e3}];
   return '<div class="rbox" style="margin-top:16px"><div class="rhead">⏰ 定时提醒 <span>点一下就设好</span></div>'
     +'<div class="roff" style="margin-top:9px">'+quick.map(q=>'<button class="rbtn" onclick="quickRemind('+(now+q.ms)+')">'+q.l+'</button>').join('')
-    +'<button class="rbtn" onclick="go(\'home\');setTimeout(function(){editItem(\''+it.id+'\')},80)">自定义时刻…</button></div></div>';
+    +'<button class="rbtn" onclick="go(\'home\');setTimeout(function(){editItem(\''+it.id+'\')},80)">自定义…</button></div></div>';
 }
 function getCur(){ return items.find(x=>x.id===curId); }
 function editCurrent(){ const it=getCur(); if(!it)return; editItem(it.id); }
@@ -973,7 +994,7 @@ function highlight(text,q){
 function openSheet(kind){
   let h='';
   if(kind==='menu'){
-    h='<h3>随手库 v1.01</h3>'
+    h='<h3>随手库 v1.02</h3>'
     + row('🗂','管理类目','自己加类 / 删类','cats')
     + row('📲','装到桌面图标','小米浏览器请换 Chrome/Edge','help')
     + row('📤','导出备份','全部 '+items.length+' 条下载成文件','export')

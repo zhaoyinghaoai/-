@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>剩下这两招，不骂你，但更坑 · 社card · 学会提问</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:120px; }
+    .poster.square .h-display { font-size:100px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">转</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="1090" r="130"/>
+        <path d="M 540 960 v -40"/>
+        <path d="M 500 1000 l 40 -42 l 40 42"/>
+        <path d="M 540 1220 v 40" stroke-dasharray="12 14"/>
+        <circle cx="540" cy="1090" r="42" fill="rgba(10,10,11,.10)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问 · 论证谬误</div>
+      <h1 class="h-display" style="font-size:80px">剩下这两招<br>不骂你，但更坑</h1>
+      <p class="h-sub">Still spinning, going nowhere.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">它们不吵不闹，甚至听着挺有道理。但坑你的不是别人，是你自己。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>贴标签</span><span class="dot"></span>
+        <span>循环论证</span><span class="dot"></span>
+        <span>空转</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 贴标签 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">贴</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="300" y="1030" width="480" height="140" rx="12"/>
+        <path d="M 340 1075 h 300 M 340 1115 h 180" stroke-dasharray="10 12"/>
+        <path d="M 540 1000 v -70"/>
+        <path d="M 480 990 h 120" />
+        <path d="M 480 990 l 20 -16 M 600 990 l -20 -16"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">第一招 · 用一个词，替掉一个人</div>
+      <h2 class="h-xl" style="font-size:66px">一个词扣上去<br>几千天全不算了</h2>
+      <p class="lead" style="margin-top:12px">他连我一天怎么过的都不知道，一个词就把我盖住了。可我也给别人贴过。贴标签这一个动作，两头都坑。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">伤的是被贴的人<br>废的是自己看人的眼力</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 循环论证 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">环</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 430 1050 h 220 a 60 60 0 0 1 0 120 h -220 a 60 60 0 0 1 0 -120 z"/>
+        <path d="M 470 1085 h 140 M 470 1135 h 90"/>
+        <path d="M 540 1220 v 30" stroke-dasharray="10 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">第二招 · 用一句结论，替掉一份证据</div>
+      <h2 class="h-xl" style="font-size:62px">没证据，把结论<br>换个说法再说一遍</h2>
+      <p class="lead" style="margin-top:12px">"这项目稳赚，因为我们都验证过了。""这书好，因为它是经典。"它们不吵不闹，平平静静，让你觉得挺有道理。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">首尾咬住，中间什么都没有<br>听着像反思</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 空转 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="460" font-weight="500" fill="rgba(10,10,11,.03)">空</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="1100" r="110"/>
+        <circle cx="540" cy="1100" r="52" fill="rgba(10,10,11,.10)"/>
+        <path d="M 330 1250 h 420" stroke-dasharray="14 12"/>
+        <path d="M 540 990 v -30"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">两招干的是一件事 · 空转</div>
+      <h2 class="h-xl" style="font-size:60px">用一个已经有的<br>换掉还没有的</h2>
+      <p class="lead" style="margin-top:12px">贴标签用一个词换掉一个还不了解的人；循环论证用一句结论换掉一份还不存在的证据。轱辘转得挺欢，人还在原地。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">看着费了劲<br>位移是零</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 自己判自己赢 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">封</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="440" y="1080" width="200" height="150" rx="10"/>
+        <path d="M 470 1080 v -60 a 70 70 0 0 1 140 0 v 60"/>
+        <circle cx="540" cy="1150" r="16" fill="rgba(10,10,11,.16)"/>
+        <path d="M 540 1166 v 30"/>
+        <path d="M 700 1030 q 40 60 0 120" stroke-dasharray="10 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">对着自己那一招最狠</div>
+      <h2 class="h-xl" style="font-size:62px">自己当法官<br>自己判自己赢了</h2>
+      <p class="lead" style="margin-top:12px">别人给你贴标签，你心里还能顶一句"你凭什么"。循环论证是自己审自己，没人能插进来，也没人救得了。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">真分析给你下一步<br>循环论证只给你情绪</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 破法 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">问</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 420 1040 h 240 a 30 30 0 0 1 30 30 v 40 a 30 30 0 0 1 -30 30 h -180 l -60 50 v -50 h -30 a 30 30 0 0 1 -30 -30 v -40 a 30 30 0 0 1 30 -30 z"/>
+        <path d="M 470 1075 h 160 M 470 1105 h 90"/>
+        <path d="M 760 1140 q 40 40 0 80" stroke-dasharray="10 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">破法很土，就一句话的事</div>
+      <h2 class="h-xl" style="font-size:60px">别接那个词<br>别接那个结论</h2>
+      <p class="lead" style="margin-top:12px">碰见贴标签的，问一句：这标签底下，到底是个什么样的人。碰见循环论证的，问一句：除了这句绕来绕去的话，还有别的证据吗。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">这标签，我改不改得动<br>能改是活的，改不动是判决书</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1760" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.028)">转</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="1250" cy="640" r="100"/>
+        <circle cx="1250" cy="640" r="34" fill="rgba(10,10,11,.10)"/>
+        <path d="M 1250 540 v -30"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1320px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 学会提问 · 论证谬误</div>
+        <h1 class="h-display" style="font-size:94px">剩下这两招<br>不骂你，但更坑</h1>
+        <p class="h-sub">贴标签 · 循环论证</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第26天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">转</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="800" r="90"/>
+        <circle cx="540" cy="800" r="30" fill="rgba(10,10,11,.10)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 学会提问</div>
+      <h1 class="h-display" style="font-size:86px">剩下这两招<br>不骂你，但更坑</h1>
+      <p class="h-sub" style="margin-bottom:0">看着动了，原地没挪窝</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

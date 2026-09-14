@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>苦日子过不完，别等它完 · 社card · 芙蓉镇</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-md { font-family:var(--serif-zh); font-weight:500; font-size:52px; line-height:1.2; letter-spacing:.02em; margin:0 0 20px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .body { font-family:var(--serif-zh); font-weight:400; font-size:26px; line-height:1.68; color:rgba(var(--ink-rgb),.80); margin:0 0 18px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .quote-mark { font-family:var(--serif-en); font-size:120px; line-height:0.6; color:rgba(var(--ink-rgb),.14); margin-bottom:-10px; }
+    .poster.wide .h-display { font-size:104px; }
+    .poster.square .h-display { font-size:92px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1240" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">河</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 280 1080 q 60 -34 120 0 t 120 0 t 120 0 t 120 0"/>
+        <path d="M 280 1150 q 60 -34 120 0 t 120 0 t 120 0 t 120 0" stroke-dasharray="14 14"/>
+        <path d="M 280 1220 q 60 -34 120 0 t 120 0 t 120 0 t 120 0"/>
+        <path d="M 540 960 v -60"/>
+        <path d="M 540 900 l -34 34 M 540 900 l 34 34"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇 · 古华</div>
+      <h1 class="h-display" style="font-size:76px">苦日子过不完<br>别等它完</h1>
+      <p class="h-sub">The river never calms.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">本来想读本小说松快松快，结果越读越沉。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>谁都有伤</span><span class="dot"></span>
+        <span>磨刀石</span><span class="dot"></span>
+        <span>别在岸上等</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 乐着乐着乐不出来 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">群</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="410" cy="1080" r="34"/>
+        <circle cx="540" cy="1050" r="34"/>
+        <circle cx="670" cy="1080" r="34"/>
+        <path d="M 366 1170 q 44 -50 88 0 M 496 1140 q 44 -50 88 0 M 626 1170 q 44 -50 88 0"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">乐着乐着，就乐不出来了</div>
+      <h2 class="h-xl" style="font-size:62px">这样的人<br>不是一个，是一群</h2>
+      <p class="lead" style="margin-top:12px">秦癫子白天笑呵呵，锣鼓点子不离口，晚上一个人躲草屋里哭。还有个北方大兵，带着伤疤和隐痛，照样干革命。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">谁还不是带着点伤<br>在活着</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 一个人的时候才翻出来 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">夜</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 540 980 a 110 110 0 1 0 60 200 a 130 130 0 0 1 -60 -200 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 380 1080 h 60 M 720 1120 h 60" stroke-dasharray="10 14"/>
+        <path d="M 420 1210 h 240" stroke-dasharray="14 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">成年人的默认设置</div>
+      <h2 class="h-xl" style="font-size:66px">白天该笑还笑<br>晚上一个人慢慢嚼</h2>
+      <p class="lead" style="margin-top:12px">把苦藏得严严实实。等夜深人静了，才翻出来。这件事不需要谁教，到了一定岁数自己就会。</p>
+      <p class="pullquote" style="font-size:40px; margin-top:8px">说轻了没人听<br>说重了人嫌你矫情</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 坐着就行 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">递</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="360" y="1060" width="120" height="110" rx="8"/>
+        <path d="M 400 1100 h 40 M 400 1130 h 26"/>
+        <path d="M 480 1115 h 130"/>
+        <path d="M 610 1115 l -22 -14 M 610 1115 l -22 14"/>
+        <circle cx="400" cy="1250" r="34" fill="rgba(10,10,11,.08)"/>
+        <path d="M 400 1284 v 60 M 358 1344 h 84" stroke-dasharray="12 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">上回一个取件的问我，今天累不累</div>
+      <h2 class="h-xl" style="font-size:60px">"你这活儿轻松啊<br>坐着就行"</h2>
+      <p class="lead" style="margin-top:12px">我说还行。他说坐着就行。我没接话，笑一下，把包裹递过去。他不是坏人，他就是随口一说。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">最难的不是累<br>是没人觉得这算累</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 高光不是奖赏 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">台</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 380 1240 h 320"/>
+        <path d="M 430 1240 v -90 h 220 v 90"/>
+        <path d="M 460 1150 v -40 h 160 v 40"/>
+        <path d="M 700 1080 v 160 M 700 1240 l -18 -20 M 700 1240 l 18 -20" stroke-dasharray="10 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">我把那句笔记改了</div>
+      <h2 class="h-xl" style="font-size:56px">高光不是苦的奖赏<br>是苦被时代拿去用了</h2>
+      <p class="lead" style="margin-top:12px">那个年代，贫穷本身就是最好的样板，苦能换位置。现在不能了，没人因为你吃苦就给你个台子。所以不能抄他那个逻辑。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">"我也一定能高光"是许愿<br>"我能把日子过出个样子"才是信心</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 问苦四句 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">磨</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 360 1090 h 260 l 100 -60 v 180 l -100 -60 h -260 z" fill="rgba(10,10,11,.04)"/>
+        <path d="M 300 1240 q 120 -40 240 0 t 240 0" stroke-dasharray="14 12"/>
+        <path d="M 760 1000 v 100" stroke-dasharray="10 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">苦真能当磨刀石，前提是你肯问它四句</div>
+      <h2 class="h-xl" style="font-size:58px">前三句往好处找<br>第四句保住诚实</h2>
+      <p class="lead" style="margin-top:12px">给了我什么启发。逼我长出了什么本事。已经让我收获了什么。还有第四句，这苦，夺走了我什么。守店一天十几个小时，是实打实占了我时间的，这个损失得认。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">认了损失<br>前面那三句才不是鸡汤</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1760" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.028)">河</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 1120 560 q 60 -34 120 0 t 120 0 t 120 0"/>
+        <path d="M 1120 630 q 60 -34 120 0 t 120 0 t 120 0" stroke-dasharray="14 14"/>
+        <path d="M 1180 480 v -50"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1320px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 芙蓉镇 · 古华</div>
+        <h1 class="h-display" style="font-size:98px">苦日子过不完<br>别等它完</h1>
+        <p class="h-sub">一条河，哪段没点浪</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第27天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">河</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 300 760 q 60 -30 120 0 t 120 0 t 120 0 t 120 0"/>
+        <path d="M 300 810 q 60 -30 120 0 t 120 0 t 120 0 t 120 0" stroke-dasharray="14 14"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇</div>
+      <h1 class="h-display" style="font-size:84px">苦日子过不完<br>别等它完</h1>
+      <p class="h-sub" style="margin-bottom:0">不是苦尽甘来，是苦不用尽，也能甘</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

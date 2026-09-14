@@ -26,3 +26,9 @@
 - 远程新增 17 个文件：4 篇每日阅读书摘原文 + 4 个 source 页 + 4 个 concept 页 + 2 个每日记录 + 2 个摄入报告 + 1 篇读书公众号文章
 - 合并后 commit（db08df9），同步完成
 - 本地 main 领先 origin/main 28 commits（含本次合并）
+
+## [2026-09-13 12:30] 同步失败（网络不通）
+- 本地有 36 个未提交改动，先 commit 保存（commit 289c64d）
+- git pull 失败（github.com 连接被重置）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（main 领先 origin/main 29 commits）
