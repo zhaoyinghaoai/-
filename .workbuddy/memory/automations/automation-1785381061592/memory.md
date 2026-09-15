@@ -32,3 +32,9 @@
 - git pull 失败（github.com 连接被重置）
 - 网络不通，按指令不重试，下次自动重试
 - 本地已 commit 未推送（main 领先 origin/main 29 commits）
+
+## [2026-09-14 12:30] 同步失败（网络不通）
+- 本地有 52 个未提交改动（26 改 + 26 新），先 commit 保存（commit 8c81f7b）
+- git pull 失败 + git ls-remote 也失败（github.com:443 超时连接失败）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（main 领先 origin/main 30 commits）

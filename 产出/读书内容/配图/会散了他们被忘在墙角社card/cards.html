@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>会散了，他们被忘在墙角 · 社card · 芙蓉镇</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+    .poster.wide .h-display { font-size:98px; }
+    .poster.square .h-display { font-size:88px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1250" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">忘</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 300 1100 h 480" />
+        <path d="M 300 1100 v -130" />
+        <g>
+          <circle cx="360" cy="1040" r="14"/>
+          <circle cx="420" cy="1040" r="14"/>
+          <circle cx="480" cy="1040" r="14"/>
+          <circle cx="540" cy="1040" r="14"/>
+          <circle cx="600" cy="1040" r="14"/>
+          <circle cx="660" cy="1040" r="14"/>
+          <circle cx="720" cy="1040" r="14"/>
+        </g>
+        <path d="M 300 1180 q 240 40 480 0" stroke-dasharray="14 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇 · 秦癫子</div>
+      <h1 class="h-display" style="font-size:74px">会散了<br>他们被忘在墙角</h1>
+      <p class="h-sub">Nobody remembered to dismiss them.</p>
+      <p class="lead" style="margin-top:10px; max-width:840px">二十三个人，站在墙角，没人管了。而里面有一个人，把这场没人管的荒唐，认认真真地办完了。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>被忘记</span><span class="dot"></span>
+        <span>一道手续</span><span class="dot"></span>
+        <span>端住</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 被忘在墙角 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">散</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 340 1000 v 260 M 740 1000 v 260"/>
+        <g>
+          <circle cx="400" cy="1150" r="13"/>
+          <circle cx="430" cy="1150" r="13"/>
+          <circle cx="460" cy="1150" r="13"/>
+        </g>
+        <path d="M 600 1090 h 90 M 620 1130 h 70" stroke-dasharray="10 12"/>
+        <path d="M 380 1300 q 160 30 320 0" stroke-dasharray="14 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">大会散了，人都走光了</div>
+      <h2 class="h-xl" style="font-size:62px">押他们来的民兵<br>把他们忘了</h2>
+      <p class="lead" style="margin-top:12px">书里写：严肃的阶级斗争场合出现了一点儿不严肃。可我读到这儿，笑不出来。他们不是被判了刑，他们是被忘了。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">最伤人的不是挨斗<br>是没人记得要处理你</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 不敢走 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">站</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 340 990 v 300"/>
+        <circle cx="420" cy="1080" r="18"/>
+        <path d="M 420 1098 v 90 M 394 1140 h 52 M 420 1188 l -22 40 M 420 1188 l 22 40"/>
+        <path d="M 660 1050 h 90" stroke-dasharray="10 12"/>
+        <path d="M 660 1130 h 60" stroke-dasharray="10 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">没有党支书的命令，一律不准乱动</div>
+      <h2 class="h-xl" style="font-size:66px">人走光了<br>他们也不敢动</h2>
+      <p class="lead" style="margin-top:12px">这可怎么好？难道真要在这墙角呆到牛年马月。我之前写别人被贴标签，还能顶一句"你凭什么"。可这二十三个人，连顶一句的资格都没有。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">不许动，也没人喊解散<br>就这么站着</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 他补了一道手续 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">礼</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="1000" r="26"/>
+        <path d="M 540 1026 v 110 M 540 1050 l -60 40 M 540 1050 l 60 -30"/>
+        <path d="M 540 1136 l -30 60 M 540 1136 l 30 60"/>
+        <path d="M 470 990 q 70 -40 140 0" stroke-dasharray="10 12"/>
+        <path d="M 380 1260 h 320" stroke-dasharray="14 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">立正，向左看齐，向前看，报数，稍息</div>
+      <h2 class="h-xl" style="font-size:58px">向后转，脚跟一碰<br>齐眉，敬礼</h2>
+      <p class="lead" style="margin-top:12px">秦癫子叫同类们站成一行，喊开口令。然后他走向空空如也的会场，双脚跟一碰，立正站定，右手巴掌齐眉，行了个礼。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">他给这场荒唐<br>补了一道手续</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 对着空气等答复 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">空</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="540" cy="1080" r="130" stroke-dasharray="16 14"/>
+        <circle cx="540" cy="1080" r="66" fill="rgba(10,10,11,.05)"/>
+        <path d="M 700 990 q 60 90 0 180" stroke-dasharray="12 14"/>
+        <path d="M 780 960 q 80 120 0 240" stroke-dasharray="12 14"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">书里那句话我划了两道</div>
+      <h2 class="h-xl" style="font-size:58px">仿佛聆听到了谁<br>的什么指示、答复</h2>
+      <p class="lead" style="margin-top:12px">会场里一个人都没有。他请示的对象是空的，他等的那句答复，也是空的。可他把这场戏从头到尾演完了，一板一眼，一步不差。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">没人给我们一个交代<br>那我自己给自己办一道手续</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 他挑更丢人的那顶 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">账</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 380 1060 q 0 -90 90 -90 h 140 q 90 0 90 90 v 130 q 0 40 -40 40 h -240 q -40 0 -40 -40 z"/>
+        <path d="M 450 1030 h 180 M 450 1080 h 140 M 450 1130 h 100" stroke-dasharray="10 12"/>
+        <path d="M 700 1140 l 40 40 M 740 1140 l -40 40" stroke-dasharray="8 8"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">他自己去申请，换了一顶帽子</div>
+      <h2 class="h-xl" style="font-size:58px">他在两顶帽子之间<br>挑了更丢人的那顶</h2>
+      <p class="lead" style="margin-top:12px">右派是思想问题，那是要命的。坏分子是作风问题，丢人，但认了，就还只是"有毛病的人"，不是"敌人"。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">弯腰可以，跪可以<br>但他心里那本账，一页没让人改过</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1760" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.028)">忘</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 1120 560 h 340"/>
+        <path d="M 1120 560 v -90"/>
+        <circle cx="1180" cy="520" r="12"/>
+        <circle cx="1230" cy="520" r="12"/>
+        <circle cx="1280" cy="520" r="12"/>
+        <circle cx="1330" cy="520" r="12"/>
+        <path d="M 1120 640 q 170 30 340 0" stroke-dasharray="14 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1340px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 芙蓉镇 · 秦癫子</div>
+        <h1 class="h-display" style="font-size:92px">会散了<br>他们被忘在墙角</h1>
+        <p class="h-sub">没人给我们一个交代，我自己给自己办一道手续</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第27天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="820" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">忘</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 320 740 h 400"/>
+        <path d="M 320 740 v -70"/>
+        <circle cx="370" cy="700" r="11"/>
+        <circle cx="420" cy="700" r="11"/>
+        <circle cx="470" cy="700" r="11"/>
+        <circle cx="520" cy="700" r="11"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇</div>
+      <h1 class="h-display" style="font-size:82px">会散了<br>他们被忘在墙角</h1>
+      <p class="h-sub" style="margin-bottom:0">一个人被忘了不吓人，吓人的是自己也把自己忘了</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
