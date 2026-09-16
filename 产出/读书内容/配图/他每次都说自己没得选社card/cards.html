@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>他每次都说自己没得选 · 社card · 芙蓉镇</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+    .poster.wide .h-display { font-size:98px; }
+    .poster.square .h-display { font-size:88px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面（标题：他发誓要护她一辈子） ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1250" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">诺</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 一句说出口的话（对话框）+ 一张要付的账单 -->
+        <path d="M 300 950 h 260 a 26 26 0 0 1 26 26 v 110 a 26 26 0 0 1 -26 26 h -180 l -60 50 v -50 h -20 a 26 26 0 0 1 -26 -26 v -110 a 26 26 0 0 1 26 -26 z"/>
+        <path d="M 350 1000 h 170 M 350 1050 h 120" stroke-dasharray="10 12"/>
+        <!-- 账单 -->
+        <path d="M 680 990 h 200 v 240 h -200 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 710 1030 h 140 M 710 1075 h 140 M 710 1120 h 90" stroke-dasharray="10 12"/>
+        <path d="M 640 1120 l 34 -30 l -34 -30" stroke-dasharray="8 8"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇 · 黎满庚</div>
+      <h1 class="h-display" style="font-size:60px">他发誓要护她一辈子<br>代价是在兑现那天才付的</h1>
+      <p class="h-sub">A promise costs nothing. Paying it does.</p>
+      <p class="lead" style="margin-top:12px; max-width:860px">《芙蓉镇》里最难写的一个人。他不是坏人，坏人做坏事不难受。他难受了一辈子。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>一句誓言</span><span class="dot"></span>
+        <span>没担当的好人</span><span class="dot"></span>
+        <span>那笔账</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 第一次：挡箭牌 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">牌</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 一个人躲在盾牌后面 -->
+        <path d="M 420 1010 q 0 -60 60 -60 h 60 q 60 0 60 60 v 150 q 0 30 -30 30 h -120 q -30 0 -30 -30 z"/>
+        <circle cx="510" cy="1060" r="18"/>
+        <path d="M 510 1078 v 60 M 486 1100 h 48"/>
+        <!-- 盾牌 -->
+        <path d="M 720 1000 l 70 20 v 110 l -70 40 l -70 -40 v -110 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 720 1060 v 70" stroke-dasharray="10 10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">第一次 · 挡在他前面的是"组织"</div>
+      <h2 class="h-xl" style="font-size:60px">要么保前程<br>要么娶她</h2>
+      <p class="lead" style="margin-top:12px">他跟胡玉音是青梅竹马，一起扯笋子、捡香菇、对山唱歌。他去汇报说想娶她。回来的答复是：她家庭成分不好。二选一。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">理由很干净<br>不是我的意思，是组织不批</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 第二次：还是挡箭牌 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">托</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 一双手递出一叠钱 -->
+        <path d="M 340 1120 h 100 q 30 0 60 -20" />
+        <rect x="460" y="1060" width="150" height="90" rx="6" fill="rgba(10,10,11,.05)"/>
+        <path d="M 500 1085 h 70 M 500 1110 h 50" stroke-dasharray="10 10"/>
+        <path d="M 700 1080 v 130 M 660 1145 h 80" stroke-dasharray="12 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">第二次 · 挡在他前面的是"老婆"</div>
+      <h2 class="h-xl" style="font-size:58px">一千五百块<br>交了</h2>
+      <p class="lead" style="margin-top:12px">胡玉音出事前把保命钱交给他，因为信得过这个干哥。媳妇一哭二闹三上吊，逼他上交"以表忠诚"。钱一交上去，胡玉音的丈夫自杀了。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">理由还是很干净<br>我没办法，家里闹成那样</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 换的是挡箭牌 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">换</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 两块盾牌并排，形状不同 -->
+        <path d="M 380 1020 l 90 24 v 120 l -90 44 l -90 -44 v -120 z"/>
+        <path d="M 700 1044 a 90 90 0 1 1 0 160 a 90 90 0 1 1 0 -160 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 540 1120 l 20 -18 l -20 -18 l -20 18 z" stroke-dasharray="8 8"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">两次是同一件事</div>
+      <h2 class="h-xl" style="font-size:58px">他换的是挡箭牌<br>没换的是那个动作</h2>
+      <p class="lead" style="margin-top:12px">一次是上级，一次是老婆。一次保的是前途，一次保的是位置。每一次，他都是把决定权交出去，然后就不用自己承担了。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">最熟练的一件事<br>从"做决定的人"变成"被决定的人"</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 自己给自己开庭 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">审</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 一张空椅子，一个人站在对面 -->
+        <circle cx="380" cy="1060" r="20"/>
+        <path d="M 380 1080 v 70 M 356 1105 h 48"/>
+        <!-- 空审判席 -->
+        <path d="M 620 1000 h 240 v 50 h -240 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 640 1050 v 120 M 840 1050 v 120"/>
+        <path d="M 660 1090 h 160" stroke-dasharray="10 10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">被骂了，一句都没还</div>
+      <h2 class="h-xl" style="font-size:56px">他在替自己<br>一个人开庭</h2>
+      <p class="lead" style="margin-top:12px">谷燕山借着酒劲把他骂得狗血淋头。他一句不还。想推责任，他手上明明有两句话可用："是书记逼我的""是我媳妇闹的"。</p>
+      <p class="pullquote" style="font-size:36px; margin-top:8px">他不说，因为他自己<br>都听不下去</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 那句誓言 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">账</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 一本账本，一半是空白 -->
+        <path d="M 380 1000 h 320 v 230 h -320 z" fill="rgba(10,10,11,.04)"/>
+        <path d="M 380 1000 v 230" stroke-width="4"/>
+        <path d="M 430 1040 h 220 M 430 1090 h 220 M 430 1140 h 220" stroke-dasharray="10 10"/>
+        <path d="M 700 1060 l 90 90 M 790 1060 l -90 90" stroke-dasharray="8 8"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">发誓那天不要钱，付账那天才是真章</div>
+      <h2 class="h-xl" style="font-size:58px">说承诺不花钱<br>代价是兑现那天才付的</h2>
+      <p class="lead" style="margin-top:12px">分手那天他说"今生今世我护着你"，那时候他是真心的。那时候的"护着"，就是不花钱的那种。一千五百块摆到他面前的时候，他一分没付，还赚了。</p>
+      <p class="pullquote" style="font-size:36px; margin-top:8px">真心的承诺，和从没说过<br>在兑现之前没有任何区别</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1760" y="700" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="540" font-weight="500" fill="rgba(10,10,11,.028)">诺</text>
+      <g stroke="rgba(10,10,11,.10)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 说出口的话 + 账单 -->
+        <path d="M 1120 480 h 190 a 20 20 0 0 1 20 20 v 80 a 20 20 0 0 1 -20 20 h -130 l -45 38 v -38 h -15 a 20 20 0 0 1 -20 -20 v -80 a 20 20 0 0 1 20 -20 z"/>
+        <path d="M 1155 520 h 120 M 1155 560 h 80" stroke-dasharray="9 10"/>
+        <path d="M 1400 500 h 150 v 180 h -150 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 1425 535 h 100 M 1425 575 h 100 M 1425 615 h 60" stroke-dasharray="9 10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1400px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 芙蓉镇 · 黎满庚</div>
+        <h1 class="h-display" style="font-size:76px">他发誓要护她一辈子<br>代价是在兑现那天才付的</h1>
+        <p class="h-sub">一个没担当的好人，和一笔他一直没肯付的账</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第29天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">诺</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 300 720 h 170 a 20 20 0 0 1 20 20 v 70 a 20 20 0 0 1 -20 20 h -115 l -40 34 v -34 h -15 a 20 20 0 0 1 -20 -20 v -70 a 20 20 0 0 1 20 -20 z"/>
+        <path d="M 335 755 h 105 M 335 792 h 70" stroke-dasharray="9 10"/>
+        <path d="M 580 740 h 140 v 160 h -140 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 605 775 h 90 M 605 812 h 90 M 605 849 h 55" stroke-dasharray="9 10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇</div>
+      <h1 class="h-display" style="font-size:64px">他发誓要护她一辈子<br>代价是在兑现那天才付的</h1>
+      <p class="h-sub" style="margin-bottom:0">分得清对错，和做得到，中间隔着一笔钱</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
