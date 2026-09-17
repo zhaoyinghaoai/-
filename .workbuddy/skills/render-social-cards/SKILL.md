@@ -79,12 +79,29 @@ export PATH="/c/Users/Administrator/.workbuddy/binaries/PortableGit/versions/1.2
 - **不要 `npm install puppeteer`**：postinstall 需要 spawn cmd.exe，沙箱环境会报 ENOENT。
 - **不要依赖 @puppeteer/browsers**：本项目已验证的版本 API 与文档不一致，下载 Chrome 会 404 或报 `downloadUrls[browser] is not a function`。
 - **截图前必须等字体加载完成**：否则会出现文字排版错位或空白。用 `document.fonts.ready` + 额外延时。
-- **viewport 要足够大**：否则大尺寸 poster 会被截断。2100×1440 可以覆盖小红书 1080×1440 和公众号 2100×900。
+- **viewport 要足够大**：否则大尺寸 poster 会被截断。**用 2400×1600**（2100 会切到 21:9 封面右边缘），deviceScaleFactor 1。
+
+## 🔴 排版避让铁律（2026-09-17 谷燕山篇立案，三轮回工换来的）
+
+**意象组（`<g>` 那坨 SVG）与文字块抢位置，是这一套卡最常翻车的地方。** 三条判据：
+
+1. **意象组统一包一层 `transform` 控制位置与缩放**，别一张张调坐标：
+   `transform="translate(540,1330) scale(1.18) translate(-540,-1180)"`
+   —— 意思是"以 (540,1180) 为锚点放大 1.18 倍，再整体下移 150"。**文字块长的卡（引文多、有小标题）必须压到 1330 这一档**；文字块短的可以回 1180。**先渲染再看，别一次定死。**
+2. **xhs（竖版）＝ 文字在上、意象在下**。意象顶端不得高于最末一行正文。判据：把图放大看，最后一行字下面必须留出至少一行白。
+3. **21:9 是横向空间，具象意象放中间必被标题横穿**（三轮回工的教训）。**正解＝"左文右图"分栏**：左边标题区，右边只放**一个字的水印（放大到 800+）+ 几何图形**，不放具象插画。同理 **1:1 用"文字在上、图形在下"**。
+
+**通用自检**：渲染完必须**逐张打开看**，不能只看尺寸和四角像素。九张里常有三四张需要返工。
 
 ## 输出命名建议
 
-小红书系列：`xhs-01-cover.png`、`xhs-02-keypoint.png`...
-公众号封面：`wechat-21x9-cover.png`、`wechat-1x1-cover.png`
+小红书系列：`xhs-01-cover.jpg`、`xhs-02-keypoint.jpg`...
+公众号封面：`wechat-21x9-cover.jpg`、`wechat-1x1-cover.jpg`
+
+## 打包
+
+**不要用 PowerShell `Compress-Archive`**（`-Force` 重打包实测不刷新，zip 里还是旧图）。
+用 Python `zipfile`：先 `os.remove(zip)` 再 `ZipFile(z, 'w', ZIP_DEFLATED)` 逐条写入。脚本放 `.workbuddy/` 下、用完删。
 
 ## 文件位置
 

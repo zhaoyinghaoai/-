@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>他这辈子干的事 · 社card · 芙蓉镇</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+    .poster.wide .h-display { font-size:98px; }
+    .poster.square .h-display { font-size:88px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面（标题：他这辈子干的事，所有的账都记在他自己头上） ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1250" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">账</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.18) translate(-540,-1180)">
+        <!-- 一手递出一小袋粮 + 一本摊开的账 -->
+        <path d="M 280 1010 h 90 q 26 0 50 -16"/>
+        <path d="M 400 960 h 110 v 96 h -110 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 400 960 q 55 -30 110 0"/>
+        <path d="M 425 1000 h 60 M 425 1026 h 40" stroke-dasharray="9 10"/>
+        <!-- 账本 -->
+        <path d="M 680 950 h 220 v 250 h -220 z" fill="rgba(10,10,11,.04)"/>
+        <path d="M 790 950 v 250" stroke-width="4.5"/>
+        <path d="M 710 1000 h 60 M 710 1045 h 60 M 710 1090 h 60" stroke-dasharray="9 10"/>
+        <path d="M 820 1005 h 60 M 820 1050 h 60 M 820 1095 h 60" stroke-dasharray="9 10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇 · 谷燕山</div>
+      <h1 class="h-display" style="font-size:56px">他这辈子干的事<br>所有的账都记在他自己头上</h1>
+      <p class="h-sub">The man who picked up every bill.</p>
+      <p class="lead" style="margin-top:12px; max-width:880px">上一篇写黎满庚，我给的判词是"没担当的好人"。可这本书里还站着另一个人。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>一个有权的人</span><span class="dot"></span>
+        <span>一条规矩</span><span class="dot"></span>
+        <span>两本账</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 一、他是个手上有权的人 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">权</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.18) translate(-540,-1180)">
+        <!-- 粮仓大门 + 一把钥匙 -->
+        <path d="M 340 990 h 300 v 250 h -300 z" fill="rgba(10,10,11,.04)"/>
+        <path d="M 490 990 v 250" stroke-width="3"/>
+        <path d="M 340 1090 h 300" stroke-dasharray="12 12"/>
+        <path d="M 400 1035 h 60 M 520 1035 h 60" stroke-dasharray="9 10"/>
+        <!-- 钥匙 -->
+        <circle cx="760" cy="1090" r="34"/>
+        <path d="M 794 1090 h 100 M 865 1090 v 34 M 830 1090 v 26"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">一 · 粮站主任</div>
+      <h2 class="h-xl" style="font-size:60px">他手上握着的<br>是活路</h2>
+      <p class="lead" style="margin-top:12px">粮食是统购统销的，谁家能吃多少、能吃什么样的粮，粮站说了算。粮站主任不是什么大官。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">他不是芙蓉镇人<br>是来盖这个新世道的</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 二、他每圩卖给胡玉音碎米谷头子 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">粮</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.15) translate(-540,-1180)">
+        <!-- 台秤 + 一小袋碎米 -->
+        <path d="M 420 1090 h 240" stroke-width="4"/>
+        <path d="M 540 1090 v 130 M 470 1220 h 140" />
+        <path d="M 430 1000 h 220 l -30 90 h -160 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 540 1000 v -40"/>
+        <path d="M 470 1050 h 140 M 480 1075 h 120" stroke-dasharray="9 10"/>
+        <!-- 一袋碎米 -->
+        <path d="M 745 1080 h 120 v 120 h -120 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 745 1080 q 60 -36 120 0"/>
+        <path d="M 770 1115 h 70 M 770 1145 h 46" stroke-dasharray="8 9"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">二 · 他给她开了一道口子</div>
+      <h2 class="h-xl" style="font-size:58px">他护的不是一个人<br>是一条规矩</h2>
+      <p class="lead" style="margin-top:12px">碎米在计划里，在粮站的账上，不能随便卖。谷燕山每圩卖给她。就是靠这道口子，她的摊子才一圩一圩做起来。</p>
+      <p class="pullquote" style="font-size:36px; margin-top:8px">他给她开这道口子的时候<br>她一点都不红火</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 三、罪名落在他自己身上 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">位</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.18) translate(-540,-1180)">
+        <!-- 一把被抽走的椅子 + 一块掉下来的名牌 -->
+        <path d="M 400 1060 h 200 v 40 h -200 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 420 1100 v 140 M 580 1100 v 140 M 500 1100 v 100"/>
+        <path d="M 460 950 h 120 v 60 h -120 z"/>
+        <path d="M 480 975 h 80" stroke-dasharray="8 9"/>
+        <path d="M 520 1010 l -18 22 M 520 1010 l 18 22" stroke-dasharray="6 6"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">三 · 停职反省</div>
+      <h2 class="h-xl" style="font-size:58px">他算出来了<br>还是做了</h2>
+      <p class="lead" style="margin-top:12px">代价不是胡玉音的摊子，是他的位置、他的资历、他半辈子挣来的那个"老干部"的身份。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">不是他护的那个人倒<br>是他自己倒</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 四、风雪里拦了一辆车 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">雪</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.18) translate(-540,-1180)">
+        <!-- 一个人站在路中间，一辆车停在他面前 -->
+        <circle cx="380" cy="1030" r="22"/>
+        <path d="M 380 1052 v 80 M 380 1075 l -40 40 M 380 1075 l 40 40 M 380 1132 l -26 50 M 380 1132 l 26 50"/>
+        <!-- 军车 -->
+        <path d="M 620 1060 h 260 v 110 h -260 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 640 1060 v -50 h 100 v 50" />
+        <circle cx="670" cy="1185" r="26"/><circle cx="840" cy="1185" r="26"/>
+        <!-- 雪 -->
+        <path d="M 250 950 l 12 12 M 262 950 l -12 12" stroke-dasharray="5 5"/>
+        <path d="M 920 1000 l 12 12 M 932 1000 l -12 12" stroke-dasharray="5 5"/>
+        <path d="M 200 1150 l 12 12 M 212 1150 l -12 12" stroke-dasharray="5 5"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">四 · 那天晚上下着雪</div>
+      <h2 class="h-xl" style="font-size:58px">他拦下了一辆车<br>用的是最后一点<br>还没被收走的东西</h2>
+      <p class="lead" style="margin-top:12px">她难产，人快不行了，得往医院送。而他自己还在停职反省，位置已经悬了。</p>
+      <p class="pullquote" style="font-size:36px; margin-top:8px">他是个老革命<br>那身军装里坐的人，认他这个</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 五·六、孩子不能替父母背帽子 / 账还回来了 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">还</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(560,1290) scale(1.15) translate(-540,-1180)">
+        <!-- 一本账：左边被划掉、右边打上勾 -->
+        <path d="M 380 990 h 300 v 250 h -300 z" fill="rgba(10,10,11,.04)"/>
+        <path d="M 380 990 v 250" stroke-width="4.5"/>
+        <path d="M 430 1040 h 200 M 430 1090 h 200 M 430 1140 h 200" stroke-dasharray="10 10"/>
+        <!-- 勾 -->
+        <path d="M 700 1055 l 32 36 l 62 -80" stroke-width="4"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">五 · 六 · 两本账</div>
+      <h2 class="h-xl" style="font-size:56px">成分可以往下传<br>罪不能往下传</h2>
+      <p class="lead" style="margin-top:12px">他父母后来会被定成什么，那是他们自己的事。可孩子没做过任何事。后来他复了职，当了镇长，镇上的人提起他都说是"一镇的人望"。</p>
+      <p class="pullquote" style="font-size:36px; margin-top:8px">能被拿走的东西，都能还回来<br>还拿不回来的，才是真贵</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1620" y="760" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="820" font-weight="500" fill="rgba(10,10,11,.05)">账</text>
+      <g stroke="rgba(10,10,11,.14)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 账本左右两栏：左栏记"人"，右栏记"事"，一条横线贯穿 -->
+        <path d="M 1180 330 h 300 v 300 h -300 z" fill="rgba(10,10,11,.03)"/>
+        <path d="M 1330 330 v 300" stroke-width="4"/>
+        <path d="M 1215 390 h 85 M 1215 450 h 85 M 1215 510 h 85" stroke-dasharray="10 11"/>
+        <path d="M 1360 390 h 85 M 1360 450 h 85 M 1360 510 h 85" stroke-dasharray="10 11"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1380px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 芙蓉镇 · 谷燕山</div>
+        <h1 class="h-display" style="font-size:72px">他这辈子干的事<br>所有的账都记在他自己头上</h1>
+        <p class="h-sub">一个有权的人，和他自己认下来的那笔账</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第30天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="850" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">账</text>
+      <g stroke="rgba(10,10,11,.13)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 360 700 h 360 v 230 h -360 z" fill="rgba(10,10,11,.03)"/>
+        <path d="M 540 700 v 230" stroke-width="4"/>
+        <path d="M 400 752 h 110 M 400 807 h 110" stroke-dasharray="10 11"/>
+        <path d="M 570 752 h 110 M 570 807 h 110" stroke-dasharray="10 11"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇</div>
+      <h1 class="h-display" style="font-size:60px">他这辈子干的事<br>所有的账都记在他自己头上</h1>
+      <p class="h-sub" style="margin-bottom:0">能被拿走的东西都能还回来，还拿不回来的才是真贵</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
