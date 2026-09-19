@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>她算的是手 · 社card · 芙蓉镇</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+    .poster.wide .h-display { font-size:98px; }
+    .poster.square .h-display { font-size:88px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面（标题：她算的是手，别人算的是钱） ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="1250" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.03)">手</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1149) scale(0.86) translate(-540,-1180)">
+        <!-- 一只手：掌 + 五指张开 -->
+        <rect x="180" y="1170" width="200" height="152" rx="26" fill="rgba(10,10,11,.05)"/>
+        <rect x="190" y="1078" width="31" height="112" rx="15.5" fill="rgba(10,10,11,.05)"/>
+        <rect x="236" y="1052" width="31" height="138" rx="15.5" fill="rgba(10,10,11,.05)"/>
+        <rect x="282" y="1046" width="31" height="144" rx="15.5" fill="rgba(10,10,11,.05)"/>
+        <rect x="328" y="1068" width="31" height="122" rx="15.5" fill="rgba(10,10,11,.05)"/>
+        <rect x="112" y="1188" width="88" height="38" rx="19" fill="rgba(10,10,11,.05)" transform="rotate(-24 198 1207)"/>
+        <!-- 算盘：钱的那本账 -->
+        <rect x="580" y="1090" width="330" height="232" fill="rgba(10,10,11,.04)" stroke-width="5"/>
+        <path d="M 580 1206 h 330" stroke-width="3"/>
+        <path d="M 635 1090 v 232 M 690 1090 v 232 M 745 1090 v 232 M 800 1090 v 232 M 855 1090 v 232" stroke-width="3"/>
+        <circle cx="635" cy="1150" r="13"/><circle cx="690" cy="1150" r="13"/><circle cx="745" cy="1150" r="13"/><circle cx="800" cy="1150" r="13"/>
+        <circle cx="635" cy="1268" r="13"/><circle cx="690" cy="1268" r="13"/><circle cx="745" cy="1268" r="13"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇 · 胡玉音</div>
+      <h1 class="h-display" style="font-size:58px">她算的是手<br>别人算的是经她手的钱</h1>
+      <p class="h-sub">The hands she counted with.</p>
+      <p class="lead" style="margin-top:12px; max-width:880px">上一篇写谷燕山，我写的是账。这一篇还是账——《芙蓉镇》真正的主角胡玉音，这辈子就是被一笔账毁掉的。</p>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>一只手</span><span class="dot"></span>
+        <span>一笔账</span><span class="dot"></span>
+        <span>一栏没算</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 一、她那口锅，是全镇最热闹的地方 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">锅</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.10) translate(-540,-1180)">
+        <!-- 左：她的摊子，门口排着人 -->
+        <path d="M 262 1020 h 190 v 170 h -190 z" fill="rgba(10,10,11,.045)"/>
+        <path d="M 262 1020 q 95 -48 190 0"/>
+        <path d="M 312 1085 h 94 M 312 1135 h 64" stroke-dasharray="9 10"/>
+        <circle cx="250" cy="1120" r="15"/>
+        <path d="M 232 1140 h 36 l 10 50 h -56 z" fill="rgba(10,10,11,.045)"/>
+        <circle cx="204" cy="1120" r="15"/>
+        <path d="M 186 1140 h 36 l 10 50 h -56 z" fill="rgba(10,10,11,.045)"/>
+        <circle cx="158" cy="1120" r="15"/>
+        <path d="M 140 1140 h 36 l 10 50 h -56 z" fill="rgba(10,10,11,.045)"/>
+        <!-- 右：对街的国营店，空的 -->
+        <path d="M 700 1020 h 200 v 170 h -200 z" stroke-dasharray="12 12"/>
+        <path d="M 700 1020 q 100 -48 200 0"/>
+        <path d="M 750 1090 h 100" stroke-dasharray="9 10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">一 · 青石板街</div>
+      <h2 class="h-xl" style="font-size:62px">一边排着队<br>一边没人进</h2>
+      <p class="lead" style="margin-top:12px">她卖米豆腐，摊子摆在青石板街上，客人围成一圈。对街就是李国香的国营饮食店。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">她那口锅<br>是全镇最热闹的地方</p>
+    </div>
+  </section>
+
+  <!-- ========== 03 二、然后就有人替她算了一笔账 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">账</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.10) translate(-540,-1180)">
+        <!-- 一本摊开念的账 + 一支笔 -->
+        <path d="M 350 990 h 260 v 248 h -260 z" fill="rgba(10,10,11,.04)"/>
+        <path d="M 350 990 v 248" stroke-width="4.5"/>
+        <path d="M 400 1038 h 160 M 400 1084 h 160 M 400 1130 h 160 M 400 1176 h 98" stroke-dasharray="10 10"/>
+        <!-- 笔 -->
+        <path d="M 690 1206 l 70 -70 l 30 30 l -70 70 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 690 1206 l 30 30 l -44 16 z"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">二 · 一九六四 · 四清</div>
+      <h2 class="h-xl" style="font-size:60px">两年零九个月<br>六千六百元</h2>
+      <p class="lead" style="margin-top:12px">李国香坐在靠背椅上，摊开笔记本，旋开笔帽，一句一句念给她听。念到一半，胡玉音才反应过来：自己这是在受审。</p>
+      <p class="pullquote" style="font-size:36px; margin-top:8px">顺便提一句<br>你的收入达到了一位<br>省级首长的水平</p>
+    </div>
+  </section>
+
+  <!-- ========== 04 三、她自己的算法，是另一本 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">磨</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.10) translate(-540,-1180)">
+        <!-- 一根被捏细的磨把子 + 一只握着的手 -->
+        <path d="M 250 1136 L 520 1146 L 800 1136 L 800 1164 L 520 1154 L 250 1164 Z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 250 1150 h -22 M 800 1150 h 22" stroke-width="8" stroke-linecap="round"/>
+        <rect x="300" y="1108" width="90" height="88" rx="26" fill="rgba(10,10,11,.07)"/>
+        <path d="M 316 1132 h 58 M 316 1154 h 58 M 316 1176 h 58" stroke-width="3"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">三 · 她的账，是记在手上的</div>
+      <h2 class="h-xl" style="font-size:60px">她把什么都扣了<br>唯独没扣人</h2>
+      <p class="lead" style="margin-top:12px">作料、食具、油水、柴火，李国香全扣了。可磨把子是手磨小的，锅底是手抓穿的——那双手也是有成本的。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">李国香的账本上<br>没有"人"这一栏</p>
+    </div>
+  </section>
+
+  <!-- ========== 05 四、同一把碎米，喂猪是贡献，喂人是罪 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">米</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.10) translate(-540,-1180)">
+        <!-- 一袋碎米，往下分成两条路 -->
+        <path d="M 466 960 h 148 v 120 h -148 z" fill="rgba(10,10,11,.05)"/>
+        <path d="M 466 960 q 74 -42 148 0"/>
+        <path d="M 492 1006 h 96 M 492 1038 h 64" stroke-dasharray="9 10"/>
+        <path d="M 540 1080 v 30" stroke-width="3"/>
+        <path d="M 540 1110 l -180 56" stroke-dasharray="12 11"/>
+        <path d="M 540 1110 l 180 56" stroke-dasharray="12 11"/>
+        <!-- 左下：猪 -->
+        <ellipse cx="330" cy="1168" rx="72" ry="34" fill="rgba(10,10,11,.045)"/>
+        <circle cx="404" cy="1158" r="22"/>
+        <path d="M 402 1136 l -8 -20 l 20 8"/>
+        <path d="M 288 1200 v 24 M 330 1200 v 24 M 372 1200 v 24"/>
+        <path d="M 260 1160 q -20 -8 -8 -26"/>
+        <!-- 右下：一只碗 -->
+        <path d="M 712 1172 h 128 l -18 40 h -92 z" fill="rgba(10,10,11,.05)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">四 · 碎米谷头子</div>
+      <h2 class="h-xl" style="font-size:58px">同一把碎米<br>喂猪是贡献<br>喂人是罪</h2>
+      <p class="lead" style="margin-top:12px">李国香的原话：人家买碎米谷头子是喂了肥猪卖给国家，你买碎米谷头子是变成了商品，喂了顾客。</p>
+      <p class="pullquote" style="font-size:36px; margin-top:8px">她问了一句<br>我卖米豆腐剥削了哪个<br>没有人回答她</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 五·六、她只漏了一栏 ========== -->
+  <section class="poster xhs">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="830" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="440" font-weight="500" fill="rgba(10,10,11,.03)">人</text>
+      <g stroke="rgba(10,10,11,.12)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1330) scale(1.06) translate(-540,-1180)">
+        <!-- 一本账：四栏，最后一栏是空的 -->
+        <path d="M 366 990 h 330 v 236 h -330 z" fill="rgba(10,10,11,.04)"/>
+        <path d="M 448 990 v 236 M 530 990 v 236 M 612 990 v 236" stroke-width="3"/>
+        <path d="M 386 1042 h 42 M 386 1092 h 42 M 386 1142 h 42 M 386 1192 h 42" stroke-dasharray="8 9"/>
+        <path d="M 468 1042 h 42 M 468 1092 h 42 M 468 1142 h 42 M 468 1192 h 42" stroke-dasharray="8 9"/>
+        <path d="M 550 1042 h 42 M 550 1092 h 42 M 550 1142 h 42 M 550 1192 h 42" stroke-dasharray="8 9"/>
+        <!-- 最右一栏：空着 -->
+        <path d="M 632 1006 h 48 v 204 h -48 z" stroke-dasharray="10 10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">五 · 六 · 不害人</div>
+      <h2 class="h-xl" style="font-size:58px">她只漏了一栏<br>那一栏里写着三个字</h2>
+      <p class="lead" style="margin-top:12px">李国香念到粮站那批大米，牵扯到了谷燕山。胡玉音从冷漠麻木中清醒了过来，大声申辩：老谷是个好人，自己就算犯了法，也不能把人家连累了。</p>
+      <p class="pullquote" style="font-size:38px; margin-top:8px">要我死可以<br>要我被冤枉死<br>那是万万不行的</p>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面（左文右图） ========== -->
+  <section class="poster wide">
+    <div class="mag-bg"><svg viewBox="0 0 2100 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="1400" y="710" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="580" font-weight="500" fill="rgba(10,10,11,.05)">手</text>
+      <g stroke="rgba(10,10,11,.14)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 账本的四栏：前三栏有数，最后一栏空着 -->
+        <path d="M 1200 300 h 400 v 74 h -400 z" fill="rgba(10,10,11,.03)"/>
+        <path d="M 1250 337 h 300" stroke-dasharray="10 11"/>
+        <path d="M 1200 398 h 400 v 74 h -400 z" fill="rgba(10,10,11,.03)"/>
+        <path d="M 1250 435 h 300" stroke-dasharray="10 11"/>
+        <path d="M 1200 496 h 400 v 74 h -400 z" fill="rgba(10,10,11,.03)"/>
+        <path d="M 1250 533 h 300" stroke-dasharray="10 11"/>
+        <path d="M 1200 594 h 400 v 74 h -400 z" stroke-dasharray="13 13"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1220px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 芙蓉镇 · 胡玉音</div>
+        <h1 class="h-display" style="font-size:84px">她算的是手<br>别人算的是经她手的钱</h1>
+        <p class="h-sub" style="font-size:32px; margin-top:18px">一个只会算手的人，和她从没算过的那本账</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第31天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="mag-bg"><svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <text x="540" y="840" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="520" font-weight="500" fill="rgba(10,10,11,.03)">手</text>
+      <g stroke="rgba(10,10,11,.13)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 四格，最后一格空着 -->
+        <path d="M 330 728 h 118 v 96 h -118 z" fill="rgba(10,10,11,.03)"/>
+        <path d="M 364 776 h 50" stroke-dasharray="10 11"/>
+        <path d="M 464 728 h 118 v 96 h -118 z" fill="rgba(10,10,11,.03)"/>
+        <path d="M 498 776 h 50" stroke-dasharray="10 11"/>
+        <path d="M 598 728 h 118 v 96 h -118 z" fill="rgba(10,10,11,.03)"/>
+        <path d="M 632 776 h 50" stroke-dasharray="10 11"/>
+        <path d="M 732 728 h 118 v 96 h -118 z" stroke-dasharray="12 12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:center">
+      <div class="kicker">读书笔记 · 芙蓉镇</div>
+      <h1 class="h-display" style="font-size:62px">她算的是手<br>别人算的是经她手的钱</h1>
+      <p class="h-sub" style="margin-bottom:0">李国香的账本上，没有"人"这一栏</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

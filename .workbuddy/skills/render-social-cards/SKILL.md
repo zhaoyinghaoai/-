@@ -93,6 +93,19 @@ export PATH="/c/Users/Administrator/.workbuddy/binaries/PortableGit/versions/1.2
 
 **通用自检**：渲染完必须**逐张打开看**，不能只看尺寸和四角像素。九张里常有三四张需要返工。
 
+## 🔴 意象可辨识铁律（2026-09-18 胡玉音篇立案，两轮回工换来的）
+
+**这一套卡的意象是"低透明度线稿"，画错了不会报错，只会让人看不出来是什么。** 判据：
+
+1. **别用几何近似画具象物**。反例：用「两个叠起来的椭圆」画石磨 → 渲出来像两个盘子；用「矩形 + 4 条竖线」画手 → 像窗框。**正解是把物体的特征笔画出来**：
+   - 手 = 掌（圆角矩形）+ **4 根独立的圆头指条**（宽 31、间距 15，能看出缝）+ 拇指条（`transform="rotate(-24 ...)"`）
+   - 石磨/磨把子认不出来 → **换成"被捏细的木把子 + 握着的手"**：上下两条边在中段收窄成细腰（`M 250 1136 L 520 1146 L 800 1136 L 800 1164 L 520 1154 L 250 1164 Z`），手画成圆角方块 + 3 条指节线。**比画整台石磨好十倍**。
+   - 人 = 头圆 + 梯形身子（不是「圆 + 一根竖线」，那像图钉）
+   - 猪 = 身体椭圆 + 头圆 + 耳朵折线 + 3 条腿 + 尾巴小弧
+2. **意象的尺度要够**：内容坐标里最小物体不要小于 60×60，否则缩到 1080 宽后看不清。
+3. **21:9 右侧的 meta 小字（第X天／年份）容易被水印大字压住**。排布时保证：水印字右边缘 + 60px 之内不放文字。做法：水印 `x` 往左挪（本次用 `x=1400 font-size=580`），meta 贴最右。
+4. **删掉"装饰性噪点"**：随手加的短横/虚线（比如给石磨加纹理）会渲成地上的碎屑，宁可不加。
+
 ## 输出命名建议
 
 小红书系列：`xhs-01-cover.jpg`、`xhs-02-keypoint.jpg`...
@@ -101,7 +114,15 @@ export PATH="/c/Users/Administrator/.workbuddy/binaries/PortableGit/versions/1.2
 ## 打包
 
 **不要用 PowerShell `Compress-Archive`**（`-Force` 重打包实测不刷新，zip 里还是旧图）。
-用 Python `zipfile`：先 `os.remove(zip)` 再 `ZipFile(z, 'w', ZIP_DEFLATED)` 逐条写入。脚本放 `.workbuddy/` 下、用完删。
+**用项目里现成的脚本，别每次重写**：
+```bash
+export PATH="/c/Users/Administrator/.workbuddy/binaries/PortableGit/versions/1.2.0/usr/bin:/c/Windows/System32:/c/Windows:$PATH"
+"C:/Users/Administrator/.workbuddy/binaries/python/envs/default/Scripts/python.exe" \
+  "E:/北辰/浩总的个人知识库/.workbuddy/scripts/pack_cards.py" \
+  "E:/北辰/浩总的个人知识库/产出/读书内容/配图/<卡片目录>" \
+  "公众号封面_第N天_<短标题>_21x9.jpg"
+```
+它做两件事：①把 `wechat-21x9-cover.jpg` 另存到 `配图/` 下当公众号封面（文件名第二个参数）②把目录里所有 jpg + `朋友圈文案3条.md` 打成 `<目录名>.zip`（先删旧包）。
 
 ## 文件位置
 
