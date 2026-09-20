@@ -67,3 +67,9 @@
 - git pull 失败（github.com 连接被重置，与 9-13/9-14/9-16 同错误）
 - 网络不通，按指令不重试，下次自动重试
 - 本地已 commit 未推送（工作区干净）
+
+## [2026-09-19 12:30] 同步失败（网络不通）
+- 本地 15 个未提交改动（8改+7新：9-18 记忆/MEMORY、2个skill、军事爆量SOP、Index/Log、数据台账、3个脚本、9-18读书文章+配图社card+朋友圈文案、9-18日记+回信），先 commit 保存（commit 751b2c9，28 files changed）
+- git pull 失败（curl 28 Failed to connect to github.com:443 after 21076 ms: Could not connect to server）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（工作区干净）

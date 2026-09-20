@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>别急着开花 · 社card · 许茂和他的女儿们</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    /* 文本区：上 55%，意象区：下 45%，互不侵占 */
+    .txt-zone { position:relative; z-index:3; }
+    .art-zone { position:absolute; left:0; right:0; top:0; height:100%; z-index:0; }
+    .art-zone svg { position:absolute; inset:0; width:100%; height:100%; }
+    .poster.wide .h-display { font-size:98px; }
+    .poster.square .h-display { font-size:88px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面：一颗埋进土里的种子 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1180" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">根</text>
+      <g stroke="rgba(10,10,11,.16)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(540,1010) scale(1.5) translate(-540,-1010)">
+        <!-- 地表：一条横贯的土线 -->
+        <path d="M -160 980 H 1240" stroke-width="5"/>
+        <!-- 地表之上：一根刚顶破土的嫩芽 -->
+        <path d="M 540 980 V 900" stroke-width="6"/>
+        <path d="M 540 926 q -36 -10 -48 -36 q 32 2 48 36" fill="rgba(10,10,11,.07)" stroke-width="4"/>
+        <path d="M 540 952 q 32 -8 42 -30 q -28 2 -42 30" fill="rgba(10,10,11,.06)" stroke-width="3.5"/>
+        <!-- 地表之下：一颗饱满的种子，正在裂开 -->
+        <path d="M 540 1052 q -50 -10 -50 -44 q 0 -38 50 -38 q 50 0 50 38 q 0 34 -50 44 z" fill="rgba(10,10,11,.07)" stroke-width="4.5"/>
+        <path d="M 540 1044 v -66" stroke-width="3.5"/>
+        <!-- 种子的根须，往下四散 -->
+        <path d="M 540 1052 q -40 34 -62 74" stroke-width="4"/>
+        <path d="M 540 1052 q 40 34 62 74" stroke-width="4"/>
+        <path d="M 540 1052 q -18 46 -24 96" stroke-width="3.5"/>
+        <path d="M 540 1052 q 18 46 24 96" stroke-width="3.5"/>
+        <path d="M 540 1052 q -66 22 -96 54" stroke-width="3"/>
+        <path d="M 540 1052 q 66 22 96 54" stroke-width="3"/>
+        <path d="M 540 1052 v 118" stroke-width="3.5"/>
+        <path d="M 300 1080 q 0 40 0 80 M 300 1080 q -18 30 -18 70" stroke="rgba(10,10,11,.07)" stroke-width="3"/>
+        <path d="M 780 1100 q 0 40 0 80 M 780 1100 q 18 30 18 70" stroke="rgba(10,10,11,.07)" stroke-width="3"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:150px">
+        <div class="kicker">读书笔记 · 许茂和他的女儿们</div>
+        <h1 class="h-display" style="font-size:56px">别急着开花<br>先把自己埋进土里扎根</h1>
+        <p class="h-sub">Plant it deeper first.</p>
+        <p class="lead" style="margin-top:16px; max-width:880px">你们看，这些还没有开花的豌豆苗，才是真正高产的豌豆呢！它将来开出的花，一朵花就是一个豆荚。</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>土面上什么都没有</span><span class="dot"></span>
+        <span>底下在长</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 急：刚冒头就被掐断的花枝 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1180" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">急</text>
+      <g stroke="rgba(10,10,11,.16)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 地表 -->
+        <path d="M 0 1010 H 1080" stroke-width="5"/>
+        <!-- 左边：一根正常的苗，没开花，叶子舒展 -->
+        <path d="M 400 1010 V 830" stroke-width="5"/>
+        <path d="M 400 916 q -56 -14 -78 -52 q 46 4 78 52" fill="rgba(10,10,11,.06)" stroke-width="3.5"/>
+        <path d="M 400 884 q 56 -14 78 -52 q -46 4 -78 52" fill="rgba(10,10,11,.06)" stroke-width="3.5"/>
+        <!-- 右边：一根被掐断的花枝：断口整齐，上面那截已经掉了 -->
+        <path d="M 720 1010 V 900" stroke-width="5"/>
+        <path d="M 720 976 q -50 -12 -70 -46 q 42 4 70 46" fill="rgba(10,10,11,.06)" stroke-width="3.5"/>
+        <!-- 断口 -->
+        <path d="M 700 900 H 740" stroke-width="5"/>
+        <!-- 掉下去的那一截（正在下落，斜着） -->
+        <path d="M 790 946 l 44 -52" stroke-width="4.5"/>
+        <path d="M 812 918 q -34 -6 -50 -30" stroke-width="3"/>
+        <circle cx="836" cy="890" r="14" fill="rgba(10,10,11,.07)" stroke-width="3.5"/>
+        <!-- 落影 -->
+        <path d="M 700 1052 H 900" stroke-width="3" stroke-dasharray="14 12" opacity=".6"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">一 · 坐不住</div>
+        <h2 class="h-xl" style="font-size:60px">今天埋下种子<br>明天就想看见花</h2>
+        <p class="lead" style="margin-top:16px">军事文章写了四年多，粉丝还是两位数；公众号想做成日更；前阵子还动了做小生意的心思。一件一件都埋下去了，一件都没长出来。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">这不是勤奋<br>是坐不住</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 老金：一叠厚图纸 + 一支铅笔 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1180" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">图</text>
+      <g stroke="rgba(10,10,11,.16)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 桌面 -->
+        <path d="M 0 1180 H 1080" stroke-width="5"/>
+        <!-- 一叠图纸：错位的三张，看得出一叠 -->
+        <path d="M 250 1128 H 830 V 1180 H 250 Z" fill="rgba(10,10,11,.05)" stroke-width="3.5"/>
+        <path d="M 272 1080 H 852 V 1128 H 272 Z" fill="rgba(10,10,11,.05)" stroke-width="3.5"/>
+        <!-- 最上面那张：摊开，画着水库的轮廓线 -->
+        <path d="M 296 1030 H 876 V 1080 H 296 Z" fill="rgba(10,10,11,.06)" stroke-width="4.5"/>
+        <!-- 图纸上的坝体剖面：一条梯形 -->
+        <path d="M 340 1068 L 372 1044 H 520 L 552 1068" stroke-width="3.5"/>
+        <path d="M 372 1044 V 1034 H 520 V 1044" stroke-width="3"/>
+        <!-- 水位线 -->
+        <path d="M 340 1054 H 552" stroke-width="2.5" stroke-dasharray="9 9"/>
+        <!-- 右上角：图纸编号和比例尺小格 -->
+        <path d="M 700 1042 H 856 M 700 1058 H 800" stroke-width="3" stroke-dasharray="10 9"/>
+        <path d="M 700 1070 H 744 M 756 1070 H 800 M 812 1070 H 856" stroke-width="2.5"/>
+        <!-- 铅笔：斜搭在图纸上 -->
+        <path d="M 596 1006 l 120 -56 l 16 34 l -120 56 z" fill="rgba(10,10,11,.08)" stroke-width="4"/>
+        <path d="M 596 1006 l 16 34 l -34 12 z" fill="rgba(10,10,11,.10)" stroke-width="3.5"/>
+        <path d="M 716 950 l 16 34" stroke-width="3"/>
+        <!-- 台灯：从左上照下来的一束光 -->
+        <path d="M 200 1010 q 120 60 260 70" stroke-width="3" stroke-dasharray="12 11" opacity=".7"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">二 · 破房子里的一盏灯</div>
+        <h2 class="h-xl" style="font-size:60px">他画的那份图纸<br>当时一点用都没有</h2>
+        <p class="lead" style="margin-top:16px">他这辈子最风光的时候是当支书。后来被撤了。撤掉以后，他一个人闷在破房子里，画水库的图纸。没人看，没人批，没人会用。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">他还是画完了</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 图纸派上用场：水坝 + 水 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1180" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">用</text>
+      <g stroke="rgba(10,10,11,.16)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 水坝：正面梯形，中间闸门 -->
+        <path d="M 300 1160 L 356 900 H 724 L 780 1160 Z" fill="rgba(10,10,11,.06)" stroke-width="5"/>
+        <!-- 坝顶通路 -->
+        <path d="M 340 900 H 740" stroke-width="6"/>
+        <path d="M 340 900 L 300 1160 M 740 900 L 780 1160" stroke-width="4"/>
+        <!-- 闸门 -->
+        <path d="M 486 1160 V 972 H 594 V 1160" fill="rgba(10,10,11,.08)" stroke-width="4.5"/>
+        <path d="M 486 1030 H 594 M 486 1090 H 594" stroke-width="3"/>
+        <!-- 闸门中间的立柱 -->
+        <path d="M 540 972 V 900" stroke-width="4"/>
+        <!-- 坝前的水面：几道波 -->
+        <path d="M 120 1180 q 40 -22 80 0 q 40 22 80 0" stroke-width="3.5"/>
+        <path d="M 240 1214 q 40 -22 80 0 q 40 22 80 0" stroke-width="3.5"/>
+        <path d="M 700 1180 q 40 -22 80 0 q 40 22 80 0" stroke-width="3.5"/>
+        <path d="M 780 1214 q 40 -22 80 0 q 40 22 80 0" stroke-width="3.5"/>
+        <!-- 坝体上的水位标尺 -->
+        <path d="M 420 930 V 1140" stroke-width="3.5"/>
+        <path d="M 404 1000 H 436 M 404 1060 H 422 M 404 1120 H 436" stroke-width="3"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">二 · 后来</div>
+        <h2 class="h-xl" style="font-size:60px">那份图纸<br>真的派上了用场</h2>
+        <p class="lead" style="margin-top:16px">书里写他这段时间，是这么写的：他为那一天，准备着，积蓄着力量，就像大自然在冰封雪盖的严寒里，顽强地，钟情地为美丽的春天准备和积蓄力量。</p>
+        <p class="pullquote" style="font-size:38px; margin-top:10px">他在破房子里熬的那些心血<br>一分没白费</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 道理我有一抽屉：一摞笔记本 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1180" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">懂</text>
+      <g stroke="rgba(10,10,11,.16)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 桌面 -->
+        <path d="M 0 1196 H 1080" stroke-width="5"/>
+        <!-- 摞着的笔记本：四本，从下往上一层层错位，每本有书脊和侧页 -->
+        <path d="M 300 1152 H 800 V 1196 H 300 Z" fill="rgba(10,10,11,.05)" stroke-width="4"/>
+        <path d="M 320 1108 H 820 V 1152 H 320 Z" fill="rgba(10,10,11,.05)" stroke-width="4"/>
+        <path d="M 296 1064 H 796 V 1108 H 296 Z" fill="rgba(10,10,11,.05)" stroke-width="4"/>
+        <path d="M 316 1020 H 816 V 1064 H 316 Z" fill="rgba(10,10,11,.05)" stroke-width="4"/>
+        <!-- 最上面那本：翻开着，中间是书脊 -->
+        <path d="M 336 1020 l -60 -48 H 560 l 60 48 z" fill="rgba(10,10,11,.06)" stroke-width="4"/>
+        <path d="M 560 1020 l 60 -48 H 860 l -60 48 z" fill="rgba(10,10,11,.05)" stroke-width="4"/>
+        <path d="M 560 1020 V 972" stroke-width="4"/>
+        <!-- 翻开那页上的线：整齐的摘抄 -->
+        <path d="M 320 994 H 500 M 320 1006 H 452" stroke-width="3" stroke-dasharray="9 8"/>
+        <path d="M 620 994 H 800 M 620 1006 H 740" stroke-width="3" stroke-dasharray="9 8"/>
+        <!-- 最上面压着的那朵花（早开的执念） -->
+        <circle cx="900" cy="990" r="26" fill="rgba(10,10,11,.08)" stroke-width="4"/>
+        <path d="M 900 964 q -30 -30 0 -60 q 30 30 0 60" stroke-width="3.5"/>
+        <path d="M 900 1016 V 1196" stroke-width="3.5"/>
+        <path d="M 900 1078 q -40 -10 -56 -38 q 34 2 56 38" stroke-width="3"/>
+        <path d="M 900 1122 q 40 -10 56 -38 q -34 2 -56 38" stroke-width="3"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">三 · 道理我有一抽屉</div>
+        <h2 class="h-xl" style="font-size:60px">我一遍一遍<br>撞上同一句话</h2>
+        <p class="lead" style="margin-top:16px">《芙蓉镇》里我写过两遍，以前的读书笔记里也写过同一件事。你看，我说得多好。可我还是急。</p>
+        <p class="pullquote" style="font-size:38px; margin-top:10px">为什么我一遍一遍<br>撞上同一句话</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 06 判据：标尺插进土里 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1180" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">深</text>
+      <g stroke="rgba(10,10,11,.16)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 地表 -->
+        <path d="M 0 1000 H 1080" stroke-width="5"/>
+        <!-- 标尺：有尺身宽度的板尺，从地表往下插 -->
+        <path d="M 512 890 H 568 V 1268 H 512 Z" fill="rgba(10,10,11,.045)" stroke-width="4.5"/>
+        <!-- 土上刻度：疏 -->
+        <path d="M 568 926 H 604 M 568 962 H 588" stroke-width="4"/>
+        <!-- 土下刻度：密 -->
+        <path d="M 568 1030 H 616 M 568 1064 H 592 M 568 1098 H 616 M 568 1132 H 592 M 568 1166 H 616 M 568 1200 H 592" stroke-width="4"/>
+        <!-- 苗：地表上一点点，紧贴标尺左侧 -->
+        <path d="M 512 890 V 800" stroke-width="5"/>
+        <path d="M 512 838 q -40 -10 -54 -34 q 34 2 54 34" fill="rgba(10,10,11,.06)" stroke-width="3.5"/>
+        <path d="M 512 866 q 34 -8 46 -30 q -30 2 -46 30" fill="rgba(10,10,11,.05)" stroke-width="3"/>
+        <!-- 根：从标尺左侧往左下扎，跟刻度错开 -->
+        <path d="M 512 1000 q -46 82 -66 140" stroke-width="4"/>
+        <path d="M 512 1000 q -20 108 -26 178" stroke-width="3.5"/>
+        <path d="M 512 1000 q -86 74 -120 122" stroke-width="3.5"/>
+        <path d="M 512 1000 q -110 130 -140 186" stroke-width="3"/>
+        <path d="M 512 1000 q -16 156 -12 232" stroke-width="3"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">五 · 判据</div>
+        <h2 class="h-xl" style="font-size:58px">今天这一下<br>是往土里使的<br>还是往上头探的</h2>
+        <p class="lead" style="margin-top:16px">根要是扎够了，人是稳的，不会一天三遍看后台。我越是坐不住，越是说明底下那部分还没长好。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">急<br>本身就是还没扎根的证据</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="art-zone"><svg viewBox="0 0 2100 900">
+      <text x="1520" y="760" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.045)">根</text>
+      <g stroke="rgba(10,10,11,.18)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 地表 -->
+        <path d="M 1120 470 H 2060" stroke-width="5"/>
+        <!-- 苗：小 -->
+        <path d="M 1560 470 V 386" stroke-width="5"/>
+        <path d="M 1560 424 q -40 -10 -54 -34 q 34 2 54 34" fill="rgba(10,10,11,.07)" stroke-width="3.5"/>
+        <!-- 根：大，且深 -->
+        <path d="M 1560 470 q -40 74 -58 130" stroke-width="4.5"/>
+        <path d="M 1560 470 q 40 74 58 130" stroke-width="4.5"/>
+        <path d="M 1560 470 q -18 106 -12 190" stroke-width="4"/>
+        <path d="M 1560 470 q 18 106 12 190" stroke-width="4"/>
+        <path d="M 1560 470 q -74 66 -102 116" stroke-width="3.5"/>
+        <path d="M 1560 470 q 74 66 102 116" stroke-width="3.5"/>
+        <path d="M 1560 470 q -100 120 -124 176" stroke-width="3"/>
+        <path d="M 1560 470 q 100 120 124 176" stroke-width="3"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content row" style="align-items:center; justify-content:space-between">
+      <div style="max-width:1180px">
+        <div class="kicker" style="font-size:20px">读书笔记 · 许茂和他的女儿们</div>
+        <h1 class="h-display" style="font-size:80px">别急着开花<br>先把自己埋进土里扎根</h1>
+        <p class="h-sub" style="font-size:32px; margin-top:18px">不开花的时候，它才是在干活</p>
+      </div>
+      <div style="text-align:right; padding-right:20px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第32天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="art-zone"><svg viewBox="0 0 1080 1080">
+      <text x="540" y="940" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.028)">花</text>
+      <g stroke="rgba(10,10,11,.18)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 0 800 H 1080" stroke-width="5"/>
+        <!-- 苗：一小截 -->
+        <path d="M 540 800 V 700" stroke-width="5"/>
+        <path d="M 540 742 q -44 -10 -60 -36 q 38 2 60 36" fill="rgba(10,10,11,.07)" stroke-width="3.5"/>
+        <path d="M 540 772 q 38 -8 52 -32 q -34 2 -52 32" fill="rgba(10,10,11,.06)" stroke-width="3"/>
+        <!-- 根：一大片 -->
+        <path d="M 540 800 q -44 60 -64 104" stroke-width="4.5"/>
+        <path d="M 540 800 q 44 60 64 104" stroke-width="4.5"/>
+        <path d="M 540 800 q -20 86 -14 154" stroke-width="4"/>
+        <path d="M 540 800 q 20 86 14 154" stroke-width="4"/>
+        <path d="M 540 800 q -84 56 -116 96" stroke-width="3.5"/>
+        <path d="M 540 800 q 84 56 116 96" stroke-width="3.5"/>
+        <path d="M 540 800 q -110 96 -136 142" stroke-width="3"/>
+        <path d="M 540 800 q 110 96 136 142" stroke-width="3"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:flex-start; padding-top:236px">
+      <div class="kicker">读书笔记 · 许茂和他的女儿们</div>
+      <h1 class="h-display" style="font-size:60px">别急着开花<br>先把自己埋进土里扎根</h1>
+      <p class="h-sub" style="margin-bottom:0">它不开花的时候，才是在干活</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
