@@ -73,3 +73,9 @@
 - git pull 失败（curl 28 Failed to connect to github.com:443 after 21076 ms: Could not connect to server）
 - 网络不通，按指令不重试，下次自动重试
 - 本地已 commit 未推送（工作区干净）
+
+## [2026-09-20 12:30] 同步失败（网络不通）
+- 本地 14 个未提交改动（4改+10新：菲律宾莎拉名单篇发布执行单、9-19读书文章《颜少春进屋之后什么都没说》+社card配图+人物关系卡、9-18/9-19日记+回信、Index/Log、DVIDS手册、memory），先 commit 保存（commit 1de383f）
+- git pull 失败（Connection was reset，与 9-13/9-14/9-16/9-18/9-19 同错误）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（工作区干净）

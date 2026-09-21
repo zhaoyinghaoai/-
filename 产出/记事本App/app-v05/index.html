@@ -271,6 +271,30 @@
   .ring .rbtns .ok{background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff}
   .ring .rbtns .go{background:#F1EADA;color:var(--ink2)}
 
+  /* ============ 目录页（v1.03：像书的目录，先选类目再看内容） ============ */
+  .tocwrap{padding:6px 18px 20px}
+  .toc-title{font-size:13px;color:var(--ink3);padding:2px 2px 10px;letter-spacing:.5px}
+  .toc-grid{display:flex;flex-direction:column;gap:10px}
+  .tocrow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;box-shadow:0 1px 2px rgba(60,45,20,.04);text-align:left;font-family:inherit}
+  .tocrow:active{background:#FBF6EC;transform:scale(.995)}
+  .tocrow.all{background:linear-gradient(145deg,#FDF4EA,#F8E9D8);border-color:#EBD5B8}
+  .tocrow .tico{width:40px;height:40px;flex:none;border-radius:12px;background:var(--accent-soft);color:var(--accent-deep);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800}
+  .tocrow.all .tico{background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;font-size:15px}
+  .tocrow .tmain{flex:1;min-width:0}
+  .tocrow .tname{font-size:17px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tocrow .tsub{font-size:12.5px;color:var(--ink3);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tocrow .tnum{flex:none;font-size:14px;font-weight:700;color:var(--accent-deep);background:#FBEEDC;border-radius:12px;padding:4px 11px}
+  .tocrow .tchev{flex:none;color:var(--ink3);font-size:20px;line-height:1}
+  .toc-manage{margin:16px 2px 0;width:calc(100% - 4px);border:1.5px dashed #D8CBB2;background:#FFFDF8;border-radius:14px;padding:13px;font-size:14.5px;font-weight:700;color:var(--accent);cursor:pointer;font-family:inherit}
+  .toc-empty{text-align:center;padding:52px 12px;color:var(--ink3);font-size:16px;line-height:2.1}
+  .toc-empty .big{font-size:46px;display:block;margin-bottom:10px}
+  /* 章节页顶部（返回目录 + 章节名） */
+  .cathead{display:flex;align-items:center;gap:10px;padding:2px 18px 10px}
+  .catch{border:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:9px 14px;font-size:14.5px;font-weight:700;color:var(--accent-deep);cursor:pointer;font-family:inherit;flex:none}
+  .catch:active{background:#FBF6EC}
+  .cathead .cname{font-size:18px;font-weight:800;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cathead .cnum{font-size:13px;color:var(--ink3);flex:none;margin-left:auto}
+
   /* ============ 手机端：整页自然滚动（v0.94） ============
      之前内容在 .flipwrap 内部滚动，body 整页不动 → 小米/系统截长图靠滚动整页拼接，截不了。
      改法：手机上解除固定高度壳，让 document 本身可滚，底栏改 fixed 悬浮。电脑预览不受影响。 */
@@ -303,7 +327,10 @@
         <div class="page-num" id="pageNum" data-page-node-id="eEsYEdepKH2ltmdH1ldGEU"></div>
         <div class="top-right" data-page-node-id="UxW2nNvHlNFQn1roRBeGwt"><button class="iconbtn" onclick="openSheet('menu')" data-page-node-id="X28lGqdaJp4AmdQeYawUCz">⋯</button></div>
       </div>
-      <div class="catbar" id="catbar"></div>
+      <!-- 目录页（第一层：先看目录） -->
+      <div class="tocwrap" id="tocwrap"></div>
+      <!-- 章节页（第二层：目录里点进来才看内容） -->
+      <div id="cathead" class="cathead" style="display:none"></div>
       <div class="flipwrap" id="flipwrap" data-page-node-id="B2D1G3UxpFRSZYpTxire7t"></div>
     </section>
 
@@ -342,7 +369,7 @@
     <!-- ===== 搜索 ===== -->
     <section class="screen" id="search" data-page-node-id="za77M6BMvCUHiNVxHmTz9i">
       <div class="nav" data-page-node-id="anTTJO7SuUNlnGI9LqmvYA">
-        <button class="back" onclick="backHome()" data-page-node-id="QSxM5HTSxhvUjlq1YTQTxF">‹</button>
+        <button class="back" onclick="goTOC()" data-page-node-id="QSxM5HTSxhvUjlq1YTQTxF">‹</button>
         <div class="s-input" data-page-node-id="r3oEnI908anLArtUeYObHi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ADA493" stroke-width="2.6" stroke-linecap="round" data-page-node-id="yaUgYJZKWSnOzY7A4MnPRs"><circle cx="11" cy="11" r="7" data-page-node-id="nFvqcDnCmErESEJk7n4B91"/><path d="m20 20-3.5-3.5" data-page-node-id="QdXB89rvy7PsWBVsc20joR"/></svg>
         <input id="sBox" placeholder="搜文字…" oninput="doSearch(this.value)" data-page-node-id="mb307plVNHQqx0CfIQkmPW"></div>
       </div>
@@ -355,7 +382,7 @@
 
   <!-- ===== 底栏 ===== -->
   <nav class="tabbar" data-page-node-id="PcMvEOqZG2PZYPM2a3GTFv">
-    <button class="tab active" id="tab-home" onclick="go('home')" data-page-node-id="TAAnTvoO7pmIQEPu1aIAPB"><span class="ico" data-page-node-id="KJmJ3r0XzGn2DuZcJpVtTi">▤</span>笔记</button>
+    <button class="tab active" id="tab-home" onclick="goTOC()" data-page-node-id="TAAnTvoO7pmIQEPu1aIAPB"><span class="ico" data-page-node-id="KJmJ3r0XzGn2DuZcJpVtTi">▤</span>目录</button>
     <div class="tab-plus-wrap" data-page-node-id="cZW0v3OHXA92W7SonB0L1C"><button class="tab-plus" onclick="openNew()" data-page-node-id="GxiBoh6ykwUoZvZYDXsj5k">＋</button></div>
     <button class="tab" id="tab-search" onclick="go('search')" data-page-node-id="iB1x5vabcUA3rqsX6hJHvG"><span class="ico" data-page-node-id="OVXiJZJ0xf2DvpnJ1ceiQa">◎</span>搜索</button>
   </nav>
@@ -687,6 +714,8 @@ function go(name){
   if(name==='search'){ setTimeout(()=>{ $('#sBox').focus(); doSearch($('#sBox').value); },80); }
 }
 function backHome(){ go('home'); renderHome(); }
+/* 回首页时统一从"目录"进（避免停留在旧章节里发懵） */
+function goTOC(){ curCat='全部'; go('home'); renderHome(); try{ window.scrollTo(0,0); }catch(e){} }
 
 /* ================= 首页翻卡渲染 ================= */
 function blocksHTML(it){
@@ -716,25 +745,62 @@ function flipCardHTML(it){
     '</div></article>';
 }
 function renderHome(){
-  const list = filtered();
-  const w = $('#flipwrap');
-  if(!list.length){
-    w.innerHTML = '<div class="flip-empty"><span class="big">'+(curCat==='全部'?'📥':'🗂')+'</span><div>'+(curCat==='全部'?'随手库还空着<br>点下面 ＋ 记第一条素材':'「'+curCat+'」还没有内容<br>换一类看看，或记一条归进来')+'</div><button onclick="openNew()">＋ 记一条</button></div>';
-    $('#pageNum').textContent = '';
-    return;
-  }
-  w.innerHTML = list.map(it=>flipCardHTML(it)).join('');
-  w.scrollTop = 0;
+  renderTOC();
+  renderCatView();
   updatePageNum();
 }
-function filtered(){ const l=sorted(); return curCat==='全部'? l : l.filter(it=>it.category===curCat); }
-function renderCatbar(){
-  const cats=['全部'].concat(CATS);
-  let html=cats.map(c=>'<button class="catpill'+(c===curCat?' on':'')+'" onclick="pickCat(\''+c+'\')">'+c+'</button>').join('');
-  html+='<button class="catpill manage" onclick="openSheet(\'cats\')">＋ 管理</button>';
-  $('#catbar').innerHTML=html;
+/* ---------- 第一层：目录页（像书的目录，只有类目，没有内容） ---------- */
+function lastTimeOf(list){
+  if(!list.length) return '';
+  const t=Math.max.apply(null,list.map(x=>x.ts||0));
+  return '最近 '+fmtDate(t);
 }
-function pickCat(c){ curCat=c; renderCatbar(); renderHome(); }
+function tocRowHTML(cat){
+  const list = cat==='全部' ? sorted() : sorted().filter(it=>it.category===cat);
+  const isAll = cat==='全部';
+  const ico = isAll ? '总' : esc(cat.slice(0,1));
+  const sub = list.length ? (esc(cat==='全部'?('含 '+CATS.length+' 个类目'):'') + (isAll?'':'') + ((isAll&&CATS.length)?'':'') + lastTimeOf(list)) : '还没有内容';
+  return '<button class="tocrow'+(isAll?' all':'')+'" onclick="pickCat(\''+cat+'\')">'
+    +'<span class="tico">'+ico+'</span>'
+    +'<span class="tmain"><span class="tname">'+esc(cat)+'</span><span class="tsub">'+sub+'</span></span>'
+    +'<span class="tnum">'+list.length+'</span>'
+    +'<span class="tchev">›</span></button>';
+}
+function renderTOC(){
+  const w=$('#tocwrap'); if(!w) return;
+  if(curCat!=='全部'){ w.style.display='none'; return; }  // 进了章节就不显示目录
+  w.style.display='';
+  let h='<div class="toc-title">目 录 · 先选一类，再看里面的内容</div><div class="toc-grid">';
+  h+=tocRowHTML('全部');
+  h+=CATS.map(c=>tocRowHTML(c)).join('');
+  h+='</div>';
+  if(!items.length){
+    h='<div class="toc-empty"><span class="big">📥</span>随手库还空着<br>点下面 ＋ 记第一条素材</div>';
+  }
+  h+='<button class="toc-manage" onclick="openSheet(\'cats\')">＋ 管理类目（改名 / 新增 / 删除）</button>';
+  w.innerHTML=h;
+}
+/* ---------- 第二层：章节页（某一类里面的卡片） ---------- */
+function renderCatView(){
+  const w=$('#flipwrap'); if(!w) return;
+  const head=$('#cathead');
+  if(curCat==='全部'){ w.innerHTML=''; if(head) head.style.display='none'; return; }
+  if(head){
+    const n=sorted().filter(it=>it.category===curCat).length;
+    head.style.display='';
+    head.innerHTML='<button class="catch" onclick="pickCat(\'全部\')">‹ 目录</button>'
+      +'<span class="cname">'+esc(curCat)+'</span><span class="cnum">'+n+' 条</span>';
+  }
+  const list=filtered();
+  if(!list.length){
+    w.innerHTML='<div class="flip-empty"><span class="big">🗂</span><div>「'+esc(curCat)+'」还没有内容<br>换一类看看，或记一条归进来</div><button onclick="openNew()">＋ 记一条</button></div>';
+    return;
+  }
+  w.innerHTML=list.map(it=>flipCardHTML(it)).join('');
+}
+function filtered(){ const l=sorted(); return curCat==='全部'? l : l.filter(it=>it.category===curCat); }
+function renderCatbar(){ /* 已改为目录页，不再需要横向类目条 */ }
+function pickCat(c){ curCat=c; renderHome(); try{ window.scrollTo(0,0); }catch(e){} }
 function renderCatpick(){
   $('#catpick').innerHTML = '<span style="font-size:13px;color:var(--ink3);align-self:center;flex:none;margin-right:2px">归类</span>'+
     CATS.map(c=>'<button class="cpill'+(c===newCat?' on':'')+'" onclick="setNewCat(\''+c+'\')">'+c+'</button>').join('');
@@ -746,9 +812,9 @@ function setItemCat(c){
 }
 function updatePageNum(){
   const el=$('#pageNum'); if(!el) return;
+  if(curCat==='全部'){ el.textContent = items.length? (CATS.length+' 类 · '+items.length+' 条') : ''; return; }
   const list=filtered();
-  if(!list.length){ el.textContent=''; return; }
-  el.textContent = list.length+' 条';
+  el.textContent = list.length? (list.length+' 条') : '';
 }
 
 /* ================= 复制 ================= */
@@ -890,7 +956,7 @@ function saveNote(){
     // 提醒：改了时间要重置"已提醒"，否则新时间不会响
     if(it.remindAt!==draftRemind) it.reminded=false;
     it.remindAt=draftRemind||null;
-    save(); renderHome(); go('home'); toast(draftRemind? ('已保存 ✓ 提醒 '+fmtRemind(draftRemind)) : '已保存 ✓');
+    save(); curCat=it.category||'杂记'; renderHome(); go('home'); toast(draftRemind? ('已保存 ✓ 提醒 '+fmtRemind(draftRemind)) : '已保存 ✓');
   }else{ // 新建
     const m=firstMedia({blocks:blocks});
     const it={ id:uid(), category:newCat, ts:Date.now(), blocks:blocks, text:textOf({blocks:blocks}) };
@@ -898,7 +964,7 @@ function saveNote(){
     else if(m&&m.type==='video'){ it.kind='video'; }
     else it.kind='text';
     if(draftRemind){ it.remindAt=draftRemind; it.reminded=false; }
-    items.push(it); save(); renderHome();
+    items.push(it); save(); curCat=it.category||'杂记'; renderHome();
     go('home'); toast(draftRemind? ('已存为卡片 ✓ 提醒 '+fmtRemind(draftRemind)) : '已存为卡片 ✓');
   }
   editId=null; draftBlocks=[{type:'t',t:''}]; draftRemind=null;
@@ -959,10 +1025,10 @@ function editItem(id){
 function backNew(){
   // 编辑态(editId)返回：清 editId 回首页；新建态直接回首页
   if(editId){ editId=null; draftBlocks=[]; }
-  backHome();
+  go('home'); renderHome(); try{ window.scrollTo(0,0); }catch(e){}
 }
 function copyDetail(){ const it=getCur(); if(!it)return; copyText(copyTextOf(it)); }
-function delCur(){ items=items.filter(x=>x.id!==curId); save(); curId=null; editId=null; closeSheet(); renderHome(); go('home'); toast('已删除'); }
+function delCur(){ items=items.filter(x=>x.id!==curId); save(); curId=null; editId=null; closeSheet(); renderHome(); go('home'); try{window.scrollTo(0,0);}catch(e){} toast('已删除'); }
 
 /* ================= 搜索 ================= */
 const CHIPS=['金句','灵感','读书','配图'];
@@ -994,7 +1060,7 @@ function highlight(text,q){
 function openSheet(kind){
   let h='';
   if(kind==='menu'){
-    h='<h3>随手库 v1.02</h3>'
+    h='<h3>随手库 v1.03</h3>'
     + row('🗂','管理类目','自己加类 / 删类','cats')
     + row('📲','装到桌面图标','小米浏览器请换 Chrome/Edge','help')
     + row('📤','导出备份','全部 '+items.length+' 条下载成文件','export')
