@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>图纸他画出来了 · 社card · 许茂和他的女儿们</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:76px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-en); font-style:italic; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .txt-zone { position:relative; z-index:3; }
+    .art-zone { position:absolute; left:0; right:0; top:0; height:100%; z-index:0; }
+    .art-zone svg { position:absolute; inset:0; width:100%; height:100%; }
+    .poster.wide .h-display { font-size:98px; }
+    .poster.square .h-display { font-size:88px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面：一张图纸 ⟷ 一扇关着的门 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1380" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="760" font-weight="500" fill="rgba(10,10,11,.03)">图</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 左边：一扇关着的门（窄、高、双扇、有把手） -->
+        <path d="M 148 928 V 1290 M 392 928 V 1290" stroke-width="7"/>
+        <path d="M 130 928 H 410" stroke-width="8"/>
+        <path d="M 158 942 H 260 V 1278 H 158 Z" fill="rgba(10,10,11,.11)" stroke-width="5"/>
+        <path d="M 280 942 H 382 V 1278 H 280 Z" fill="rgba(10,10,11,.11)" stroke-width="5"/>
+        <circle cx="250" cy="1110" r="12" stroke-width="4.5"/>
+        <path d="M 116 1290 H 424" stroke-width="7"/>
+        <!-- 右边：一张摊开的图纸（带卷角 + 主渠 + 支渠 + 水塘 + 地块） -->
+        <path d="M 560 998 L 900 974 L 928 1214 L 592 1242 Z" fill="rgba(10,10,11,.045)" stroke-width="6"/>
+        <path d="M 900 974 L 848 1004 L 880 1032 Z" fill="rgba(10,10,11,.10)" stroke-width="5"/>
+        <path d="M 592 1088 q 100 26 138 66 q 36 40 150 36" stroke-width="5"/>
+        <path d="M 694 1112 q 14 -40 48 -58" stroke-width="3.5"/>
+        <path d="M 812 1168 q 10 -42 44 -60" stroke-width="3.5"/>
+        <ellipse cx="662" cy="1178" rx="34" ry="20" stroke-width="3.5"/>
+        <ellipse cx="800" cy="1072" rx="28" ry="17" stroke-width="3.5"/>
+        <rect x="602" y="1044" width="56" height="36" stroke-width="3" stroke-dasharray="7 6"/>
+        <rect x="742" y="1138" width="54" height="34" stroke-width="3" stroke-dasharray="7 6"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:150px">
+        <div class="kicker">读书笔记 · 许茂和他的女儿们</div>
+        <h1 class="h-display" style="font-size:60px">图纸他画出来了<br>那扇门他<br>没开</h1>
+        <p class="h-sub" style="margin-top:20px">He drew the whole valley. He could not open one door.</p>
+        <p class="lead" style="margin-top:16px; max-width:880px">被撤职、烧房、丧妻，他带着两个孩子住进提水站。就在那儿，他给整个葫芦坝画了一张水库规划图。</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>一张图纸</span><span class="dot"></span>
+        <span>一扇关着的门</span><span class="dot"></span>
+        <span>一辈子没替自己争的气</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 一、河边一间屋子 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">屋</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 河边的提水站：一间小屋，屋顶是平的，一个门一个窗 -->
+        <path d="M 330 1264 V 1030 H 742 V 1264" stroke-width="7" fill="rgba(10,10,11,.035)"/>
+        <path d="M 308 1030 H 764" stroke-width="8"/>
+        <!-- 门 -->
+        <rect x="400" y="1150" width="92" height="114" stroke-width="5.5" fill="rgba(10,10,11,.05)"/>
+        <circle cx="474" cy="1210" r="6" stroke-width="3.5"/>
+        <!-- 窗：小方框，两格 -->
+        <rect x="580" y="1120" width="112" height="86" stroke-width="5.5"/>
+        <path d="M 636 1120 V 1206" stroke-width="3.5"/>
+        <!-- 抽水管：从屋边出来，往右再往下，一直伸进水里 -->
+        <path d="M 742 1150 H 806 V 1340" stroke-width="7"/>
+        <!-- 水面 -->
+        <path d="M 130 1300 H 950" stroke-width="6"/>
+        <path d="M 190 1344 q 40 -16 84 0 t 84 0 t 84 0 t 84 0" stroke-width="4" stroke="rgba(10,10,11,.14)"/>
+        <path d="M 300 1386 q 40 -14 84 0 t 84 0 t 84 0" stroke-width="3.5" stroke="rgba(10,10,11,.11)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">一 · 他是被整下来的</div>
+        <h2 class="h-xl" style="font-size:56px">从村里的书记<br>到河边一间屋</h2>
+        <p class="lead" style="margin-top:16px">他下来，是被人整下来的。职撤了，人也被搁在一边。祸接着来：房子烧了，妻子经不起这一下，急病了，人没留住。一家人搬出院子，住进了提水站。他带着两个孩子，儿子长生，女儿长秀。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">他手里还剩两样东西<br>两个孩子<br>一张图</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 二、他在屋子里画图 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">渠</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 矮桌 -->
+        <path d="M 150 1250 H 930" stroke-width="10"/>
+        <path d="M 224 1250 L 204 1352" stroke-width="7"/>
+        <path d="M 856 1250 L 876 1352" stroke-width="7"/>
+        <!-- 桌上摊开的图纸 -->
+        <path d="M 236 1236 L 856 1214 L 872 1058 L 252 1080 Z" fill="rgba(10,10,11,.04)" stroke-width="6"/>
+        <!-- 图纸上的渠：一条主线 + 两条支流 -->
+        <path d="M 290 1190 q 130 -16 226 -40 q 96 -24 190 -50" stroke-width="4.5"/>
+        <path d="M 420 1180 q 20 -46 60 -70" stroke-width="3.5"/>
+        <path d="M 560 1152 q 24 -50 72 -74" stroke-width="3.5"/>
+        <!-- 地块 -->
+        <rect x="300" y="1112" width="84" height="52" stroke-width="3" stroke-dasharray="7 6"/>
+        <rect x="446" y="1096" width="76" height="48" stroke-width="3" stroke-dasharray="7 6"/>
+        <rect x="604" y="1082" width="80" height="46" stroke-width="3" stroke-dasharray="7 6"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">二 · 他画的图，当时没人用得上</div>
+        <h2 class="h-xl" style="font-size:56px">这张图<br>当时没有一个人<br>用得上</h2>
+        <p class="lead" style="margin-top:16px">他在这间屋子里画画。画的是整个葫芦坝的水库规划：哪块地能灌上，渠从哪儿过。说得大一点，他是想让葫芦坝的人都过上好日子。说得小一点，他是在替自己争一口气。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">不只是画给村里的<br>也是他给自己留的<br>一份证明</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 三、门框上的刻痕 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">衣</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 晾衣绳 -->
+        <path d="M 76 1020 q 464 46 928 0" stroke-width="6"/>
+        <!-- 绳上挂着一件小衣裳：肩、两只袖、下摆 -->
+        <path d="M 400 1040 H 700" stroke-width="5"/>
+        <path d="M 400 1040 L 344 1094 L 344 1154" stroke-width="5"/>
+        <path d="M 700 1040 L 756 1094 L 756 1154" stroke-width="5"/>
+        <path d="M 344 1154 L 386 1172 L 386 1306 L 714 1306 L 714 1172 L 756 1154" stroke-width="5"/>
+        <path d="M 458 1054 q 92 46 184 0" stroke-width="4.5"/>
+        <!-- 旁边一个空衣架：衣裳没了 -->
+        <path d="M 850 1032 L 778 1086 H 922 Z" stroke-width="5"/>
+        <path d="M 850 1032 q -18 -16 0 -32" stroke-width="4.5"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">三 · 他把长秀抱走了</div>
+        <h2 class="h-xl" style="font-size:56px">他怕的是<br>四姑娘被人说</h2>
+        <p class="lead" style="margin-top:16px">妻子没了以后，四姑娘把长秀接到自己家养。后来老金听到风言风语，把孩子抱走了。他信那些话吗？我不觉得他信。他也隐约知道四姑娘的心思，正因为隐约知道，他更得避。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">抱回去<br>就等于把那条线<br>切断了</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 四、那扇门他一直没开 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">关</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 门框：窄而高 -->
+        <path d="M 372 878 V 1278 M 708 878 V 1278" stroke-width="9"/>
+        <path d="M 338 878 H 742" stroke-width="9"/>
+        <!-- 两扇门板，关死 -->
+        <path d="M 380 892 H 542 V 1276 H 380 Z" fill="rgba(10,10,11,.10)" stroke-width="5.5"/>
+        <path d="M 556 892 H 700 V 1276 H 556 Z" fill="rgba(10,10,11,.10)" stroke-width="5.5"/>
+        <path d="M 549 892 V 1276" stroke-width="4.5"/>
+        <!-- 门环，一人一个 -->
+        <circle cx="506" cy="1156" r="17" stroke-width="5"/>
+        <circle cx="592" cy="1156" r="17" stroke-width="5"/>
+        <!-- 门闩：一根横木，从里头闩上，两头卡在门栓里 -->
+        <path d="M 400 1046 H 682" stroke-width="13"/>
+        <path d="M 424 1022 V 1070 M 658 1022 V 1070" stroke-width="7"/>
+        <!-- 门槛 -->
+        <path d="M 322 1276 H 758" stroke-width="10"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">四 · 那扇门他一直没开</div>
+        <h2 class="h-xl" style="font-size:56px">门里的动静<br>她一句没漏</h2>
+        <p class="lead" style="margin-top:16px">四姑娘半夜送衣裳来，孩子在屋里喊"是四娘来了"，老金把长生按住了，不让他去开。她在门外站了一会儿，走了。他等到门口听不见脚步，才让长生把门打开。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">她听懂的是另一件事<br>他把我<br>当成一个得躲开的人</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 06 五、一捆柴和一本摊开的书 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">书</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 地面 -->
+        <path d="M 120 1310 H 980" stroke-width="7"/>
+        <!-- 左边：一本摊开的书（两页，中间书脊） -->
+        <path d="M 216 1296 L 448 1276 L 470 1058 L 240 1078 Z" fill="rgba(10,10,11,.045)" stroke-width="6"/>
+        <path d="M 470 1058 L 700 1078 L 680 1296 L 448 1276 Z" fill="rgba(10,10,11,.045)" stroke-width="6"/>
+        <path d="M 448 1276 L 470 1058" stroke-width="5"/>
+        <path d="M 254 1116 H 414 M 250 1158 H 418 M 246 1200 H 422" stroke-width="3" stroke="rgba(10,10,11,.13)"/>
+        <path d="M 486 1118 H 654 M 490 1160 H 658 M 494 1202 H 662" stroke-width="3" stroke="rgba(10,10,11,.13)"/>
+        <!-- 右边：一只空碗（说好买肉，肉没买成） -->
+        <ellipse cx="850" cy="1182" rx="120" ry="28" stroke-width="5.5" fill="rgba(10,10,11,.035)"/>
+        <path d="M 730 1182 A 120 120 0 0 1 970 1182" stroke-width="5.5" fill="rgba(10,10,11,.05)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">五 · 连云场那一天</div>
+        <h2 class="h-xl" style="font-size:56px">说好了卖柴买肉<br>他把钱买了书</h2>
+        <p class="lead" style="margin-top:16px">过了些日子，他带孩子去连云场赶集。出门前说好了，把柴卖了换钱买肉。柴卖了，钱到了手，他买了书。肉买不成了，他打算把身上那件衣裳卖掉。一个把卖柴的钱拿去买书的人，转头要卖衣裳买肉。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">他算不清账<br>可知道自己最该顾什么</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="art-zone"><svg viewBox="0 0 2100 900">
+      <text x="560" y="812" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.045)">图</text>
+      <g stroke="rgba(10,10,11,.20)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 左边：一扇关着的门，窄而高 -->
+        <path d="M 220 210 V 612 M 452 210 V 612" stroke-width="9"/>
+        <path d="M 204 210 H 468" stroke-width="10"/>
+        <path d="M 230 224 H 328 V 596 H 230 Z" fill="rgba(10,10,11,.11)" stroke-width="5.5"/>
+        <path d="M 346 224 H 442 V 596 H 346 Z" fill="rgba(10,10,11,.11)" stroke-width="5.5"/>
+        <path d="M 337 224 V 596" stroke-width="4.5"/>
+        <circle cx="316" cy="430" r="13" stroke-width="4.5"/>
+        <!-- 右边：一张图纸（卷角 + 主渠 + 支渠 + 水塘 + 地块） -->
+        <path d="M 560 394 L 990 366 L 1022 616 L 592 644 Z" fill="rgba(10,10,11,.045)" stroke-width="6.5"/>
+        <path d="M 990 366 L 938 398 L 974 426 Z" fill="rgba(10,10,11,.10)" stroke-width="5"/>
+        <path d="M 602 490 q 92 12 184 48 q 96 20 174 40" stroke-width="5.5"/>
+        <path d="M 680 505 q 11 -37 55 -54" stroke-width="4"/>
+        <path d="M 803 542 q 11 -39 57 -56" stroke-width="4"/>
+        <ellipse cx="660" cy="560" rx="35" ry="20" stroke-width="4"/>
+        <ellipse cx="830" cy="440" rx="30" ry="17" stroke-width="4"/>
+        <rect x="608" y="435" width="61" height="37" stroke-width="3.5" stroke-dasharray="8 7"/>
+        <rect x="740" y="565" width="57" height="35" stroke-width="3.5" stroke-dasharray="8 7"/>
+        <!-- 地面 -->
+        <path d="M 160 612 H 1070" stroke-width="9"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content" style="display:flex; align-items:center; justify-content:flex-end; padding-right:150px">
+      <div style="text-align:right">
+        <div class="kicker" style="font-size:20px">读书笔记 · 许茂和他的女儿们</div>
+        <h1 class="h-display" style="font-size:82px">图纸他画出来了<br>那扇门他没开</h1>
+        <p class="h-sub" style="font-size:32px; margin-top:18px; margin-bottom:0">被打怕了的人，把勇气全用在了别处</p>
+      </div>
+      <div style="text-align:right; margin-left:80px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第36天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="art-zone"><svg viewBox="0 0 1080 1080">
+      <text x="540" y="960" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">图</text>
+      <g stroke="rgba(10,10,11,.20)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 左边：一扇关着的门（双扇 + 把手） -->
+        <path d="M 108 616 V 902 M 302 616 V 902" stroke-width="7"/>
+        <path d="M 92 616 H 318" stroke-width="8"/>
+        <path d="M 116 630 H 196 V 888 H 116 Z" fill="rgba(10,10,11,.11)" stroke-width="5"/>
+        <path d="M 214 630 H 294 V 888 H 214 Z" fill="rgba(10,10,11,.11)" stroke-width="5"/>
+        <circle cx="188" cy="758" r="10" stroke-width="4"/>
+        <path d="M 78 902 H 332" stroke-width="7"/>
+        <!-- 右边：图纸（卷角 + 主渠 + 支渠 + 水塘 + 地块） -->
+        <path d="M 414 734 L 806 708 L 834 950 L 442 976 Z" fill="rgba(10,10,11,.045)" stroke-width="6"/>
+        <path d="M 806 708 L 758 736 L 788 764 Z" fill="rgba(10,10,11,.10)" stroke-width="5"/>
+        <path d="M 452 826 q 84 12 168 46 q 90 18 180 48" stroke-width="5"/>
+        <path d="M 552 848 q 12 -40 46 -56" stroke-width="3.5"/>
+        <path d="M 664 884 q 10 -42 44 -58" stroke-width="3.5"/>
+        <ellipse cx="516" cy="906" rx="32" ry="19" stroke-width="3.5"/>
+        <ellipse cx="656" cy="800" rx="27" ry="16" stroke-width="3.5"/>
+        <rect x="458" y="774" width="56" height="36" stroke-width="3" stroke-dasharray="7 6"/>
+        <rect x="596" y="872" width="52" height="34" stroke-width="3" stroke-dasharray="7 6"/>
+        <!-- 地面 -->
+        <path d="M 60 900 H 1010" stroke-width="8"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:flex-start; padding-top:220px">
+      <div class="kicker">读书笔记 · 许茂和他的女儿们</div>
+      <h1 class="h-display" style="font-size:58px">图纸他画出来了<br>那扇门他没开</h1>
+      <p class="h-sub" style="margin-top:34px; margin-bottom:0">被打怕了的人，把勇气全用在了别处</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
