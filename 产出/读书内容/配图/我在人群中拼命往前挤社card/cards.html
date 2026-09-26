@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>我在人群中拼命往前挤 · 社card · 蛙</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:56px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-zh); font-style:normal; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .txt-zone { position:relative; z-index:3; }
+    .art-zone { position:absolute; left:0; right:0; top:0; height:100%; z-index:0; }
+    .art-zone svg { position:absolute; inset:0; width:100%; height:100%; }
+    .poster.wide .h-display { font-size:98px; }
+    .poster.square .h-display { font-size:88px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面：轮椅（我坐在轮椅上看这一段） ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1340" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">挤</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 200 1326 H 880" stroke-width="9"/>
+        <circle cx="466" cy="1230" r="92" stroke-width="8"/>
+        <circle cx="466" cy="1230" r="14" stroke-width="5"/>
+        <path d="M 466 1138 V 1322 M 374 1230 H 558 M 400 1164 L 532 1296 M 400 1296 L 532 1164" stroke-width="3.5" stroke="rgba(10,10,11,.13)"/>
+        <circle cx="700" cy="1288" r="37" stroke-width="7"/>
+        <path d="M 388 1162 H 664" stroke-width="8"/>
+        <path d="M 388 1162 V 1230" stroke-width="7"/>
+        <path d="M 388 1162 L 344 1118 L 344 1036" stroke-width="8"/>
+        <path d="M 344 1036 H 424" stroke-width="8"/>
+        <path d="M 378 1108 H 626" stroke-width="7"/>
+        <path d="M 626 1108 V 1230" stroke-width="7"/>
+        <path d="M 664 1230 V 1292 H 616" stroke-width="7"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:150px">
+        <div class="kicker">读书笔记 · 蛙</div>
+        <h1 class="h-display" style="font-size:58px">我在人群中拼命往前挤<br>最后被挤出了圈外</h1>
+        <p class="h-sub" style="margin-top:20px">看见哪儿热，就往哪儿挤</p>
+        <p class="lead" style="margin-top:16px; max-width:880px">《蛙》里有一段，我盯着看了好半天。一个往舞台前面挤的人，被人踹、被人擂、被人用胳膊肘顶，最后被挤出了圈外。我坐在轮椅上攥着手机看完，乐了。</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>莫言·蛙 · 第 1 篇</span><span class="dot"></span>
+        <span>我这一年</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 一、书摊开 ＋ 手机 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">书</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 90 1348 H 1000" stroke-width="9"/>
+        <!-- 摊开的书 -->
+        <path d="M 130 1348 L 424 1300 L 424 1106 L 130 1154 Z" fill="rgba(10,10,11,.05)" stroke-width="7"/>
+        <path d="M 424 1300 L 718 1348 L 718 1154 L 424 1106 Z" fill="rgba(10,10,11,.05)" stroke-width="7"/>
+        <path d="M 424 1106 V 1300" stroke-width="6"/>
+        <path d="M 180 1186 H 380 M 180 1234 H 366 M 180 1282 H 316" stroke-width="4.5" stroke="rgba(10,10,11,.12)"/>
+        <path d="M 470 1188 H 668 M 470 1236 H 654 M 470 1284 H 600" stroke-width="4.5" stroke="rgba(10,10,11,.12)"/>
+        <!-- 手机（立在书旁） -->
+        <rect x="760" y="1020" width="200" height="330" rx="24" fill="rgba(10,10,11,.06)" stroke-width="8"/>
+        <path d="M 806 1086 H 916 M 806 1138 H 892 M 806 1190 H 916 M 806 1242 H 858" stroke-width="5" stroke="rgba(10,10,11,.13)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">一 · 那段话写的是我</div>
+        <h2 class="h-xl">这不就是<br>我吗</h2>
+        <p class="lead" style="margin-top:16px">看见哪儿热，就往哪儿挤。挤了半天，啥也没捞着，还挨了一顿踹。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">我们喜欢往利益更近的地方凑<br>反而把自己甩到了更远的地方</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 二、三口锅同时烧 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">急</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 110 1350 H 970" stroke-width="9"/>
+        <g fill="rgba(10,10,11,.05)">
+          <ellipse cx="256" cy="1170" rx="118" ry="44" stroke-width="7"/>
+          <path d="M 138 1170 C 138 1170 138 1300 256 1300 C 374 1300 374 1170 374 1170" stroke-width="7"/>
+          <ellipse cx="540" cy="1170" rx="118" ry="44" stroke-width="7"/>
+          <path d="M 422 1170 C 422 1170 422 1300 540 1300 C 658 1300 658 1170 658 1170" stroke-width="7"/>
+          <ellipse cx="824" cy="1170" rx="118" ry="44" stroke-width="7"/>
+          <path d="M 706 1170 C 706 1170 706 1300 824 1300 C 942 1300 942 1170 942 1170" stroke-width="7"/>
+        </g>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">二 · 看见别人跑起来，我就坐不住</div>
+        <h2 class="h-xl">三样都碰了<br>三样都在原地</h2>
+        <p class="lead" style="margin-top:16px">军事文章、公众号、小生意。一天下来三样都碰了，三样都在原地。我恨不得今天埋下种子，明天就开花。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">这不是三个方向<br>是三口锅同时烧<br>都烧不开</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 三、抢来的守不住（一摞压着的书·抢的动作） ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">抢</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 150 1350 H 930" stroke-width="9"/>
+        <!-- 一摞书，被一只手抓过：书歪斜 -->
+        <path d="M 300 1298 H 760 V 1350 H 300 Z" fill="rgba(10,10,11,.06)" stroke-width="7" transform="rotate(-3 530 1324)"/>
+        <path d="M 320 1246 H 780 V 1298 H 320 Z" fill="rgba(10,10,11,.06)" stroke-width="7" transform="rotate(2 550 1272)"/>
+        <path d="M 336 1194 H 796 V 1246 H 336 Z" fill="rgba(10,10,11,.06)" stroke-width="7" transform="rotate(-4 566 1220)"/>
+        <path d="M 356 1142 H 816 V 1194 H 356 Z" fill="rgba(10,10,11,.06)" stroke-width="7" transform="rotate(3 586 1168)"/>
+        <path d="M 380 1090 H 840 V 1142 H 380 Z" fill="rgba(10,10,11,.06)" stroke-width="7" transform="rotate(-2 610 1116)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">三 · 抢来的东西，多半守不住</div>
+        <h2 class="h-xl">静观其变<br>顺水推舟</h2>
+        <p class="lead" style="margin-top:16px">《蛙》说，解决棘手问题的最上乘方法是：静观其变，顺水推舟。我以前不信。我觉得解决问题就得抢，得冲，得比别人快一步。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">抢来的东西<br>多半也守不住</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 四、一段正在砌的墙（我把理写歪了） ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">歪</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 110 1350 H 970" stroke-width="9"/>
+        <!-- 第一层 -->
+        <path d="M 190 1350 H 880 V 1300 H 190 Z" fill="rgba(10,10,11,.06)" stroke-width="6.5"/>
+        <path d="M 290 1350 V 1300 M 390 1350 V 1300 M 490 1350 V 1300 M 590 1350 V 1300 M 690 1350 V 1300 M 790 1350 V 1300" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+        <!-- 第二层 -->
+        <path d="M 190 1300 H 880 V 1250 H 190 Z" fill="rgba(10,10,11,.06)" stroke-width="6.5"/>
+        <path d="M 340 1300 V 1250 M 490 1300 V 1250 M 640 1300 V 1250 M 790 1300 V 1250" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+        <!-- 第三层 -->
+        <path d="M 190 1250 H 880 V 1200 H 190 Z" fill="rgba(10,10,11,.06)" stroke-width="6.5"/>
+        <path d="M 290 1250 V 1200 M 390 1250 V 1200 M 490 1250 V 1200 M 590 1250 V 1200 M 690 1250 V 1200 M 790 1250 V 1200" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+        <!-- 第四层：只砌了左边一半 -->
+        <path d="M 190 1200 H 640 V 1150 H 190 Z" fill="rgba(10,10,11,.06)" stroke-width="6.5"/>
+        <path d="M 340 1200 V 1150 M 490 1200 V 1150 M 600 1200 V 1150" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+        <!-- 尽头：一摞待用的砖（独立放在右边地上） -->
+        <path d="M 900 1350 H 1040 V 1306 H 900 Z" fill="rgba(10,10,11,.05)" stroke-width="6"/>
+        <path d="M 946 1350 V 1306 M 992 1350 V 1306" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+        <path d="M 912 1306 H 1028 V 1266 H 912 Z" fill="rgba(10,10,11,.05)" stroke-width="6"/>
+        <path d="M 960 1306 V 1266 M 1006 1306 V 1266" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">四 · 这个理，我自己早写过</div>
+        <h2 class="h-xl">我一直在往<br>利益跟前凑</h2>
+        <p class="lead" style="margin-top:16px">我早就给自己写过：我们不是要自己去抓利益，是要给利益修一条路。这一年我把这句给忘了。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">懂和信之间<br>隔着我这一年</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 06 五、还没花出去的钱（一沓纸／纸＝钱没花） ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">纸</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 110 1350 H 970" stroke-width="9"/>
+        <!-- 一沓厚纸（侧面可见层） -->
+        <path d="M 220 1290 L 800 1266 L 860 1330 L 280 1354 Z" fill="rgba(10,10,11,.05)" stroke-width="7"/>
+        <path d="M 246 1266 L 826 1242 L 886 1306 L 306 1330 Z" fill="rgba(10,10,11,.05)" stroke-width="7"/>
+        <path d="M 272 1242 L 852 1218 L 912 1282 L 332 1306 Z" fill="rgba(10,10,11,.05)" stroke-width="7"/>
+        <path d="M 298 1218 L 878 1194 L 938 1258 L 358 1282 Z" fill="rgba(10,10,11,.06)" stroke-width="7"/>
+        <!-- 最上面那张的字行 -->
+        <path d="M 356 1252 H 848 M 362 1288 H 856 M 368 1318 H 800" stroke-width="4.5" stroke="rgba(10,10,11,.13)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">五 · 还没花出去的钱</div>
+        <h2 class="h-xl">我把想法<br>攒成了纸</h2>
+        <p class="lead" style="margin-top:16px">军事文章我写了四年，最近卡在标题和正文上，写到三分之一就写不下去，一篇稿子搁在那儿。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">钱不花就是一张纸<br>花了才是钱</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 六、所以现在我不那么急了（砌好的墙＋砖） ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1350" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="720" font-weight="500" fill="rgba(10,10,11,.03)">路</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 110 1350 H 970" stroke-width="9"/>
+        <!-- 砌好的低墙（三层，齐整） -->
+        <path d="M 170 1350 H 800 V 1296 H 170 Z" fill="rgba(10,10,11,.06)" stroke-width="6.5"/>
+        <path d="M 275 1350 V 1296 M 380 1350 V 1296 M 485 1350 V 1296 M 590 1350 V 1296 M 695 1350 V 1296" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+        <path d="M 170 1296 H 800 V 1242 H 170 Z" fill="rgba(10,10,11,.06)" stroke-width="6.5"/>
+        <path d="M 328 1296 V 1242 M 485 1296 V 1242 M 642 1296 V 1242" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+        <path d="M 170 1242 H 800 V 1188 H 170 Z" fill="rgba(10,10,11,.06)" stroke-width="6.5"/>
+        <path d="M 275 1242 V 1188 M 380 1242 V 1188 M 485 1242 V 1188 M 590 1242 V 1188 M 695 1242 V 1188" stroke-width="4" stroke="rgba(10,10,11,.13)"/>
+        <!-- 右边：一段还没砌的（只有地基线） -->
+        <path d="M 860 1350 H 1040" stroke-width="6" stroke="rgba(10,10,11,.13)"/>
+        <path d="M 880 1330 H 1040" stroke-width="5" stroke="rgba(10,10,11,.10)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">六 · 所以现在我不那么急了</div>
+        <h2 class="h-xl">花有花期<br>修路有修路的时候</h2>
+        <p class="lead" style="margin-top:16px">我现在能做的，是把快递点守好，把文章一篇一篇写出来，把本事一样一样练出来。路修好了，该来的早晚会来。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">我可不想再当<br>那个被踹出来的人</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="art-zone"><svg viewBox="0 0 2100 900">
+      <text x="430" y="800" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="660" font-weight="500" fill="rgba(10,10,11,.045)">挤</text>
+      <g stroke="rgba(10,10,11,.20)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 160 700 H 800" stroke-width="9"/>
+        <circle cx="410" cy="600" r="96" stroke-width="8"/>
+        <circle cx="410" cy="600" r="15" stroke-width="5"/>
+        <path d="M 410 504 V 696 M 314 600 H 506 M 342 532 L 478 668 M 342 668 L 478 532" stroke-width="3.5" stroke="rgba(10,10,11,.13)"/>
+        <circle cx="654" cy="662" r="38" stroke-width="7"/>
+        <path d="M 328 528 H 620" stroke-width="8"/>
+        <path d="M 328 528 V 600" stroke-width="7"/>
+        <path d="M 328 528 L 284 484 L 284 402" stroke-width="8"/>
+        <path d="M 284 402 H 364" stroke-width="8"/>
+        <path d="M 318 474 H 584" stroke-width="7"/>
+        <path d="M 584 474 V 600" stroke-width="7"/>
+        <path d="M 620 600 V 664 H 568" stroke-width="7"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content" style="display:flex; align-items:center; justify-content:flex-end; padding-right:150px">
+      <div style="text-align:right">
+        <div class="kicker" style="font-size:20px">读书笔记 · 蛙</div>
+        <h1 class="h-display" style="font-size:64px">我在人群中拼命往前挤<br>最后被挤出了圈外</h1>
+        <p class="h-sub" style="font-size:32px; margin-top:18px; margin-bottom:0">看见哪儿热，就往哪儿挤</p>
+      </div>
+      <div style="text-align:right; margin-left:80px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第38天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 09 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="art-zone"><svg viewBox="0 0 1080 1080">
+      <text x="540" y="950" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">挤</text>
+      <g stroke="rgba(10,10,11,.20)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 80 912 H 900" stroke-width="8"/>
+        <circle cx="336" cy="826" r="80" stroke-width="8"/>
+        <circle cx="336" cy="826" r="13" stroke-width="5"/>
+        <path d="M 336 746 V 906 M 256 826 H 416 M 280 770 L 392 882 M 280 882 L 392 770" stroke-width="3.5" stroke="rgba(10,10,11,.13)"/>
+        <circle cx="540" cy="876" r="32" stroke-width="7"/>
+        <path d="M 268 770 H 506" stroke-width="8"/>
+        <path d="M 268 770 V 826" stroke-width="7"/>
+        <path d="M 268 770 L 230 732 L 230 664" stroke-width="8"/>
+        <path d="M 230 664 H 300" stroke-width="8"/>
+        <path d="M 260 726 H 476" stroke-width="7"/>
+        <path d="M 476 726 V 826" stroke-width="7"/>
+        <path d="M 506 826 V 880 H 466" stroke-width="7"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:flex-start; padding-top:190px">
+      <div class="kicker">读书笔记 · 蛙</div>
+      <h1 class="h-display" style="font-size:62px">我在人群中<br>拼命往前挤<br>最后被挤出了圈外</h1>
+      <p class="h-sub" style="margin-top:34px; margin-bottom:0">看见哪儿热，就往哪儿挤</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
