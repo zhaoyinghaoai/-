@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>她接生了一辈子 · 社card · 蛙</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --paper: #f3f0e8; --paper-2: #ebe6da;
+      --ink: #0a0a0b; --muted: #68625a;
+      --line: rgba(10,10,11,.22); --accent: #111111; --accent-soft: #d8d2c6;
+      --ink-rgb: 10,10,11; --paper-rgb: 243,240,232;
+      --serif-zh: "Noto Serif SC","Songti SC","STSong",serif;
+      --serif-en: "Playfair Display","Noto Serif SC",serif;
+      --sans-zh: "Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei UI",sans-serif;
+      --mono: "IBM Plex Mono",ui-monospace,Consolas,monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { background:#1a1a1a; font-family:var(--sans-zh); color:var(--ink); padding:48px 24px; -webkit-font-smoothing:antialiased; }
+    .sheet { display:flex; flex-direction:column; align-items:center; gap:40px; }
+    .poster { position:relative; background:var(--paper); color:var(--ink); overflow:hidden; isolation:isolate; }
+    .poster.xhs { width:1080px; height:1440px; }
+    .poster.square { width:1080px; height:1080px; }
+    .poster.wide { width:2100px; height:900px; }
+    .content { position:relative; width:100%; height:100%; z-index:2; }
+    .poster.xhs .content { padding:96px 88px; }
+    .poster.square .content { padding:88px; }
+    .poster.wide .content { padding:80px 120px; }
+    .mag-bg,.grain,.paper-wash { position:absolute; inset:0; pointer-events:none; }
+    .mag-bg { z-index:0; }
+    .grain { z-index:1; opacity:.35; mix-blend-mode:multiply; background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px); background-size:3px 3px; }
+    .paper-wash { z-index:1; background:linear-gradient(180deg,rgba(var(--ink-rgb),.02),rgba(var(--ink-rgb),.04) 55%,rgba(var(--ink-rgb),.07)); }
+
+    .kicker { font-family:var(--mono); font-size:21px; letter-spacing:.22em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); margin:0 0 20px; }
+    .h-display { font-family:var(--serif-zh); font-weight:500; line-height:1.06; letter-spacing:.04em; margin:0; color:var(--ink); }
+    .h-xl { font-family:var(--serif-zh); font-weight:500; font-size:56px; line-height:1.16; letter-spacing:.03em; margin:0 0 24px; color:var(--ink); }
+    .h-sub { font-family:var(--serif-zh); font-style:normal; font-weight:400; font-size:34px; color:var(--muted); margin:0 0 24px; }
+    .lead { font-family:var(--serif-zh); font-weight:400; font-size:30px; line-height:1.55; color:rgba(var(--ink-rgb),.82); margin:0 0 22px; }
+    .pullquote { font-family:var(--serif-zh); font-weight:500; font-size:44px; line-height:1.4; letter-spacing:.02em; color:var(--ink); margin:0; }
+    .meta { font-family:var(--mono); font-size:18px; letter-spacing:.20em; text-transform:uppercase; color:rgba(var(--ink-rgb),.55); }
+
+    .issue-row { display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:18px; letter-spacing:.18em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
+    .issue-row .dot { width:4px; height:4px; border-radius:50%; background:rgba(var(--ink-rgb),.4); }
+    .rule { border:0; border-top:1px solid var(--line); margin:0; }
+    .col { display:flex; flex-direction:column; }
+    .row { display:flex; align-items:flex-start; gap:48px; }
+    .bottom { position:absolute; left:88px; right:88px; bottom:96px; }
+
+    .txt-zone { position:relative; z-index:3; }
+    .art-zone { position:absolute; left:0; right:0; top:0; height:100%; z-index:0; }
+    .art-zone svg { position:absolute; inset:0; width:100%; height:100%; }
+    .poster.wide .h-display { font-size:98px; }
+    .poster.square .h-display { font-size:88px; }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ========== 01 封面：泥娃娃（她把那些孩子做成了泥娃娃） ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="700" font-weight="500" fill="rgba(10,10,11,.03)">泥</text>
+      <g stroke="rgba(10,10,11,.19)" fill="rgba(10,10,11,.055)" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 60 1258 H 1020" stroke-width="10" fill="none"/>
+        <g stroke-width="6">
+          <g transform="translate(170,1258) scale(1.00)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(355,1258) scale(1.06)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(540,1258) scale(0.94)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(725,1258) scale(1.08)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(910,1258) scale(0.97)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+        </g>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:150px">
+        <div class="kicker">读书笔记 · 蛙</div>
+        <h1 class="h-display" style="font-size:58px">她接生了一辈子<br>后来拦着孩子不让出来</h1>
+        <p class="h-sub" style="margin-top:20px">一双手，方向掉了个头</p>
+        <p class="lead" style="margin-top:16px; max-width:880px">莫言《蛙》里那个姑姑万心。她父亲是八路军的军医，烈士，跟着白求恩学过西医。救人的行当到了女儿手上，前半生往外拽命，后半生拦着孩子。</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <hr class="rule" style="margin-bottom:28px">
+      <div class="issue-row">
+        <span>莫言·蛙 · 人物志第 1 篇</span><span class="dot"></span>
+        <span>姑姑万心</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 一 · 药箱 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="700" font-weight="500" fill="rgba(10,10,11,.03)">药</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 60 1258 H 1020" stroke-width="10"/>
+        <path d="M 415 933 C 415 872 452 861 540 861 C 628 861 665 872 665 933" stroke-width="8"/>
+        <path d="M 165 933 H 915 V 1258 H 165 Z" fill="rgba(10,10,11,.05)" stroke-width="9"/>
+        <path d="M 165 1038 H 915" stroke-width="7"/>
+        <path d="M 365 1020 H 430 V 1068 H 365 Z" fill="rgba(10,10,11,.07)" stroke-width="5"/>
+        <path d="M 650 1020 H 715 V 1068 H 650 Z" fill="rgba(10,10,11,.07)" stroke-width="5"/>
+        <path d="M 165 1185 H 240 M 165 1205 H 240 M 840 1185 H 915 M 840 1205 H 915" stroke-width="5"/>
+        <path d="M 165 958 V 1020 M 240 933 V 1020 M 840 933 V 1020 M 915 958 V 1020" stroke-width="5"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">一 · 她这双手，是有来处的</div>
+        <h2 class="h-xl">这双手<br>不是随便长的</h2>
+        <p class="lead" style="margin-top:16px">姑姑学名万心。她父亲万六府，是八路军的军医，烈士，跟着白求恩学过西医。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">一个从白求恩那儿接过手艺的人<br>把女儿送去做了乡村医生</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 二 · 自行车 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="700" font-weight="500" fill="rgba(10,10,11,.03)">走</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 40 1258 H 1040" stroke-width="10"/>
+        <circle cx="270" cy="1140" r="118" stroke-width="9"/>
+        <circle cx="270" cy="1140" r="14" stroke-width="5"/>
+        <path d="M 270 1022 V 1258 M 152 1140 H 388" stroke-width="3.5" stroke="rgba(10,10,11,.11)"/>
+        <circle cx="810" cy="1140" r="118" stroke-width="9"/>
+        <circle cx="810" cy="1140" r="14" stroke-width="5"/>
+        <path d="M 810 1022 V 1258 M 692 1140 H 928" stroke-width="3.5" stroke="rgba(10,10,11,.11)"/>
+        <path d="M 270 1140 H 500" stroke-width="8"/>
+        <path d="M 270 1140 L 665 1002" stroke-width="8"/>
+        <path d="M 500 1140 L 665 1002" stroke-width="8"/>
+        <path d="M 665 1002 H 808" stroke-width="8"/>
+        <path d="M 500 1140 L 808 995" stroke-width="8"/>
+        <path d="M 808 995 L 810 1140" stroke-width="8"/>
+        <path d="M 606 1002 H 726 V 982 H 606 Z" fill="rgba(10,10,11,.07)" stroke-width="6"/>
+        <path d="M 812 990 V 946" stroke-width="8"/>
+        <path d="M 722 950 C 774 926 846 926 886 950" stroke-width="8"/>
+        <path d="M 176 1016 H 372 V 992 H 176 Z" fill="rgba(10,10,11,.05)" stroke-width="6"/>
+        <path d="M 186 1016 L 270 1088 M 362 1016 L 270 1088" stroke-width="4" stroke="rgba(10,10,11,.12)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">二 · 前半生，她从人堆里往外拽命</div>
+        <h2 class="h-xl">她是被人<br>盼着来的那一个</h2>
+        <p class="lead" style="margin-top:16px">那些年村里的孩子，是老一套的接生婆接的。姑姑干的是新法接生，跟那几位老太太较了一辈子劲，一个接一个把孩子抢出来。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">她那会儿的手<br>是从人堆里往外拽命的</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 三 · 一扇开一扇关的门 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="700" font-weight="500" fill="rgba(10,10,11,.03)">门</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 60 1258 H 1020" stroke-width="10"/>
+        <path d="M 543 872 H 649 V 1242 H 543 Z" fill="rgba(10,10,11,.075)" stroke-width="8"/>
+        <path d="M 536 876 V 1240" stroke-width="10" stroke="rgba(10,10,11,.09)"/>
+        <path d="M 431 865 L 316 838 L 298 1218 L 431 1246 Z" fill="rgba(10,10,11,.055)" stroke-width="8"/>
+        <path d="M 425 865 H 655 V 1246 H 425 Z" stroke-width="9"/>
+        <path d="M 410 1256 H 670" stroke-width="12"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">三 · 同一双手，换了个方向</div>
+        <h2 class="h-xl">同一扇门<br>同一个人</h2>
+        <p class="lead" style="margin-top:16px">前半生她进人家的门，屋里是喜气，是热汤，是主人家攥着她的手道谢。后半生她进人家的门，屋里的人是要躲的，要脸沉的，是要在背后骂她的。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">进去的待遇，全掉了个头</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 四 · 一串脚印 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="700" font-weight="500" fill="rgba(10,10,11,.03)">村</text>
+      <g stroke="rgba(10,10,11,.19)" fill="rgba(10,10,11,.06)" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 40 1258 H 1040" stroke-width="10" fill="none"/>
+        <g stroke-width="6">
+          <g transform="translate(920,1182) rotate(-8) scale(1.25)">
+            <ellipse cx="0" cy="-46" rx="34" ry="42"/>
+            <circle cx="-23" cy="-104" r="10"/><circle cx="-8" cy="-110" r="10"/><circle cx="8" cy="-109" r="10"/><circle cx="22" cy="-101" r="9"/>
+            <ellipse cx="0" cy="24" rx="27" ry="30"/>
+          </g>
+          <g transform="translate(783,1168) rotate(6) scale(1.15)">
+            <ellipse cx="0" cy="-46" rx="34" ry="42"/>
+            <circle cx="-23" cy="-104" r="10"/><circle cx="-8" cy="-110" r="10"/><circle cx="8" cy="-109" r="10"/><circle cx="22" cy="-101" r="9"/>
+            <ellipse cx="0" cy="24" rx="27" ry="30"/>
+          </g>
+          <g transform="translate(583,1153) rotate(-8) scale(1.05)">
+            <ellipse cx="0" cy="-46" rx="34" ry="42"/>
+            <circle cx="-23" cy="-104" r="10"/><circle cx="-8" cy="-110" r="10"/><circle cx="8" cy="-109" r="10"/><circle cx="22" cy="-101" r="9"/>
+            <ellipse cx="0" cy="24" rx="27" ry="30"/>
+          </g>
+          <g transform="translate(392,1137) rotate(7) scale(0.95)">
+            <ellipse cx="0" cy="-46" rx="34" ry="42"/>
+            <circle cx="-23" cy="-104" r="10"/><circle cx="-8" cy="-110" r="10"/><circle cx="8" cy="-109" r="10"/><circle cx="22" cy="-101" r="9"/>
+            <ellipse cx="0" cy="24" rx="27" ry="30"/>
+          </g>
+          <g transform="translate(224,1119) rotate(-8) scale(0.85)">
+            <ellipse cx="0" cy="-46" rx="34" ry="42"/>
+            <circle cx="-23" cy="-104" r="10"/><circle cx="-8" cy="-110" r="10"/><circle cx="8" cy="-109" r="10"/><circle cx="22" cy="-101" r="9"/>
+            <ellipse cx="0" cy="24" rx="27" ry="30"/>
+          </g>
+          <g transform="translate(81,1102) rotate(6) scale(0.75)">
+            <ellipse cx="0" cy="-46" rx="34" ry="42"/>
+            <circle cx="-23" cy="-104" r="10"/><circle cx="-8" cy="-110" r="10"/><circle cx="8" cy="-109" r="10"/><circle cx="22" cy="-101" r="9"/>
+            <ellipse cx="0" cy="24" rx="27" ry="30"/>
+          </g>
+        </g>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">四 · 她是带队的那个人</div>
+        <h2 class="h-xl">一个村<br>一个村地走</h2>
+        <p class="lead" style="margin-top:16px">她是乡村医生，她是带队的。给村里的男人做手术，她在场，她动手。她要进人家的门，要跟人说，要挨人骂，然后把活干完。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">坚定这两个字<br>是她一双一双做出来的</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 06 七 · 一摞砖，底下一块压裂了 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="700" font-weight="500" fill="rgba(10,10,11,.03)">重</text>
+      <g stroke="rgba(10,10,11,.19)" fill="rgba(10,10,11,.07)" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 60 1258 H 1020" stroke-width="10" fill="none"/>
+        <g stroke-width="8">
+          <path d="M 284 1184 H 796 V 1258 H 284 Z"/>
+          <path d="M 284 1110 H 796 V 1184 H 284 Z"/>
+          <path d="M 284 1036 H 796 V 1110 H 284 Z"/>
+          <path d="M 284 962 H 796 V 1036 H 284 Z"/>
+          <path d="M 284 888 H 796 V 962 H 284 Z"/>
+        </g>
+        <g stroke-width="5" stroke="rgba(10,10,11,.13)" fill="none">
+          <path d="M 540 1110 V 1184"/>
+          <path d="M 412 1036 V 1110 M 668 1036 V 1110"/>
+          <path d="M 540 962 V 1036"/>
+          <path d="M 412 888 V 962 M 668 888 V 962"/>
+        </g>
+        <path d="M 540 1190 L 500 1214 L 556 1236 L 510 1258" stroke-width="6" stroke="rgba(10,10,11,.22)" fill="none"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">七 · 她的恍惚，不是动摇</div>
+        <h2 class="h-xl">不是动摇<br>是重量</h2>
+        <p class="lead" style="margin-top:16px">一个人把这样的事扛到底，一天都没有动摇过，所有的分量就全落在她一个人身上了。她没把这件事分给过谁，也没打算分。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">扛得越死，压出来的印子越深</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 八 · 摊开的旧医书 ========== -->
+  <section class="poster xhs">
+    <div class="art-zone"><svg viewBox="0 0 1080 1440">
+      <text x="540" y="1230" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="700" font-weight="500" fill="rgba(10,10,11,.03)">问</text>
+      <g stroke="rgba(10,10,11,.19)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 60 1258 H 1020" stroke-width="10"/>
+        <path d="M 135 1258 L 540 1200 L 540 916 L 135 974 Z" fill="rgba(10,10,11,.05)" stroke-width="8"/>
+        <path d="M 540 1200 L 945 1258 L 945 974 L 540 916 Z" fill="rgba(10,10,11,.05)" stroke-width="8"/>
+        <path d="M 540 916 V 1200" stroke-width="7"/>
+        <path d="M 205 1032 H 490 M 205 1092 H 476 M 205 1152 H 420" stroke-width="5" stroke="rgba(10,10,11,.12)"/>
+        <path d="M 596 1034 H 878 M 596 1094 H 862 M 596 1154 H 808" stroke-width="5" stroke="rgba(10,10,11,.12)"/>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content">
+      <div class="txt-zone" style="padding-top:140px">
+        <div class="kicker">八 · 换成我，我做不做</div>
+        <h2 class="h-xl">我要是说<br>我不做</h2>
+        <p class="lead" style="margin-top:16px">那才是站着说话。那件事总得有人去做，我凭什么把难的留给别人，自己占着一句干净话。只是我会多想一件事：手上的方法，是不是太急了。</p>
+        <p class="pullquote" style="font-size:40px; margin-top:10px">我佩服她，是因为她扛住了<br>我心疼她，是因为她到今天也没放下</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 公众号 21:9 封面 ========== -->
+  <section class="poster wide">
+    <div class="art-zone"><svg viewBox="0 0 2100 900">
+      <text x="500" y="770" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="620" font-weight="500" fill="rgba(10,10,11,.045)">泥</text>
+      <g stroke="rgba(10,10,11,.20)" fill="rgba(10,10,11,.055)" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 120 700 H 920" stroke-width="9" fill="none"/>
+        <g stroke-width="6">
+          <g transform="translate(200,700) scale(0.85)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(360,700) scale(0.90)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(520,700) scale(0.80)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(680,700) scale(0.92)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(840,700) scale(0.82)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+        </g>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content" style="display:flex; align-items:center; justify-content:flex-end; padding-right:150px">
+      <div style="text-align:right">
+        <div class="kicker" style="font-size:20px">读书笔记 · 蛙</div>
+        <h1 class="h-display" style="font-size:64px">她接生了一辈子<br>后来拦着孩子不让出来</h1>
+        <p class="h-sub" style="font-size:32px; margin-top:18px; margin-bottom:0">一双手，方向掉了个头</p>
+      </div>
+      <div style="text-align:right; margin-left:80px">
+        <div class="meta" style="font-size:16px">读书感悟 · 第39天</div>
+        <div style="width:3px; height:120px; background:var(--accent); margin:24px 0 24px auto"></div>
+        <div class="meta" style="font-size:16px">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 09 公众号 1:1 方图 ========== -->
+  <section class="poster square">
+    <div class="art-zone"><svg viewBox="0 0 1080 1080">
+      <text x="540" y="800" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="560" font-weight="500" fill="rgba(10,10,11,.03)">泥</text>
+      <g stroke="rgba(10,10,11,.20)" fill="rgba(10,10,11,.055)" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 60 880 H 1020" stroke-width="9" fill="none"/>
+        <g stroke-width="6">
+          <g transform="translate(170,880) scale(0.92)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(355,880) scale(0.98)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(540,880) scale(0.86)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(725,880) scale(1.00)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+          <g transform="translate(910,880) scale(0.89)">
+            <path d="M -66 -26 H 66 V 0 H -66 Z"/>
+            <path d="M -38 -146 L 38 -146 L 52 -26 L -52 -26 Z"/>
+            <ellipse cx="0" cy="-204" rx="48" ry="54"/>
+          </g>
+        </g>
+      </g>
+    </svg></div><div class="grain"></div><div class="paper-wash"></div>
+    <div class="content col" style="justify-content:flex-start; padding-top:170px">
+      <div class="kicker">读书笔记 · 蛙</div>
+      <h1 class="h-display" style="font-size:62px">她接生了一辈子<br>后来拦着孩子<br>不让出来</h1>
+      <p class="h-sub" style="margin-top:30px; margin-bottom:0">一双手，方向掉了个头</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
