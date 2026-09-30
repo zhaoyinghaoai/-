@@ -134,3 +134,9 @@
 - git pull 失败（Could not resolve host: github.com，DNS 解析失败）
 - 网络不通，按指令不重试，下次自动重试
 - 本地已 commit 未推送（工作区干净）
+
+## [2026-09-29 12:30] 同步失败（网络不通）
+- 本地 40 个未提交改动（沙特拦截弹篇v1+发布执行单、本币结算篇执行单、降税清单篇v3执行单、蛙读书感悟+社card配图9张+朋友圈文案、9-28日记+回信、期望值/凯利公式2个商业思维主题页、teach-haozong skill、memory/Index/Log、temp临时文件），先 commit 保存（commit 80d17b0，40 files changed）
+- git pull 失败（Recv failure: Connection was reset，与 9-13/9-14/9-16/9-18/9-19/9-20/9-21/9-25 同错误）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（工作区干净）
