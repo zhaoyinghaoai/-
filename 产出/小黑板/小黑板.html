@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>小黑板 · 草稿纸</title>
+<style>
+  :root{
+    --ink:#1c1c1e;
+    --ink-soft:#5a5a5f;
+    --paper:#faf8f3;
+    --paper-2:#f3f0e8;
+    --line:#dcd7ca;
+    --rule:#c9d6c2;
+    --accent:#1d9e75;
+    --danger:#e24b4a;
+    --chalk:#f2f0ea;
+    --board:#22302c;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--paper-2);
+    color:var(--ink);
+    display:flex;flex-direction:column;
+    height:100vh;
+  }
+
+  /* ── 顶栏 ── */
+  header{
+    flex:0 0 auto;
+    display:flex;align-items:center;gap:8px;
+    padding:7px 12px;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .title{font-size:15px;font-weight:700;letter-spacing:.5px;margin-right:4px;}
+  .title small{font-weight:400;color:var(--ink-soft);font-size:11px;margin-left:6px;letter-spacing:0;}
+  .spacer{flex:1 1 auto;}
+
+  button{
+    font-family:inherit;font-size:13px;
+    padding:6px 12px;border-radius:8px;
+    border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+    cursor:pointer;transition:.12s;
+    white-space:nowrap;
+  }
+  button:hover{background:#f0ede4;}
+  button:active{transform:scale(.96);}
+  button.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+  button.ghost{background:transparent;}
+  button.danger:hover{background:#fdf0f0;border-color:var(--danger);color:var(--danger);}
+
+  .swatches{display:flex;gap:5px;align-items:center;}
+  .sw{
+    width:24px;height:24px;border-radius:50%;
+    border:2px solid #fff;box-shadow:0 0 0 1px var(--line);
+    cursor:pointer;transition:.12s;
+  }
+  .sw.on{box-shadow:0 0 0 2px var(--accent);transform:scale(1.1);}
+
+  input[type=range]{width:78px;accent-color:var(--accent);}
+
+  /* ── 主区：左右分栏 ── */
+  main{flex:1 1 auto;display:flex;min-height:0;}
+  #left{
+    flex:1 1 auto;min-width:0;
+    display:flex;flex-direction:column;
+    position:relative;
+    background:var(--paper);
+  }
+  #boardWrap{
+    flex:1 1 auto;position:relative;min-height:0;
+    background:var(--paper);
+    cursor:crosshair;
+  }
+  /* 练习本横格 */
+  #boardWrap.ruled::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 30px,
+      var(--rule) 30px, var(--rule) 31px
+    );
+    background-size:100% 31px;
+    opacity:.45;
+  }
+  #boardWrap.board{background:var(--board);}
+  #boardWrap.board.ruled::before{
+    background-image:repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 30px,
+      rgba(255,255,255,.12) 30px, rgba(255,255,255,.12) 31px
+    );
+    opacity:1;
+  }
+  canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;}
+
+  /* 橡皮：跟着鼠标走的方形橡皮 */
+  #eraser{
+    position:absolute;display:none;pointer-events:none;
+    border:1.5px solid var(--danger);
+    background:rgba(226,75,74,.10);
+    border-radius:3px;z-index:6;
+  }
+  #eraser.on{display:block;}
+  #eraser::after{
+    content:"";position:absolute;left:50%;top:50%;
+    width:5px;height:5px;margin:-2.5px 0 0 -2.5px;
+    border-radius:50%;background:var(--danger);opacity:.6;
+  }
+
+  /* 清空确认小条 */
+  #confirmBar{
+    position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+    display:none;align-items:center;gap:10px;
+    background:#fff;border:1px solid var(--line);
+    border-radius:11px;padding:9px 12px;
+    box-shadow:0 6px 22px rgba(0,0,0,.13);
+    font-size:13.5px;z-index:9;white-space:nowrap;
+  }
+  #confirmBar.on{display:flex;}
+  #confirmBar b{color:var(--danger);}
+  #confirmBar button{padding:5px 11px;font-size:12.5px;}
+
+  /* 打字层 */
+  #typeLayer{
+    position:absolute;inset:0;overflow:auto;
+    padding:14px 18px 40px;
+    outline:none;
+    font-size:19px;line-height:31px;
+    font-family:"SF Mono",Consolas,"Courier New","PingFang SC",monospace;
+    color:var(--ink);
+    white-space:pre-wrap;word-break:break-word;
+    display:none;
+  }
+  #typeLayer.show{display:block;}
+  #typeLayer:empty::before{
+    content:"在这里打字……分数线用 / ，例如  (1.5×9/20 − 11/20) / 1.5";
+    color:#b3ada0;font-size:14px;
+  }
+  body.dark #typeLayer{color:var(--chalk);}
+  body.dark #typeLayer:empty::before{color:rgba(255,255,255,.32);}
+
+  /* ── 右栏 ── */
+  #right{
+    flex:0 0 300px;width:300px;
+    border-left:1px solid var(--line);
+    background:var(--paper);
+    display:flex;flex-direction:column;
+    min-height:0;
+  }
+  #right.hide{display:none;}
+  .panel-head{
+    flex:0 0 auto;
+    padding:9px 12px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;
+  }
+  .panel-head .spacer{flex:1;}
+  .panel-head button{padding:4px 9px;font-size:12px;}
+  #notes{
+    flex:1 1 auto;overflow:auto;
+    padding:12px 14px;
+    font-size:15px;line-height:1.75;
+    color:var(--ink);
+    outline:none;
+    white-space:pre-wrap;word-break:break-word;
+  }
+  #notes:empty::before{content:"右边随便写点…（比如原题、卡在哪一格）";color:#b3ada0;font-size:13px;}
+  .divider{height:1px;background:var(--line);flex:0 0 auto;}
+  #history{
+    flex:0 0 150px;overflow:auto;
+    padding:8px 10px;font-size:12.5px;
+  }
+  .hist-item{
+    padding:6px 9px;border-radius:7px;cursor:pointer;
+    color:var(--ink-soft);display:flex;gap:8px;align-items:baseline;
+    transition:.1s;
+  }
+  .hist-item:hover{background:var(--paper-2);color:var(--ink);}
+  .hist-item .t{font-variant-numeric:tabular-nums;flex:0 0 auto;}
+  .hist-item .p{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
+  .hist-empty{color:#b3ada0;font-size:12px;padding:6px 9px;}
+
+  /* ── 状态条 ── */
+  footer{
+    flex:0 0 auto;
+    display:flex;align-items:center;gap:12px;
+    padding:5px 14px;
+    font-size:11.5px;color:var(--ink-soft);
+    background:var(--paper);
+    border-top:1px solid var(--line);
+  }
+  footer .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+
+  @media (max-width:760px){
+    #right{flex:0 0 46vw;width:46vw;}
+    .title small{display:none;}
+    header{padding:6px 8px;gap:6px;}
+    button{padding:6px 9px;font-size:12.5px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title">小黑板<small>草稿纸 · 默推用</small></div>
+
+  <button id="btnPen" class="on" title="手写模式">手写</button>
+  <button id="btnType" title="打字模式">打字</button>
+  <button id="btnErase" title="橡皮：按住拖，抹过的地方就擦掉">橡皮</button>
+  <button id="btnPurge" class="ghost" title="清掉旧版橡皮留下的白印（只在黑板上需要）">清旧印</button>
+
+  <div class="swatches" id="swatches"></div>
+  <input type="range" id="size" min="1" max="10" value="3" title="笔粗细">
+
+  <span class="spacer"></span>
+
+  <button id="btnRuled" class="ghost on" title="横格线">横格</button>
+  <button id="btnBoard" class="ghost" title="黑板配色">黑板</button>
+  <button id="btnUndo" title="撤销">↶ 撤销</button>
+  <button id="btnClear" class="danger" title="全部擦掉">全部擦掉</button>
+  <button id="btnSave" title="存一版草稿">存档</button>
+  <button id="btnRight" class="ghost on" title="右侧栏">侧栏</button>
+</header>
+
+<main>
+  <div id="left">
+    <div id="boardWrap" class="ruled">
+      <canvas id="board"></canvas>
+      <div id="eraser"></div>
+      <div id="typeLayer" contenteditable="true" spellcheck="false"></div>
+      <div id="confirmBar">
+        <span>要把整块板都擦掉吗？<b>这一步退不回来。</b></span>
+        <button id="confirmYes" class="danger">确定全擦</button>
+        <button id="confirmNo">算了</button>
+      </div>
+    </div>
+  </div>
+
+  <aside id="right">
+    <div class="panel-head">
+      随手记
+      <span class="spacer"></span>
+      <button id="btnCopyNotes" class="ghost">复制</button>
+    </div>
+    <div id="notes" contenteditable="true" spellcheck="false"></div>
+
+    <div class="divider"></div>
+
+    <div class="panel-head" style="border-bottom:none;padding-bottom:2px;">
+      草稿存档
+      <span class="spacer"></span>
+      <button id="btnDelHist" class="ghost danger">清空</button>
+    </div>
+    <div id="history"></div>
+  </aside>
+</main>
+
+<footer>
+  <span class="dot"></span>
+  <span id="status">准备好了 —— 直接在板上写</span>
+  <span class="spacer" style="flex:1;"></span>
+  <span id="tip">Ctrl+Z 撤回 ／ Ctrl+E 局部擦 ／ 全擦会先问你一句</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var wrap   = document.getElementById('boardWrap');
+  var canvas = document.getElementById('board');
+  var ctx    = canvas.getContext('2d');
+  var layer  = document.getElementById('typeLayer');
+  var notes  = document.getElementById('notes');
+  var statusEl = document.getElementById('status');
+  var eraser = document.getElementById('eraser');
+  var confirmBar = document.getElementById('confirmBar');
+
+  var COLORS = ['#1c1c1e','#1d9e75','#e24b4a','#2f6fd0','#d99b1c','#8a5cd6'];
+  var LS_KEY = 'xiaohieban.v1';
+
+  var DPR = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
+  var drawing = false;
+  var color = COLORS[0];
+  var width = 3;
+  var mode = 'pen';               // pen | type | erase
+  var undoStack = [];             // ImageData 栈
+  var MAX_UNDO = 25;
+  var saveTimer = null;
+  var erasing = false;            // 橡皮是否正在擦
+  var lastErase = null;           // 上一个擦除点，用来连成轨迹
+  var ERASE_UNDO_OPENED = false;  // 一次拖拽只压一次撤销
+  var eraserHover = false;
+  var mPos = {x:0, y:0};
+
+  /* ══════════ 画布尺寸 ══════════ */
+  function resizeCanvas(keep){
+    var r = wrap.getBoundingClientRect();
+    var w = Math.max(1, Math.floor(r.width));
+    var h = Math.max(1, Math.floor(r.height));
+    var pw = Math.floor(w * DPR), ph = Math.floor(h * DPR);
+    if(canvas.width === pw && canvas.height === ph) return;
+
+    var old = null;
+    if(keep && canvas.width > 0 && canvas.height > 0){
+      try{ old = ctx.getImageData(0,0,canvas.width,canvas.height); }catch(e){}
+    }
+    canvas.width = pw; canvas.height = ph;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    if(old){
+      // 按比例贴回
+      var tmp = document.createElement('canvas');
+      tmp.width = old.width; tmp.height = old.height;
+      tmp.getContext('2d').putImageData(old,0,0);
+      ctx.save();
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.drawImage(tmp,0,0,pw,ph);
+      ctx.restore();
+    }
+    undoStack = [];
+    updateStatus();
+  }
+
+  /* ══════════ 落笔 ══════════ */
+  function pos(e){
+    var r = canvas.getBoundingClientRect();
+    var x = (e.clientX - r.left);
+    var y = (e.clientY - r.top);
+    return {x:x, y:y};
+  }
+
+  function pushUndo(){
+    if(canvas.width < 1) return;
+    try{
+      undoStack.push({
+        w: canvas.width, h: canvas.height,
+        d: ctx.getImageData(0,0,canvas.width,canvas.height)
+      });
+      if(undoStack.length > MAX_UNDO) undoStack.shift();
+    }catch(e){}
+  }
+
+  function strokeColor(){
+    return document.body.classList.contains('dark') ? '#f2f0ea' : color;
+  }
+
+  /* ── 橡皮：一块跟着鼠标的方形橡皮，拖过哪儿擦哪儿 ── */
+  function eraserSize(){
+    // 橡皮边长跟着笔粗细走，但保证最小 26px 好操作
+    return Math.max(26, width * 9);
+  }
+
+  function moveEraser(x, y){
+    var s = eraserSize();
+    eraser.style.width  = s + 'px';
+    eraser.style.height = s + 'px';
+    eraser.style.left = (x - s / 2) + 'px';
+    eraser.style.top  = (y - s / 2) + 'px';
+  }
+
+  function showEraser(x, y){ moveEraser(x, y); eraser.classList.add('on'); }
+  function hideEraser(){ eraser.classList.remove('on'); }
+
+  // 🔴 真擦除：用 destination-out 把像素挖掉，露出下面的板色/纸色
+  //    —— 不能填底色！填底色在黑板上会糊一层白，越擦越花。
+  function eraseAt(x, y){
+    var s = eraserSize();
+    ctx.save();
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = '#000';          // 颜色无关，只取 alpha
+    ctx.fillRect(x - s/2, y - s/2, s, s);
+    ctx.restore();
+  }
+
+  // 两点之间连成一条粗轨迹（防止快速拖动时漏擦）
+  function eraseSegment(a, b){
+    var s = eraserSize();
+    var dx = b.x - a.x, dy = b.y - a.y;
+    var dist = Math.sqrt(dx*dx + dy*dy);
+    var steps = Math.max(1, Math.ceil(dist / (s * 0.35)));
+    for(var i = 1; i <= steps; i++){
+      var t = i / steps;
+      eraseAt(a.x + dx*t, a.y + dy*t);
+    }
+  }
+
+  function startErase(x, y){
+    if(!ERASE_UNDO_OPENED){
+      // 一次拖拽只压一次撤销，Ctrl+Z 能整块退回来
+      if(canvas.width > 0){
+        try{
+          undoStack.push({w:canvas.width, h:canvas.height, d:ctx.getImageData(0,0,canvas.width,canvas.height)});
+          if(undoStack.length > MAX_UNDO) undoStack.shift();
+        }catch(e){}
+      }
+      ERASE_UNDO_OPENED = true;
+    }
+    erasing = true;
+    lastErase = {x:x, y:y};
+    eraseAt(x, y);          // 点一下也擦掉一小块
+  }
+
+  function endErase(){
+    if(!erasing) return;
+    erasing = false;
+    lastErase = null;
+    ERASE_UNDO_OPENED = false;
+    scheduleSave();
+    setStatus('抹掉了一块（Ctrl+Z 可以退回来）');
+  }
+
+  function start(e){
+    if(mode === 'type') return;
+    e.preventDefault();
+    var p = pos(e);
+
+    if(mode === 'erase'){
+      showEraser(p.x, p.y);
+      startErase(p.x, p.y);
+      canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId);
+      return;
+    }
+
+    // pen
+    pushUndo();
+    drawing = true;
+    ctx.strokeStyle = strokeColor();
+    ctx.lineWidth = width;
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
+    // 点一下也有痕迹
+    ctx.lineTo(p.x + .01, p.y + .01);
+    ctx.stroke();
+    canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId);
+  }
+
+  function move(e){
+    var p = pos(e);
+
+    if(mode === 'erase'){
+      e.preventDefault();
+      showEraser(p.x, p.y);
+      if(erasing && lastErase){
+        eraseSegment(lastErase, p);
+        lastErase = {x:p.x, y:p.y};
+      }
+      return;
+    }
+
+    if(!drawing) return;
+    e.preventDefault();
+    ctx.strokeStyle = strokeColor();
+    ctx.lineWidth = width;
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+  }
+
+  function end(e){
+    if(mode === 'erase'){
+      endErase();
+      return;
+    }
+    if(!drawing) return;
+    drawing = false;
+    scheduleSave();
+  }
+
+  // 橡皮跟着鼠标动（不按也能看到）
+  wrap.addEventListener('pointermove', function(e){
+    if(mode !== 'erase' || e.pointerType === 'touch') return;
+    var p = pos(e);
+    showEraser(p.x, p.y);
+    eraserHover = true;
+  });
+  wrap.addEventListener('pointerleave', function(){
+    if(mode === 'erase' && !erasing){ hideEraser(); eraserHover = false; }
+  });
+
+  canvas.addEventListener('pointerdown', start);
+  canvas.addEventListener('pointermove', move);
+  canvas.addEventListener('pointerup', end);
+  canvas.addEventListener('pointercancel', end);
+  canvas.addEventListener('pointerleave', end);
+
+  /* ══════════ 颜色 / 粗细 ══════════ */
+  var swBox = document.getElementById('swatches');
+  COLORS.forEach(function(c, i){
+    var b = document.createElement('div');
+    b.className = 'sw' + (i === 0 ? ' on' : '');
+    b.style.background = c;
+    b.addEventListener('click', function(){
+      color = c;
+      swBox.querySelectorAll('.sw').forEach(function(n){ n.classList.remove('on'); });
+      b.classList.add('on');
+      switchMode('pen');
+    });
+    swBox.appendChild(b);
+  });
+
+  document.getElementById('size').addEventListener('input', function(e){
+    width = parseInt(e.target.value, 10);
+  });
+
+  /* ══════════ 模式切换 ══════════ */
+  var btnPen   = document.getElementById('btnPen');
+  var btnType  = document.getElementById('btnType');
+  var btnErase = document.getElementById('btnErase');
+
+  function switchMode(m){
+    mode = m;
+    btnPen.classList.toggle('on',   m === 'pen');
+    btnType.classList.toggle('on',  m === 'type');
+    btnErase.classList.toggle('on', m === 'erase');
+    layer.classList.toggle('show',  m === 'type');
+    wrap.style.cursor = (m === 'type') ? 'text' : (m === 'erase' ? 'cell' : 'crosshair');
+    if(m === 'type'){ layer.focus(); }
+    if(m !== 'erase'){ hideEraser(); erasing = false; lastErase = null; ERASE_UNDO_OPENED = false; }
+    updateStatus();
+  }
+  btnPen.addEventListener('click', function(){ switchMode('pen'); });
+  btnType.addEventListener('click', function(){ switchMode('type'); });
+  btnErase.addEventListener('click', function(){
+    switchMode(mode === 'erase' ? 'pen' : 'erase');
+  });
+
+  /* ══════════ 🔴 清掉旧版留下的"白疤" ══════════
+     旧版用 fillRect 填底色来擦，在黑板模式下会在画布上留一层不透明的白/纸色像素。
+     新版改成 destination-out 后，那些旧像素还在。
+     这里只清「非常接近纯纸色 / 纯黑板色」的像素——判据卡得很紧（容差 6），
+     免得误伤粉笔白和浅色笔迹。**必须手动点按钮触发**，不自动跑。 */
+  var PURGE_PAPER = {r:0xfa, g:0xf8, b:0xf3};
+  var PURGE_BOARD = {r:0x22, g:0x30, b:0x2c};
+
+  function nearColor(d, i, c, tol){
+    return Math.abs(d[i]-c.r) <= tol && Math.abs(d[i+1]-c.g) <= tol && Math.abs(d[i+2]-c.b) <= tol;
+  }
+
+  function purgePaintedBackground(){
+    if(canvas.width < 1){ setStatus('板上还是空的'); return; }
+    var img;
+    try{ img = ctx.getImageData(0, 0, canvas.width, canvas.height); }catch(e){ return; }
+    var d = img.data;
+    var changed = 0;
+    for(var i = 0; i < d.length; i += 4){
+      if(d[i+3] === 0) continue;                     // 本来就透明
+      if(nearColor(d,i,PURGE_PAPER,6) || nearColor(d,i,PURGE_BOARD,6)){
+        d[i+3] = 0;                                  // 挖成透明，露出真正的板色
+        changed++;
+      }
+    }
+    if(!changed){ setStatus('没找到旧版留下的白疤，板子是干净的'); return; }
+    pushUndo();
+    ctx.save();
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.putImageData(img, 0, 0);
+    ctx.restore();
+    scheduleSave();
+    setStatus('清掉了 ' + changed + ' 个白疤像素（Ctrl+Z 可退）');
+  }
+  window.__purgeBg = purgePaintedBackground;
+  document.getElementById('btnPurge').addEventListener('click', purgePaintedBackground);
+
+  /* ══════════ 横格 / 黑板 ══════════ */
+  var btnRuled = document.getElementById('btnRuled');
+  var btnBoard = document.getElementById('btnBoard');
+
+  btnRuled.addEventListener('click', function(){
+    var on = wrap.classList.toggle('ruled');
+    btnRuled.classList.toggle('on', on);
+  });
+  btnBoard.addEventListener('click', function(){
+    var on = wrap.classList.toggle('board');
+    document.body.classList.toggle('dark', on);
+    btnBoard.classList.toggle('on', on);
+    // 黑板模式下若当前是黑笔，自动换成粉笔白
+    if(on && color === COLORS[0]){
+      color = '#f2f0ea';
+      swBox.querySelectorAll('.sw').forEach(function(n,i){
+        n.classList.toggle('on', i === 0);
+      });
+    }
+    if(!on && color === '#f2f0ea'){
+      color = COLORS[0];
+      swBox.querySelectorAll('.sw').forEach(function(n,i){
+        n.classList.toggle('on', i === 0);
+      });
+    }
+  });
+
+  /* ══════════ 撤销 / 擦掉 ══════════ */
+  document.getElementById('btnUndo').addEventListener('click', undo);
+  function undo(){
+    if(!undoStack.length){ setStatus('已经退到头了'); return; }
+    var s = undoStack.pop();
+    ctx.save();
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.putImageData(s.d, 0, 0);
+    ctx.restore();
+    scheduleSave();
+    setStatus('退回一步');
+  }
+
+  document.getElementById('btnClear').addEventListener('click', function(){
+    // 打字模式下，用浏览器原生撤销就行，不搞全擦确认
+    if(mode === 'type'){
+      if(!layer.textContent.trim()){ setStatus('打字区是空的'); return; }
+      askClear('type');
+      return;
+    }
+    if(!hasInk()){ setStatus('板上是空的'); return; }
+    askClear('board');
+  });
+
+  function hasInk(){
+    // 粗略判断板上有没有笔迹（抽稀采样）
+    try{
+      var d = ctx.getImageData(0,0,canvas.width,canvas.height).data;
+      var step = 4 * 37;  // 抽样步长，够快
+      for(var i = 3; i < d.length; i += step){
+        if(d[i] > 0) return true;
+      }
+    }catch(e){ return true; }
+    return false;
+  }
+
+  var clearTarget = null;
+  function askClear(target){
+    clearTarget = target;
+    confirmBar.classList.add('on');
+  }
+  function closeAsk(){ confirmBar.classList.remove('on'); clearTarget = null; }
+
+  document.getElementById('confirmNo').addEventListener('click', closeAsk);
+
+  document.getElementById('confirmYes').addEventListener('click', function(){
+    if(clearTarget === 'type'){
+      layer.innerHTML = '';
+    }else{
+      pushUndo();
+      ctx.save();
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.restore();
+    }
+    closeAsk();
+    scheduleSave();
+    setStatus('擦干净了（Ctrl+Z 还能退回来）');
+  });
+
+  // 点别处 = 算了
+  document.addEventListener('pointerdown', function(e){
+    if(!confirmBar.classList.contains('on')) return;
+    if(confirmBar.contains(e.target)) return;
+    if(e.target.id === 'btnClear') return;
+    closeAsk();
+  }, true);
+
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeAsk(); hideEraser(); endErase(); }
+    var mod = e.ctrlKey || e.metaKey;
+    if(!mod) return;
+    if(e.key === 'z' || e.key === 'Z'){ e.preventDefault(); undo(); }
+    if(e.key === 'Delete' || e.key === 'Backspace'){
+      var tag = (e.target && e.target.tagName || '').toLowerCase();
+      if(tag === 'div' && e.target.isContentEditable) return;  // 在打字/笔记里就别拦
+      e.preventDefault();
+      document.getElementById('btnClear').click();
+    }
+    if(e.key === 'e' || e.key === 'E'){
+      var tag2 = (e.target && e.target.tagName || '').toLowerCase();
+      if(tag2 === 'div' && e.target.isContentEditable) return;
+      e.preventDefault();
+      btnErase.click();
+    }
+  });
+
+  /* ══════════ 右侧栏 ══════════ */
+  document.getElementById('btnRight').addEventListener('click', function(){
+    var hidden = document.getElementById('right').classList.toggle('hide');
+    this.classList.toggle('on', !hidden);
+    setTimeout(function(){ resizeCanvas(true); }, 60);
+  });
+
+  document.getElementById('btnCopyNotes').addEventListener('click', function(){
+    var t = notes.innerText || '';
+    if(!t.trim()){ setStatus('侧栏是空的'); return; }
+    navigator.clipboard.writeText(t).then(function(){
+      setStatus('侧栏内容已复制');
+    }).catch(function(){
+      // 兜底
+      var ta = document.createElement('textarea');
+      ta.value = t; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy');
+      document.body.removeChild(ta);
+      setStatus('侧栏内容已复制');
+    });
+  });
+
+  /* ══════════ 存档 ══════════ */
+  var histEl = document.getElementById('history');
+
+  function nowLabel(){
+    var d = new Date();
+    var p = function(n){ return (n<10?'0':'') + n; };
+    return p(d.getMonth()+1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+
+  function snapshot(){
+    var s = null;
+    try{ s = canvas.toDataURL('image/png'); }catch(e){}
+    return {
+      t: Date.now(),
+      label: nowLabel(),
+      img: s,
+      type: layer.innerText || '',
+      notes: notes.innerText || ''
+    };
+  }
+
+  function doSave(quiet){
+    var all = readAll();
+    var snap = snapshot();
+    if(!snap.img && !snap.type.trim()){ if(!quiet) setStatus('板上是空的，没什么可存'); return; }
+    all.unshift(snap);
+    if(all.length > 20) all = all.slice(0, 20);
+    try{
+      localStorage.setItem(LS_KEY, JSON.stringify(all));
+      if(!quiet) setStatus('已存档 · ' + snap.label);
+      renderHistory();
+    }catch(e){
+      setStatus('存不下了，先清几条存档');
+    }
+  }
+
+  function readAll(){
+    try{
+      var raw = localStorage.getItem(LS_KEY);
+      if(!raw) return [];
+      var a = JSON.parse(raw);
+      return Array.isArray(a) ? a : [];
+    }catch(e){ return []; }
+  }
+
+  function renderHistory(){
+    var all = readAll();
+    histEl.innerHTML = '';
+    if(!all.length){
+      histEl.innerHTML = '<div class="hist-empty">还没有存档</div>';
+      return;
+    }
+    all.forEach(function(item){
+      var d = document.createElement('div');
+      d.className = 'hist-item';
+      var preview = (item.notes || item.type || '').replace(/\s+/g,' ').slice(0, 26) || '(画板)';
+      d.innerHTML = '<span class="t">' + item.label + '</span><span class="p"></span>';
+      d.querySelector('.p').textContent = preview;
+      d.addEventListener('click', function(){ restore(item); });
+      histEl.appendChild(d);
+    });
+  }
+
+  function restore(item){
+    if(!confirm('翻回 ' + item.label + ' 这一版？当前没存档的内容会没。')) return;
+    pushUndo();
+    ctx.save();
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.restore();
+
+    if(item.img){
+      var im = new Image();
+      im.onload = function(){
+        ctx.save();
+        ctx.setTransform(1,0,0,1,0,0);
+        ctx.drawImage(im, 0, 0, canvas.width, canvas.height);
+        ctx.restore();
+      };
+      im.src = item.img;
+    }
+    layer.innerText = item.type || '';
+    notes.innerText = item.notes || '';
+    setStatus('翻回 ' + item.label);
+  }
+
+  document.getElementById('btnSave').addEventListener('click', function(){ doSave(false); });
+  document.getElementById('btnDelHist').addEventListener('click', function(){
+    if(!confirm('清空全部草稿存档？')) return;
+    localStorage.removeItem(LS_KEY);
+    renderHistory();
+    setStatus('存档已清空');
+  });
+
+  /* ══════════ 自动存「当前这一版」 ══════════ */
+  var CUR_KEY = 'xiaohieban.current.v1';
+  function scheduleSave(){
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){
+      var s = snapshot();
+      try{ localStorage.setItem(CUR_KEY, JSON.stringify({img:s.img, type:s.type, notes:s.notes, t:Date.now()})); }catch(e){}
+      updateStatus();
+    }, 700);
+  }
+
+  function loadCurrent(){
+    try{
+      var raw = localStorage.getItem(CUR_KEY);
+      if(!raw) return;
+      var o = JSON.parse(raw);
+      if(o.type) layer.innerText = o.type;
+      if(o.notes) notes.innerText = o.notes;
+      if(o.img){
+        var im = new Image();
+        im.onload = function(){
+          ctx.save();
+          ctx.setTransform(1,0,0,1,0,0);
+          ctx.drawImage(im, 0, 0, canvas.width, canvas.height);
+          ctx.restore();
+        };
+        im.src = o.img;
+      }
+    }catch(e){}
+  }
+
+  ['input','blur'].forEach(function(ev){
+    layer.addEventListener(ev, scheduleSave);
+    notes.addEventListener(ev, scheduleSave);
+  });
+
+  /* ══════════ 状态栏 ══════════ */
+  function setStatus(t){
+    statusEl.textContent = t;
+    clearTimeout(setStatus._t);
+    setStatus._t = setTimeout(updateStatus, 1800);
+  }
+
+  function updateStatus(){
+    var what = mode === 'pen' ? '手写' : (mode === 'type' ? '打字' : '局部擦：框住要抹的地方');
+    statusEl.textContent = '当前：' + what + '　（Ctrl+Z 撤回 ／ Ctrl+E 局部擦）';
+  }
+
+  /* ══════════ 启动 ══════════ */
+  window.addEventListener('resize', function(){ resizeCanvas(true); });
+  window.addEventListener('orientationchange', function(){ setTimeout(function(){ resizeCanvas(true); }, 250); });
+
+  // 等布局稳一下再初始化
+  requestAnimationFrame(function(){
+    resizeCanvas(false);
+    loadCurrent();
+    renderHistory();
+    switchMode('pen');
+    updateStatus();
+  });
+
+  // 侧栏宽度动画期间再校正一次
+  setTimeout(function(){ resizeCanvas(true); }, 400);
+})();
+</script>
+</body>
+</html>

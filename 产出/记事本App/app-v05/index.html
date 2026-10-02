@@ -93,7 +93,7 @@
   /* ============ 其他页面字号放大 ============ */
   .nav{position:sticky;top:0;z-index:6;background:var(--bg);display:flex;align-items:center;gap:6px;padding:14px 0 6px}
   .nav .back{border:none;background:none;font-size:26px;color:var(--ink);cursor:pointer;padding:2px 10px 2px 0;line-height:1}
-  .nav .ttl{font-size:19px;font-weight:800;flex:1}
+  .nav .ttl{font-size:19px;font-weight:800;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .nav .act{border:none;background:none;color:var(--accent);font-size:17px;font-weight:800;cursor:pointer;padding:8px 4px}
   .nav .act.dim{color:var(--ink3);font-weight:600;font-size:21px}
   .new-hint{font-size:14px;color:var(--ink3);background:#FBF7EE;border:1px dashed #E2D6C0;border-radius:14px;padding:11px 14px;margin:4px 0 12px;line-height:1.8}
@@ -219,7 +219,11 @@
   .btn-save{border:none;cursor:pointer;background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;font-size:16px;font-weight:800;border-radius:14px;padding:10px 18px;box-shadow:0 3px 10px rgba(192,86,33,.35);letter-spacing:1px}
   .btn-save:active{transform:scale(.96)}
   /* 记一条：类目选择 + 大贴图按钮 */
-  .catpick{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 12px}
+  /* v1.06：归类行改成「贴着标题栏常驻」——
+     以前打开「记一条」时页面会自动滚到输入框，归类行被顶到标题栏后面看不见，
+     结果默认类目错了也发现不了（浩总在「灵感」写的东西跑进「写作」就是这么来的）。
+     用 padding 代替 margin，让 sticky 的背景能把底下滚过的文字盖住。 */
+  .catpick{display:flex;gap:8px;flex-wrap:wrap;padding:8px 0 12px;margin:0;position:sticky;top:64px;z-index:5;background:var(--bg)}
   .catpick .cpill{font-size:14.5px;font-weight:600;padding:7px 15px;border-radius:30px;background:#fff;border:1px solid var(--line);color:var(--ink2);cursor:pointer}
   .catpick .cpill.on{background:var(--accent-soft);color:var(--accent-deep);border-color:var(--accent)}
   /* 贴图按钮：input 透明铺满容器，用户直接点到文件框（安卓必弹相册，不依赖JS click） */
@@ -277,12 +281,13 @@
   .toc-grid{display:flex;flex-direction:column;gap:10px}
   .tocrow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;box-shadow:0 1px 2px rgba(60,45,20,.04);text-align:left;font-family:inherit}
   .tocrow:active{background:#FBF6EC;transform:scale(.995)}
-  .tocrow.all{background:linear-gradient(145deg,#FDF4EA,#F8E9D8);border-color:#EBD5B8}
+  .tocrow.lost{background:#FCFBF9;border-style:dashed;border-color:#DED6C8}
   .tocrow .tico{width:40px;height:40px;flex:none;border-radius:12px;background:var(--accent-soft);color:var(--accent-deep);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800}
-  .tocrow.all .tico{background:linear-gradient(145deg,#D0602B,#A8481D);color:#fff;font-size:15px}
+  .tocrow.lost .tico{background:#C9C2B8;color:#fff;font-size:17px}
+  .tocrow.lost .tnum{background:#F0EDE8;color:#7A7368}
   .tocrow .tmain{flex:1;min-width:0}
-  .tocrow .tname{font-size:17px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .tocrow .tsub{font-size:12.5px;color:var(--ink3);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tocrow .tname{display:block;font-size:17px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tocrow .tsub{display:block;font-size:12.5px;color:var(--ink3);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .tocrow .tnum{flex:none;font-size:14px;font-weight:700;color:var(--accent-deep);background:#FBEEDC;border-radius:12px;padding:4px 11px}
   .tocrow .tchev{flex:none;color:var(--ink3);font-size:20px;line-height:1}
   .toc-manage{margin:16px 2px 0;width:calc(100% - 4px);border:1.5px dashed #D8CBB2;background:#FFFDF8;border-radius:14px;padding:13px;font-size:14.5px;font-weight:700;color:var(--accent);cursor:pointer;font-family:inherit}
@@ -307,7 +312,11 @@
     body:not(.desktop) .screen.active{display:block}
     body:not(.desktop) #home{display:none}
     body:not(.desktop) #home.active{display:block}
-    body:not(.desktop) .flipwrap{flex:none;min-height:0;overflow:visible;padding-bottom:4px}
+    /* v1.05：#home 上有一条 `#home{padding:0}`（ID 优先级 > class），会把 .screen 的底部避让
+       整体覆盖掉 → 列表最后一张卡的「改 / 复制」正好被 fixed 底栏压住，点不到。
+       这里把避让加到 .flipwrap 自己身上（16px 左右对齐 .tocwrap/.home-top 的 18px），
+       并留 96px 底部空间（底栏 66px + 30px 呼吸位）。 */
+    body:not(.desktop) .flipwrap{flex:none;min-height:0;overflow:visible;padding:6px 4px 96px;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     body:not(.desktop) .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30}
     body:not(.desktop) .home-top{position:sticky;top:0;z-index:8;background:var(--bg)}
     body:not(.desktop) .catbar{position:sticky;top:54px;z-index:7;background:var(--bg)}
@@ -323,7 +332,7 @@
     <!-- ===== 首页：翻卡 ===== -->
     <section class="screen active" id="home" data-page-node-id="SfkRp3XlUufy2xo7z58mgh">
       <div class="home-top" data-page-node-id="3GdgYVm3dMGltoLDTc7VBG">
-        <div class="brand" data-page-node-id="MnHxDlEunpA5uEv1CbDH3W"><div class="logo" data-page-node-id="hrAPmb1dDleehCtol9F9Dp">随</div><div class="nm" data-page-node-id="7NUQLiE865DStQoTTV3eHg">随手库<sup class="ver-tag">v0.9</sup></div></div>
+        <div class="brand" data-page-node-id="MnHxDlEunpA5uEv1CbDH3W"><div class="logo" data-page-node-id="hrAPmb1dDleehCtol9F9Dp">随</div><div class="nm" data-page-node-id="7NUQLiE865DStQoTTV3eHg">随手库<sup class="ver-tag">v1.06</sup></div></div>
         <div class="page-num" id="pageNum" data-page-node-id="eEsYEdepKH2ltmdH1ldGEU"></div>
         <div class="top-right" data-page-node-id="UxW2nNvHlNFQn1roRBeGwt"><button class="iconbtn" onclick="openSheet('menu')" data-page-node-id="X28lGqdaJp4AmdQeYawUCz">⋯</button></div>
       </div>
@@ -453,6 +462,11 @@ let CATS=loadCats();
 function saveCats(){ localStorage.setItem(CKEY, JSON.stringify(CATS)); }
 let curCat='全部';
 let newCat='写作';
+/* v1.04：目录＝纯类目清单，不再有「全部」混装入口（把各类笔记堆一起）。
+   LOST＝兜底：类目被删/改名后掉队的笔记，不能让它悄悄消失。 */
+const LOST='未归类';
+function lostItems(){ return items.filter(it=>CATS.indexOf(it.category)<0); }
+function catItems(cat){ return cat===LOST ? sorted().filter(it=>CATS.indexOf(it.category)<0) : sorted().filter(it=>it.category===cat); }
 function buildCatsHTML(){
   return '<h3>管理类目</h3>'
     +'<div style="margin:8px 0 2px">'
@@ -756,11 +770,13 @@ function lastTimeOf(list){
   return '最近 '+fmtDate(t);
 }
 function tocRowHTML(cat){
-  const list = cat==='全部' ? sorted() : sorted().filter(it=>it.category===cat);
-  const isAll = cat==='全部';
-  const ico = isAll ? '总' : esc(cat.slice(0,1));
-  const sub = list.length ? (esc(cat==='全部'?('含 '+CATS.length+' 个类目'):'') + (isAll?'':'') + ((isAll&&CATS.length)?'':'') + lastTimeOf(list)) : '还没有内容';
-  return '<button class="tocrow'+(isAll?' all':'')+'" onclick="pickCat(\''+cat+'\')">'
+  const list = catItems(cat);
+  const isLost = cat===LOST;
+  const ico = isLost ? '?' : esc(cat.slice(0,1));
+  const sub = list.length
+    ? (isLost ? '类目被删或改名了，点进来重新归一下' : lastTimeOf(list))
+    : '还没有内容';
+  return '<button class="tocrow'+(isLost?' lost':'')+'" onclick="pickCat(\''+cat+'\')">'
     +'<span class="tico">'+ico+'</span>'
     +'<span class="tmain"><span class="tname">'+esc(cat)+'</span><span class="tsub">'+sub+'</span></span>'
     +'<span class="tnum">'+list.length+'</span>'
@@ -770,12 +786,14 @@ function renderTOC(){
   const w=$('#tocwrap'); if(!w) return;
   if(curCat!=='全部'){ w.style.display='none'; return; }  // 进了章节就不显示目录
   w.style.display='';
-  let h='<div class="toc-title">目 录 · 先选一类，再看里面的内容</div><div class="toc-grid">';
-  h+=tocRowHTML('全部');
-  h+=CATS.map(c=>tocRowHTML(c)).join('');
-  h+='</div>';
+  let h;
   if(!items.length){
     h='<div class="toc-empty"><span class="big">📥</span>随手库还空着<br>点下面 ＋ 记第一条素材</div>';
+  }else{
+    h='<div class="toc-title">目 录 · 先选一类，再看里面的内容</div><div class="toc-grid">';
+    h+=CATS.map(c=>tocRowHTML(c)).join('');
+    if(lostItems().length) h+=tocRowHTML(LOST);
+    h+='</div>';
   }
   h+='<button class="toc-manage" onclick="openSheet(\'cats\')">＋ 管理类目（改名 / 新增 / 删除）</button>';
   w.innerHTML=h;
@@ -786,7 +804,7 @@ function renderCatView(){
   const head=$('#cathead');
   if(curCat==='全部'){ w.innerHTML=''; if(head) head.style.display='none'; return; }
   if(head){
-    const n=sorted().filter(it=>it.category===curCat).length;
+    const n=catItems(curCat).length;
     head.style.display='';
     head.innerHTML='<button class="catch" onclick="pickCat(\'全部\')">‹ 目录</button>'
       +'<span class="cname">'+esc(curCat)+'</span><span class="cnum">'+n+' 条</span>';
@@ -798,11 +816,11 @@ function renderCatView(){
   }
   w.innerHTML=list.map(it=>flipCardHTML(it)).join('');
 }
-function filtered(){ const l=sorted(); return curCat==='全部'? l : l.filter(it=>it.category===curCat); }
+function filtered(){ return curCat==='全部' ? sorted() : catItems(curCat); }
 function renderCatbar(){ /* 已改为目录页，不再需要横向类目条 */ }
 function pickCat(c){ curCat=c; renderHome(); try{ window.scrollTo(0,0); }catch(e){} }
 function renderCatpick(){
-  $('#catpick').innerHTML = '<span style="font-size:13px;color:var(--ink3);align-self:center;flex:none;margin-right:2px">归类</span>'+
+  $('#catpick').innerHTML = '<span style="font-size:13px;color:var(--ink3);align-self:center;flex:none;margin-right:2px">存到</span>'+
     CATS.map(c=>'<button class="cpill'+(c===newCat?' on':'')+'" onclick="setNewCat(\''+c+'\')">'+c+'</button>').join('');
 }
 function setNewCat(c){ newCat=c; renderCatpick(); }
@@ -844,7 +862,15 @@ function copyIt(id){ const it=items.find(x=>x.id===id); if(it) copyText(copyText
 let draftBlocks = [];
 let editId = null; // null=新建，否则=正在编辑的条目id
 
-function openNew(){ editId=null; draftBlocks=[{type:'t',t:''}]; draftRemind=null; var tl=$('#newTitle'); if(tl) tl.textContent='记一条'; renderNewEditor(); renderCatpick(); renderRemindBox(); renderClock(); renderVoiceState(); go('new'); focusText(); }
+function openNew(){
+  editId=null; draftBlocks=[{type:'t',t:''}]; draftRemind=null;
+  /* v1.06：新笔记默认归到「当前所在类目」。以前 newCat 写死 '写作'，
+     在「灵感」里点 ＋ 写的东西会悄悄存进「写作」，自己都找不着。 */
+  if(curCat!=='全部' && CATS.indexOf(curCat)>=0) newCat=curCat;
+  else if(CATS.indexOf(newCat)<0) newCat=CATS[0]||'杂记';
+  var tl=$('#newTitle'); if(tl) tl.textContent='记到「'+newCat+'」';
+  renderNewEditor(); renderCatpick(); renderRemindBox(); renderClock(); renderVoiceState(); go('new'); focusText();
+}
 
 function renderNewEditor(){
   const w=$('#newEditor'); if(!w) return; w.innerHTML='';
@@ -953,6 +979,8 @@ function saveNote(){
     it.blocks=blocks; it.text=textOf(it); const m=firstMedia(it);
     it.kind=(m&&m.type==='img')?'img':(m&&m.type==='video'?'video':'text');
     if(m&&m.type==='img') it.img=m.d; else it.img=null;
+    // v1.06：编辑时改「归类」要真的生效（以前点了没用，白改）
+    if(CATS.indexOf(newCat)>=0) it.category=newCat;
     // 提醒：改了时间要重置"已提醒"，否则新时间不会响
     if(it.remindAt!==draftRemind) it.reminded=false;
     it.remindAt=draftRemind||null;
@@ -1014,6 +1042,7 @@ function editCurrent(){ const it=getCur(); if(!it)return; editItem(it.id); }
 function editItem(id){
   const it=items.find(x=>x.id===id); if(!it) return;
   curId=id; editId=id;
+  newCat = it.category || newCat;   // v1.06：编辑时归类默认＝这条自己的类目，改了才生效
   // 深拷贝现有 blocks
   draftBlocks = (blks(it)||[]).map(function(b){ return b.type==='t'?{type:'t',t:b.t||''}:b.type==='img'?{type:'img',d:b.d}:{type:'video',u:b.u||'',vdata:b.vdata||'',vname:b.vname||'',title:b.title||''}; });
   if(!draftBlocks.length) draftBlocks=[{type:'t',t:''}];
@@ -1060,7 +1089,7 @@ function highlight(text,q){
 function openSheet(kind){
   let h='';
   if(kind==='menu'){
-    h='<h3>随手库 v1.03</h3>'
+    h='<h3>随手库 v1.06</h3>'
     + row('🗂','管理类目','自己加类 / 删类','cats')
     + row('📲','装到桌面图标','小米浏览器请换 Chrome/Edge','help')
     + row('📤','导出备份','全部 '+items.length+' 条下载成文件','export')
