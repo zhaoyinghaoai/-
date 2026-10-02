@@ -65,7 +65,7 @@
   input[type=range]{width:78px;accent-color:var(--accent);}
 
   /* ── 主区：左右分栏 ── */
-  main{flex:1 1 auto;display:flex;min-height:0;}
+  main{flex:1 1 auto;display:flex;min-height:0;position:relative;}
   #left{
     flex:1 1 auto;min-width:0;
     display:flex;flex-direction:column;
@@ -145,15 +145,33 @@
   body.dark #typeLayer{color:var(--chalk);}
   body.dark #typeLayer:empty::before{color:rgba(255,255,255,.32);}
 
-  /* ── 右栏 ── */
+  /* ── 右栏：可整体收起的抽屉 ── */
   #right{
     flex:0 0 300px;width:300px;
     border-left:1px solid var(--line);
     background:var(--paper);
     display:flex;flex-direction:column;
     min-height:0;
+    overflow:hidden;
+    transition:flex-basis .18s ease, width .18s ease, opacity .14s ease;
   }
-  #right.hide{display:none;}
+  #right.hide{
+    flex-basis:0;width:0;opacity:0;
+    border-left:none;pointer-events:none;
+  }
+  /* 收起时浮出来的小把手，点一下收回来 */
+  #drawerTab{
+    position:absolute;right:0;top:50%;transform:translateY(-50%);
+    display:none;align-items:center;
+    writing-mode:vertical-rl;
+    padding:14px 5px;font-size:12px;letter-spacing:2px;
+    background:var(--paper);color:var(--ink-soft);
+    border:1px solid var(--line);border-right:none;
+    border-radius:9px 0 0 9px;cursor:pointer;z-index:8;
+    transition:.12s;
+  }
+  #drawerTab:hover{background:#f0ede4;color:var(--ink);}
+  #drawerTab.on{display:flex;}
   .panel-head{
     flex:0 0 auto;
     padding:9px 12px;border-bottom:1px solid var(--line);
@@ -172,9 +190,18 @@
   }
   #notes:empty::before{content:"右边随便写点…（比如原题、卡在哪一格）";color:#b3ada0;font-size:13px;}
   .divider{height:1px;background:var(--line);flex:0 0 auto;}
+
+  /* 草稿存档：加了收起开关，不占地方 */
+  #histWrap{
+    flex:0 0 auto;display:flex;flex-direction:column;
+    max-height:180px;min-height:0;
+  }
+  #histWrap.folded{max-height:38px;}
+  #histWrap.folded #history{display:none;}
   #history{
-    flex:0 0 150px;overflow:auto;
+    flex:1 1 auto;overflow:auto;
     padding:8px 10px;font-size:12.5px;
+    min-height:0;
   }
   .hist-item{
     padding:6px 9px;border-radius:7px;cursor:pointer;
@@ -185,6 +212,11 @@
   .hist-item .t{font-variant-numeric:tabular-nums;flex:0 0 auto;}
   .hist-item .p{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
   .hist-empty{color:#b3ada0;font-size:12px;padding:6px 9px;}
+  .fold-btn{
+    border:none;background:transparent;cursor:pointer;
+    font-size:11px;color:var(--ink-soft);padding:2px 5px;
+  }
+  .fold-btn:hover{color:var(--ink);}
 
   /* ── 状态条 ── */
   footer{
@@ -225,7 +257,7 @@
   <button id="btnUndo" title="撤销">↶ 撤销</button>
   <button id="btnClear" class="danger" title="全部擦掉">全部擦掉</button>
   <button id="btnSave" title="存一版草稿">存档</button>
-  <button id="btnRight" class="ghost on" title="右侧栏">侧栏</button>
+  <button id="btnRight" class="ghost on" title="收起/展开右侧栏（Ctrl+B）">侧栏</button>
 </header>
 
 <main>
@@ -252,20 +284,25 @@
 
     <div class="divider"></div>
 
-    <div class="panel-head" style="border-bottom:none;padding-bottom:2px;">
-      草稿存档
-      <span class="spacer"></span>
-      <button id="btnDelHist" class="ghost danger">清空</button>
+    <div id="histWrap">
+      <div class="panel-head" style="border-bottom:none;padding:7px 12px;">
+        <button id="btnFoldHist" class="fold-btn" title="收起/展开">▾</button>
+        草稿存档
+        <span class="spacer"></span>
+        <button id="btnDelHist" class="ghost danger">清空</button>
+      </div>
+      <div id="history"></div>
     </div>
-    <div id="history"></div>
   </aside>
+
+  <div id="drawerTab" title="点一下把侧栏收回来">侧栏</div>
 </main>
 
 <footer>
   <span class="dot"></span>
   <span id="status">准备好了 —— 直接在板上写</span>
   <span class="spacer" style="flex:1;"></span>
-  <span id="tip">Ctrl+Z 撤回 ／ Ctrl+E 局部擦 ／ 全擦会先问你一句</span>
+  <span id="tip">Ctrl+Z 撤回 ／ Ctrl+E 橡皮 ／ Ctrl+B 收侧栏</span>
 </footer>
 
 <script>
@@ -679,13 +716,39 @@
       e.preventDefault();
       btnErase.click();
     }
+    if(e.key === 'b' || e.key === 'B'){
+      var tag3 = (e.target && e.target.tagName || '').toLowerCase();
+      if(tag3 === 'div' && e.target.isContentEditable) return;
+      e.preventDefault();
+      btnRight.click();
+    }
   });
 
-  /* ══════════ 右侧栏 ══════════ */
-  document.getElementById('btnRight').addEventListener('click', function(){
-    var hidden = document.getElementById('right').classList.toggle('hide');
-    this.classList.toggle('on', !hidden);
-    setTimeout(function(){ resizeCanvas(true); }, 60);
+  /* ══════════ 右侧栏（可整体收起） ══════════ */
+  var rightEl   = document.getElementById('right');
+  var drawerTab = document.getElementById('drawerTab');
+  var btnRight  = document.getElementById('btnRight');
+
+  function setDrawer(open){
+    rightEl.classList.toggle('hide', !open);
+    drawerTab.classList.toggle('on', !open);
+    btnRight.classList.toggle('on', open);
+    // 宽度是过渡动画，等它走完再重算画布
+    setTimeout(function(){ resizeCanvas(true); }, 200);
+    setTimeout(function(){ resizeCanvas(true); }, 400);
+  }
+
+  btnRight.addEventListener('click', function(){
+    setDrawer(rightEl.classList.contains('hide'));
+  });
+  drawerTab.addEventListener('click', function(){ setDrawer(true); });
+
+  // 存档区折叠开关
+  var btnFoldHist = document.getElementById('btnFoldHist');
+  var histWrap = document.getElementById('histWrap');
+  btnFoldHist.addEventListener('click', function(){
+    var folded = histWrap.classList.toggle('folded');
+    btnFoldHist.textContent = folded ? '▸' : '▾';
   });
 
   document.getElementById('btnCopyNotes').addEventListener('click', function(){
