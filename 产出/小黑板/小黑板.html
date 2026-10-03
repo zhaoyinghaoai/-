@@ -145,33 +145,43 @@
   body.dark #typeLayer{color:var(--chalk);}
   body.dark #typeLayer:empty::before{color:rgba(255,255,255,.32);}
 
-  /* ── 右栏：可整体收起的抽屉 ── */
+  /* ── 右栏：手动推拉的抽屉 ── */
   #right{
-    flex:0 0 300px;width:300px;
-    border-left:1px solid var(--line);
+    flex:0 0 300px;
     background:var(--paper);
     display:flex;flex-direction:column;
     min-height:0;
     overflow:hidden;
-    transition:flex-basis .18s ease, width .18s ease, opacity .14s ease;
+    position:relative;
   }
-  #right.hide{
-    flex-basis:0;width:0;opacity:0;
-    border-left:none;pointer-events:none;
+  /* 拖拽条：抓这里往左右拉 */
+  #grip{
+    flex:0 0 9px;
+    cursor:col-resize;
+    background:var(--paper);
+    border-left:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    user-select:none;
+    touch-action:none;
   }
-  /* 收起时浮出来的小把手，点一下收回来 */
-  #drawerTab{
-    position:absolute;right:0;top:50%;transform:translateY(-50%);
-    display:none;align-items:center;
-    writing-mode:vertical-rl;
-    padding:14px 5px;font-size:12px;letter-spacing:2px;
-    background:var(--paper);color:var(--ink-soft);
-    border:1px solid var(--line);border-right:none;
-    border-radius:9px 0 0 9px;cursor:pointer;z-index:8;
-    transition:.12s;
+  #grip::before{
+    content:"";width:3px;height:42px;
+    border-radius:2px;background:var(--line);
+    transition:.14s;
   }
-  #drawerTab:hover{background:#f0ede4;color:var(--ink);}
-  #drawerTab.on{display:flex;}
+  #grip:hover::before, #grip.dragging::before{
+    background:var(--accent);height:64px;
+  }
+  #grip.dragging{background:#eef6f2;}
+  /* 拉到最窄时，给个提示箭头 */
+  #grip .arrow{
+    position:absolute;font-size:10px;color:var(--ink-soft);
+    display:none;
+  }
+  #grip.collapsed .arrow{display:block;}
+  #grip.collapsed::before{display:none;}
+
   .panel-head{
     flex:0 0 auto;
     padding:9px 12px;border-bottom:1px solid var(--line);
@@ -295,7 +305,9 @@
     </div>
   </aside>
 
-  <div id="drawerTab" title="点一下把侧栏收回来">侧栏</div>
+  <div id="grip" title="往左拉收起 / 往右拉展开">
+    <span class="arrow">◂</span>
+  </div>
 </main>
 
 <footer>
@@ -724,24 +736,83 @@
     }
   });
 
-  /* ══════════ 右侧栏（可整体收起） ══════════ */
-  var rightEl   = document.getElementById('right');
-  var drawerTab = document.getElementById('drawerTab');
-  var btnRight  = document.getElementById('btnRight');
+  /* ══════════ 右栏：手动推拉 ══════════ */
+  var rightEl  = document.getElementById('right');
+  var grip     = document.getElementById('grip');
+  var btnRight = document.getElementById('btnRight');
 
-  function setDrawer(open){
-    rightEl.classList.toggle('hide', !open);
-    drawerTab.classList.toggle('on', !open);
-    btnRight.classList.toggle('on', open);
-    // 宽度是过渡动画，等它走完再重算画布
-    setTimeout(function(){ resizeCanvas(true); }, 200);
-    setTimeout(function(){ resizeCanvas(true); }, 400);
+  var RIGHT_MIN = 0;      // 完全收起
+  var RIGHT_MAX = 640;
+  var RIGHT_DEF = 300;
+  var dragFrom = 0, dragStartX = 0, dragging = false;
+
+  function rightWidthFrom(clientX){
+    // 右栏宽度 = 窗口右边 - 鼠标位置
+    var mainRect = document.querySelector('main').getBoundingClientRect();
+    var w = mainRect.right - clientX;
+    if(w < 0) w = 0;
+    if(w > RIGHT_MAX) w = RIGHT_MAX;
+    return w;
   }
 
-  btnRight.addEventListener('click', function(){
-    setDrawer(rightEl.classList.contains('hide'));
+  function applyRightWidth(w, noRemember){
+    // 拖到很窄就直接吸到 0，避免留一条没用的缝
+    if(w < 60) w = 0;
+    rightEl.style.flexBasis = w + 'px';
+    grip.classList.toggle('collapsed', w === 0);
+    btnRight.classList.toggle('on', w > 0);
+    if(!noRemember){
+      try{ localStorage.setItem('xiaohieban.rightw.v1', String(w)); }catch(e){}
+    }
+    resizeCanvas(true);
+  }
+
+  grip.addEventListener('pointerdown', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    dragging = true;
+    dragStartX = e.clientX;
+    dragFrom = rightEl.getBoundingClientRect().width;
+    grip.classList.add('dragging');
+    grip.setPointerCapture && grip.setPointerCapture(e.pointerId);
+    // 拖动期间禁止选中文字、禁止画布抢事件
+    document.body.style.userSelect = 'none';
+    document.body.style.cursor = 'col-resize';
   });
-  drawerTab.addEventListener('click', function(){ setDrawer(true); });
+
+  grip.addEventListener('pointermove', function(e){
+    if(!dragging) return;
+    e.preventDefault();
+    applyRightWidth(rightWidthFrom(e.clientX));
+  });
+
+  function endDrag(){
+    if(!dragging) return;
+    dragging = false;
+    grip.classList.remove('dragging');
+    document.body.style.userSelect = '';
+    document.body.style.cursor = '';
+    var w = rightEl.getBoundingClientRect().width;
+    setStatus(w === 0 ? '侧栏收起了（向右拖可拉回）' : ('侧栏宽度 ' + Math.round(w) + 'px'));
+    resizeCanvas(true);
+  }
+  grip.addEventListener('pointerup', endDrag);
+  grip.addEventListener('pointercancel', endDrag);
+  window.addEventListener('pointerup', endDrag);
+
+  // 双击拖拽条 = 在「收起」和「默认宽」之间来回
+  grip.addEventListener('dblclick', function(){
+    var w = rightEl.getBoundingClientRect().width;
+    if(w < 60){ applyRightWidth(RIGHT_DEF); setStatus('侧栏展开了'); }
+    else{ applyRightWidth(0); setStatus('侧栏收起了'); }
+  });
+
+  // 顶栏按钮 = 收起 / 展开（保留，习惯不变）
+  btnRight.addEventListener('click', function(){
+    var w = rightEl.getBoundingClientRect().width;
+    if(w < 60){ applyRightWidth(RIGHT_DEF); }
+    else{ applyRightWidth(0); }
+  });
 
   // 存档区折叠开关
   var btnFoldHist = document.getElementById('btnFoldHist');
@@ -904,16 +975,32 @@
   }
 
   function updateStatus(){
-    var what = mode === 'pen' ? '手写' : (mode === 'type' ? '打字' : '局部擦：框住要抹的地方');
-    statusEl.textContent = '当前：' + what + '　（Ctrl+Z 撤回 ／ Ctrl+E 局部擦）';
+    var what = mode === 'pen' ? '手写' : (mode === 'type' ? '打字' : '橡皮：按住拖');
+    statusEl.textContent = '当前：' + what + '　（Ctrl+Z 撤回 ／ Ctrl+E 橡皮 ／ 拉中间那条线调宽窄）';
   }
 
   /* ══════════ 启动 ══════════ */
-  window.addEventListener('resize', function(){ resizeCanvas(true); });
+  window.addEventListener('resize', function(){
+    // 窗口变窄时，别让右栏把画板挤没了
+    var w = rightEl.getBoundingClientRect().width;
+    var maxAllowed = Math.max(160, Math.floor(window.innerWidth * 0.5));
+    if(w > maxAllowed) applyRightWidth(maxAllowed, true);
+    resizeCanvas(true);
+  });
   window.addEventListener('orientationchange', function(){ setTimeout(function(){ resizeCanvas(true); }, 250); });
 
   // 等布局稳一下再初始化
   requestAnimationFrame(function(){
+    // 恢复上次拉的宽度
+    var saved = null;
+    try{ saved = localStorage.getItem('xiaohieban.rightw.v1'); }catch(e){}
+    if(saved !== null && saved !== ''){
+      var n = parseInt(saved, 10);
+      if(!isNaN(n)) applyRightWidth(n, true);
+    }else{
+      applyRightWidth(RIGHT_DEF, true);
+    }
+
     resizeCanvas(false);
     loadCurrent();
     renderHistory();
@@ -921,7 +1008,7 @@
     updateStatus();
   });
 
-  // 侧栏宽度动画期间再校正一次
+  // 布局稳了之后再校正一次画布
   setTimeout(function(){ resizeCanvas(true); }, 400);
 })();
 </script>

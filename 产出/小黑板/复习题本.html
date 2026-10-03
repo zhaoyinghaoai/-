@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>复习题本 · 默推记录</title>
+<style>
+  :root{
+    --ink:#1c1c1e;
+    --ink-soft:#5a5a5f;
+    --ink-faint:#8a8a90;
+    --paper:#faf8f3;
+    --paper-2:#f3f0e8;
+    --line:#dcd7ca;
+    --line-soft:#e8e3d8;
+    --accent:#1d9e75;
+    --accent-soft:#e6f4ef;
+    --warn:#c8861a;
+    --warn-soft:#fdf6e6;
+    --danger:#e24b4a;
+    --danger-soft:#fdf0f0;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--paper-2);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:15px;
+  }
+
+  /* ── 顶栏 ── */
+  header{
+    position:sticky;top:0;z-index:20;
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    padding:10px 18px;
+    background:rgba(250,248,243,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .title{font-size:16px;font-weight:700;letter-spacing:.5px;}
+  .title small{font-weight:400;color:var(--ink-soft);font-size:12px;margin-left:8px;letter-spacing:0;}
+  .spacer{flex:1 1 auto;}
+  .stats{font-size:12px;color:var(--ink-soft);letter-spacing:.3px;}
+  .stats b{color:var(--accent);font-size:14px;}
+  .jump{
+    font-size:13px;padding:5px 11px;border-radius:8px;
+    border:1px solid var(--line);background:#fff;color:var(--ink);
+    cursor:pointer;text-decoration:none;white-space:nowrap;transition:.12s;
+  }
+  .jump:hover{background:#f0ede4;}
+
+  main{max-width:1180px;margin:0 auto;padding:22px 18px 60px;}
+
+  /* ── 一条复习记录 ── */
+  .rec{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:0;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    margin-bottom:22px;
+    box-shadow:0 1px 2px rgba(0,0,0,.03);
+  }
+  .rec-side{
+    background:var(--paper-2);
+    border-right:1px solid var(--line);
+    padding:20px 20px 22px;
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .rec-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
+  .kname{font-size:19px;font-weight:700;letter-spacing:.5px;}
+  .badge{
+    font-size:11px;font-weight:700;letter-spacing:.5px;
+    padding:2px 8px;border-radius:20px;
+    background:var(--accent-soft);color:var(--accent);
+    border:1px solid #bfe3d6;
+  }
+  .meta{font-size:12px;color:var(--ink-faint);letter-spacing:.3px;line-height:1.9;}
+  .meta i{font-style:normal;color:var(--ink-soft);}
+
+  .question{
+    font-size:14.5px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    line-height:1.85;
+  }
+  .question .qtag{
+    display:block;font-size:11px;font-weight:700;letter-spacing:1px;
+    color:var(--ink-faint);margin-bottom:6px;
+  }
+  .question em{font-style:normal;font-weight:700;color:var(--accent);}
+
+  /* 右侧 */
+  .rec-body{padding:20px 24px 22px;min-width:0;}
+
+  .work{
+    font-family:"SF Mono",Menlo,Consolas,"Courier New",monospace;
+    font-size:14px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:8px;
+    padding:12px 16px;
+    line-height:2;
+    white-space:pre-wrap;
+    word-break:break-word;
+    color:#25303a;
+  }
+  .gradetable{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px;}
+  .gradetable th{
+    text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.8px;
+    color:var(--ink-faint);padding:6px 10px 6px 0;border-bottom:1px solid var(--line);
+  }
+  .gradetable td{
+    padding:8px 10px 8px 0;border-bottom:1px solid var(--line-soft);
+    vertical-align:top;line-height:1.7;
+  }
+  .gradetable tr:last-child td{border-bottom:0;}
+  .gradetable td:first-child{white-space:nowrap;font-weight:600;color:var(--ink-soft);font-size:13px;}
+  .ok{color:var(--accent);font-weight:700;}
+  .no{color:var(--danger);font-weight:700;}
+  .mid{color:var(--warn);font-weight:700;}
+
+  .note{
+    margin-top:16px;padding:13px 16px;border-radius:9px;
+    font-size:14px;line-height:1.8;
+  }
+  .note.key{background:var(--warn-soft);border:1px solid #f0e0bd;}
+  .note.key .ntag{color:var(--warn);}
+  .note .ntag{
+    display:block;font-size:11px;font-weight:800;letter-spacing:1px;
+    margin-bottom:5px;
+  }
+  .note b{color:inherit;font-weight:700;}
+
+  .verdict{
+    margin-top:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    padding:11px 16px;border-radius:9px;
+    background:var(--accent-soft);border:1px solid #bfe3d6;
+  }
+  .verdict .v1{font-size:13px;color:var(--ink-soft);}
+  .verdict .v2{font-size:15px;font-weight:800;color:var(--accent);letter-spacing:.5px;}
+
+  /* 页尾：待出题的 */
+  .pending{
+    margin-top:6px;padding:16px 20px;
+    border:1px dashed var(--line);
+    border-radius:12px;
+    background:transparent;
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+  .pending .ptag{
+    display:block;font-size:11px;font-weight:800;letter-spacing:1px;
+    color:var(--ink-faint);margin-bottom:8px;
+  }
+  .pending ul{margin:0;padding-left:20px;}
+  .pending li{margin:3px 0;}
+  .pending b{color:var(--ink);font-weight:700;}
+
+  footer{
+    max-width:1180px;margin:0 auto;padding:0 18px 40px;
+    color:var(--ink-faint);font-size:12px;text-align:center;line-height:2;
+  }
+
+  @media (max-width:820px){
+    main{padding:14px 12px 40px;}
+    .rec{grid-template-columns:1fr;}
+    .rec-side{border-right:0;border-bottom:1px solid var(--line);padding:16px;}
+    .rec-body{padding:16px;}
+    .title small{display:none;}
+    .gradetable td:first-child{font-size:12px;}
+    body{font-size:14.5px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title">复习题本<small>默推记录 · 第 1/3/7/21 天</small></div>
+  <div class="spacer"></div>
+  <div class="stats">已走 <b>3</b> 轮 · 全过 · 待批改 <b>1</b> · 下一步 <b>10-04</b> 复利公式</div>
+  <a class="jump" href="#kelly">凯利公式</a>
+  <a class="jump" href="#ev">期望值</a>
+  <a class="jump" href="#r72">72 法则</a>
+</header>
+
+<main>
+
+  <!-- ══════════ 凯利公式 · 第 3 天 ══════════ -->
+  <section class="rec" id="kelly">
+    <div class="rec-side">
+      <div class="rec-head">
+        <span class="kname">凯利公式</span>
+        <span class="badge">第 3 天</span>
+      </div>
+      <div class="meta">
+        <i>学习日</i> 09-28<br>
+        <i>已走</i> 09-29（1天）· 10-01（3天）<br>
+        <i>下次</i> 10-05（第 7 天）
+      </div>
+      <div class="question">
+        <span class="qtag">题 目</span>
+        20 张牌，其中 <em>9 红 11 黑</em>。押红赢。<br>
+        押 1 块，赢了<em>连本带利拿回 2.5 块</em>。<br>
+        本金 <em>1200</em> 块——该押多少？
+      </div>
+    </div>
+    <div class="rec-body">
+      <div class="work">赔率 (2.5−1)/1 = 1.5
+赢面 9/20，输面 11/20
+门槛 1/(1+1.5) = 2/5，2/5 &lt; 9/20 → 可以玩
+f* = (1.5×9/20 − 11/20)/1.5 = 0.083
+1200 × 0.083 = 99.6 ≈ 100 → 半凯利 100/2 = 50</div>
+
+      <table class="gradetable">
+        <tr><th>格子</th><th>批改</th></tr>
+        <tr><td>赔率</td><td><span class="ok">✅ 独立拿下</span> —— 题目故意写「拿回 2.5 块」，你自己先减 1 再取比值。<b>从 9-28 首次卡住、9-30 第三次挖，到这天独立拿下，这一格算钉死了。</b></td></tr>
+        <tr><td>赢面 / 输面</td><td><span class="ok">✅</span> 直接从题面抄（9/20、11/20），没自己去做 1−0.45。</td></tr>
+        <tr><td>门槛</td><td><span class="ok">✅</span> 比的是<b>赢面</b>，没跟输面比。</td></tr>
+        <tr><td>f* 与金额</td><td><span class="ok">✅</span> 1200×0.083 ≈ 100 → 砍半 50。</td></tr>
+      </table>
+
+      <div class="note key">
+        <span class="ntag">🔑 这轮最值钱的一点</span>
+        <b>你走的路比我教的路更利索。</b>我教的是「先砍比例（0.083→0.0415）再乘本金」，你是「先算金额（1/12×1200＝正好 100）再砍半 → 50」。
+        <b>100÷2 比 0.0415×1200 干净得多</b>——因为你全程用分数，小数在脑子里存不住，这个打法在你这儿是对的。
+      </div>
+
+      <div class="verdict">
+        <span class="v1">结果</span>
+        <span class="v2">全对 · 五格无一错漏</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 期望值 · 第 3 天 ══════════ -->
+  <section class="rec" id="ev">
+    <div class="rec-side">
+      <div class="rec-head">
+        <span class="kname">期望值</span>
+        <span class="badge">第 3 天</span>
+      </div>
+      <div class="meta">
+        <i>学习日</i> 09-29<br>
+        <i>已走</i> 09-30（1天）· 10-02（3天）<br>
+        <i>下次</i> 10-06（第 7 天）
+      </div>
+      <div class="question">
+        <span class="qtag">题 目</span>
+        摸球，不用押本金。<br>
+        红球 <em>40%</em> → 大赚 <em>9 元</em><br>
+        蓝球 <em>40%</em> → 小赚 <em>9 元</em><br>
+        黄球 <em>20%</em> → 亏 <em>6 元</em><br>
+        这一摸平均下来值多少？该不该玩？
+      </div>
+    </div>
+    <div class="rec-body">
+      <div class="work">交卷第一版：0.4*9 + 0.4*9 − 0.2*6 = 3，完
+→ 给动作「把算式念一遍」
+交卷第二版：6，玩
+→ 追问后自述根因：
+「我是把 0.4×9 想成了 0.2×9，还有 0.2×6，
+  我想成了 0.1×6，所以说它的得数不准，
+  得数是 3，得数应该是 6」</div>
+
+      <table class="gradetable">
+        <tr><th>格子</th><th>批改</th></tr>
+        <tr><td>项数</td><td><span class="ok">✅</span> 三项，一个结局没漏。</td></tr>
+        <tr><td>方向</td><td><span class="ok">✅</span> 两个 9 写加、6 写减。一个叫「大赚」一个叫「小赚」，<b>名字不一样，你没被名字带跑</b>——上次在「退」字上翻的车，这次没上。</td></tr>
+        <tr><td>抄比例</td><td><span class="ok">✅</span> 0.4 / 0.4 / 0.2 直接从题面抄，加起正好 1，没自己算 1−x。</td></tr>
+        <tr><td>算式的形</td><td><span class="ok">✅</span> <code>0.4×9 + 0.4×9 − 0.2×6</code> ——<b>标准答案的形状，一个字没错。</b></td></tr>
+        <tr><td>得数（首版）</td><td><span class="no">❌ 3</span> → 念一遍后改对 6。</td></tr>
+        <tr><td>结论</td><td><span class="ok">✅</span> 正期望值 → 玩。</td></tr>
+      </table>
+
+      <div class="note key">
+        <span class="ntag">🔴 这轮挖出来的新坑：「比例串格」的第二种形态</span>
+        算式从头到尾<b>全对</b>，错在<b>心算时乘数进脑子就串了</b>——<code>0.4×9</code> 按 <code>0.2×9</code> 算、<code>0.2×6</code> 按 <code>0.1×6</code> 算，得 <code>1.8+1.8−0.6 = 3</code>。<br><br>
+        <b>为什么阴：两个比例同时被「看小一半」，凑出的 3 是整数，看着毫不违和——错得不像错。</b>
+        这和 9-29 那次（<code>3/20</code> 抄成第二项比例）是<b>同一个动作「抄比例」的两种翻车法</b>：一次抄错位置，一次数字入脑就变了。<br><br>
+        <b>出题人责任</b>：为考「看方向不看名字」，故意让两个「赚」同为 9——结果 <code>0.4×9</code> 与 <code>0.4×9</code> 长得一模一样，<b>抄串了看不出来</b>。这是我设计上的失误，已改成三条：金额必须互不相同 / 比例避免「正好一半」的关系 / 挑「错一半就对不上整数」的数字。
+      </div>
+
+      <div class="note">
+        <span class="ntag" style="color:var(--accent)">🛡 防身动作（升级版）</span>
+        「念算式」有效——你从 3 改到 6 就是念出来的。但要补一句：<b>念的时候数字必须念全</b>。<br>
+        「<b>零点四</b>乘九……加……<b>零点四</b>乘九……减……<b>零点二</b>乘六」<br>
+        只念结构（「第一项、第二项」）听不出来。<b>把数字从嘴里过一遍，串了就露馅——你手机做题没纸，这个动作就是你的「纸上验算」。</b>
+      </div>
+
+      <div class="verdict">
+        <span class="v1">结果</span>
+        <span class="v2">过 · 挂一条观察项</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 72 法则 · 第 3 天 ══════════ -->
+  <section class="rec" id="r72">
+    <div class="rec-side">
+      <div class="rec-head">
+        <span class="kname">72 法则</span>
+        <span class="badge">第 3 天</span>
+      </div>
+      <div class="meta">
+        <i>学习日</i> 09-29<br>
+        <i>已走</i> 10-03（3天，本场）<br>
+        <i>下次</i> 10-07（第 7 天）
+      </div>
+      <div class="question">
+        <span class="qtag">题 目</span>
+        你在算两笔账，两个都不能查资料。<br><br>
+        <b>第一格</b>　一笔钱，年化 <em>2.5%</em>，多少年翻一倍？<br><br>
+        <b>第二格</b>　另一笔钱，年化 <em>9%</em>。<br>
+        同样放 <em>36 年</em>，最后是原来的几倍？<br><br>
+        <span style="font-size:13px;color:var(--ink-faint)">（钱数随便定，答案跟钱数无关）</span>
+      </div>
+    </div>
+    <div class="rec-body">
+      <div class="work" style="color:var(--ink-faint)">⏳ 等交卷……</div>
+
+      <div class="note">
+        <span class="ntag" style="color:var(--warn)">🛡 交卷前先做一件事</span>
+        <b>把心算的式子从嘴里念一遍，数字念全。</b>（「七十二除以二点五」——不是「七十二除以二」。）<br>
+        上一场 10-02 就是结构全对、乘数进脑子串了，凑出个整数看着毫不违和。<b>你这个动作已经救过一次，别省。</b>
+      </div>
+
+      <div class="verdict">
+        <span class="v1">结果</span>
+        <span class="v2">待批改</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 待出题 ══════════ -->
+  <div class="pending">
+    <span class="ptag">⏳ 后面还有三场</span>
+    <ul>
+      <li><b>10-04</b> 　复利公式 · 第 3 天</li>
+      <li><b>10-05</b> 　凯利公式 · 第 7 天</li>
+      <li><b>10-06</b> 　期望值 · 第 7 天</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  四道题，错的都是手，不是脑子。<br>
+  新题出来会自动接在这页后面。
+</footer>
+
+</body>
+</html>

@@ -332,7 +332,7 @@
     <!-- ===== 首页：翻卡 ===== -->
     <section class="screen active" id="home" data-page-node-id="SfkRp3XlUufy2xo7z58mgh">
       <div class="home-top" data-page-node-id="3GdgYVm3dMGltoLDTc7VBG">
-        <div class="brand" data-page-node-id="MnHxDlEunpA5uEv1CbDH3W"><div class="logo" data-page-node-id="hrAPmb1dDleehCtol9F9Dp">随</div><div class="nm" data-page-node-id="7NUQLiE865DStQoTTV3eHg">随手库<sup class="ver-tag">v1.06</sup></div></div>
+        <div class="brand" data-page-node-id="MnHxDlEunpA5uEv1CbDH3W"><div class="logo" data-page-node-id="hrAPmb1dDleehCtol9F9Dp">随</div><div class="nm" data-page-node-id="7NUQLiE865DStQoTTV3eHg">随手库<sup class="ver-tag">v1.07</sup></div></div>
         <div class="page-num" id="pageNum" data-page-node-id="eEsYEdepKH2ltmdH1ldGEU"></div>
         <div class="top-right" data-page-node-id="UxW2nNvHlNFQn1roRBeGwt"><button class="iconbtn" onclick="openSheet('menu')" data-page-node-id="X28lGqdaJp4AmdQeYawUCz">⋯</button></div>
       </div>
@@ -861,6 +861,7 @@ function copyIt(id){ const it=items.find(x=>x.id===id); if(it) copyText(copyText
    新建 / 编辑共用同一套草稿 */
 let draftBlocks = [];
 let editId = null; // null=新建，否则=正在编辑的条目id
+let lastEditEl = null; // v1.07：光标最后所在的输入框（键盘自动滚动只认它，不猜、不乱跳）
 
 function openNew(){
   editId=null; draftBlocks=[{type:'t',t:''}]; draftRemind=null;
@@ -886,6 +887,12 @@ function blockNode(b,i){
     ta.placeholder='写点什么…（灵感 / 素材 / 金句）'; ta.value=b.t||'';
     const au=function(){ b.t=ta.value; ta.style.height='auto'; ta.style.height=Math.max(44,ta.scrollHeight)+'px'; };
     ta.addEventListener('input',au);
+    /* v1.07：点进某个输入框就把它记为「光标所在框」。
+       光靠 document.activeElement 会被随手库自己的按钮抢走焦点误判；
+       而且同一个框里换行数变了，靠尺子量出来的行号也不可靠。
+       直接记元素，最准也最省。 */
+    ta.addEventListener('focusin',function(){ lastEditEl=ta; });
+    ta.addEventListener('pointerdown',function(){ lastEditEl=ta; });
     d.appendChild(ta); d.appendChild(x);
     if(i===draftBlocks.length-1) setTimeout(au,0);
   }else if(b.type==='img'){
@@ -1089,7 +1096,7 @@ function highlight(text,q){
 function openSheet(kind){
   let h='';
   if(kind==='menu'){
-    h='<h3>随手库 v1.06</h3>'
+    h='<h3>随手库 v1.07</h3>'
     + row('🗂','管理类目','自己加类 / 删类','cats')
     + row('📲','装到桌面图标','小米浏览器请换 Chrome/Edge','help')
     + row('📤','导出备份','全部 '+items.length+' 条下载成文件','export')
@@ -1224,9 +1231,44 @@ function exportBackup(){
     }
   }
 
+  /* ---------- v1.07 自动滚动静默期 ----------
+     病根：每次按下或输入一个字都会触发 fix()，而 focusin 时还排了 120/300/600/900ms
+     四次补滚。用户"点一下改个字"会连环触发好几个 rAF，每次都拿那一刻的位置算目标；
+     自动滚动本身又会引发 visualViewport 的 scroll/resize → 再调 fix() —— 形成反馈循环，
+     页面就"卡"，而且光标被一路推到最后一行。 */
+  let autoUntil = 0;        // 这台自动滚动到什么时候为止（静默期）
+  function autoScrollBy(dy){
+    autoUntil = Date.now() + 700;
+    scrollWinBy(dy);
+  }
+  function inAutoWindow(){ return Date.now() <= autoUntil; }
+
+  /* ---------- v1.07 聚焦 / 滚动补偿 ----------
+     点侧边空白（textarea 的 padding 区域，CSS padding 区不参与命中测试）
+     → 浏览器自动滚动把空白区带进视野 → 光标被推到编辑器底边。
+     补偿一帧后光标仍在视野下半区，就说明"看到的不是光标" → 单调滚回去。 */
+  let focusT0 = 0;
+  function focusCompensate(){
+    if(Date.now() - focusT0 > 900) return;
+    if(inAutoWindow()) return;
+    const el = document.activeElement;
+    if(!isEdit(el) || !isMobile()) return;
+    try{
+      const vh = vv ? vv.height : window.innerHeight;
+      const r = el.getBoundingClientRect();
+      const cb = caretBottomY(el);
+      if(cb < vh * 0.08 || cb > vh * 0.55){
+        // 单调修正：只把光标拉回视野舒适区，绝不把页面推到别处
+        autoScrollBy(cb - vh * 0.34);
+        [90, 220, 420].forEach(function(t){ setTimeout(focusCompensate, t); });
+      }
+    }catch(e){}
+  }
+
   function fix(){
     const el = document.activeElement;
     if(!isEdit(el) || !isMobile()) return;
+    if(inAutoWindow()) return;        // 自己刚滚过，先安静一会儿，别再叠一次
     requestAnimationFrame(function(){
       try{
         const inner = vv ? vv.height : window.innerHeight;
@@ -1239,20 +1281,24 @@ function exportBackup(){
         const target = kbLine - 3.4 * lineH;       // 停靠：键盘上方约三行
         const limit = kbLine - 1.6 * lineH;        // 离键盘一行半以内才滚，平时不动
         const cb = caretBottomY(el);
-        if(cb > limit) scrollWinBy(cb - target);
-        else if(cb < 0) scrollWinBy(cb - 20);
+        if(cb > limit) autoScrollBy(cb - target);
+        else if(cb < 0) autoScrollBy(cb - 20);
       }catch(e){}
     });
   }
   document.addEventListener('focusin', function(e){
     if(!isEdit(e.target) || !isMobile()) return;
+    lastEditEl = e.target;            // 记住光标在这个框里，别再靠 activeElement 猜
+    focusT0 = Date.now();
     // 垫底部空间：保证文档有足够滚动余量，最后一块字也不会被顶死在页底
     if(document.body && !document.body.dataset.kbPad){
       document.body.dataset.kbPad = '1';
       document.body.style.paddingBottom = '45vh';
     }
     fix();
-    [120, 300, 600, 900].forEach(function(t){ setTimeout(fix, t); });
+    /* v1.07：补滚次数从四次砍到两次——每多补一次就多一层叠滚，正是"卡"和"跳"的来源 */
+    [150, 450].forEach(function(t){ setTimeout(fix, t); });
+    [90, 300, 640].forEach(function(t){ setTimeout(focusCompensate, t); });
   }, true);
   document.addEventListener('focusout', function(){
     setTimeout(function(){
@@ -1263,7 +1309,16 @@ function exportBackup(){
       }
     }, 60);
   });
-  document.addEventListener('input', function(e){ if(isEdit(e.target)) fix(); }, true);
+  /* v1.07：输入时的自动滚动加节流。
+     以前每敲一个字都要跑一次「镜像测量 → 算位置 → 滚」，手机上长笔记会明显卡。
+     120ms 以内的连续输入合并成一次，手感不变，负担降一个量级。 */
+  let inputTimer = 0;
+  document.addEventListener('input', function(e){
+    if(!isEdit(e.target)) return;
+    lastEditEl = e.target;
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(fix, 120);
+  }, true);
   window.addEventListener('resize', fix);
   if(vv){ vv.addEventListener('resize', fix); vv.addEventListener('scroll', fix); }
 })();
