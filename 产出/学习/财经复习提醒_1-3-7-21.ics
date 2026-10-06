@@ -6,26 +6,12 @@ METHOD:PUBLISH
 X-WR-CALNAME:财经公式复习提醒（1-3-7-21）
 X-WR-TIMEZONE:Asia/Shanghai
 BEGIN:VEVENT
-UID:finance-review-20261005@haozong.kb
-DTSTAMP:20261004T070000Z
-DTSTART:20261005T060000Z
-DTEND:20261005T061500Z
-SUMMARY:财经复习 · 出道题（凯利 第7天＋折现 第3天＋夏普 第3天＋DCF 第1天）
-DESCRIPTION:今天到点：凯利 第7天 ／ 折现 第3天 ／ 夏普 第3天 ／ DCF 第1天\n\n四项撞车，只出一道。按「距上次复习最久」优先：先凯利第7天。\n\n动作：切回那个对话框，说一句「出道题」。
-TRANSP:TRANSPARENT
-BEGIN:VALARM
-TRIGGER:PT0M
-ACTION:DISPLAY
-DESCRIPTION:财经复习 · 出道题
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:finance-review-20261006@haozong.kb
 DTSTAMP:20261004T070000Z
 DTSTART:20261006T060000Z
 DTEND:20261006T061500Z
-SUMMARY:财经复习 · 出道题（期望值 第7天＋72法则 第7天）
-DESCRIPTION:今天到点：期望值 第7天 ／ 72法则 第7天\n\n两项撞车，只出一道。72法则这道必须带观察项：考纯整数的「次数→倍数」（比如 72÷8=9年 → 63÷9=7次 → 2^7=128倍）。\n\n动作：切回那个对话框，说一句「出道题」。
+SUMMARY:财经复习 · 出道题（期望值 第7天＋72法则 第7天＋NPV 第1天＋夏普 第3天(顺延)＋DCF 第1天(顺延)）
+DESCRIPTION:今天到点：期望值 第7天 ／ 72法则 第7天 ／ NPV 第1天 ／ 夏普 第3天(顺延) ／ DCF 第1天(顺延)\n\n五项撞车，只出一道。按「距上次复习最久」优先：先期望值或 72 法则。72法则这道必须带观察项：考纯整数的「次数→倍数」（比如 72÷8=9年 → 63÷9=7次 → 2^7=128倍）。\n\n动作：切回那个对话框，说一句「出道题」。
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:PT0M
@@ -52,8 +38,8 @@ UID:finance-review-20261008@haozong.kb
 DTSTAMP:20261004T070000Z
 DTSTART:20261008T060000Z
 DTEND:20261008T061500Z
-SUMMARY:财经复习 · 出道题（复利公式 第7天＋折现 第7天）
-DESCRIPTION:今天到点：复利公式 第7天 ／ 折现 第7天\n\n两项撞车，只出一道。这两张卡是同一个式子的两个方向（FV=PV(1+r)^n ↔ PV=FV/(1+r)^n），出哪个都行。\n\n动作：切回那个对话框，说一句「出道题」。
+SUMMARY:财经复习 · 出道题（复利公式 第7天＋折现 第7天＋NPV 第3天）
+DESCRIPTION:今天到点：复利公式 第7天 ／ 折现 第7天 ／ NPV 第3天\n\n三项撞车，只出一道。复利和折现是同一个式子的两个方向（FV=PV(1+r)^n ↔ PV=FV/(1+r)^n）。\n\n动作：切回那个对话框，说一句「出道题」。
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:PT0M
@@ -82,6 +68,20 @@ DTSTART:20261011T060000Z
 DTEND:20261011T061500Z
 SUMMARY:财经复习 · 出道题（DCF 第7天）
 DESCRIPTION:今天到点：DCF 第7天\n\nDCF 第二次回炉，验收「各自折、折完再加」有没有留住。\n\n动作：切回那个对话框，说一句「出道题」。
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:财经复习 · 出道题
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:finance-review-20261012@haozong.kb
+DTSTAMP:20261004T070000Z
+DTSTART:20261012T060000Z
+DTEND:20261012T061500Z
+SUMMARY:财经复习 · 出道题（NPV 第7天）
+DESCRIPTION:今天到点：NPV 第7天\n\nNPV 第二次回炉。重点验收：折完的现值会不会又被折一遍（等式两边都得是今天的钱）。\n\n动作：切回那个对话框，说一句「出道题」。
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:PT0M
@@ -151,7 +151,21 @@ DTSTAMP:20261004T070000Z
 DTSTART:20261025T060000Z
 DTEND:20261025T061500Z
 SUMMARY:财经复习 · 出道题（DCF 第21天）
-DESCRIPTION:今天到点：DCF 第21天\n\nDCF 最后一次回炉，财经公式课程表整体收官。\n\n动作：切回那个对话框，说一句「出道题」。
+DESCRIPTION:今天到点：DCF 第21天\n\nDCF 最后一次回炉。\n\n动作：切回那个对话框，说一句「出道题」。
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:财经复习 · 出道题
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:finance-review-20261026@haozong.kb
+DTSTAMP:20261004T070000Z
+DTSTART:20261026T060000Z
+DTEND:20261026T061500Z
+SUMMARY:财经复习 · 出道题（NPV 第21天）
+DESCRIPTION:今天到点：NPV 第21天\n\nNPV 最后一次回炉，财经公式全部收官。\n\n动作：切回那个对话框，说一句「出道题」。
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:PT0M
