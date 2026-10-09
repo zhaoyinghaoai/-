@@ -204,3 +204,9 @@
 - Log.md 自动合并成功，无冲突；grep 校验 0 残留冲突标记
 - 远程新增 0 个文件
 - 合并后 commit（e24d997），工作区干净
+
+## [2026-10-08 13:33] 同步失败（网络不通）
+- 本地 5 个未提交改动（4改+1新：10-07 memory、automation memory、知识库/Log.md、财经公式-复习本、.tmp_hot.json 临时文件），先 commit 保存（commit a4e0198）
+- git pull 失败（Recv failure: Connection was reset，与 9-13/9-14/9-16/9-18/9-19/9-20/9-21/9-25/9-29/10-04 同错误）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（工作区干净，main 领先 origin/main 74 commits）

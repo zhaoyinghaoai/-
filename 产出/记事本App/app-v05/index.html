@@ -77,6 +77,11 @@
   .fc-meta .t{font-weight:600;margin-left:auto;letter-spacing:.5px}
   .fc-media{width:100%;border-radius:18px;margin-bottom:18px;max-height:38vh;object-fit:cover;background:#EDE7DB}
   .fc-text{font-size:14px;line-height:1.9;letter-spacing:.1px;white-space:pre-wrap;word-break:break-word;color:var(--ink);font-weight:400}
+  /* v1.10 文字样式：加粗 **…** / 加大 ++…== （==…== 是老笔记的提亮，保留显示、不再给按钮） */
+  .fc-text b{font-weight:800;color:#1A1712}
+  .fc-text big{font-size:1.34em;font-weight:600;line-height:1.45}
+  .fc-text big b,.fc-text b big{font-size:1.34em;font-weight:800}
+  .fc-text mark{background:linear-gradient(transparent 58%, #FFE08A 58%);color:inherit;font-weight:600;padding:0 1px;border-radius:2px}
   .fc-actions{flex:none;display:flex;gap:10px;padding:10px 4px 0}
   .fc-edit{flex:none;width:88px;height:50px;border-radius:16px;border:1px solid var(--line);background:#fff;color:var(--ink2);font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.04)}
   .fc-edit:active{background:#F7F2E8}
@@ -110,6 +115,18 @@
   .blk .blk-x:active{background:rgba(43,38,32,.16)}
   .blk-t{width:100%;min-height:44px;border:none;outline:none;background:transparent;resize:none;font-size:14px;line-height:1.85;color:var(--ink);font-family:inherit;padding:6px 26px 6px 0;font-weight:400}
   .blk-t.ph::after{content:attr(data-ph);color:var(--ink3);font-weight:400;pointer-events:none}
+  /* v1.11 加粗 / 加大 挪到顶栏（跟着「保存」一排，滚动时一直看得见） */
+  .navfmt{
+    flex:none;width:42px;height:42px;border-radius:13px;cursor:pointer;font-family:inherit;
+    border:1.5px solid #E3D8C4;background:#FCFAF6;color:var(--ink2);
+    display:flex;align-items:center;justify-content:center;padding:0;
+    box-shadow:0 1px 2px rgba(90,70,40,.06);transition:background .12s,transform .12s;
+  }
+  .navfmt:active{transform:scale(.92);background:#F3EBDD}
+  .navfmt.navfmt-b b{font-size:19px;font-weight:900;color:#1A1712;line-height:1}
+  .navfmt.navfmt-s .bigA{font-size:20px;font-weight:800;color:#1A1712;line-height:1}
+  /* 顶栏被两个格式钮占位后，标题留白收紧一点，给按钮腾地方 */
+  .nav .ttl{padding-right:2px}
   .blk .blk-ph{font-size:14px;line-height:1.85;color:var(--ink3);font-weight:400;padding:6px 0;display:block}
   .blk-media{border-radius:12px;overflow:hidden;background:#F4EFE4}
   .blk-media img{width:100%;display:block;max-height:70vh;object-fit:contain}
@@ -332,7 +349,7 @@
     <!-- ===== 首页：翻卡 ===== -->
     <section class="screen active" id="home" data-page-node-id="SfkRp3XlUufy2xo7z58mgh">
       <div class="home-top" data-page-node-id="3GdgYVm3dMGltoLDTc7VBG">
-        <div class="brand" data-page-node-id="MnHxDlEunpA5uEv1CbDH3W"><div class="logo" data-page-node-id="hrAPmb1dDleehCtol9F9Dp">随</div><div class="nm" data-page-node-id="7NUQLiE865DStQoTTV3eHg">随手库<sup class="ver-tag">v1.07</sup></div></div>
+        <div class="brand" data-page-node-id="MnHxDlEunpA5uEv1CbDH3W"><div class="logo" data-page-node-id="hrAPmb1dDleehCtol9F9Dp">随</div><div class="nm" data-page-node-id="7NUQLiE865DStQoTTV3eHg">随手库<sup class="ver-tag">v1.11</sup></div></div>
         <div class="page-num" id="pageNum" data-page-node-id="eEsYEdepKH2ltmdH1ldGEU"></div>
         <div class="top-right" data-page-node-id="UxW2nNvHlNFQn1roRBeGwt"><button class="iconbtn" onclick="openSheet('menu')" data-page-node-id="X28lGqdaJp4AmdQeYawUCz">⋯</button></div>
       </div>
@@ -348,6 +365,9 @@
       <div class="nav" data-page-node-id="Mpuj0tIw8gb9edRLLKS5hq">
         <button class="back" onclick="backNew()" data-page-node-id="qPPRLr7fEGYdUAWB2eqSnf">‹</button>
         <div class="ttl" id="newTitle" data-page-node-id="xgKTGEjh3pXAXoOHpLkhWU">记一条</div>
+        <!-- v1.11：加粗 / 加大 挪到顶栏「保存」前面 —— 编辑时随手就能点，不用滚到底下 -->
+        <button class="navfmt navfmt-b" onclick="applyFmt('**')" title="加粗" aria-label="加粗"><b>B</b></button>
+        <button class="navfmt navfmt-s" onclick="applyFmt('++')" title="加大" aria-label="加大"><span class="bigA">A</span></button>
         <button class="btn-save" onclick="saveNote()">保存</button>
       </div>
       <div class="catpick" id="catpick"></div>
@@ -445,8 +465,8 @@ function blks(it){
   if(!out.length && it.text) out.push({type:'t', t:it.text});
   return out;
 }
-function textOf(it){ // 汇总纯文字（供搜索/复制）
-  const ts=[]; (blks(it)||[]).forEach(b=>{ if(b.type==='t' && b.t) ts.push(b.t); }); return ts.join('\n');
+function textOf(it){ // 汇总纯文字（供搜索/复制）——去掉样式标记，搜索照样搜得到
+  const ts=[]; (blks(it)||[]).forEach(b=>{ if(b.type==='t' && b.t) ts.push(stripMD(b.t)); }); return ts.join('\n');
 }
 function firstMedia(it){ // 取第一张图/视频供缩略
   const b=(blks(it)||[]).find(x=>x.type==='img'||x.type==='video'); return b||null;
@@ -548,6 +568,76 @@ function delCat(c){ doDelCat(c); }
 /* ================= 工具 ================= */
 const $ = s => document.querySelector(s);
 const esc = s => String(s==null?'':s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ================= 文字样式标记（v1.08） =================
+   加粗＝**文字**   提亮＝==文字==
+   为什么用标记而不用富文本编辑器：textarea 是原生的，
+   手机上选字、长按、自动纠错、语音输入都是系统给的，全都免费；
+   换成富文本要自己实现一套，手机上必定更难用。
+   标记本身肉眼可读，而且以后想搬到公众号、朋友圈，文字拿去也是干净的。
+   注意：标记只在**编辑态**显示；卡片、详情页看到的都是真正的粗体和黄底。 */
+const MD_RE = /(\*\*|\+\+|==)([\s\S]+?)\1/g;
+function renderRich(t){
+  const s=String(t==null?'':t);
+  if(s.indexOf('**')<0 && s.indexOf('++')<0 && s.indexOf('==')<0) return esc(s);
+  let out='', last=0, m; MD_RE.lastIndex=0;
+  while((m=MD_RE.exec(s))!==null){
+    out += esc(s.slice(last, m.index));
+    /* v1.10：** = 加粗，++ = 加大；== 是老笔记留下的「提亮」，还认、还显示，只是不再给按钮 */
+    if(m[1]==='**') out += '<b>'+esc(m[2])+'</b>';
+    else if(m[1]==='++') out += '<big>'+esc(m[2])+'</big>';
+    else out += '<mark>'+esc(m[2])+'</mark>';
+    last = m.index + m[0].length;
+  }
+  return out + esc(s.slice(last));
+}
+/* 去掉标记只留文字：用来搜索、复制、生成标题（== 是老笔记的提亮，也一并去掉） */
+const stripMD = s => String(s==null?'':s)
+  .replace(/\*\*([\s\S]+?)\*\*/g,'$1')
+  .replace(/\+\+([\s\S]+?)\+\+/g,'$1')
+  .replace(/==([\s\S]+?)==/g,'$1');
+/* 在 textarea 的选中区外面套一层标记；已套过就脱掉
+   v1.09：一个字都没选中时不再硬插一对空标记（会留下 **** 这种垃圾），
+          改成只提示。只有光标正好贴在一对空标记中间时才允许脱掉它。
+   拿不准选中区时，用 v1.09 的「影子记录」(lastSelS/lastSelE) 兜底。 */
+function wrapSel(ta, mark){
+  if(!ta) return false;
+  const NAME = mark==='**' ? '加粗' : '加大';   // v1.10：== 只留给老笔记，不再有按钮
+  let s=ta.selectionStart, e=ta.selectionEnd, v=ta.value;
+  // 失焦导致选中区被清空 → 回退到影子记录
+  if(s===e && ta===lastSelEl && lastSelE>lastSelS && lastSelE<=v.length){ s=lastSelS; e=lastSelE; }
+  const has = s!==e;
+  const chosen = has ? v.slice(s,e) : '';
+  const close = v.slice(e, e+mark.length)===mark;
+  const open  = v.slice(s-mark.length, s)===mark;
+  const emptyPair = open && close;   // 光标正好夹在 **|** 中间（中间没字）
+  // 没选中字、且不是要脱掉一对空标记 → 什么都不动，只提示
+  if(!has && !emptyPair){
+    toast('先长按选中要'+NAME+'的字，再点一下');
+    try{ ta.focus(); }catch(err){}
+    return false;
+  }
+  // 选中的字本来就套着同一对标记（选中区包含标记本身）→ 脱掉
+  const wrapped = has && v.slice(s-mark.length, s)===mark && v.slice(e, e+mark.length)===mark;
+  let nv, ns, ne;
+  if(wrapped){                                    // 选中区外面就是标记 → 脱掉
+    nv = v.slice(0,s-mark.length) + chosen + v.slice(e+mark.length);
+    ns = s-mark.length; ne = ns + chosen.length;
+  }else if(emptyPair){                            // 光标夹在空标记中间 → 删掉这对
+    nv = v.slice(0,s-mark.length) + v.slice(e+mark.length);
+    ns = ne = s-mark.length;
+  }else{                                          // 没套 / 套了一半 → 补上
+    nv = v.slice(0,s) + mark + chosen + mark + v.slice(e);
+    ns = s+mark.length; ne = ns + chosen.length;
+  }
+  ta.value = nv;
+  ta.dispatchEvent(new Event('input', {bubbles:true}));
+  // 影子记录跟着更新，方便连点两次取消
+  lastSelEl=ta; lastSelS=ns; lastSelE=ne;
+  try{ ta.focus(); ta.setSelectionRange(ns, ne); }catch(err){}
+  toast((wrapped||emptyPair) ? ('已取消'+NAME) : ('已'+NAME));
+  return true;
+}
 let toastTimer;
 function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2100); }
 function fmtDate(ts){
@@ -734,7 +824,7 @@ function goTOC(){ curCat='全部'; go('home'); renderHome(); try{ window.scrollT
 /* ================= 首页翻卡渲染 ================= */
 function blocksHTML(it){
   const parts=(blks(it)||[]).map(function(b){
-    if(b.type==='t') return '<div class="fc-text">'+esc(b.t)+'</div>';
+    if(b.type==='t') return '<div class="fc-text">'+renderRich(b.t)+'</div>';
     if(b.type==='img') return '<img class="fc-media" src="'+b.d+'" onclick="event.stopPropagation()">';
     if(b.type==='video'){
       const src=b.vdata||(b.u&&/\.(mp4|webm|ogv|m3u8)(\?|#|$)/i.test(b.u)?b.u:null);
@@ -846,7 +936,7 @@ function copyText(raw){
 function fallback(t){ try{ const ta=document.createElement('textarea'); ta.value=t; ta.style.cssText='position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); const ok=document.execCommand('copy'); document.body.removeChild(ta); return ok; }catch(e){ return false; } }
 function copyTextOf(it){
   const lines=(blks(it)||[]).map(function(b){
-    if(b.type==='t') return b.t||'';
+    if(b.type==='t') return stripMD(b.t)||'';
     if(b.type==='img') return '[图片]';
     if(b.type==='video') return '[视频'+(b.u?': '+b.u:'')+']';
     return '';
@@ -862,6 +952,9 @@ function copyIt(id){ const it=items.find(x=>x.id===id); if(it) copyText(copyText
 let draftBlocks = [];
 let editId = null; // null=新建，否则=正在编辑的条目id
 let lastEditEl = null; // v1.07：光标最后所在的输入框（键盘自动滚动只认它，不猜、不乱跳）
+/* v1.09：选中区的「影子记录」——手机点按钮时输入框会失焦、选中区被清，
+   所以在选择变化时先把 框/起点/终点 记下来，按钮就靠这个判断 */
+let lastSelEl = null, lastSelS = 0, lastSelE = 0;
 
 function openNew(){
   editId=null; draftBlocks=[{type:'t',t:''}]; draftRemind=null;
@@ -893,6 +986,16 @@ function blockNode(b,i){
        直接记元素，最准也最省。 */
     ta.addEventListener('focusin',function(){ lastEditEl=ta; });
     ta.addEventListener('pointerdown',function(){ lastEditEl=ta; });
+    /* v1.09：手机上点「加粗/提亮」那一刻输入框会失焦，选中区可能被清空，
+       导致按钮以为「你没选中字」。所以在每次选择变化时就先把选中区记下来。 */
+    const rememberSel=function(){
+      lastSelEl=ta; lastSelS=ta.selectionStart; lastSelE=ta.selectionEnd;
+    };
+    ta.addEventListener('select',rememberSel);
+    ta.addEventListener('keyup',rememberSel);
+    ta.addEventListener('touchend',rememberSel);
+    ta.addEventListener('mouseup',rememberSel);
+    ta.addEventListener('input',rememberSel);
     d.appendChild(ta); d.appendChild(x);
     if(i===draftBlocks.length-1) setTimeout(au,0);
   }else if(b.type==='img'){
@@ -938,6 +1041,29 @@ function renderVideoHint(el,b){
       : '<span style="color:var(--accent-deep)">🔗 已保存链接。分享到平台时用这个链接即可。</span>'; }
   else if(b.vdata){} else { html='贴链接最省空间（视频/文章/商品都行）；本地小视频只能存很短的。'; }
   h.innerHTML=html;
+}
+function applyFmt(mark){
+  const what = (mark==='**') ? '加粗' : '加大';   // v1.10
+  const hint = '先长按选中要'+what+'的字，再点「'+what+'」';
+  // v1.09：优先看「影子记录」——手机上点按钮时输入框已失焦，选中区可能已被清空，
+  //         这时只有影子记录还知道刚才选的是哪几个字
+  if(lastSelEl && lastSelEl.isConnected && lastSelEl.classList.contains('blk-t')){
+    const v=lastSelEl.value, s=lastSelS, e=lastSelE;
+    const live = lastSelEl.selectionEnd>lastSelEl.selectionStart;
+    if(live || (e>s && e<=v.length)) return wrapSel(lastSelEl, mark);
+  }
+  // 退一步：用 v1.07 记的「光标最后所在的框」，但必须真的选着字才动手
+  const el = lastEditEl;
+  if(el && el.isConnected && el.classList.contains('blk-t')){
+    if(el.selectionEnd > el.selectionStart) return wrapSel(el, mark);
+    const v=el.value, s=el.selectionStart, e=el.selectionEnd;
+    if(v.slice(s-mark.length,s)===mark && v.slice(e,e+mark.length)===mark) return wrapSel(el, mark);
+    return toast(hint);
+  }
+  const all=$('#newEditor .blk-t');
+  const tb = all && all.length ? all[all.length-1] : null;
+  if(!tb) return toast('先「＋ 文字」写一段，再点这个');
+  return toast(hint);
 }
 function focusText(){
   setTimeout(function(){ const t=$('#newEditor .blk-t'); if(t) t.focus(); },160);
@@ -1096,7 +1222,7 @@ function highlight(text,q){
 function openSheet(kind){
   let h='';
   if(kind==='menu'){
-    h='<h3>随手库 v1.07</h3>'
+    h='<h3>随手库 v1.11</h3>'
     + row('🗂','管理类目','自己加类 / 删类','cats')
     + row('📲','装到桌面图标','小米浏览器请换 Chrome/Edge','help')
     + row('📤','导出备份','全部 '+items.length+' 条下载成文件','export')
