@@ -210,3 +210,9 @@
 - git pull 失败（Recv failure: Connection was reset，与 9-13/9-14/9-16/9-18/9-19/9-20/9-21/9-25/9-29/10-04 同错误）
 - 网络不通，按指令不重试，下次自动重试
 - 本地已 commit 未推送（工作区干净，main 领先 origin/main 74 commits）
+
+## [2026-10-09 12:30] 同步失败（网络不通）
+- 本地 35 个未提交改动（19改+16新：记事本App v104-v111调试截图+校验脚本、index.html/sw.js、memory三册+10-08/10-09日志、爆量SOP、diary-organizer skill、Index/Log、回信沉淀、数据台账、10-08日记原稿+回信），先 commit 保存（commit 65e489b，35 files changed）
+- git pull 失败（Recv failure: Connection was reset，与 9-13/9-14/9-16/9-18/9-19/9-20/9-21/9-25/9-29/10-04/10-08 同错误）
+- 网络不通，按指令不重试，下次自动重试
+- 本地已 commit 未推送（工作区干净，main 领先 origin/main 75 commits）
