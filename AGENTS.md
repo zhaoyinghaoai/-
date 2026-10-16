@@ -99,7 +99,10 @@
 ```bash
 python config/check_index.py                    # 只读；比对知识主题各目录文件数 vs Index 详情行 + 概览表计数
 python config/rebuild_index_tables.py --write   # 重建 Index「日记回信」表
+python config/set_date_line.py                  # 日期线写入（自动合并重复行）；先把内容写进 config/_newdate.txt
 ```
+
+⚠️ **日期线铁律：只有一行**（整行替换，不是新增），**完整历史在 Log.md**。同一天多会话并行时最容易写成两行——**统一用 `set_date_line.py` 写，别手写 python 片段**（2026-10-15 踩过：Index 里出现两行 `_最后更新`）。
 
 `check_index.py` 查三件事：① **孤儿页**（文件在、Index 里没有）② **计数对不对**（⚠️ **Index 的计数是"列了几行"，不是"有多少页"**）③ 死行（Index 写了、文件不在）。**每次建卡/加页后固定跑一次**（2026-10-04 建的工具，当天就查出 6 个孤儿页 + 4 处计数错）。
 
